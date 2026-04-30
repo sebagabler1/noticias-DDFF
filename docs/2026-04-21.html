@@ -101,15 +101,19 @@ footer a{color:var(--naranja);text-decoration:none}
               backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
               border:1px solid rgba(0,0,0,.08);
               box-shadow:0 2px 10px rgba(0,0,0,.12);
-              font-size:1.25rem;display:flex;align-items:center;
-              justify-content:center;transition:all .2s ease;padding:0;line-height:1}
-.theme-toggle:hover{transform:scale(1.1) rotate(-8deg);
-                    box-shadow:0 4px 18px rgba(230,80,0,.3)}
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
 .theme-toggle:active{transform:scale(.95)}
 [data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
                                   border-color:rgba(255,255,255,.12);
-                                  box-shadow:0 2px 10px rgba(0,0,0,.5)}
-[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,122,42,.4)}
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
 @media(max-width:840px){
   .topbar-inner .descargar{margin-right:3.5rem}
 }
@@ -157,7 +161,13 @@ function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data
 </head>
 <body>
 
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">🔦</button>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
 
 <nav class="topbar">
   <div class="topbar-inner">

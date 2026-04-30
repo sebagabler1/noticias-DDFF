@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen Diario Financiero</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;
+  --bg:#fafafa;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--muted:#6b7280;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
+     color:var(--texto);line-height:1.6;padding:2rem 1rem;min-height:100vh}
+.container{max-width:780px;margin:0 auto}
+header{text-align:center;border-bottom:3px solid var(--naranja);
+       padding-bottom:1.5rem;margin-bottom:2.5rem}
+header h1{color:var(--naranja);font-size:2rem;margin-bottom:.4rem}
+header .sub{color:var(--muted);font-size:1rem}
+.intro{text-align:center;color:var(--muted);margin-bottom:2rem;font-size:.95rem}
+.grid{display:flex;flex-direction:column;gap:.8rem}
+.card{background:var(--card);border:1px solid var(--borde);border-radius:10px;
+      padding:1.2rem 1.4rem;text-decoration:none;color:var(--texto);
+      display:flex;justify-content:space-between;align-items:center;
+      transition:all .15s ease;flex-wrap:wrap;gap:.8rem}
+.card:hover{border-color:var(--naranja);transform:translateY(-2px);
+            box-shadow:0 4px 12px rgba(230,80,0,.08)}
+.card-fecha{display:flex;flex-direction:column;gap:.2rem}
+.dia-semana{font-weight:bold;color:var(--naranja);font-size:1.1rem}
+.fecha-completa{font-size:.9rem;color:var(--muted)}
+.docx{color:var(--naranja);text-decoration:none;font-weight:600;font-size:.85rem}
+.docx:hover{color:var(--naranja-h);text-decoration:underline}
+.empty{text-align:center;color:var(--muted);padding:3rem 1rem;
+       background:var(--card);border:1px dashed var(--borde);border-radius:10px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;
+       margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:520px){
+  body{padding:1rem .6rem}
+  header h1{font-size:1.5rem}
+  .card{padding:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📰 Resumen Diario Financiero</h1>
+    <div class="sub">Análisis diario del mercado chileno</div>
+  </header>
+
+  <p class="intro">Selecciona una fecha para ver el resumen del día. Disponibles los últimos 7 días.</p>
+
+  <div class="grid">
+    
+    <a class="card" href="2026-04-30.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Jueves</span>
+        <span class="fecha-completa">30 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-30.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+    <a class="card" href="2026-04-29.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Miércoles</span>
+        <span class="fecha-completa">29 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-29.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+    <a class="card" href="2026-04-28.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Martes</span>
+        <span class="fecha-completa">28 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-28.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+    <a class="card" href="2026-04-23.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Jueves</span>
+        <span class="fecha-completa">23 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-23.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+    <a class="card" href="2026-04-22.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Miércoles</span>
+        <span class="fecha-completa">22 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-22.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+    <a class="card" href="2026-04-21.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Martes</span>
+        <span class="fecha-completa">21 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-21.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+    <a class="card" href="2026-04-18.html">
+      <div class="card-fecha">
+        <span class="dia-semana">Sábado</span>
+        <span class="fecha-completa">18 de abril de 2026</span>
+      </div>
+      <a class="docx" href="2026-04-18.docx" download
+         onclick="event.stopPropagation()">📄 Word</a>
+    </a>
+  </div>
+
+  <footer>
+    Última actualización: 30 de abril de 2026<br>
+    Fuente: <a href="https://www.df.cl">df.cl</a> · Análisis por Claude Cowork
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+@echo off
+echo Scrapeando noticias de hoy (y recuperando dias perdidos si los hay)...
+python "%~dp0scraper_df.py" --modo dia

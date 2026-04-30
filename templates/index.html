@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scraper — Diario Financiero</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --naranja:   #E65000;
+      --naranja-h: #ff6a1a;
+      --bg:        #0f1117;
+      --card:      #1a1d27;
+      --card2:     #22263a;
+      --borde:     #2e3248;
+      --texto:     #e2e6f0;
+      --muted:     #7a82a0;
+      --verde:     #22c55e;
+      --rojo:      #ef4444;
+      --azul:      #3b82f6;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--texto);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────── */
+    header {
+      background: var(--card);
+      border-bottom: 1px solid var(--borde);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    header .logo { font-size: 26px; }
+    header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    header h1 span { color: var(--naranja); }
+    header .estado-badge {
+      margin-left: auto;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-weight: 600;
+      background: #1e3a2f;
+      color: var(--verde);
+      border: 1px solid #2a5a40;
+      transition: all .3s;
+    }
+    header .estado-badge.activo {
+      background: #3a1e0a;
+      color: var(--naranja);
+      border-color: #6a3010;
+    }
+
+    /* ── CONTENIDO ───────────────────────────────────────────── */
+    main { max-width: 900px; margin: 0 auto; padding: 32px 24px; }
+
+    /* ── TARJETAS DE ACCIÓN ──────────────────────────────────── */
+    .acciones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .accion-card {
+      background: var(--card);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 22px 20px;
+      cursor: pointer;
+      transition: border-color .2s, transform .15s;
+      user-select: none;
+    }
+    .accion-card:hover {
+      border-color: var(--naranja);
+      transform: translateY(-2px);
+    }
+    .accion-card:active { transform: translateY(0); }
+    .accion-card.disabled {
+      opacity: .45;
+      pointer-events: none;
+    }
+    .accion-card .icono { font-size: 28px; margin-bottom: 10px; }
+    .accion-card h2 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .accion-card p  { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .accion-card .btn {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--naranja);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .accion-card .btn:hover { background: var(--naranja-h); }
+
+    /* ── LOG ─────────────────────────────────────────────────── */
+    .log-section { margin-bottom: 28px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 10px;
+    }
+    .log-box {
+      background: #080b10;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 16px;
+      height: 280px;
+      overflow-y: auto;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 12.5px;
+      line-height: 1.7;
+    }
+    .log-box .linea { display: block; }
+    .log-box .linea.ok     { color: var(--verde); }
+    .log-box .linea.error  { color: var(--rojo); }
+    .log-box .linea.info   { color: #60a5fa; }
+    .log-box .linea.normal { color: #9ca3b8; }
+    .log-box .linea.done   { color: var(--naranja); font-weight: 700; }
+    .log-vacio {
+      color: var(--muted);
+      font-style: italic;
+      font-family: inherit;
+      font-size: 13px;
+    }
+
+    /* ── ARCHIVOS ────────────────────────────────────────────── */
+    .archivos-lista { display: flex; flex-direction: column; gap: 8px; }
+    .dia-fila {
+      background: var(--card);
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color .2s;
+    }
+    .dia-fila:hover { border-color: #3e4468; }
+    .dia-fecha {
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 110px;
+      color: var(--texto);
+    }
+    .dia-archivos { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+    .chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity .2s;
+      border: none;
+    }
+    .chip:hover { opacity: .8; }
+    .chip.docx     { background: #1e3a6e; color: #93c5fd; }
+    .chip.md       { background: #1e3a2f; color: #6ee7b7; }
+    .chip.contexto { background: #2e1f4a; color: #c4b5fd; }
+    .btn-carpeta {
+      margin-left: auto;
+      background: transparent;
+      border: 1px solid var(--borde);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+      white-space: nowrap;
+    }
+    .btn-carpeta:hover { border-color: var(--naranja); color: var(--naranja); }
+    .sin-archivos {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 13px;
+      padding: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="logo">📰</span>
+  <h1><span>Diario</span> Financiero — Scraper</h1>
+  <span class="estado-badge" id="badge">Listo</span>
+</header>
+
+<main>
+
+  <!-- ACCIONES -->
+  <div class="acciones">
+    <div class="accion-card" onclick="ejecutar('dia')">
+      <div class="icono">📅</div>
+      <h2>Scrapear Hoy</h2>
+      <p>Descarga todas las noticias del día de hoy desde df.cl</p>
+      <button class="btn">Ejecutar</button>
+    </div>
+    <div class="accion-card" onclick="ejecutar('semana')">
+      <div class="icono">📆</div>
+      <h2>Última Semana</h2>
+      <p>Descarga los últimos 7 días de noticias en orden cronológico</p>
+      <button class="btn">Ejecutar</button>
+    </div>
+    <div class="accion-card" onclick="ejecutar('recuperar')">
+      <div class="icono">🔄</div>
+      <h2>Recuperar Días</h2>
+      <p>Detecta y rellena días hábiles faltantes en los últimos 30 días</p>
+      <button class="btn">Ejecutar</button>
+    </div>
+  </div>
+
+  <!-- LOG -->
+  <div class="log-section">
+    <div class="section-title">Log de ejecución</div>
+    <div class="log-box" id="log">
+      <span class="log-vacio">El log aparecerá aquí cuando ejecutes una acción...</span>
+    </div>
+  </div>
+
+  <!-- ARCHIVOS -->
+  <div>
+    <div class="section-title">Archivos generados</div>
+    <div class="archivos-lista" id="archivos">
+      <span class="sin-archivos">Cargando...</span>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  let sseSource = null;
+
+  // ── Ejecutar modo ────────────────────────────────────────────
+  async function ejecutar(modo) {
+    const res = await fetch(`/run/${modo}`);
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.error || 'Error al iniciar');
+      return;
+    }
+    limpiarLog();
+    setBloqueado(true);
+    escucharLog();
+  }
+
+  // ── SSE ──────────────────────────────────────────────────────
+  function escucharLog() {
+    if (sseSource) sseSource.close();
+    sseSource = new EventSource('/stream');
+    sseSource.onmessage = (e) => {
+      const data = JSON.parse(e.data);
+      if (data.heartbeat) return;
+      if (data.done) {
+        agregarLinea('✅ Proceso finalizado.', 'done');
+        sseSource.close();
+        setBloqueado(false);
+        cargarArchivos();
+        return;
+      }
+      if (data.log) agregarLinea(data.log);
+    };
+    sseSource.onerror = () => {
+      sseSource.close();
+      setBloqueado(false);
+    };
+  }
+
+  // ── Log ──────────────────────────────────────────────────────
+  function limpiarLog() {
+    document.getElementById('log').innerHTML = '';
+  }
+
+  function agregarLinea(texto, claseExtra) {
+    const box = document.getElementById('log');
+    const span = document.createElement('span');
+    span.className = 'linea ' + (claseExtra || clasificar(texto));
+    span.textContent = texto;
+    box.appendChild(span);
+    box.appendChild(document.createTextNode('\n'));
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function clasificar(texto) {
+    if (texto.includes('✅') || texto.includes('Guardado')) return 'ok';
+    if (texto.includes('Error') || texto.includes('⚠️'))     return 'error';
+    if (texto.includes('📅') || texto.includes('🔍'))        return 'info';
+    return 'normal';
+  }
+
+  // ── Estado ───────────────────────────────────────────────────
+  function setBloqueado(activo) {
+    document.querySelectorAll('.accion-card').forEach(c => {
+      c.classList.toggle('disabled', activo);
+    });
+    const badge = document.getElementById('badge');
+    badge.textContent = activo ? 'Scrapeando...' : 'Listo';
+    badge.classList.toggle('activo', activo);
+  }
+
+  // ── Archivos ─────────────────────────────────────────────────
+  async function cargarArchivos() {
+    const res  = await fetch('/archivos');
+    const dias = await res.json();
+    const cont = document.getElementById('archivos');
+
+    if (!dias.length) {
+      cont.innerHTML = '<span class="sin-archivos">No hay archivos generados aún.</span>';
+      return;
+    }
+
+    cont.innerHTML = '';
+    dias.forEach(d => {
+      const fila = document.createElement('div');
+      fila.className = 'dia-fila';
+
+      const fecha = document.createElement('span');
+      fecha.className = 'dia-fecha';
+      fecha.textContent = formatearFecha(d.fecha);
+      fila.appendChild(fecha);
+
+      const chips = document.createElement('div');
+      chips.className = 'dia-archivos';
+      d.archivos.forEach(archivo => {
+        const ext  = archivo.endsWith('.docx') ? 'docx' : archivo.endsWith('_contexto.md') ? 'contexto' : 'md';
+        const label = ext === 'docx' ? '📄 Word' : ext === 'contexto' ? '🤖 Contexto IA' : '📝 Markdown';
+        const btn  = document.createElement('button');
+        btn.className = `chip ${ext}`;
+        btn.textContent = label;
+        btn.onclick = () => abrirArchivo(d.fecha, archivo);
+        chips.appendChild(btn);
+      });
+      fila.appendChild(chips);
+
+      const btnCarpeta = document.createElement('button');
+      btnCarpeta.className = 'btn-carpeta';
+      btnCarpeta.textContent = '📁 Abrir carpeta';
+      btnCarpeta.onclick = () => abrirCarpeta(d.fecha);
+      fila.appendChild(btnCarpeta);
+
+      cont.appendChild(fila);
+    });
+  }
+
+  function formatearFecha(str) {
+    // "2026-04-13" → "Lun 13 Abr 2026"
+    const [y, m, d] = str.split('-').map(Number);
+    const fecha = new Date(y, m - 1, d);
+    const dias  = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+    const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    return `${dias[fecha.getDay()]} ${d} ${meses[m-1]} ${y}`;
+  }
+
+  async function abrirArchivo(fecha, nombre) {
+    await fetch(`/abrir-archivo/${fecha}/${nombre}`);
+  }
+
+  async function abrirCarpeta(fecha) {
+    await fetch(`/abrir-carpeta/${fecha}`);
+  }
+
+  // ── Init ─────────────────────────────────────────────────────
+  cargarArchivos();
+</script>
+
+</body>
+</html>

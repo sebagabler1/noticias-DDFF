@@ -1,0 +1,3 @@
+@echo off
+echo Scrapeando ultimos 7 dias de df.cl...
+python "%~dp0scraper_df.py" --modo semana

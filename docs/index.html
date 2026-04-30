@@ -3,119 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resumen Diario Financiero</title>
+<title>Resumen Diario Financiero · Análisis del mercado chileno</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --naranja:#E65000;--naranja-h:#ff6a1a;
-  --bg:#fafafa;--card:#fff;--borde:#e5e7eb;
-  --texto:#1f2937;--muted:#6b7280;
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff5ee;--bg:#fafafa;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;
 }
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
-     color:var(--texto);line-height:1.6;padding:2rem 1rem;min-height:100vh}
-.container{max-width:780px;margin:0 auto}
-header{text-align:center;border-bottom:3px solid var(--naranja);
-       padding-bottom:1.5rem;margin-bottom:2.5rem}
-header h1{color:var(--naranja);font-size:2rem;margin-bottom:.4rem}
-header .sub{color:var(--muted);font-size:1rem}
-.intro{text-align:center;color:var(--muted);margin-bottom:2rem;font-size:.95rem}
-.grid{display:flex;flex-direction:column;gap:.8rem}
-.card{background:var(--card);border:1px solid var(--borde);border-radius:10px;
-      padding:1.2rem 1.4rem;text-decoration:none;color:var(--texto);
-      display:flex;justify-content:space-between;align-items:center;
-      transition:all .15s ease;flex-wrap:wrap;gap:.8rem}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.6;margin:0;
+     min-height:100vh;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#E65000 0%,#ff7a2a 100%);
+      color:#fff;text-align:center;padding:4.5rem 1.5rem 5rem;
+      position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+              background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.15),transparent 50%),
+                         radial-gradient(circle at 80% 20%,rgba(255,255,255,.1),transparent 50%);
+              pointer-events:none}
+.hero-content{position:relative;max-width:680px;margin:0 auto}
+.hero h1{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;
+         margin-bottom:.7rem;line-height:1.15}
+.hero .tagline{font-size:1.1rem;opacity:.95;max-width:520px;margin:0 auto;
+              line-height:1.5}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.18);
+            backdrop-filter:blur(8px);padding:.35rem 1rem;border-radius:30px;
+            font-size:.78rem;font-weight:600;letter-spacing:.08em;
+            text-transform:uppercase;margin-bottom:1.2rem}
+.container{max-width:760px;margin:-2.5rem auto 0;padding:0 1.5rem 4rem;
+           position:relative}
+.featured{background:var(--card);border:1px solid var(--borde);
+          border-radius:16px;padding:2rem 2.2rem;margin-bottom:2.5rem;
+          text-decoration:none;color:inherit;display:block;
+          transition:all .25s ease;box-shadow:0 8px 30px rgba(230,80,0,.1)}
+.featured:hover{transform:translateY(-4px);
+                box-shadow:0 12px 40px rgba(230,80,0,.18)}
+.featured .label{display:inline-flex;align-items:center;gap:.4rem;
+                background:var(--naranja);color:#fff;padding:.3rem .85rem;
+                border-radius:30px;font-size:.72rem;font-weight:700;
+                letter-spacing:.08em;text-transform:uppercase;
+                margin-bottom:1.1rem}
+.featured .label::before{content:"●";font-size:.6rem;
+                        animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.featured h2{font-size:1.55rem;color:var(--texto-fuerte);margin-bottom:.35rem;
+            font-weight:700;letter-spacing:-.01em}
+.featured .fecha{color:var(--muted);font-size:.95rem;margin-bottom:1rem}
+.featured .snippet{color:#4b5563;line-height:1.65;margin-bottom:1.2rem;
+                  font-size:1rem}
+.featured .cta{color:var(--naranja);font-weight:700;font-size:.95rem;
+              display:inline-flex;align-items:center;gap:.3rem}
+.featured:hover .cta{gap:.5rem}
+.historico-titulo{font-size:.78rem;color:var(--muted);
+                 text-transform:uppercase;letter-spacing:.12em;
+                 font-weight:700;margin:2rem 0 1.2rem;padding-left:.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+      gap:1rem}
+.card{background:var(--card);border:1px solid var(--borde);
+      border-radius:12px;padding:1.3rem 1.5rem;text-decoration:none;
+      color:inherit;transition:all .2s ease;display:flex;
+      flex-direction:column;gap:.6rem;position:relative}
 .card:hover{border-color:var(--naranja);transform:translateY(-2px);
-            box-shadow:0 4px 12px rgba(230,80,0,.08)}
-.card-fecha{display:flex;flex-direction:column;gap:.2rem}
-.dia-semana{font-weight:bold;color:var(--naranja);font-size:1.1rem}
-.fecha-completa{font-size:.9rem;color:var(--muted)}
-.docx{color:var(--naranja);text-decoration:none;font-weight:600;font-size:.85rem}
-.docx:hover{color:var(--naranja-h);text-decoration:underline}
-.empty{text-align:center;color:var(--muted);padding:3rem 1rem;
-       background:var(--card);border:1px dashed var(--borde);border-radius:10px}
-footer{text-align:center;color:var(--muted);font-size:.85rem;
-       margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--borde)}
-footer a{color:var(--naranja);text-decoration:none}
-@media(max-width:520px){
-  body{padding:1rem .6rem}
-  header h1{font-size:1.5rem}
-  .card{padding:1rem}
+            box-shadow:0 6px 20px rgba(230,80,0,.1)}
+.card .dia-semana{font-weight:700;color:var(--naranja);font-size:1rem;
+                 letter-spacing:-.01em}
+.card .fecha{color:var(--muted);font-size:.83rem;margin-top:-.3rem}
+.card .snippet{color:#4b5563;font-size:.88rem;line-height:1.5;
+              display:-webkit-box;-webkit-line-clamp:3;
+              -webkit-box-orient:vertical;overflow:hidden;flex:1;min-height:3.9em}
+.card .meta{display:flex;justify-content:space-between;align-items:center;
+           margin-top:.4rem;padding-top:.8rem;border-top:1px solid #f3f4f6}
+.card .leer{color:var(--naranja);font-size:.85rem;font-weight:600}
+.card .docx-btn{color:var(--muted);font-size:.78rem;text-decoration:none;
+               padding:.2rem .5rem;border-radius:6px;transition:all .15s}
+.card .docx-btn:hover{color:var(--naranja);background:var(--naranja-soft)}
+.empty{text-align:center;color:var(--muted);padding:4rem 1.5rem;
+       background:var(--card);border:1px dashed var(--borde);
+       border-radius:12px}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .hero{padding:3.5rem 1.2rem 4.5rem}
+  .hero h1{font-size:2rem}
+  .hero .tagline{font-size:1rem}
+  .container{padding:0 1rem 3rem}
+  .featured{padding:1.5rem 1.6rem}
+  .featured h2{font-size:1.3rem}
+  .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>📰 Resumen Diario Financiero</h1>
-    <div class="sub">Análisis diario del mercado chileno</div>
-  </header>
-
-  <p class="intro">Selecciona una fecha para ver el resumen del día. Disponibles los últimos 7 días.</p>
-
-  <div class="grid">
-    
-    <a class="card" href="2026-04-30.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Jueves</span>
-        <span class="fecha-completa">30 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-30.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
-    <a class="card" href="2026-04-29.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Miércoles</span>
-        <span class="fecha-completa">29 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-29.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
-    <a class="card" href="2026-04-28.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Martes</span>
-        <span class="fecha-completa">28 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-28.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
-    <a class="card" href="2026-04-23.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Jueves</span>
-        <span class="fecha-completa">23 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-23.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
-    <a class="card" href="2026-04-22.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Miércoles</span>
-        <span class="fecha-completa">22 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-22.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
-    <a class="card" href="2026-04-21.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Martes</span>
-        <span class="fecha-completa">21 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-21.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
-    <a class="card" href="2026-04-18.html">
-      <div class="card-fecha">
-        <span class="dia-semana">Sábado</span>
-        <span class="fecha-completa">18 de abril de 2026</span>
-      </div>
-      <a class="docx" href="2026-04-18.docx" download
-         onclick="event.stopPropagation()">📄 Word</a>
-    </a>
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">📰 Análisis diario</span>
+    <h1>Resumen Diario Financiero</h1>
+    <p class="tagline">Lo más importante del mercado chileno, resumido y curado para que lo leas en minutos.</p>
   </div>
+</section>
+
+<main class="container">
+  
+    <a class="featured" href="2026-04-30.html">
+      <span class="label">Última edición</span>
+      <h2>Jueves, 30 de abril de 2026</h2>
+      <p class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</p>
+      <span class="cta">Leer resumen completo →</span>
+    </a>
+    <div class="historico-titulo">Ediciones anteriores</div>
+    <div class="grid">
+      <a class="card" href="2026-04-29.html">
+        <div class="dia-semana">Miércoles</div>
+        <div class="fecha">29 de abril de 2026</div>
+        <div class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</div>
+        <div class="meta">
+          <span class="leer">Leer →</span>
+          <a class="docx-btn" href="2026-04-29.docx" download
+             onclick="event.stopPropagation()">⬇ Word</a>
+        </div>
+      </a>
+      <a class="card" href="2026-04-28.html">
+        <div class="dia-semana">Martes</div>
+        <div class="fecha">28 de abril de 2026</div>
+        <div class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</div>
+        <div class="meta">
+          <span class="leer">Leer →</span>
+          <a class="docx-btn" href="2026-04-28.docx" download
+             onclick="event.stopPropagation()">⬇ Word</a>
+        </div>
+      </a>
+      <a class="card" href="2026-04-23.html">
+        <div class="dia-semana">Jueves</div>
+        <div class="fecha">23 de abril de 2026</div>
+        <div class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</div>
+        <div class="meta">
+          <span class="leer">Leer →</span>
+          <a class="docx-btn" href="2026-04-23.docx" download
+             onclick="event.stopPropagation()">⬇ Word</a>
+        </div>
+      </a>
+      <a class="card" href="2026-04-22.html">
+        <div class="dia-semana">Miércoles</div>
+        <div class="fecha">22 de abril de 2026</div>
+        <div class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</div>
+        <div class="meta">
+          <span class="leer">Leer →</span>
+          <a class="docx-btn" href="2026-04-22.docx" download
+             onclick="event.stopPropagation()">⬇ Word</a>
+        </div>
+      </a>
+      <a class="card" href="2026-04-21.html">
+        <div class="dia-semana">Martes</div>
+        <div class="fecha">21 de abril de 2026</div>
+        <div class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</div>
+        <div class="meta">
+          <span class="leer">Leer →</span>
+          <a class="docx-btn" href="2026-04-21.docx" download
+             onclick="event.stopPropagation()">⬇ Word</a>
+        </div>
+      </a>
+      <a class="card" href="2026-04-18.html">
+        <div class="dia-semana">Sábado</div>
+        <div class="fecha">18 de abril de 2026</div>
+        <div class="snippet">[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</div>
+        <div class="meta">
+          <span class="leer">Leer →</span>
+          <a class="docx-btn" href="2026-04-18.docx" download
+             onclick="event.stopPropagation()">⬇ Word</a>
+        </div>
+      </a></div>
 
   <footer>
     Última actualización: 30 de abril de 2026<br>
     Fuente: <a href="https://www.df.cl">df.cl</a> · Análisis por Claude Cowork
   </footer>
-</div>
+</main>
 </body>
 </html>

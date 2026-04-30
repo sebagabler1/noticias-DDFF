@@ -3,66 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resumen DF — 18 de abril de 2026</title>
+<title>18 de abril de 2026 · Resumen DF</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --naranja:#E65000;--naranja-h:#ff6a1a;
-  --bg:#fafafa;--card:#fff;--borde:#e5e7eb;
-  --texto:#1f2937;--muted:#6b7280;--link:#0056b3;
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
 }
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
-     color:var(--texto);line-height:1.7;padding:2rem 1rem}
-.container{max-width:780px;margin:0 auto}
-.nav-volver{display:inline-block;margin-bottom:1.5rem;color:var(--naranja);
-            text-decoration:none;font-weight:600}
-.nav-volver:hover{text-decoration:underline}
-header{text-align:center;border-bottom:3px solid var(--naranja);
-       padding-bottom:1.5rem;margin-bottom:2rem}
-header h1{color:var(--naranja);font-size:1.8rem;margin-bottom:.3rem}
-header .fecha{color:var(--muted);font-size:1.05rem}
-.descargar{display:inline-block;background:var(--naranja);color:#fff;
-           padding:.5rem 1rem;border-radius:6px;text-decoration:none;
-           font-size:.9rem;font-weight:600;margin-top:.8rem}
-.descargar:hover{background:var(--naranja-h)}
-.contenido{background:var(--card);border:1px solid var(--borde);
-           border-radius:10px;padding:2rem 2.2rem}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.contenido{font-size:1.02rem}
 .contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
-                                          margin:1.5rem 0 .8rem}
-.contenido h1{font-size:1.5rem}
-.contenido h2{font-size:1.25rem;border-bottom:1px solid var(--borde);
-              padding-bottom:.3rem}
-.contenido h3{font-size:1.1rem}
-.contenido p{margin-bottom:.9rem}
-.contenido ul,.contenido ol{margin:.5rem 0 1rem 1.5rem}
-.contenido li{margin-bottom:.4rem}
-.contenido strong{color:#111827}
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
 .contenido a{color:var(--link)}
-.contenido table{border-collapse:collapse;margin:1rem 0;width:100%}
-.contenido th,.contenido td{border:1px solid var(--borde);padding:.5rem .8rem;
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
                             text-align:left}
-.contenido th{background:#f3f4f6}
-footer{text-align:center;color:var(--muted);font-size:.85rem;
-       margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--borde)}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
 @media(max-width:640px){
-  body{padding:1rem .6rem}
-  .contenido{padding:1.2rem 1.4rem}
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
 }
 </style>
 </head>
 <body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-04-18.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
 <div class="container">
-<a href="index.html" class="nav-volver">← Volver al índice</a>
 <header>
+  <span class="etiqueta">Edición Sábado</span>
   <h1>Resumen Diario Financiero</h1>
   <div class="fecha">18 de abril de 2026</div>
-  <a class="descargar" href="2026-04-18.docx" download>📄 Descargar Word</a>
 </header>
 <div class="contenido">
 <p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>18 De Abril De 2026</p><p>1 secciones  ·  1 artículos</p><p><strong>ÍNDICE</strong></p><p><em>[ Presiona Ctrl+A y luego F9 para actualizar el índice ]</em></p><h1><strong>INTERNACIONAL</strong></h1><h2><strong>1.  Irán afirma tener un &quot;control estricto&quot; del estrecho de Ormuz y asegura que no se reabrirá por completo</strong></h2><p>Teherán afirma que Donald Trump &quot;planteó siete acusaciones en una hora y las siete eran falsas&quot;.</p><p>Elestrecho de Ormuzno se reabrirá por completo y permanecerá bajo el &quot;estricto control&quot; de Teherán después de que Donald Trump dijera que Estados Unidos mantendría su bloqueo a los puertos iraníes.</p><p>El cuartel general delComando Central Khatam al-Anbiya, la máxima dirección militar de Irán, afirmó que Washington tiene un &quot;historial de incumplimiento reiterado de sus compromisos&quot; y que ha &quot;continuado con su piratería marítima bajo el llamado bloqueo&quot;.</p>
 </div>
 <footer>
-  Generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
 </footer>
 </div>
 </body>

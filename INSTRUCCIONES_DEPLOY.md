@@ -3,7 +3,7 @@
 Pasos para publicar los `Resumen_*.docx` (los que genera Cowork) en una URL
 tipo `https://TU-USUARIO.github.io/noticias-df/` que cualquiera pueda ver.
 
-El sitio se actualiza solo cada día a las 12:30 (15 min después de Cowork),
+El sitio se actualiza solo cada día a las 12:25 (15 min después de Cowork),
 desde tu PC. Si tu PC está apagado ese día, simplemente queda el último
 resumen publicado y se actualiza la próxima vez que se prenda al mediodía.
 
@@ -14,12 +14,12 @@ resumen publicado y se actualiza la próxima vez que se prenda al mediodía.
 ```
 12:00 → tarea programada "ScraperDiarioFinanciero" → genera 2026-04-30_DF.docx
 12:15 → Cowork lee el .docx y genera Resumen_2026-04-30.docx
-12:30 → tarea programada "PublicarResumenDF" → ejecuta publicar.py:
+12:25 → tarea programada "PublicarResumenDF" → ejecuta publicar.py:
           1. Lee los Resumen_*.docx de los últimos 7 días
           2. Los convierte a HTML
           3. Genera docs/index.html con la lista
           4. Hace git push a GitHub
-12:31 → GitHub Pages publica automáticamente la nueva versión
+12:26 → GitHub Pages publica automáticamente la nueva versión
 ```
 
 ---
@@ -93,7 +93,7 @@ Listo. Esa es la URL pública.
 
 Doble click sobre **`instalar_publicacion.bat`**.
 
-Esto crea una tarea de Windows que cada día a las **12:30** ejecuta
+Esto crea una tarea de Windows que cada día a las **12:25** ejecuta
 `publicar.bat`, que a su vez:
 1. Convierte el Resumen del día a HTML
 2. Lo agrega al sitio
@@ -113,7 +113,7 @@ la URL `https://TU-USUARIO.github.io/noticias-df/` con quien quieras.
 
 ## Cosas útiles
 
-### Publicar a mano (sin esperar a las 12:30)
+### Publicar a mano (sin esperar a las 12:25)
 
 Doble click sobre **`publicar.bat`**, o desde una terminal:
 ```bash
@@ -128,7 +128,7 @@ Se guardan en `publicar.log` en esta misma carpeta.
 
 No pasa nada. El sitio sigue mostrando el último resumen disponible. Cuando
 prendas el PC, si Cowork ya generó el resumen del día anterior (manual o
-porque lo configuraste así), la próxima ejecución de 12:30 lo subirá
+porque lo configuraste así), la próxima ejecución de 12:25 lo subirá
 automáticamente junto con el del día actual.
 
 Si quieres forzar una publicación inmediata, doble click en `publicar.bat`.
@@ -141,7 +141,7 @@ schtasks /delete /tn "PublicarResumenDF" /f
 
 ### Cambiar la hora
 
-Edita `instalar_publicacion.bat` la línea `/st 12:30` y vuelve a correrlo.
+Edita `instalar_publicacion.bat` la línea `/st 12:25` y vuelve a correrlo.
 
 ### Cambiar cuántos días se muestran
 

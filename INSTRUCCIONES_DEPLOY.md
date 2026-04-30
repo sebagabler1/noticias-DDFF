@@ -12,7 +12,7 @@ resumen publicado y se actualiza la próxima vez que se prenda al mediodía.
 ## Cómo funciona el flujo completo
 
 ```
-9:30  → tarea programada "ScraperDiarioFinanciero" → genera 2026-04-30_DF.docx
+12:00 → tarea programada "ScraperDiarioFinanciero" → genera 2026-04-30_DF.docx
 12:15 → Cowork lee el .docx y genera Resumen_2026-04-30.docx
 12:30 → tarea programada "PublicarResumenDF" → ejecuta publicar.py:
           1. Lee los Resumen_*.docx de los últimos 7 días

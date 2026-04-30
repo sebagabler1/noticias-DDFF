@@ -14,18 +14,21 @@
 body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
      background:var(--bg);color:var(--texto);line-height:1.6;margin:0;
      min-height:100vh;-webkit-font-smoothing:antialiased}
-.hero{background:linear-gradient(135deg,#E65000 0%,#ff7a2a 100%);
-      color:#fff;text-align:center;padding:4.5rem 1.5rem 5rem;
+.hero{background-image:
+        linear-gradient(180deg,rgba(15,17,23,.55) 0%,rgba(15,17,23,.88) 100%),
+        url('hero.jpg');
+      background-size:cover;background-position:center 30%;
+      color:#fff;text-align:center;padding:6rem 1.5rem 6.5rem;
       position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;
-              background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.15),transparent 50%),
-                         radial-gradient(circle at 80% 20%,rgba(255,255,255,.1),transparent 50%);
+              background:radial-gradient(ellipse at 65% 25%,rgba(230,80,0,.22),transparent 55%);
               pointer-events:none}
 .hero-content{position:relative;max-width:680px;margin:0 auto}
 .hero h1{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;
-         margin-bottom:.7rem;line-height:1.15}
+         margin-bottom:.7rem;line-height:1.15;
+         text-shadow:0 2px 20px rgba(0,0,0,.5)}
 .hero .tagline{font-size:1.1rem;opacity:.95;max-width:520px;margin:0 auto;
-              line-height:1.5}
+              line-height:1.5;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .hero .badge{display:inline-block;background:rgba(255,255,255,.18);
             backdrop-filter:blur(8px);padding:.35rem 1rem;border-radius:30px;
             font-size:.78rem;font-weight:600;letter-spacing:.08em;

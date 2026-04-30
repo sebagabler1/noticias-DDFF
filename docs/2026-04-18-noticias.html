@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias 18 de abril de 2026 · DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.link-noticias{display:inline-block;margin-top:.9rem;color:var(--naranja);
+              text-decoration:none;font-size:.92rem;font-weight:600;
+              border-bottom:1px dashed var(--naranja-soft);
+              padding-bottom:.1rem;transition:all .15s}
+.link-noticias:hover{border-bottom-style:solid;border-bottom-color:var(--naranja)}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="2026-04-18.html" class="volver">← Ver resumen del día</a>
+    <a href="2026-04-18-noticias.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Noticias del Sábado</span>
+  <h1>Noticias originales por sección</h1>
+  <div class="fecha">18 de abril de 2026</div>
+</header>
+<div class="contenido">
+<p>📰 Resumen Diario Financiero</p><p>Edición Del Saturday 18 De April De 2026</p><p>Noticias: 1  |  Con contenido: 1  |  Via archive.today: 0</p><p>────────────────────────────────────────────────────────────────────────────────</p><h1 id="internacional">🔹 Internacional</h1><p><strong>1. Irán afirma tener un "control estricto" del estrecho de Ormuz y asegura que no se reabrirá por completo</strong>  [⭐ Destacada]</p><p>https://www.df.cl/internacional/ft/iran-afirma-tener-un-control-estricto-del-estrecho-de-ormuz-y-asegura-que</p><p>Teherán afirma que Donald Trump "planteó siete acusaciones en una hora y las siete eran falsas".</p><p>Por:Financial TimesPublicado: Sábado 18 de abril de 2026 a las 06:32 hrs.</p><p>Publicado: Sábado 18 de abril de 2026 a las 06:32 hrs.</p><p>Elestrecho de Ormuzno se reabrirá por completo y permanecerá bajo el "estricto control" de Teherán después de que Donald Trump dijera que Estados Unidos mantendría su bloqueo a los puertos iraníes.</p><p>El cuartel general delComando Central Khatam al-Anbiya, la máxima dirección militar de Irán, afirmó que Washington tiene un "historial de incumplimiento reiterado de sus compromisos" y que ha "continuado con su piratería marítima bajo el llamado bloqueo".</p><p>“Como resultado, el control del estrecho de Ormuz ha vuelto a su estado anterior, y el estrecho se encuentra ahora bajo la plena gestión y el estricto control de las fuerzas armadas”, se indicó en un comunicado.</p><p>Después de queTrump afirmara el viernes que Irán había hecho una serie de concesiones en su programa nuclear,Mohammad Bagher Ghalibaf, el principal negociador iraní y líder en tiempos de guerra, dijo que el presidente estadounidense había "planteado siete afirmaciones en una hora y las siete eran falsas".</p><p>"Con esas mentiras, no lograron la victoria en el campo de batalla y, sin duda, no conseguirán nada en las negociaciones", declaró Ghalibaf en X. "Mientras continúe el bloqueo, el estrecho de Ormuz no se reabrirá".</p><p>۱- رئیس جمهور آمریکا در یک ساعت هفت ادعا مطرح کرد که هر هفت ادعا کذب است.۲- با این دروغگویی‌ها در جنگ پیروز نشدند و حتما در مذاکره هم راه به جایی نخواهند برد.۳- با ادامهٔ محاصره، تنگهٔ هرمز باز نخواهد ماند.— محمدباقر قالیباف | MB Ghalibaf (@mb_ghalibaf)April 17, 2026</p><p>۱- رئیس جمهور آمریکا در یک ساعت هفت ادعا مطرح کرد که هر هفت ادعا کذب است.۲- با این دروغگویی‌ها در جنگ پیروز نشدند و حتما در مذاکره هم راه به جایی نخواهند برد.۳- با ادامهٔ محاصره، تنگهٔ هرمز باز نخواهد ماند.</p><p>Las declaraciones de los máximos líderes militares y políticos de Irán aumentarán la incertidumbre sobre si los buques podrán transitar por esta vía marítima estratégica, por la que normalmente pasa aproximadamente una quintaparte del petróleo y el gas del mundo.</p><p>Los precios del petróleo y del gas se desplomaron el viernes tras lasdeclaraciones de Trump y del ministro de Asuntos Exteriores iraní, Abbas Araghchi, de que el estrecho se abriría por completo después de que Estados Unidos presionara a Israel para que aceptara una tregua de 10 días para detener su guerra contra Hezbolá en el Líbano.</p><p>La guerra entreIsrael y Hezboláhabía sido motivo de tensión entre Estados Unidos e Irán, ya que Teherán insistía en que debía formar parte del alto el fuego de 14 días acordado con Washington la semana pasada. Sin embargo, tanto Estados Unidos como Israel habían insistido en que no debía incluirse.</p><p>La disputa llevó a Irán a negarse a permitir ellibre tránsito de buquespor el estrecho, condición fundamental de Trump para el alto el fuego. Posteriormente, ordenó a la Armada estadounidense bloquear el estrecho e impedir la entrada y salida de barcos de puertos iraníes, medida que, según afirmó, continuaría a pesar de la declaración de Araghchi el viernes, en la que aseguraba que el estrecho estaría "completamente abierto" a los buques comerciales durante el alto el fuego entre Estados Unidos e Irán, que expira el martes por la noche.</p><p><strong> </strong></p><p>La capacidad de Irán para restringir el flujo debuques petroleros a través del estrechoha desencadenado la mayor crisis energética mundial en décadas.</p><p>Elejército iraní declaró el sábado que no reabrirá completamente el estrecho"a menos que Estados Unidos acepte garantizar plenamente la libertad de paso para los buques" que viajan hacia y desde Irán.</p><p>El viernes, Trump dio a entender que Estados Unidos estaba cerca de llegar a un acuerdo con Irán para poner fin a su guerra, que ya duraba más de siete semanas, mientras los mediadores intercambiaban mensajes entre las partes en conflicto. Afirmó que Irán había accedido a suspendersu programa nuclear indefinidamente y a entregar sus reservas de uranio altamente enriquecido.</p><p>Pero sus comentariosprovocaron indignación entre las facciones políticas más radicales de Irán,que exigieron una explicación a las autoridades, lo que a su vez provocó que Teherán los negara.</p><p>“El uranio enriquecido de Irán no está destinado a ningún otro lugar”, declaró Esmail Baghaei, portavoz del Ministerio de Asuntos Exteriores iraní, a la televisión estatal. “Así como el suelo iraní es sagrado para nosotros, este asunto es igualmente importante”.</p><p>Ghalibaf reiteró que solo se podrían utilizar las rutas designadas por Irán y aprobadas por la guardia,y que las decisiones relativas al cierre o la reapertura del estrecho se tomarían "en función de las normas del campo de batalla, no de las redes sociales".</p><p>Trump había dicho queEstados Unidos e Iránpodrían celebrarotra ronda de conversaciones,tras las negociaciones de alto nivel que tuvieron lugar en Islamabad el fin de semana pasado, en cuestión de días.</p><p>Sin embargo, la agencia de noticias Tasnim, cercana a la Guardia Revolucionaria iraní, afirmó el sábado queTeherán aún no había accedido a una nueva ronda de conversacionesdebido al bloqueo naval estadounidense y otras "exigencias excesivas".</p><p>“Irán no está interesado en perder el tiempo en negociaciones inútiles”, informó la agencia de noticias.</p><p>· · ·</p><p>Generado el 18/04/2026 a las 10:11<br/>Fuente: www.df.cl  |  Paywall: archive.today (Option 1 RemovePaywalls)</p>
+</div>
+<footer>
+  Fuente: <a href="https://www.df.cl">df.cl</a> · Extraído por el scraper
+</footer>
+</div>
+<script>
+// Resaltar la sección actual mientras se hace scroll
+(function(){
+  var secciones = document.querySelectorAll('.contenido h1[id], .contenido h2[id]');
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!secciones.length || !enlaces.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, {rootMargin:'-30% 0px -55% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>

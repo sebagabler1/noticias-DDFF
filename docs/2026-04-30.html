@@ -35,6 +35,11 @@ header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
 header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
           font-weight:800;letter-spacing:-.01em;line-height:1.25}
 header .fecha{color:var(--muted);font-size:1rem}
+.link-noticias{display:inline-block;margin-top:.9rem;color:var(--naranja);
+              text-decoration:none;font-size:.92rem;font-weight:600;
+              border-bottom:1px dashed var(--naranja-soft);
+              padding-bottom:.1rem;transition:all .15s}
+.link-noticias:hover{border-bottom-style:solid;border-bottom-color:var(--naranja)}
 .toc{background:var(--crema);border:1px solid var(--naranja-soft);
      border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
 .toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
@@ -78,6 +83,22 @@ footer a{color:var(--naranja);text-decoration:none}
   header h1{font-size:1.4rem}
   .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
 }
+
+.sidebar{position:fixed;left:1.5rem;top:5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
 </style>
 </head>
 <body>
@@ -87,11 +108,17 @@ footer a{color:var(--naranja);text-decoration:none}
     <a href="2026-04-30.docx" download class="descargar">⬇ Word</a>
   </div>
 </nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="2026-04-30-noticias.html#mercados">Mercados</a></li><li><a href="2026-04-30-noticias.html#empresas">Empresas</a></li><li><a href="2026-04-30-noticias.html#economia">Economía</a></li><li><a href="2026-04-30-noticias.html#internacional">Internacional</a></li><li><a href="2026-04-30-noticias.html#innovacion">Innovación</a></li><li><a href="2026-04-30-noticias.html#opinion">Opinión</a></li></ul>
+</aside>
 <div class="container">
 <header>
   <span class="etiqueta">Edición Jueves</span>
   <h1>Resumen Diario Financiero</h1>
   <div class="fecha">30 de abril de 2026</div>
+  <a href="2026-04-30-noticias.html" class="link-noticias">Ver noticias originales por sección →</a>
 </header>
 <nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-ipsa-abre-al-alza-tras-negativa-racha-por-el-conflicto-en-medio-oriente-y-wall-street-reacciona-a-resultados-de-grandes-tecnologicas">1.  IPSA abre al alza tras negativa racha por el conflicto en Medio Oriente y Wall Street reacciona a resultados de grandes tecnológicas</a></li><li class="toc-l2"><a href="#2-dolar-abre-en-baja-atento-al-bloqueo-de-ormuz-mientras-se-asienta-el-polvo-tras-jornada-de-fuerte-demanda-por-la-divisa">2.  Dólar abre en baja atento al bloqueo de Ormuz mientras se asienta el polvo tras jornada de fuerte demanda por la divisa</a></li><li class="toc-l2"><a href="#3-nueva-ley-impulsa-ingreso-de-mujeres-en-directorios-19-de-las-33-companias-ipsa-cumplen-con-presencia-minima-de-20">3.  Nueva ley impulsa ingreso de mujeres en directorios: 19 de las 33 compañías IPSA cumplen con presencia mínima de 20%</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-sma-inicia-investigacion-contra-enap-refinerias-aconcagua-tras-denuncia-de-manipulacion-de-datos-de-cumplimiento-ambiental">1.  SMA inicia investigación contra ENAP Refinerías Aconcagua tras denuncia de manipulación de datos de cumplimiento ambiental</a></li><li class="toc-l2"><a href="#2-macario-valdes-debuta-como-ceo-de-quinenco-y-se-abre-a-inversiones-tanto-en-chile-como-en-el-extranjero">2.  Macario Valdés debuta como CEO de Quiñenco y se abre a “inversiones tanto en Chile como en el extranjero”</a></li><li class="toc-l2"><a href="#3-desafios-en-el-vecindario-embotelladoras-delinean-retos-en-bolivia-y-argentina">3.  Desafíos en el vecindario: embotelladoras delinean retos en Bolivia y Argentina</a></li><li class="toc-l2"><a href="#4-nuevos-directorios-focos-estrategicos-y-riesgos-externos-marcan-la-temporada-de-juntas-de-accionistas-2026">4.  Nuevos directorios, focos estratégicos y riesgos externos marcan la temporada de juntas de accionistas 2026</a></li><li class="toc-l2"><a href="#5-guerra-de-iran-y-cierre-del-estrecho-de-ormuz-nublan-el-panorama-de-las-companias">5.  Guerra de Irán y cierre del estrecho de Ormuz nublan el panorama de las compañías</a></li><li class="toc-l2"><a href="#6-constructoras-elevan-inversiones-para-2026-ante-mejores-perspectivas-y-ciclo-minero-al-alza">6.  Constructoras elevan inversiones para 2026 ante mejores perspectivas y ciclo minero al alza</a></li><li class="toc-l2"><a href="#7-cristalerias-de-chile-reporta-sus-resultados-a-marzo-de-2026">7.  Cristalerías de Chile reporta sus resultados a marzo de 2026</a></li><li class="toc-l2"><a href="#8-juan-manuel-santa-cruz-deja-presidencia-de-lipiandes-tras-12-anos-y-asume-mario-vinagre">8.  Juan Manuel Santa Cruz deja presidencia de LipiAndes tras 12 años y asume Mario Vinagre</a></li><li class="toc-l2"><a href="#9-probidad-publica-en-debate-expertos-advierten-que-la-ley-no-basta-para-asegurar-integridad">9.  Probidad pública en debate: expertos advierten que la ley no basta para asegurar integridad</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-camino-a-la-apec-2026-consejo-asesor-empresarial-define-a-sus-nuevos-representantes">1.  Camino a la APEC 2026: Consejo Asesor Empresarial define a sus nuevos representantes</a></li><li class="toc-l2"><a href="#2-poduje-se-rebela-ante-los-recortes-propuestos-por-hacienda-tengo-un-solo-jefe-que-es-el-presidente-quiroz-es-un-ministro-mas">2.  Poduje se rebela ante los recortes propuestos por Hacienda: “Tengo un solo jefe, que es el Presidente. Quiroz es un ministro más”</a></li><li class="toc-l2"><a href="#3-la-produccion-industrial-cae-por-sexto-mes-consecutivo-en-marzo-mientras-que-el-comercio-sigue-al-alza">3.  La producción industrial cae por sexto mes consecutivo en marzo, mientras que el comercio sigue al alza</a></li><li class="toc-l2"><a href="#4-cfa-entrega-recomendaciones-para-perfeccionar-regla-que-rige-el-gasto-del-sector-publico">4.  CFA entrega recomendaciones para perfeccionar regla que rige el gasto del sector público</a></li><li class="toc-l2"><a href="#5-gobierno-busca-reordenar-filas-para-contener-criticas-a-recortes-sugeridos-a-programas-sociales-y-la-pgu">5.  Gobierno busca reordenar filas para contener críticas a recortes sugeridos a programas sociales y la PGU</a></li><li class="toc-l2"><a href="#6-mas-desocupados-y-mas-informalidad-destacan-entre-los-10-frentes-que-reflejan-el-mal-momento-del-mercado-laboral">6.  Más desocupados y más informalidad destacan entre los 10 frentes que reflejan el mal momento del mercado laboral</a></li><li class="toc-l2"><a href="#7-df-tax-el-eterno-debate-de-las-contribuciones">7.  DF Tax | El eterno debate de las contribuciones</a></li><li class="toc-l2"><a href="#8-df-tax-lo-que-el-radar-tributario-no-alcanza-a-ver-como-se-explican-los-resultados-la-litigiosidad-tributaria">8.  DF Tax | Lo que el radar tributario no alcanza a ver: cómo se explican los resultados la litigiosidad tributaria</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-presidenta-de-mexico-asegura-que-ira-a-brasil-a-firmar-acuerdo-entre-pemex-y-petrobras">1.  Presidenta de México asegura que irá a Brasil a firmar acuerdo entre Pemex y Petrobras</a></li><li class="toc-l2"><a href="#2-brasilena-braskem-nombra-a-ceo-de-petrobras-como-nueva-presidenta-del-directorio">2.  Brasileña Braskem nombra a CEO de Petrobras como nueva presidenta del directorio</a></li><li class="toc-l2"><a href="#3-la-economia-estadounidense-decepciona-con-un-crecimiento-de-2-en-el-primer-trimestre-aunque-mejora-tras-el-cierre-de-2025">3.  La economía estadounidense decepciona con un crecimiento de 2% en el primer trimestre, aunque mejora tras el cierre de 2025</a></li><li class="toc-l2"><a href="#4-aliento-a-ozempic-las-nuevas-drogas-para-adelgazar-aumentan-las-ventas-de-caramelos-de-menta-y-chicles">4.  ¿Aliento a Ozempic?: Las nuevas drogas para adelgazar aumentan las ventas de caramelos de menta y chicles</a></li><li class="toc-l2"><a href="#5-la-guerra-en-iran-y-el-nino-amenazan-el-suministro-global-del-alimento-mas-consumido-en-el-mundo">5.  La guerra en Irán y El Niño amenazan el suministro global del alimento más consumido en el mundo</a></li><li class="toc-l2"><a href="#6-uber-incorpora-la-reserva-de-hoteles-con-expedia-en-su-estrategia-de-convertirse-en-una-superaplicacion">6.  Uber incorpora la reserva de hoteles con Expedia en su estrategia de convertirse en una “superaplicación”</a></li><li class="toc-l2"><a href="#7-elon-musk-admite-que-fue-un-tonto-al-financiar-el-lanzamiento-de-openai">7.  Elon Musk admite que fue “un tonto” al financiar el lanzamiento de OpenAI</a></li><li class="toc-l2"><a href="#8-habilitan-continuidad-de-proyecto-minero-de-bhp-y-lundin-en-argentina">8.  Habilitan continuidad de proyecto minero de BHP y Lundin en Argentina</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-chilebio-afirma-que-el-pais-tiene-el-potencial-de-convertirse-en-un-hub-de-semillas-editadas-geneticamente">1.  ChileBio afirma que el país tiene el potencial de convertirse en un “hub de semillas editadas genéticamente”</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-claro-mensaje-del-banco-central">1.  Claro mensaje del Banco Central</a></li><li class="toc-l2"><a href="#2-uso-de-la-ia-en-causas-judiciales">2.  Uso de la IA en causas judiciales</a></li><li class="toc-l2"><a href="#3-fin-de-la-franquicia-sence">3.  Fin de la franquicia Sence</a></li></ul></nav>
 <div class="contenido">

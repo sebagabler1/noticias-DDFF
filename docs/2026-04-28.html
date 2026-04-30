@@ -35,6 +35,11 @@ header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
 header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
           font-weight:800;letter-spacing:-.01em;line-height:1.25}
 header .fecha{color:var(--muted);font-size:1rem}
+.link-noticias{display:inline-block;margin-top:.9rem;color:var(--naranja);
+              text-decoration:none;font-size:.92rem;font-weight:600;
+              border-bottom:1px dashed var(--naranja-soft);
+              padding-bottom:.1rem;transition:all .15s}
+.link-noticias:hover{border-bottom-style:solid;border-bottom-color:var(--naranja)}
 .toc{background:var(--crema);border:1px solid var(--naranja-soft);
      border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
 .toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
@@ -78,6 +83,22 @@ footer a{color:var(--naranja);text-decoration:none}
   header h1{font-size:1.4rem}
   .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
 }
+
+.sidebar{position:fixed;left:1.5rem;top:5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
 </style>
 </head>
 <body>
@@ -87,11 +108,17 @@ footer a{color:var(--naranja);text-decoration:none}
     <a href="2026-04-28.docx" download class="descargar">⬇ Word</a>
   </div>
 </nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="2026-04-28-noticias.html#mercados">Mercados</a></li><li><a href="2026-04-28-noticias.html#empresas">Empresas</a></li><li><a href="2026-04-28-noticias.html#economia">Economía</a></li><li><a href="2026-04-28-noticias.html#internacional">Internacional</a></li><li><a href="2026-04-28-noticias.html#innovacion">Innovación</a></li><li><a href="2026-04-28-noticias.html#opinion">Opinión</a></li></ul>
+</aside>
 <div class="container">
 <header>
   <span class="etiqueta">Edición Martes</span>
   <h1>Resumen Diario Financiero</h1>
   <div class="fecha">28 de abril de 2026</div>
+  <a href="2026-04-28-noticias.html" class="link-noticias">Ver noticias originales por sección →</a>
 </header>
 <nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-gira-a-una-leve-caida-y-pierde-los-900-mientras-agentes-esperan-respuesta-de-eeuu-a-propuesta-de-paz-irani">1.  Dólar gira a una leve caída y pierde los $ 900 mientras agentes esperan respuesta de EEUU a propuesta de paz iraní</a></li><li class="toc-l2"><a href="#2-accionistas-del-banco-santander-chile-aprueban-dividendo-y-eligen-nuevo-directorio-juan-benavides-se-suma-como-director-independiente">2.  Accionistas del Banco Santander Chile aprueban dividendo y eligen nuevo directorio: Juan Benavides se suma como director independiente</a></li><li class="toc-l2"><a href="#3-fondo-pionero-de-moneda-patria-vende-acciones-de-watts-por-1600-millones-y-baja-del-11-de-la-propiedad">3.  Fondo Pionero de Moneda Patria vende acciones de Watt's por $1.600 millones y baja del 11% de la propiedad</a></li><li class="toc-l2"><a href="#4-ipsa-abre-en-rojo-y-arriesga-perder-los-11000-puntos-frente-a-dudas-de-eeuu-sobre-propuesta-de-paz-irani">4.  IPSA abre en rojo y arriesga perder los 11.000 puntos frente a dudas de EEUU sobre propuesta de paz iraní</a></li><li class="toc-l2"><a href="#5-afp-encargan-informe-en-derecho-a-ferrada-nehme-para-revisar-tarifas-que-cobrara-el-ips-como-prestador-de-soporte">5.  AFP encargan informe en derecho a Ferrada Nehme para revisar tarifas que cobrará el IPS como prestador de soporte</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-gobierno-define-nueva-mesa-directiva-de-efe-y-economista-jorge-claude-asume-presidencia">1.  Gobierno define nueva mesa directiva de EFE y economista Jorge Claude asume presidencia</a></li><li class="toc-l2"><a href="#2-anglo-american-sube-levemente-produccion-de-cobre-en-primer-trimestre-y-gestiona-inflacion-de-costos-operativos-por-guerra-en-medio-oriente">2.  Anglo American sube levemente producción de cobre en primer trimestre y gestiona inflación de costos operativos por guerra en Medio Oriente</a></li><li class="toc-l2"><a href="#3-contraloria-publica-reglamento-de-ley-uber-e-industria-proyecta-su-implementacion-para-el-segundo-semestre">3.  Contraloría publica reglamento de Ley Uber e industria proyecta su implementación para el segundo semestre</a></li><li class="toc-l2"><a href="#4-concesionaria-de-hospital-felix-bulnes-vuelve-a-arremeter-contra-mop-y-acusa-seis-anos-de-operacion-bajo-condiciones-no-pactadas">4.  Concesionaria de Hospital Félix Bulnes vuelve a arremeter contra MOP y acusa seis años de operación bajo condiciones no pactadas</a></li><li class="toc-l2"><a href="#5-codelco-ingresa-proyecto-de-us-12-millones-para-explorar-potencial-de-recursos-de-litio-en-sus-pertenencias-en-el-salar-de-pedernales">5.  Codelco ingresa proyecto de US$ 12 millones para explorar potencial de recursos de litio en sus pertenencias en el Salar de Pedernales</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-quiroz-y-la-polemica-por-oficio-dipres-es-una-comunicacion-interna-entre-ministerios-como-que-alguien-revise-la-carta-de-una-pareja-y-empieza-a-dar-opiniones">1.  Quiroz y la polémica por oficio Dipres: &quot;Es una comunicación interna entre ministerios... como que alguien revise la carta de una pareja y empieza a dar opiniones&quot;</a></li><li class="toc-l2"><a href="#2-hacienda-y-diputados-activan-este-martes-mesa-tecnica-de-asesores-por-proyecto-de-reconstruccion">2.  Hacienda y diputados activan este martes mesa técnica de asesores por proyecto de reconstrucción</a></li><li class="toc-l2"><a href="#3-ministro-rau-defiende-credito-tributario-al-empleo-pero-se-abre-a-discutir-instrumento-optimo-en-el-congreso">3.  Ministro Rau defiende crédito tributario al empleo, pero se abre a discutir “instrumento óptimo” en el Congreso</a></li><li class="toc-l2"><a href="#4-meta-de-pib-del-gobierno-cuesta-arriba-analistas-ven-a-chile-pegado-en-torno-al-2-en-el-largo-plazo">4.  Meta de PIB del gobierno cuesta arriba: analistas ven a Chile pegado en torno al 2% en el largo plazo</a></li><li class="toc-l2"><a href="#5-ximena-ossandon-rn-y-el-proyecto-de-reactivacion-nosotros-y-el-gobierno-hemos-comunicado-mal-cual-es-realmente-el-foco-de-esta-reforma">5.  Ximena Ossandón (RN) y el proyecto de reactivación: &quot;Nosotros y el gobierno hemos comunicado mal cuál es realmente el foco de esta reforma&quot;</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-copa-airlines-firma-acuerdo-con-boeing-para-la-compra-de-60-aviones-737-max-por-us-13500-millones">1.  Copa Airlines firma acuerdo con Boeing para la compra de 60 aviones 737 MAX por US$ 13.500 millones</a></li><li class="toc-l2"><a href="#2-emiratos-arabes-unidos-abandonara-la-opep-y-la-opep-a-partir-del-1-de-mayo">2.  Emiratos Árabes Unidos abandonará la OPEP y la OPEP+ a partir del 1 de mayo</a></li><li class="toc-l2"><a href="#3-utilidades-de-byd-se-desploman-a-la-mitad-mayor-demanda-por-autos-electricos-debido-a-la-guerra-no-pudo-compensar-una-caida-en-ventas-en-china">3.  Utilidades de BYD se desploman a la mitad: mayor demanda por autos eléctricos debido a la guerra no pudo compensar una caída en ventas en China</a></li><li class="toc-l2"><a href="#4-el-precio-del-petroleo-supera-los-us-110-por-primera-vez-en-tres-semanas-mientras-eeuu-afirma-que-hay-dudas-sobre-la-propuesta-de-iran">4.  El precio del petróleo supera los US$ 110 por primera vez en tres semanas mientras EEUU afirma que hay dudas sobre la propuesta de Irán</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-startup-fundada-por-exsuper-de-medio-ambiente-de-pinera-levanta-capital-para-combatir-la-permisologia">1.  Startup fundada por exSuper de Medio Ambiente de Piñera levanta capital para combatir la permisología</a></li><li class="toc-l2"><a href="#2-comienza-el-juicio-de-openai-que-enfrenta-a-elon-musk-con-sam-altman">2.  Comienza el juicio de OpenAI que enfrenta a Elon Musk con Sam Altman</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-fin-de-la-franquicia-sence">1.  Fin de la franquicia Sence</a></li><li class="toc-l2"><a href="#2-reforma-sin-productividad">2.  Reforma sin productividad</a></li><li class="toc-l2"><a href="#3-seguridad-y-vivienda">3.  Seguridad y vivienda</a></li></ul></nav>
 <div class="contenido">

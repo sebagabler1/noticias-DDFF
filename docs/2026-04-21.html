@@ -35,6 +35,11 @@ header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
 header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
           font-weight:800;letter-spacing:-.01em;line-height:1.25}
 header .fecha{color:var(--muted);font-size:1rem}
+.link-noticias{display:inline-block;margin-top:.9rem;color:var(--naranja);
+              text-decoration:none;font-size:.92rem;font-weight:600;
+              border-bottom:1px dashed var(--naranja-soft);
+              padding-bottom:.1rem;transition:all .15s}
+.link-noticias:hover{border-bottom-style:solid;border-bottom-color:var(--naranja)}
 .toc{background:var(--crema);border:1px solid var(--naranja-soft);
      border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
 .toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
@@ -78,6 +83,22 @@ footer a{color:var(--naranja);text-decoration:none}
   header h1{font-size:1.4rem}
   .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
 }
+
+.sidebar{position:fixed;left:1.5rem;top:5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
 </style>
 </head>
 <body>
@@ -87,11 +108,17 @@ footer a{color:var(--naranja);text-decoration:none}
     <a href="2026-04-21.docx" download class="descargar">⬇ Word</a>
   </div>
 </nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="2026-04-21-noticias.html#mercados">Mercados</a></li><li><a href="2026-04-21-noticias.html#empresas">Empresas</a></li><li><a href="2026-04-21-noticias.html#economia">Economía</a></li><li><a href="2026-04-21-noticias.html#internacional">Internacional</a></li><li><a href="2026-04-21-noticias.html#innovacion">Innovación</a></li><li><a href="2026-04-21-noticias.html#opinion">Opinión</a></li></ul>
+</aside>
 <div class="container">
 <header>
   <span class="etiqueta">Edición Martes</span>
   <h1>Resumen Diario Financiero</h1>
   <div class="fecha">21 de abril de 2026</div>
+  <a href="2026-04-21-noticias.html" class="link-noticias">Ver noticias originales por sección →</a>
 </header>
 <nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-sube-a-890-antes-del-mediodia-tras-solidas-ventas-minoristas-de-eeuu-y-mas-cerca-de-plazo-limite-para-un-acuerdo-con-iran">1.  Dólar sube a $ 890 antes del mediodía tras sólidas ventas minoristas de EEUU y más cerca de plazo límite para un acuerdo con Irán</a></li><li class="toc-l2"><a href="#2-anibal-mosa-no-se-rinde-para-aumentar-su-control-en-byn-lanza-una-nueva-opa-y-busca-el-control-total-del-club">2.  Aníbal Mosa no se rinde para aumentar su control en ByN: lanza una nueva OPA y busca el control total del club</a></li><li class="toc-l2"><a href="#3-bolsa-chilena-abre-al-alza-en-linea-con-wall-street-luego-se-que-trump-se-muestra-optimista-sobre-un-acuerdo-con-iran">3.  Bolsa chilena abre al alza en línea con Wall Street luego se que Trump se muestra optimista sobre un acuerdo con Irán</a></li><li class="toc-l2"><a href="#4-informe-de-bofa-gestores-elevan-liquidez-y-apuestan-por-commodities-ante-volatilidad-del-petroleo">4.  Informe de BofA: gestores elevan liquidez y apuestan por commodities ante volatilidad del petróleo</a></li><li class="toc-l2"><a href="#5-benjamin-laso-director-corporativo-de-estrategia-de-primus-capital-hubo-un-abandono-reiterado-en-los-procedimientos-de-auditoria-a-primus-capital">5.  Benjamín Laso, director corporativo de estrategia de Primus Capital: “Hubo un abandono reiterado en los procedimientos de auditoría a Primus Capital”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-garrigues-anuncia-fusion-con-barros-silva-varela-vigil-bsvv-y-se-transforma-en-uno-de-los-estudios-juridicos-mas-grandes-del-pais">1.  Garrigues anuncia fusión con Barros, Silva, Varela &amp; Vigil (BSVV) y se transforma en uno de los estudios jurídicos más grandes del país</a></li><li class="toc-l2"><a href="#2-gobierno-dara-inicio-a-plan-para-destrabar-inversiones-salmoneras-con-el-proyecto-de-reconstruccion-nacional">2.  Gobierno dará inicio a plan para destrabar inversiones salmoneras con el proyecto de reconstrucción nacional</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-ad-portas-del-anuncio-de-kast-los-otros-mecanismos-similares-al-dl-600-que-tiene-chile">1.  Ad portas del anuncio de Kast: los otros mecanismos similares al DL 600 que tiene Chile</a></li><li class="toc-l2"><a href="#2-velasco-destaca-necesidad-de-un-debate-sobre-crecimiento-que-ponga-foco-en-productividad-e-innovacion">2.  Velasco destaca necesidad de un debate sobre crecimiento que ponga foco en productividad e innovación</a></li><li class="toc-l2"><a href="#3-exasesores-laborales-de-boric-critican-credito-tributario-y-jara-respalda-medida-pero-con-foco-en-pyme">3.  Exasesores laborales de Boric critican crédito tributario y Jara respalda medida, pero con foco en PYME</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-kevin-warsh-nominado-de-trump-a-la-fed-plantea-un-nuevo-marco-en-el-central-para-abordar-la-inflacion">1.  Kevin Warsh, nominado de Trump a la Fed, plantea un nuevo marco en el central para abordar la inflación</a></li><li class="toc-l2"><a href="#2-trump-reitera-que-espera-un-gran-acuerdo-con-iran-en-medio-de-la-incertidumbre-sobre-las-conversaciones-de-paz">2.  Trump reitera que espera un &quot;gran acuerdo&quot; con Irán en medio de la incertidumbre sobre las conversaciones de paz</a></li><li class="toc-l2"><a href="#3-el-proximo-ceo-de-apple-john-ternus-enfrenta-un-momento-decisivo-en-la-ia">3.  El próximo CEO de Apple, John Ternus, enfrenta un momento decisivo en la IA</a></li><li class="toc-l2"><a href="#4-nobel-de-economia-anticipa-una-recesion-global-por-la-destruccion-de-demanda-de-petroleo-forzada-por-la-guerra">4.  Nobel de Economía anticipa una recesión global por la destrucción de demanda de petróleo forzada por la guerra</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-vc-latam-summit-2026-abordara-el-contexto-geopolitico-y-la-inversion-en-tecnologias-para-defensa">1.  VC Latam Summit 2026 abordará el contexto geopolítico y la inversión en tecnologías para defensa</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-desafios-de-la-direccion-del-trabajo">1.  Desafíos de la Dirección del Trabajo</a></li><li class="toc-l2"><a href="#2-control-de-horas-punta">2.  Control de horas punta</a></li><li class="toc-l2"><a href="#3-un-dificil-equilibrio">3.  Un difícil equilibrio</a></li><li class="toc-l2"><a href="#4-mujeres-en-mineria">4.  Mujeres en minería</a></li><li class="toc-l2"><a href="#5-legalizacion-de-las-apuestas-en-linea">5.  Legalización de las apuestas en línea</a></li></ul></nav>
 <div class="contenido">

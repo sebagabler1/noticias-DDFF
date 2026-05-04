@@ -39,18 +39,13 @@ SECCIONES_DF = [
 ]
 
 
-def render_sidebar(noticias_url: str = "", current_slug: str = "") -> str:
-    """
-    Sidebar fijo con las 6 secciones de DF.
-    - noticias_url: URL del archivo de noticias del día (e.g. "2026-04-30-noticias.html").
-                    Si es "", los hrefs son anchors relativos al documento actual.
-    - current_slug: slug de la sección actual (para marcarla activa).
-    """
+def render_sidebar(base_url: str = "") -> str:
+    """Sidebar con las 6 secciones. Si base_url='', los hrefs son anchors
+       relativos al documento actual. Si base_url='X.html', son deep-links."""
     items = []
     for nombre, slug in SECCIONES_DF:
-        href = f"{noticias_url}#{slug}" if noticias_url else f"#{slug}"
-        active_cls = " class=\"active\"" if slug == current_slug else ""
-        items.append(f'<li><a href="{href}"{active_cls}>{nombre}</a></li>')
+        href = f"{base_url}#{slug}" if base_url else f"#{slug}"
+        items.append(f'<li><a href="{href}">{nombre}</a></li>')
     return f"""
 <aside class="sidebar">
   <div class="sidebar-titulo">📚 Por sección</div>
@@ -74,6 +69,109 @@ SIDEBAR_CSS = """
 .sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
 .sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
 @media(max-width:1140px){.sidebar{display:none}}
+"""
+
+THEME_INIT_JS = """
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+"""
+
+THEME_TOGGLE_HTML = """
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+"""
+
+THEME_CSS = """
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+"""
+
+SCROLLSPY_JS = """
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
 """
 
 
@@ -139,11 +237,6 @@ header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
 header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
           font-weight:800;letter-spacing:-.01em;line-height:1.25}
 header .fecha{color:var(--muted);font-size:1rem}
-.link-noticias{display:inline-block;margin-top:.9rem;color:var(--naranja);
-              text-decoration:none;font-size:.92rem;font-weight:600;
-              border-bottom:1px dashed var(--naranja-soft);
-              padding-bottom:.1rem;transition:all .15s}
-.link-noticias:hover{border-bottom-style:solid;border-bottom-color:var(--naranja)}
 .toc{background:var(--crema);border:1px solid var(--naranja-soft);
      border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
 .toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
@@ -277,103 +370,12 @@ def _escape_html(s: str) -> str:
              .replace(">", "&gt;").replace('"', "&quot;"))
 
 
-def convertir_dfdocx_a_noticias_html(df_docx_path: str) -> tuple:
-    """Convierte el _DF.docx (noticias en bruto) y agrega ids a las secciones.
-       Retorna (html_body, lista_secciones_presentes)."""
-    with open(df_docx_path, "rb") as f:
-        result = mammoth.convert_to_html(f)
-
-    soup = BeautifulSoup(result.value, "html.parser")
-    secciones_presentes = []
-
-    # Las secciones en el .docx son headings nivel 1 con texto "🔹 Mercados", etc.
-    for h in soup.find_all(["h1", "h2"]):
-        texto = h.get_text(strip=True)
-        for nombre_sec, slug in SECCIONES_DF:
-            if nombre_sec in texto:
-                h["id"] = slug
-                if slug not in [s[1] for s in secciones_presentes]:
-                    secciones_presentes.append((nombre_sec, slug))
-                break
-
-    return str(soup), secciones_presentes
-
-
-def renderizar_pagina_noticias(fecha: datetime, html_body: str,
-                                docx_filename: str) -> str:
-    """Página con todas las noticias en bruto del día, organizadas por sección."""
-    fecha_humana = fecha_a_texto(fecha)
-    dia_sem = DIAS_NOMBRE[fecha.weekday()]
-    fecha_iso = fecha.strftime("%Y-%m-%d")
-    sidebar = render_sidebar(noticias_url="")  # anchors dentro del mismo doc
-
-    return f"""<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noticias {fecha_humana} · DF</title>
-<style>{PAGINA_CSS}{SIDEBAR_CSS}</style>
-</head>
-<body>
-<nav class="topbar">
-  <div class="topbar-inner">
-    <a href="{fecha_iso}.html" class="volver">← Ver resumen del día</a>
-    <a href="{docx_filename}" download class="descargar">⬇ Word</a>
-  </div>
-</nav>
-{sidebar}
-<div class="container">
-<header>
-  <span class="etiqueta">Noticias del {dia_sem}</span>
-  <h1>Noticias originales por sección</h1>
-  <div class="fecha">{fecha_humana}</div>
-</header>
-<div class="contenido">
-{html_body}
-</div>
-<footer>
-  Fuente: <a href="https://www.df.cl">df.cl</a> · Extraído por el scraper
-</footer>
-</div>
-<script>
-// Resaltar la sección actual mientras se hace scroll
-(function(){{
-  var secciones = document.querySelectorAll('.contenido h1[id], .contenido h2[id]');
-  var enlaces = document.querySelectorAll('.sidebar a');
-  if(!secciones.length || !enlaces.length) return;
-  var obs = new IntersectionObserver(function(entries){{
-    entries.forEach(function(e){{
-      if(e.isIntersecting){{
-        var id = e.target.id;
-        enlaces.forEach(function(a){{
-          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-        }});
-      }}
-    }});
-  }}, {{rootMargin:'-30% 0px -55% 0px'}});
-  secciones.forEach(function(s){{ obs.observe(s); }});
-}})();
-</script>
-</body>
-</html>
-"""
-
-
-def renderizar_pagina_dia(fecha: datetime, html_body: str, docx_filename: str,
-                            tiene_noticias: bool = False) -> str:
+def renderizar_pagina_dia(fecha: datetime, html_body: str, docx_filename: str) -> str:
     """Envuelve el body convertido en una página HTML completa con TOC y sidebar."""
     fecha_humana = fecha_a_texto(fecha)
     dia_sem = DIAS_NOMBRE[fecha.weekday()]
-    fecha_iso = fecha.strftime("%Y-%m-%d")
     html_con_ids, toc_html = construir_toc(html_body)
-
-    sidebar = render_sidebar(f"{fecha_iso}-noticias.html") if tiene_noticias else ""
-    link_noticias = (
-        f'<a href="{fecha_iso}-noticias.html" class="link-noticias">'
-        f'Ver noticias originales por sección →</a>'
-        if tiene_noticias else ""
-    )
+    sidebar = render_sidebar()  # anchors internos (#mercados, #empresas, ...)
 
     return f"""<!DOCTYPE html>
 <html lang="es">
@@ -381,9 +383,11 @@ def renderizar_pagina_dia(fecha: datetime, html_body: str, docx_filename: str,
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{fecha_humana} · Resumen DF</title>
-<style>{PAGINA_CSS}{SIDEBAR_CSS}</style>
+<style>{PAGINA_CSS}{SIDEBAR_CSS}{THEME_CSS}</style>
+{THEME_INIT_JS}
 </head>
 <body>
+{THEME_TOGGLE_HTML}
 <nav class="topbar">
   <div class="topbar-inner">
     <a href="index.html" class="volver">← Todas las ediciones</a>
@@ -396,7 +400,6 @@ def renderizar_pagina_dia(fecha: datetime, html_body: str, docx_filename: str,
   <span class="etiqueta">Edición {dia_sem}</span>
   <h1>Resumen Diario Financiero</h1>
   <div class="fecha">{fecha_humana}</div>
-  {link_noticias}
 </header>
 {toc_html}
 <div class="contenido">
@@ -406,6 +409,7 @@ def renderizar_pagina_dia(fecha: datetime, html_body: str, docx_filename: str,
   Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
 </footer>
 </div>
+{SCROLLSPY_JS}
 </body>
 </html>
 """
@@ -502,19 +506,17 @@ footer a:hover{text-decoration:underline}
 """
 
 
-def generar_index(dias_publicados: list, dias_con_noticias: set):
+def generar_index(dias_publicados: list):
     """Construye docs/index.html con los días disponibles.
-       dias_publicados es lista de (fecha, docx_filename, snippet).
-       dias_con_noticias es set de fecha_iso que tienen archivo -noticias.html."""
+       dias_publicados es lista de (fecha, docx_filename, snippet)."""
     fecha_hoy_humana = fecha_a_texto(datetime.now())
 
-    # Sidebar apunta al -noticias.html del día más reciente que tenga uno
-    sidebar = ""
-    for fecha, _, _ in dias_publicados:
-        fecha_iso = fecha.strftime("%Y-%m-%d")
-        if fecha_iso in dias_con_noticias:
-            sidebar = render_sidebar(f"{fecha_iso}-noticias.html")
-            break
+    # Sidebar deep-linkea al resumen más reciente
+    if dias_publicados:
+        latest_fecha = dias_publicados[0][0].strftime("%Y-%m-%d")
+        sidebar = render_sidebar(f"{latest_fecha}.html")
+    else:
+        sidebar = ""
 
     if not dias_publicados:
         cuerpo = '<p class="empty">Aún no hay resúmenes disponibles. Vuelve pronto.</p>'
@@ -561,14 +563,16 @@ def generar_index(dias_publicados: list, dias_con_noticias: set):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resumen Diario Financiero · Análisis del mercado chileno</title>
-<style>{INDEX_CSS}{SIDEBAR_CSS}</style>
+<style>{INDEX_CSS}{SIDEBAR_CSS}{THEME_CSS}</style>
+{THEME_INIT_JS}
 </head>
 <body>
+{THEME_TOGGLE_HTML}
 <section class="hero">
   <div class="hero-content">
     <span class="badge">📰 Análisis diario</span>
     <h1>Resumen Diario Financiero</h1>
-    <p class="tagline">Lo más importante del mercado chileno, resumido y curado para que lo leas en minutos.</p>
+    <p class="tagline">Noticias en minutos</p>
   </div>
 </section>
 {sidebar}
@@ -591,14 +595,21 @@ def generar_index(dias_publicados: list, dias_con_noticias: set):
 # ─── LIMPIEZA ─────────────────────────────────────────────────────────────────
 
 def limpiar_docs(fechas_validas: set):
-    """Borra de docs/ los archivos cuya fecha no está en fechas_validas.
-       Cubre tanto YYYY-MM-DD.{html,docx} como YYYY-MM-DD-noticias.{html,docx}."""
+    """Borra de docs/:
+       - YYYY-MM-DD.{html,docx} cuya fecha no esté en fechas_validas.
+       - Cualquier YYYY-MM-DD-noticias.{html,docx} (feature retirada)."""
     if not os.path.exists(DOCS_DIR):
         return
-    patron = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:-noticias)?\.(html|docx)$")
+    patron_resumen = re.compile(r"^(\d{4}-\d{2}-\d{2})\.(html|docx)$")
+    patron_noticias = re.compile(r"^\d{4}-\d{2}-\d{2}-noticias\.(html|docx)$")
     for archivo in os.listdir(DOCS_DIR):
-        m = patron.match(archivo)
+        eliminar = False
+        m = patron_resumen.match(archivo)
         if m and m.group(1) not in fechas_validas:
+            eliminar = True
+        elif patron_noticias.match(archivo):
+            eliminar = True
+        if eliminar:
             try:
                 os.remove(os.path.join(DOCS_DIR, archivo))
                 print(f"  🗑️  eliminado: {archivo}")
@@ -674,7 +685,6 @@ def main():
 
     print(f"✅ {len(resumenes)} resumen(es) encontrado(s):")
     publicados = []
-    dias_con_noticias = set()
 
     for fecha, docx_path in resumenes:
         fecha_iso = fecha.strftime("%Y-%m-%d")
@@ -682,16 +692,10 @@ def main():
         html_dest = f"{fecha_iso}.html"
         print(f"   - {fecha_iso}: {os.path.basename(docx_path)}")
 
-        # Buscar el _DF.docx (noticias en bruto) para esta fecha
-        df_docx_path = os.path.join(
-            CARPETA_SALIDA, fecha_iso, f"{fecha_iso}_DF.docx"
-        )
-        tiene_noticias = os.path.exists(df_docx_path)
-
         try:
             html_body = convertir_docx_a_html_body(docx_path)
             snippet = extraer_snippet(html_body)
-            pagina = renderizar_pagina_dia(fecha, html_body, docx_dest, tiene_noticias)
+            pagina = renderizar_pagina_dia(fecha, html_body, docx_dest)
         except Exception as e:
             print(f"     ❌ Error convirtiendo resumen: {e}")
             continue
@@ -701,25 +705,9 @@ def main():
         shutil.copy2(docx_path, os.path.join(DOCS_DIR, docx_dest))
         publicados.append((fecha, docx_dest, snippet))
 
-        # Si hay _DF.docx, generar también la página de noticias por sección
-        if tiene_noticias:
-            noticias_html_dest = f"{fecha_iso}-noticias.html"
-            noticias_docx_dest = f"{fecha_iso}-noticias.docx"
-            try:
-                noticias_body, _ = convertir_dfdocx_a_noticias_html(df_docx_path)
-                pagina_n = renderizar_pagina_noticias(fecha, noticias_body, noticias_docx_dest)
-                with open(os.path.join(DOCS_DIR, noticias_html_dest), "w",
-                          encoding="utf-8") as f:
-                    f.write(pagina_n)
-                shutil.copy2(df_docx_path, os.path.join(DOCS_DIR, noticias_docx_dest))
-                dias_con_noticias.add(fecha_iso)
-                print(f"     ↳ noticias por sección: {noticias_html_dest}")
-            except Exception as e:
-                print(f"     ⚠️  Error generando noticias: {e}")
-
     fechas_validas = {f.strftime("%Y-%m-%d") for f, _, _ in publicados}
     limpiar_docs(fechas_validas)
-    generar_index(publicados, dias_con_noticias)
+    generar_index(publicados)
 
     print(f"\n🌐 Sitio generado: {os.path.join(DOCS_DIR, 'index.html')}")
     print("\n🚀 Pusheando a GitHub...")

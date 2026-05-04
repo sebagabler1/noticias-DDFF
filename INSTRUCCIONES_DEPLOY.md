@@ -3,7 +3,7 @@
 Pasos para publicar los `Resumen_*.docx` (los que genera Cowork) en una URL
 tipo `https://TU-USUARIO.github.io/noticias-df/` que cualquiera pueda ver.
 
-El sitio se actualiza solo cada día a las 12:25 (15 min después de Cowork),
+El sitio se actualiza solo cada día a las 11:30 (10 min después de Cowork),
 desde tu PC. Si tu PC está apagado ese día, simplemente queda el último
 resumen publicado y se actualiza la próxima vez que se prenda al mediodía.
 
@@ -12,14 +12,14 @@ resumen publicado y se actualiza la próxima vez que se prenda al mediodía.
 ## Cómo funciona el flujo completo
 
 ```
-12:00 → tarea programada "ScraperDiarioFinanciero" → genera 2026-04-30_DF.docx
-12:15 → Cowork lee el .docx y genera Resumen_2026-04-30.docx
-12:25 → tarea programada "PublicarResumenDF" → ejecuta publicar.py:
+11:15 → tarea programada "ScraperDiarioFinanciero" → genera 2026-04-30_DF.docx
+11:20 → Cowork lee el .docx y genera Resumen_2026-04-30.docx
+11:30 → tarea programada "PublicarResumenDF" → ejecuta publicar.py:
           1. Lee los Resumen_*.docx de los últimos 7 días
           2. Los convierte a HTML
           3. Genera docs/index.html con la lista
           4. Hace git push a GitHub
-12:26 → GitHub Pages publica automáticamente la nueva versión
+11:31 → GitHub Pages publica automáticamente la nueva versión
 ```
 
 ---

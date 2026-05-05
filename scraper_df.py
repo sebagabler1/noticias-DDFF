@@ -486,6 +486,117 @@ def crear_documento_word(noticias_por_seccion: dict, fecha: datetime,
     return ruta
 
 
+# ─── CREACIÓN DEL MARKDOWN ────────────────────────────────────────────────────
+
+def crear_documento_markdown(noticias_por_seccion: dict, fecha: datetime,
+                              stats: dict) -> str:
+    lineas = []
+
+    lineas.append(f"# Resumen Diario Financiero — {fecha_a_texto(fecha)}")
+    lineas.append("")
+    lineas.append(f"Noticias: {stats['total']} | Con contenido: {stats['con_contenido']} | Via archive.today: {stats['de_archive']}")
+    lineas.append("")
+    lineas.append("---")
+    lineas.append("")
+
+    for seccion, noticias in noticias_por_seccion.items():
+        if not noticias:
+            continue
+
+        lineas.append(f"## {seccion}")
+        lineas.append("")
+
+        for i, n in enumerate(noticias, 1):
+            badges = []
+            if n.get("destacada"):
+                badges.append("[Destacada]")
+            if n["tiene_paywall"] and n["fuente"] == "archive":
+                badges.append("[archive.today]")
+            elif n["tiene_paywall"]:
+                badges.append("[paywall]")
+            badge_str = "  " + " ".join(badges) if badges else ""
+
+            lineas.append(f"### {i}. {n['titulo']}{badge_str}")
+            lineas.append("")
+
+            if n.get("contenido") and len(n["contenido"]) > 50:
+                for linea in n["contenido"].split("\n"):
+                    linea = linea.strip()
+                    if not linea:
+                        continue
+                    match = re.match(r'^===\s*(.+?)\s*===$', linea)
+                    if match:
+                        lineas.append(f"**{match.group(1)}**")
+                    else:
+                        lineas.append(linea)
+                lineas.append("")
+
+            lineas.append("---")
+            lineas.append("")
+
+    lineas.append(f"*Generado el {datetime.now().strftime('%d/%m/%Y a las %H:%M')} — Fuente: df.cl*")
+
+    carpeta_dia = os.path.join(CARPETA_SALIDA, fecha.strftime("%Y-%m-%d"))
+    os.makedirs(carpeta_dia, exist_ok=True)
+    ruta = os.path.join(carpeta_dia, fecha.strftime("%Y-%m-%d") + "_DF.md")
+    with open(ruta, "w", encoding="utf-8") as f:
+        f.write("\n".join(lineas))
+    return ruta
+
+# ─── CREACIÓN DEL CONTEXTO (versión compacta para IA) ────────────────────────
+
+def primer_parrafo(contenido: str) -> str:
+    """Extrae el primer párrafo real del contenido (ignora subtítulos === ===)."""
+    for linea in contenido.split("\n"):
+        linea = linea.strip()
+        if not linea:
+            continue
+        if re.match(r'^===.+===$', linea):
+            continue
+        if len(linea) > 60:
+            return linea
+    return ""
+
+def crear_documento_contexto(noticias_por_seccion: dict, fecha: datetime) -> str:
+    lineas = []
+
+    lineas.append(f"# Noticias DF — {fecha_a_texto(fecha)}")
+    lineas.append("")
+    lineas.append(
+        "Este archivo contiene el título y lead de cada noticia del día. "
+        "Úsalo para generar un resumen ejecutivo por sección."
+    )
+    lineas.append("")
+    lineas.append("---")
+    lineas.append("")
+
+    for seccion, noticias in noticias_por_seccion.items():
+        if not noticias:
+            continue
+
+        lineas.append(f"## {seccion}")
+        lineas.append("")
+
+        for i, n in enumerate(noticias, 1):
+            lineas.append(f"**{i}. {n['titulo']}**")
+            if n.get("contenido") and len(n["contenido"]) > 60:
+                parrafo = primer_parrafo(n["contenido"])
+                if parrafo:
+                    lineas.append(parrafo)
+            lineas.append("")
+
+        lineas.append("")
+
+    lineas.append(f"*Generado el {datetime.now().strftime('%d/%m/%Y a las %H:%M')} — Fuente: df.cl*")
+
+    carpeta_dia = os.path.join(CARPETA_SALIDA, fecha.strftime("%Y-%m-%d"))
+    os.makedirs(carpeta_dia, exist_ok=True)
+    ruta = os.path.join(carpeta_dia, fecha.strftime("%Y-%m-%d") + "_contexto.md")
+    with open(ruta, "w", encoding="utf-8") as f:
+        f.write("\n".join(lineas))
+    return ruta
+
+
 # ─── RECUPERAR DÍAS PERDIDOS ──────────────────────────────────────────────────
 
 def detectar_dias_faltantes() -> list:
@@ -551,10 +662,14 @@ def scrapear_dia(fecha: datetime) -> str:
         noticias_por_seccion[seccion["nombre"]] = noticias_filtradas
         time.sleep(1)
 
-    ruta_word = crear_documento_word(noticias_por_seccion, fecha, stats)
+    ruta_word     = crear_documento_word(noticias_por_seccion, fecha, stats)
+    ruta_md       = crear_documento_markdown(noticias_por_seccion, fecha, stats)
+    ruta_contexto = crear_documento_contexto(noticias_por_seccion, fecha)
     carpeta_dia = os.path.join(CARPETA_SALIDA, fecha.strftime("%Y-%m-%d"))
     print(f"\n✅ Guardado en: {carpeta_dia}")
-    print(f"   📄 Word: {os.path.basename(ruta_word)}")
+    print(f"   📄 Word:     {os.path.basename(ruta_word)}")
+    print(f"   📝 Markdown: {os.path.basename(ruta_md)}")
+    print(f"   🤖 Contexto: {os.path.basename(ruta_contexto)}")
     print(f"   Total: {stats['total']}  |  Contenido: {stats['con_contenido']}  |  Archive: {stats['de_archive']}")
     return ruta_word
 

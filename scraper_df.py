@@ -602,20 +602,21 @@ def crear_documento_contexto(noticias_por_seccion: dict, fecha: datetime) -> str
 def detectar_dias_faltantes() -> list:
     """
     Revisa la carpeta de salida y detecta qué días hábiles (lun-vie)
-    de los últimos 30 días faltan. Retorna lista de datetimes a scrapear.
+    de los últimos 3 días faltan. Si la carpeta del día existe, salta;
+    si falta, lo agrega a la lista para recuperarlo.
     """
     hoy = datetime.now()
     faltantes = []
 
-    for dias_atras in range(1, 31):  # últimos 30 días
+    for dias_atras in range(1, 4):  # últimos 3 días
         fecha = hoy - timedelta(days=dias_atras)
         # Solo lunes a viernes
         if fecha.weekday() >= 5:
             continue
-        nombre = fecha.strftime("%Y-%m-%d") + "_DF.docx"
-        ruta = os.path.join(CARPETA_SALIDA, fecha.strftime("%Y-%m-%d"), nombre)
-        if not os.path.exists(ruta):
-            faltantes.append(fecha)
+        carpeta = os.path.join(CARPETA_SALIDA, fecha.strftime("%Y-%m-%d"))
+        if os.path.isdir(carpeta):
+            continue  # carpeta ya existe → saltar al próximo
+        faltantes.append(fecha)
 
     return sorted(faltantes)  # del más antiguo al más reciente
 

@@ -3,5 +3,5 @@
 :: Se ejecuta automaticamente por la tarea programada "PublicarResumenDF".
 
 cd /d "%~dp0"
-python publicar.py >> publicar.log 2>&1
+python publicar.py --wait 20 >> publicar.log 2>&1
 exit /b %errorlevel%

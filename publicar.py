@@ -8,11 +8,13 @@ Publica los Resúmenes (generados por Claude Cowork) al sitio web.
 - Hace git add + commit + push automático
 """
 
+import argparse
 import os
 import re
 import shutil
 import subprocess
 import sys
+import time
 import unicodedata
 from datetime import datetime
 
@@ -670,10 +672,41 @@ def push_a_github():
 
 # ─── FLUJO PRINCIPAL ──────────────────────────────────────────────────────────
 
+def esperar_resumen_de_hoy(max_minutos: int) -> bool:
+    """Polea el Resumen_<hoy>.docx cada 60s hasta que aparezca o se agote
+       el tiempo. Retorna True si lo encontró, False si no."""
+    if max_minutos <= 0:
+        return False
+    fecha_hoy = datetime.now().strftime("%Y-%m-%d")
+    ruta = os.path.join(CARPETA_SALIDA, fecha_hoy, f"Resumen_{fecha_hoy}.docx")
+    if os.path.exists(ruta):
+        print(f"✅ Resumen de hoy ya disponible: {os.path.basename(ruta)}\n")
+        return True
+
+    print(f"⏳ Esperando Resumen_{fecha_hoy}.docx (hasta {max_minutos} min)...")
+    for i in range(max_minutos):
+        time.sleep(60)
+        if os.path.exists(ruta):
+            elapsed = i + 1
+            print(f"✅ Resumen de hoy detectado tras {elapsed} min de espera.\n")
+            return True
+        print(f"   …{i + 1}/{max_minutos} min sin Resumen de hoy")
+    print(f"⚠️  Tras {max_minutos} min sin aparecer. Pusheando lo disponible.\n")
+    return False
+
+
 def main():
+    parser = argparse.ArgumentParser(description="Publicador del sitio")
+    parser.add_argument("--wait", type=int, default=0,
+                        help="Minutos a esperar el Resumen de hoy antes de publicar")
+    args = parser.parse_args()
+
     os.makedirs(DOCS_DIR, exist_ok=True)
     print(f"📁 Carpeta de resúmenes: {CARPETA_SALIDA}")
     print(f"📁 Carpeta del sitio:    {DOCS_DIR}\n")
+
+    if args.wait > 0:
+        esperar_resumen_de_hoy(args.wait)
 
     resumenes = encontrar_resumenes()
     if not resumenes:

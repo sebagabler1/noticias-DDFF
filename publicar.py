@@ -640,7 +640,8 @@ def hay_remote_configurado() -> bool:
 
 
 def push_a_github():
-    """Hace git pull --ff-only, add, commit y push. No falla si no hay cambios."""
+    """Hace git pull --ff-only, add, commit y push. Si hay commits locales
+       acumulados sin pushear (e.g. auto-push falló días anteriores), los empuja."""
     if not hay_repositorio_git():
         print("⚠️  No es un repositorio git. Saltando push.")
         return
@@ -655,19 +656,29 @@ def push_a_github():
         print("   Continuando sin pull. Si hay conflicto, el push fallará.")
 
     git("add", "docs/")
-    r = git("diff", "--staged", "--quiet", check=False)
-    if r.returncode == 0:
-        print("📭 Sin cambios en docs/. No hay nada que pushear.")
-        return
+    r_diff = git("diff", "--staged", "--quiet", check=False)
+    hay_cambios_nuevos = r_diff.returncode != 0
 
-    fecha = datetime.now().strftime("%Y-%m-%d")
-    git("commit", "-m", f"Publicar resumen {fecha}")
+    if hay_cambios_nuevos:
+        fecha = datetime.now().strftime("%Y-%m-%d")
+        git("commit", "-m", f"Publicar resumen {fecha}")
+
+    # Cuántos commits locales no están en el remoto
+    r_ahead = git("rev-list", "--count", "@{u}..HEAD", check=False)
+    try:
+        n_ahead = int(r_ahead.stdout.strip())
+    except (ValueError, AttributeError):
+        n_ahead = 0
+
+    if n_ahead == 0:
+        print("📭 Sin cambios en docs/ y sin commits pendientes de push.")
+        return
 
     r = git("push", check=False)
     if r.returncode != 0:
-        print(f"❌ git push falló:\n{r.stderr}")
+        print(f"❌ git push falló (intentaba pushear {n_ahead} commit(s)):\n{r.stderr}")
         sys.exit(1)
-    print("✅ Cambios pusheados a GitHub.")
+    print(f"✅ {n_ahead} commit(s) pusheado(s) a GitHub.")
 
 
 # ─── FLUJO PRINCIPAL ──────────────────────────────────────────────────────────

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>26 de mayo de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-05-26.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">26 de mayo de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-aluminio-alcanza-su-nivel-mas-alto-en-cuatro-anos-ante-el-temor-a-recortes-en-la-produccion-china">1.  El aluminio alcanza su nivel más alto en cuatro años ante el temor a recortes en la producción china</a></li><li class="toc-l2"><a href="#2-ipsa-pierde-los-10800-puntos-en-apertura-marcada-por-un-brote-de-incertidumbre-tras-recientes-ataques-en-medio-oriente">2.  IPSA pierde los 10.800 puntos en apertura marcada por un brote de incertidumbre tras recientes ataques en Medio Oriente</a></li><li class="toc-l2"><a href="#3-caso-sartor-fondo-ligado-a-kiblisky-financio-opa-fallida-de-clark-y-compra-de-acciones-de-azul-azul-por-parte-de-correa">3.  Caso Sartor: fondo ligado a Kiblisky financió OPA fallida de Clark y compra de acciones de Azul Azul por parte de Correa</a></li><li class="toc-l2"><a href="#4-dolar-abre-plano-luego-que-ataques-de-eeuu-tensan-el-ambiente-de-las-negociaciones-de-paz-con-iran">4.  Dólar abre plano luego que ataques de EEUU tensan el ambiente de las negociaciones de paz con Irán</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-tribunal-rechaza-demanda-de-juan-pablo-hermosilla-contra-pamela-hites-por-pago-de-honorarios-legales">1.  Tribunal rechaza demanda de Juan Pablo Hermosilla contra Pamela Hites por pago de honorarios legales</a></li><li class="toc-l2"><a href="#2-el-destino-de-us-2200-millones-se-decide-este-jueves-comite-de-ministros-zanja-reclamos-contra-megalinea-kimal-lo-aguirre-y-otros-proyectos">2.  El destino de US$ 2.200 millones se decide este jueves: Comité de Ministros zanja reclamos contra megalínea Kimal-Lo Aguirre y otros proyectos</a></li><li class="toc-l2"><a href="#3-tdlc-da-curso-a-la-ofensiva-de-cinco-canales-de-tv-en-contra-de-google-y-unifica-causas-en-un-solo-expediente">3.  TDLC da curso a la ofensiva de cinco canales de TV en contra de Google y unifica causas en un solo expediente</a></li><li class="toc-l2"><a href="#4-cargo-por-transmision-pone-presion-a-las-cuentas-de-la-luz-alzas-en-zona-sur-superan-el-22-y-en-santiago-llegan-a-417">4.  Cargo por transmisión pone presión a las cuentas de la luz: alzas en zona sur superan el 22% y en Santiago llegan a 4,17%</a></li><li class="toc-l2"><a href="#5-exsuperintendente-de-casinos-sobre-concurso-para-operar-en-vina-pucon-iquique-y-coquimbo-va-destinado-al-fracaso">5.  Exsuperintendente de Casinos sobre concurso para operar en Viña, Pucón, Iquique y Coquimbo: “Va destinado al fracaso”</a></li><li class="toc-l2"><a href="#6-mallplaza-buscar-ampliar-su-presencia-en-chile-y-evalua-nuevo-proyecto-en-piedra-roja">6.  Mallplaza buscar ampliar su presencia en Chile y evalúa nuevo proyecto en Piedra Roja</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-grau-sale-a-rebatir-a-quiroz-por-denuncia-de-error-en-proyeccion-de-deuda-y-apunta-al-impacto-de-la-ley-miscelanea">1.  Grau sale a rebatir a Quiroz por denuncia de error en proyección de deuda y apunta al impacto de la ley miscelánea</a></li><li class="toc-l2"><a href="#2-canciller-inaugura-foro-sur-2026-y-destaca-rol-de-america-latina-en-el-mundo-que-se-esta-redefiniendo">2.  Canciller inaugura Foro Sur 2026 y destaca rol de América Latina “en el mundo que se está redefiniendo”</a></li><li class="toc-l2"><a href="#3-andres-perez-economista-jefe-para-latam-de-itau-sincera-una-realidad-donde-no-podemos-exigir-que-el-gasto-publico-crezca-por-encima-de-lo-que-crece-la-economia">3.  Andrés Pérez, economista jefe para Latam de Itaú: “Sincera una realidad donde no podemos exigir que el gasto público crezca por encima de lo que crece la economía”</a></li><li class="toc-l2"><a href="#4-alejandro-weber-decano-economia-negocios-y-gobierno-uss-es-practicamente-imposible-que-en-el-mediano-plazo-el-pais-alcance-la-convergencia-de-las-cuentas-fiscales">4.  Alejandro Weber, decano Economía, Negocios y Gobierno USS: “Es prácticamente imposible que en el mediano plazo el país alcance la convergencia de las cuentas fiscales”</a></li><li class="toc-l2"><a href="#5-hacienda-recorta-pronostico-de-pib-para-el-ano-pero-sin-renunciar-a-acelerar-ritmo-de-crecimiento-a-4-hacia-el-termino-del-mandato">5.  Hacienda recorta pronóstico de PIB para el año, pero sin renunciar a acelerar ritmo de crecimiento a 4% hacia el término del mandato</a></li><li class="toc-l2"><a href="#6-parlamentarios-se-enfrentan-por-ifp-desde-perseguir-responsabilidades-politicas-hasta-voladero-de-luces">6.  Parlamentarios se enfrentan por IFP: desde perseguir responsabilidades políticas hasta “voladero de luces”</a></li><li class="toc-l2"><a href="#7-quiroz-acusa-millonario-error-en-proyeccion-de-deuda-del-gobierno-de-boric-que-la-llevaria-a-superar-el-limite-de-45-en-2028">7.  Quiroz acusa millonario error en proyección de deuda del gobierno de Boric que la llevaría a superar el límite de 45% en 2028</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-china-restringe-viajes-internacionales-de-expertos-en-ia-de-empresas-privadas-su-talento-es-considerado-un-activo-estrategico">1.  China restringe viajes internacionales de expertos en IA de empresas privadas: su talento es considerado un activo estratégico</a></li><li class="toc-l2"><a href="#2-las-acciones-de-ferrari-se-desploman-tras-la-decepcion-por-el-diseno-de-su-primer-modelo-totalmente-electrico-criticos-lo-comparan-con-vehiculos-masivos">2.  Las acciones de Ferrari se desploman tras la decepción por el diseño de su primer modelo totalmente eléctrico: críticos lo comparan con vehículos &quot;masivos&quot;</a></li><li class="toc-l2"><a href="#3-mercados-festejan-posible-pacto-de-iran-y-eeuu-pese-a-persistentes-obstaculos-para-sellarlo">3.  Mercados festejan posible pacto de Irán y EEUU, pese a persistentes obstáculos para sellarlo</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-las-claves-y-el-analisis-de-la-enciclica-del-papa-leon-xiv-que-llama-a-desarmar-la-ia">1.  Las claves y el análisis de la encíclica del Papa León XIV que llama a “desarmar” la IA</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-la-infraestructura-pendiente-del-crecimiento">1.  La infraestructura pendiente del crecimiento</a></li><li class="toc-l2"><a href="#2-reves-en-proteccion-de-datos">2.  Revés en protección de datos</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>26 De Mayo De 2026</p><p>6 secciones  ·  23 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-aluminio-alcanza-su-nivel-mas-alto-en-cuatro-anos-ante-el-temor-a-recortes-en-la-produccion-china"><strong>1.  El aluminio alcanza su nivel más alto en cuatro años ante el temor a recortes en la producción china</strong></h2><p>El precio del aluminio subió hasta US$ 3.691,5 por tonelada en la Bolsa de Metales de Londres, su nivel más alto en cuatro años, impulsado por el temor a que China reduzca su producción ante una inspección nacional de consumo energético y emisiones. Las fundiciones chinas habían estado operando por encima de su capacidad para aprovechar la escasez global derivada del cierre del estrecho de Ormuz, elevando la producción diaria a un récord de 129 mil toneladas mensuales. Ahora las autoridades buscan frenar esa sobreproducción, con al menos una fundición en Guangxi ya recortando volúmenes, mientras que las industrias del acero y refinación de petróleo también serán fiscalizadas.</p><h2 id="2-ipsa-pierde-los-10800-puntos-en-apertura-marcada-por-un-brote-de-incertidumbre-tras-recientes-ataques-en-medio-oriente"><strong>2.  IPSA pierde los 10.800 puntos en apertura marcada por un brote de incertidumbre tras recientes ataques en Medio Oriente</strong></h2><p>El S&amp;P IPSA chileno abrió con una caída de 0,4% hasta los 10.777 puntos luego de que EEUU realizara ataques de «autodefensa» en el sur de Irán y la Guardia Revolucionaria iraní derribara un dron estadounidense, lo que enfrió el optimismo sobre un pronto acuerdo de paz. El petróleo Brent repuntó 3,2% hasta US$ 99,2 por barril ante el escalamiento del conflicto, avivando temores inflacionarios y expectativas de una Fed más agresiva. Las acciones de Latam (-2%) y SQM (-1,5%) presionaban negativamente al índice, mientras ILC lideraba las alzas con un 2,7% tras reportar utilidades muy superiores a lo esperado.</p><h2 id="3-caso-sartor-fondo-ligado-a-kiblisky-financio-opa-fallida-de-clark-y-compra-de-acciones-de-azul-azul-por-parte-de-correa"><strong>3.  Caso Sartor: fondo ligado a Kiblisky financió OPA fallida de Clark y compra de acciones de Azul Azul por parte de Correa</strong></h2><p>El Ministerio Público reveló que el fondo extranjero Sportcap Credit Fund LLC, propiedad de Jacques Gliksberg y Patricio Kiblisky, financió la fallida OPA de Michael Clark sobre Azul Azul con abonos de US$ 18,5 millones a la sociedad Bulla SpA, de acuerdo con un Reporte de Operación Sospechosa emitido por Banco Santander y alertado por la UAF. Además, el mismo fondo financió con US$ 7,9 millones la compra del 21,44% de las acciones de Azul Azul realizada por el abogado y director José Ramón Correa a través de su sociedad Romántico Viajero SpA en enero pasado. En total, Sportcap habría aportado más de US$ 26 millones en ambas operaciones, con un préstamo a tasa de 8,25% anual, según contratos y comprobantes incautados en allanamientos.</p><h2 id="4-dolar-abre-plano-luego-que-ataques-de-eeuu-tensan-el-ambiente-de-las-negociaciones-de-paz-con-iran"><strong>4.  Dólar abre plano luego que ataques de EEUU tensan el ambiente de las negociaciones de paz con Irán</strong></h2><p>El tipo de cambio dólar-peso abrió estable en $ 895,7 este martes, resistiendo caídas ante la escalada militar en Medio Oriente tras los ataques de autodefensa de EEUU en el sur de Irán y el derribo de un dron estadounidense por la Guardia Revolucionaria iraní. El petróleo Brent repuntó 2,9% hasta US$ 98,9 por barril, lo que fija un piso a los precios energéticos y aleja la posibilidad de una rápida reapertura del estrecho de Ormuz. Las negociaciones apuntan a una tregua de 60 días que permita la reapertura gradual del estrecho y el inicio de conversaciones más profundas sobre el programa nuclear iraní, aunque el secretario de Estado Rubio aseguró que los diálogos continuarán.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-tribunal-rechaza-demanda-de-juan-pablo-hermosilla-contra-pamela-hites-por-pago-de-honorarios-legales"><strong>1.  Tribunal rechaza demanda de Juan Pablo Hermosilla contra Pamela Hites por pago de honorarios legales</strong></h2><p>El 23° Juzgado Civil de Santiago rechazó la demanda de cobro de honorarios interpuesta por el abogado Juan Pablo Hermosilla contra la empresaria Pamela Hites por US$ 1,97 millones, equivalentes al 10% de los montos conseguidos en exceso al testamento de su padre en el marco de un litigio hereditario que duró casi cinco años. El tribunal determinó que el contrato establecía honorarios «a resultado», pero que no se probó la cuantía exacta del logro económico obtenido, dado que la transacción hereditaria no valorizó formalmente la masa hereditaria. La relación entre las partes se deterioró tras el pago de un abono de $50 millones, con Hites alegando incumplimientos en due diligence y falta de información sobre el impacto tributario de la transacción, estimado en $2.488 millones.</p><h2 id="2-el-destino-de-us-2200-millones-se-decide-este-jueves-comite-de-ministros-zanja-reclamos-contra-megalinea-kimal-lo-aguirre-y-otros-proyectos"><strong>2.  El destino de US$ 2.200 millones se decide este jueves: Comité de Ministros zanja reclamos contra megalínea Kimal-Lo Aguirre y otros proyectos</strong></h2><p>El Comité de Ministros, presidido por la ministra del Medio Ambiente Francisca Toledo, se reunirá este jueves 28 de mayo para resolver reclamaciones sobre cinco proyectos de inversión que suman US$ 2.215 millones. El proyecto más relevante es la megalínea de transmisión eléctrica Kimal-Lo Aguirre, que unirá Antofagasta con Santiago con una inversión de US$ 1.480 millones y enfrenta cinco reclamaciones ciudadanas, siendo la primera línea de corriente continua del país y con entrada en operación prevista para mayo de 2029. También se examinarán reclamaciones sobre el puerto Copiaport-E (US$ 450 millones), el parque solar Tamarico Fase II (US$ 250 millones), el relleno sanitario Los Ángeles (US$ 15,5 millones) y la parcelación Punta Puertecillo (US$ 20 millones).</p><h2 id="3-tdlc-da-curso-a-la-ofensiva-de-cinco-canales-de-tv-en-contra-de-google-y-unifica-causas-en-un-solo-expediente"><strong>3.  TDLC da curso a la ofensiva de cinco canales de TV en contra de Google y unifica causas en un solo expediente</strong></h2><p>El Tribunal de Defensa de la Libre Competencia admitió a trámite las demandas presentadas en abril por TVN, Canal 13, Chilevisión, TV+ y Megamedia contra Alphabet, casa matriz de Google, por abuso de posición dominante en los mercados de motores de búsqueda, tráfico derivado y publicidad digital. Los cinco canales acusan a Google de convertirse en actor monopólico que les sustrae ingresos publicitarios y tráfico, solicitando una multa equivalente al 30% de los ingresos publicitarios de Google en Chile o el doble de sus beneficios por dichos servicios. El TDLC unificó todas las causas en un solo expediente con sentencia única, dado que los escritos son casi idénticos y apuntan contra los mismos demandados y conductas.</p><h2 id="4-cargo-por-transmision-pone-presion-a-las-cuentas-de-la-luz-alzas-en-zona-sur-superan-el-22-y-en-santiago-llegan-a-417"><strong>4.  Cargo por transmisión pone presión a las cuentas de la luz: alzas en zona sur superan el 22% y en Santiago llegan a 4,17%</strong></h2><p>Las cuentas de electricidad subirán en promedio 4,9% a partir de julio, resultado de combinar un alza de 2,1% en el Precio de Nudo Promedio (generación) con un incremento preliminar de 2,8% en el cargo de transmisión, según informes de la Comisión Nacional de Energía. El impacto regional es dispar: en ciudades del sur como Valdivia la boleta para un consumo de 250 kWh subiría 22,49%, en Puerto Varas un 21,69% y en Puerto Montt un 20,87%, mientras que en Santiago (Enel) el incremento llegaría a 4,17%. El alza en transmisión obedece parcialmente a la reversión de un descuento extraordinario previo vinculado a montos incorrectamente informados por Transelec, y se suma a la deuda pendiente con distribuidoras por el VAD que comenzaría a cobrarse en julio y que bordea los US$ 900 millones.</p><h2 id="5-exsuperintendente-de-casinos-sobre-concurso-para-operar-en-vina-pucon-iquique-y-coquimbo-va-destinado-al-fracaso"><strong>5.  Exsuperintendente de Casinos sobre concurso para operar en Viña, Pucón, Iquique y Coquimbo: “Va destinado al fracaso”</strong></h2><p>Francisco Leiva planteó que se incluyeron exigencias demasiado altas para que nuevos actores ingresen al proceso, preocupación que llevó a Contraloría. Francisco Leiva, exsuperintendente de Casinos. Foto: Jonathan Duran Como una industria “estancada”. Así describió el abogado Francisco Leiva el momento que hoy viven los casinos físicos en Chile, sector que entre 2005 y 2012 le tocó supervisar como primer superintendente de Casinos de Juego en el país.</p><h2 id="6-mallplaza-buscar-ampliar-su-presencia-en-chile-y-evalua-nuevo-proyecto-en-piedra-roja"><strong>6.  Mallplaza buscar ampliar su presencia en Chile y evalúa nuevo proyecto en Piedra Roja</strong></h2><p>Mallplaza, el brazo de centros comerciales de Grupo Falabella, estaría evaluando desarrollar un nuevo proyecto en el sector de Piedra Roja, Chicureo (comuna de Colina), respaldado en el registro reciente de cuatro marcas como Mallplaza Colina y Mallplaza Chicureo en el Diario Oficial. La iniciativa, que responde al crecimiento habitacional de la zona, apuntaría a un formato acotado con hasta una tienda ancla y algunos locales complementarios, distinto de los grandes centros tradicionales de la cadena. Esto se enmarca en un plan de inversiones de más de US$ 600 millones hacia 2028 para sumar 168.000 m2 de GLA y la estrategia de posicionarse como el operador de centros urbanos más relevante de la región andina.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-grau-sale-a-rebatir-a-quiroz-por-denuncia-de-error-en-proyeccion-de-deuda-y-apunta-al-impacto-de-la-ley-miscelanea"><strong>1.  Grau sale a rebatir a Quiroz por denuncia de error en proyección de deuda y apunta al impacto de la ley miscelánea</strong></h2><p>El exministro de Hacienda Nicolás Grau refutó las acusaciones de su sucesor Jorge Quiroz sobre supuestos errores aritméticos en la proyección de la deuda pública para 2026-2030, argumentando que las diferencias se explican por variaciones en el tipo de cambio, la inflación y el PIB nominal entre ambos informes, factores que no fueron considerados por el actual Ejecutivo. Grau sostuvo que «la proyección es consistente y no tiene errores de cálculo», señalando que la apreciación del peso y el alza del PIB nominal reducen el valor en pesos de la deuda y su proporción respecto al PIB. El exministro también cuestionó que el Informe de Finanzas Públicas del gobierno actual no aborde el impacto de la ley miscelánea en tramitación sobre la deuda, ni evalúe si es razonable rebajar impuestos a grandes empresas reduciendo el presupuesto de hospitales.</p><h2 id="2-canciller-inaugura-foro-sur-2026-y-destaca-rol-de-america-latina-en-el-mundo-que-se-esta-redefiniendo"><strong>2.  Canciller inaugura Foro Sur 2026 y destaca rol de América Latina “en el mundo que se está redefiniendo”</strong></h2><p>El canciller Francisco Pérez Mackenna inauguró el Foro Sur 2026, evento organizado por la U. de Chile y el Banco de Desarrollo de América Latina y el Caribe (CAF), con el objetivo de dialogar sobre la integración sudamericana y los desafíos regionales. “América Latina tiene todo lo necesario para ser protagonista en el mundo que se está redefiniendo. Lo que nos corresponde es decidir si vamos a estar a la altura de esa oportunidad”, dijo junto con destacar que “las tensiones geopolíticas que reconfiguran el orden global apuntan, casi inevitablemente, hacia activos que esta región tiene en abundancia: minerales críticos para la transición energética, reservas de agua dulce, biodiversidad, dominio de las rutas oceánicas estratégicas, alta capacidad para la producción de alimentos”.</p><h2 id="3-andres-perez-economista-jefe-para-latam-de-itau-sincera-una-realidad-donde-no-podemos-exigir-que-el-gasto-publico-crezca-por-encima-de-lo-que-crece-la-economia"><strong>3.  Andrés Pérez, economista jefe para Latam de Itaú: “Sincera una realidad donde no podemos exigir que el gasto público crezca por encima de lo que crece la economía”</strong></h2><p>Para el economista, el IFP reafirmó la importancia del crecimiento económico en el país y la necesidad de ajustes del gasto estructural, más allá de la inversión pública. Tras conocerse el Informe de Finanzas Públicas correspondiente al primer trimestre del año, el economista jefe para la región de Banco Itaú, Andrés Pérez, destacó que “la clave es volver a crecer”. Desde su óptica, la situación fiscal delineada “reafirma el estrés sobre las finanzas públicas y eso reafirma a su vez la importancia de volver a crecer a tasas bastante por encima de nuestro potencial actual”.</p><h2 id="4-alejandro-weber-decano-economia-negocios-y-gobierno-uss-es-practicamente-imposible-que-en-el-mediano-plazo-el-pais-alcance-la-convergencia-de-las-cuentas-fiscales"><strong>4.  Alejandro Weber, decano Economía, Negocios y Gobierno USS: “Es prácticamente imposible que en el mediano plazo el país alcance la convergencia de las cuentas fiscales”</strong></h2><p>A su juicio, un ajuste permanente podría llevar el déficit estructural a una cifra cercana a 1,5% del PIB al cierre del gobierno. El Informe de Finanzas Públicas (IFP) deja en claro que  no se llegará al déficit cero en 2029, planteó el decano de Economía, Negocios y Gobierno de la Universidad San Sebastián (USS), Alejandro Weber. “A mi juicio, si nos apretamos mucho el cinturón y logramos que este ajuste sea permanente, es decir, que sea refrendado en sucesivas leyes de presupuesto y otras materias legales, vamos a alcanzar un déficit estructural en torno a 1,5% del PIB al cierre de esta administración”, indicó el subsecretario de Hacienda.</p><h2 id="5-hacienda-recorta-pronostico-de-pib-para-el-ano-pero-sin-renunciar-a-acelerar-ritmo-de-crecimiento-a-4-hacia-el-termino-del-mandato"><strong>5.  Hacienda recorta pronóstico de PIB para el año, pero sin renunciar a acelerar ritmo de crecimiento a 4% hacia el término del mandato</strong></h2><p>El Ministerio de Hacienda redujo su proyección de crecimiento del PIB para 2026 en tres décimas a 2,1%, explicado por la contracción de 0,5% anual del primer trimestre y una fuerte desaceleración del sector minero, que pasó de proyectarse en 2,7% a 0%. En paralelo, el déficit efectivo se elevó a 2,9% del PIB (versus 1,8% previsto), el estructural llegará a 3,7%, y los ingresos proyectados cayeron impulsados por un menor rendimiento de la Ley de Cumplimiento Tributario (de 0,7% a 0,1% del PIB). El ministro Quiroz ratificó la meta de 4% de crecimiento al final del mandato —calificándola como proyección «pasiva» sin considerar el efecto de la ley de reactivación— y adelantó que probablemente solicitará al Congreso mayor autorización de endeudamiento para 2026.</p><h2 id="6-parlamentarios-se-enfrentan-por-ifp-desde-perseguir-responsabilidades-politicas-hasta-voladero-de-luces"><strong>6.  Parlamentarios se enfrentan por IFP: desde perseguir responsabilidades políticas hasta “voladero de luces”</strong></h2><p>El senador Squella sostuvo que el gobierno de Boric “no solo dejó un problema político, dejó una verdadera bomba fiscal y administrativa. El exministro Grau debe dar explicaciones claras”. AGUSTÍN ROMERO, PRESIDENTE COMISIÓN DE HACIENDA DE LA CÁMARA. JORGE ALESSANDRI, PRESIDENTE DE LA CÁMARA DE DIPUTADOS. MARÍA JOSÉ GATICA, SENADORA DE RENOVACIÓN NACIONAL. DE LA COMISIÓN DE HACIENDA. ARTURO SQUELLA, SENADOR Y PRESIDENTE DEL PARTIDO REPUBLICANO. GAEL YEOMANS, DIPUTADA DEL FRENTE AMPLIO. RAÚL SOTO, DIPUTADO DEL PPD. PEDRO ARAYA, SENADOR IND-PPD. El mundo político reaccionó al anuncio de “inconsistencias” detectadas por el Ministerio de Hacienda en el Informe de Finanzas Públicas (IFP) del primer trimestre, que habrían implicado que la deuda pública proyectada para el lapso 2026-2030 se subestimó en US$ 10.500 millones.</p><h2 id="7-quiroz-acusa-millonario-error-en-proyeccion-de-deuda-del-gobierno-de-boric-que-la-llevaria-a-superar-el-limite-de-45-en-2028"><strong>7.  Quiroz acusa millonario error en proyección de deuda del gobierno de Boric que la llevaría a superar el límite de 45% en 2028</strong></h2><p>El ministro de Hacienda Jorge Quiroz anunció que se detectaron inconsistencias técnicas en el cálculo de la deuda bruta del Gobierno Central para 2026-2030 en el último IFP de la administración Boric, lo que habría subestimado la deuda en US$ 10.500 millones (cerca de 3 puntos del PIB), llevando a que la deuda supere el límite prudente de 45% del PIB hacia 2028. La brecha detectada —donde el deterioro acumulado del balance fiscal entre IFPs fue de $13,46 billones pero la trayectoria de deuda solo aumentó $3,9 billones— «no tiene explicación técnica posible», según Quiroz, quien anunció una investigación interna con posibles derivaciones a sumario administrativo o denuncia a la Fiscalía. Como consecuencia, el déficit efectivo empeora a 2,9% del PIB este año y Hacienda deberá probablemente solicitar al Congreso mayor autorización de endeudamiento, además de publicar a más tardar el 9 de junio el decreto de política fiscal que definirá si se mantiene o no el compromiso de balance estructural al 2030.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-china-restringe-viajes-internacionales-de-expertos-en-ia-de-empresas-privadas-su-talento-es-considerado-un-activo-estrategico"><strong>1.  China restringe viajes internacionales de expertos en IA de empresas privadas: su talento es considerado un activo estratégico</strong></h2><p>El gobierno chino ha comenzado a imponer restricciones de viaje al exterior a destacados profesionales de inteligencia artificial de empresas privadas como Alibaba y DeepSeek, considerándolos activos estratégicos en el contexto de la competencia tecnológica con Estados Unidos. A diferencia de las restricciones ya existentes para ejecutivos de empresas estatales, el nuevo enfoque apunta a fundadores de startups, investigadores y ejecutivos del sector privado de IA según el nivel de importancia estratégica individual, no solo el cargo o lugar de trabajo. Las medidas podrían dificultar el reclutamiento y retención de talento de las empresas chinas de IA, y se producen en un contexto de mayor intervencionismo de Beijing en el sector privado tecnológico, incluyendo la presión para deshacer la adquisición de Manus por parte de Meta.</p><h2 id="2-las-acciones-de-ferrari-se-desploman-tras-la-decepcion-por-el-diseno-de-su-primer-modelo-totalmente-electrico-criticos-lo-comparan-con-vehiculos-masivos"><strong>2.  Las acciones de Ferrari se desploman tras la decepción por el diseño de su primer modelo totalmente eléctrico: críticos lo comparan con vehículos "masivos"</strong></h2><p>Ferrari presentó el Luce, su primer automóvil totalmente eléctrico, con un precio de aproximadamente US$ 640.000, pero la recepción fue mayoritariamente negativa tanto entre analistas del sector automotriz como en redes sociales, generando una caída en las acciones de la compañía. Los críticos compararon el diseño del Luce con vehículos de segmento masivo, alejado de la estética exclusiva que caracteriza a la marca italiana. Para el interior del modelo, Ferrari contrató al exjefe de diseño de Apple, Jony Ive, marcando una ruptura con el estilo del jefe de diseño habitual de la casa, Flavio Manzoni.</p><h2 id="3-mercados-festejan-posible-pacto-de-iran-y-eeuu-pese-a-persistentes-obstaculos-para-sellarlo"><strong>3.  Mercados festejan posible pacto de Irán y EEUU, pese a persistentes obstáculos para sellarlo</strong></h2><p>Las perspectivas de un acuerdo entre Estados Unidos e Irán que reabra el estrecho de Ormuz impulsaron una caída de 7,14% en el crudo Brent, que cerró el lunes en US$ 96,14 por barril, mientras el S&amp;P IPSA chileno subió 2,5% hasta los 10.828 puntos y el peso se apreció $4,9 hasta $896,1 por dólar. El memorándum de entendimiento en negociación incluiría el fin del bloqueo marítimo por ambas partes y compromisos iraníes de retirar minas y peajes en el estrecho, pero persisten diferencias sobre el programa nuclear: EEUU exige compromisos verificables desde esta etapa, mientras Irán busca separar la desescalada de la negociación nuclear definitiva. La delegación iraní viajó a Doha para avanzar en los detalles, especialmente el descongelamiento de activos estimados en US$ 6.000 millones depositados en Qatar, aunque expertos como el editor del Financial Times Gideon Rachman advierten que Irán podría salir fortalecido del eventual acuerdo.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-las-claves-y-el-analisis-de-la-enciclica-del-papa-leon-xiv-que-llama-a-desarmar-la-ia"><strong>1.  Las claves y el análisis de la encíclica del Papa León XIV que llama a “desarmar” la IA</strong></h2><p>Especialistas destacaron que el documento ofrece una mirada equilibrada en torno a esta tecnología y que podría ser un insumo para generar acuerdos políticos y económicos globales. El Papa León XIV durante la presentación de la encíclica Magnifica Humanitas en el Vaticano. Foto: Reuters El Papa León XIV entró de lleno al debate global sobre la inteligencia artificial (IA). En Magnifica Humanitas, su primera encíclica, el pontífice, entre otros puntos, cuestionó la concentración de poder en las grandes plataformas tecnológicas, pidió regulación efectiva, y denunció el trabajo precarizado detrás del entrenamiento de modelos de IA, en un documento que genera lecturas cruzadas entre teólogos, filósofos y especialistas en tecnología.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-la-infraestructura-pendiente-del-crecimiento"><strong>1.  La infraestructura pendiente del crecimiento</strong></h2><p>El artículo plantea que la seguridad hídrica es una de las principales restricciones estructurales para el desarrollo económico de Chile, pese a estar ausente del centro de la agenda de política pública. La escasez de agua afecta especialmente a la fruticultura, principal sector exportador tras la minería, con presencia en 14 regiones y alto impacto en el empleo rural; según estimaciones gremiales, irrigar 100.000 nuevas hectáreas generaría un impacto económico de US$ 8.000 millones y 160.000 empleos permanentes. El texto propone avanzar en un fondo permanente para infraestructura hídrica y en redes integradas de desalación y distribución, posicionando el agua como un activo de seguridad económica y alimentaria tan relevante como la infraestructura energética o vial.</p><h2 id="2-reves-en-proteccion-de-datos"><strong>2.  Revés en protección de datos</strong></h2><p>La carta del presidente de la Asociación Gremial de Profesionales en Protección de Datos, Marcelo Drago, responde a la editorial sobre el rechazo de la segunda terna para integrar el Consejo Directivo de la futura Agencia de Protección de Datos Personales (AGPD), enfatizando que el proceso ocurrió dentro de los cauces democráticos e institucionales. Drago urge a que el Ejecutivo, el Senado y los actores involucrados encuentren con rapidez una salida institucional, dado que la nueva Ley de Protección de Datos Personales entra en vigencia el 1 de diciembre y los próximos meses son decisivos para las acciones preparatorias. Subraya que la protección de datos será una pieza central de la economía digital y la confianza ciudadana, por lo que el desafío exige altura institucional y compromiso transversal.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>28 de mayo de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-05-28.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">28 de mayo de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-ipsa-abre-estable-mientras-principales-bolsas-caen-tras-reciente-intercambio-de-fuego-en-el-golfo-persico">1.  IPSA abre estable mientras principales bolsas caen tras reciente intercambio de fuego en el golfo Pérsico</a></li><li class="toc-l2"><a href="#2-directoras-de-empresas-casi-el-80-de-las-mesas-se-concentra-en-lo-inmediato-pero-no-alcanza-para-enfrentar-los-desafios-que-vienen">2.  Directoras de empresas: casi el 80% de las mesas se concentra en lo inmediato, pero &quot;no alcanza para enfrentar los desafíos que vienen&quot;</a></li><li class="toc-l2"><a href="#3-lo-dio-vuelta-global-soluciones-financieras-logra-ganancias-tras-anos-en-rojo">3.  Lo dio vuelta: Global Soluciones financieras logra ganancias tras años en rojo</a></li><li class="toc-l2"><a href="#4-dolar-abre-plano-entre-repunte-de-tension-geopolitica-y-datos-economicos-mas-suaves-de-lo-esperado-en-eeuu">4.  Dólar abre plano entre repunte de tensión geopolítica y datos económicos más suaves de lo esperado en EEUU</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-gyg-thomas-fabricante-de-ropa-industrial-de-iquique-duplica-operacion-en-antofagasta-y-se-expande-a-santiago">1.  GyG Thomas, fabricante de ropa industrial de Iquique, duplica operación en Antofagasta y se expande a Santiago</a></li><li class="toc-l2"><a href="#2-efectividad-en-la-evaluacion-ambiental-en-la-era-kast-mantendria-tendencia-que-se-consolido-al-cierre-del-gobierno-de-boric">2.  Efectividad en la evaluación ambiental en la era Kast mantendría tendencia que se consolidó al cierre del gobierno de Boric</a></li><li class="toc-l2"><a href="#3-electrica-de-capitales-suecos-sella-venta-de-su-plataforma-latinoamericana-y-oficializa-ingreso-de-promigas-a-chile">3.  Eléctrica de capitales suecos sella venta de su plataforma latinoamericana y oficializa ingreso de Promigas a Chile</a></li><li class="toc-l2"><a href="#4-tres-claves-del-caso-por-colusion-entre-pluxee-y-edenred-que-destapo-la-fiscalia-nacional-economica">4.  Tres claves del caso por colusión entre Pluxee y Edenred que destapó la Fiscalía Nacional Económica</a></li><li class="toc-l2"><a href="#5-amipass-competidor-afectado-por-presunta-colusion-presentiamos-que-algo-mas-alla-de-lo-comercial-estaba-sucediendo">5.  AmiPASS, competidor afectado por presunta colusión: “Presentíamos que algo más allá de lo comercial estaba sucediendo”</a></li><li class="toc-l2"><a href="#6-quien-es-aquiles-cubillos-el-fiscal-a-cargo-de-las-dos-mayores-investigaciones-penales-de-la-historia-reciente-de-codelco">6.  Quién es Aquiles Cubillos, el fiscal a cargo de las dos mayores investigaciones penales de la historia reciente de Codelco</a></li><li class="toc-l2"><a href="#7-directorios-modernos-y-profesionalizados-especialistas-respaldan-la-reestructuracion-del-grupo-falabella">7.  Directorios “modernos” y “profesionalizados”: especialistas respaldan la reestructuración del Grupo Falabella</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-df-tax-la-competitividad-tributaria-si-importa">1.  DF Tax | La competitividad tributaria sí importa</a></li><li class="toc-l2"><a href="#2-df-tax-rebaja-del-impuesto-a-las-donaciones-intergeneracionales">2.  DF Tax | Rebaja del impuesto a las donaciones intergeneracionales</a></li><li class="toc-l2"><a href="#3-head-hunters-respaldan-arista-laboral-del-proyecto-de-reconstruccion-pero-anticipan-un-impacto-gradual-en-el-mercado-laboral">3.  Head hunters respaldan arista laboral del proyecto de reconstrucción, pero anticipan un impacto gradual en el mercado laboral</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-lamborghini-reivindica-su-definicion-sobre-vehiculos-electricos-tras-la-decepcion-que-genero-luce-de-ferrari">1.  Lamborghini reivindica su definición sobre vehículos eléctricos tras la decepción que generó Luce de Ferrari</a></li><li class="toc-l2"><a href="#2-el-ceo-de-nvidia-jensen-huang-se-unira-al-consejo-de-la-prestigiosa-universidad-de-tsinghua-en-beijing">2.  El CEO de Nvidia, Jensen Huang, se unirá al consejo de la prestigiosa Universidad de Tsinghua en Beijing</a></li><li class="toc-l2"><a href="#3-estados-unidos-e-iran-intercambian-ataques-en-medio-de-una-tregua-cada-vez-mas-tensa">3.  Estados Unidos e Irán intercambian ataques en medio de una tregua cada vez más tensa</a></li><li class="toc-l2"><a href="#4-de-la-espriella-el-milei-colombiano-que-se-acerca-al-balotaje-contra-el-oficialismo-de-petro">4.  De la Espriella: el “Milei colombiano” que se acerca al balotaje contra el oficialismo de Petro</a></li><li class="toc-l2"><a href="#5-duenos-de-directv-latin-america-toman-el-control-total-de-tyc-sports-y-refuerzan-su-apuesta-regional-rumbo-al-mundial-2026">5.  Dueños de DirecTV Latin America toman el control total de TyC Sports y refuerzan su apuesta regional rumbo al Mundial 2026</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-fundadores-de-spike-crean-nueva-startup-de-ia-para-mineria-e-industria-y-levantan-capital-con-kayyak-ventures">1.  Fundadores de Spike crean nueva startup de IA para minería e industria y levantan capital con Kayyak Ventures</a></li><li class="toc-l2"><a href="#2-concentracion-de-rondas-ia-y-resaca-de-pandemia-el-nuevo-mapa-del-capital-de-riesgo-en-chile">2.  Concentración de rondas, IA y resaca de pandemia: el nuevo mapa del capital de riesgo en Chile</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-editorial-28052026">1.  Editorial |28/05/2026</a></li><li class="toc-l2"><a href="#2-prudencia-fiscal">2.  Prudencia fiscal</a></li><li class="toc-l2"><a href="#3-talon-de-aquiles">3.  Talón de Aquiles</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>28 De Mayo De 2026</p><p>6 secciones  ·  24 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-ipsa-abre-estable-mientras-principales-bolsas-caen-tras-reciente-intercambio-de-fuego-en-el-golfo-persico"><strong>1.  IPSA abre estable mientras principales bolsas caen tras reciente intercambio de fuego en el golfo Pérsico</strong></h2><p>El IPSA de la Bolsa de Santiago operó estable en torno a 10.831 puntos mientras los mercados globales registraban pérdidas moderadas, en un contexto marcado por el intercambio de ataques entre Estados Unidos e Irán en el golfo Pérsico. El petróleo Brent repuntó 2,3% hasta US$ 96,5 por barril luego de que el Comando Central estadounidense derribara cinco drones iraníes cerca del estrecho de Ormuz, mientras la Guardia Revolucionaria iraní respondió atacando una base aérea en Kuwait. En el plano económico, el PIB de EEUU fue revisado a la baja a 1,6% trimestral anualizado en el primer trimestre, y el índice de precios subyacente del gasto en consumo personal subió menos de lo esperado, lo que atenuó la presión sobre los mercados.</p><h2 id="2-directoras-de-empresas-casi-el-80-de-las-mesas-se-concentra-en-lo-inmediato-pero-no-alcanza-para-enfrentar-los-desafios-que-vienen"><strong>2.  Directoras de empresas: casi el 80% de las mesas se concentra en lo inmediato, pero "no alcanza para enfrentar los desafíos que vienen"</strong></h2><p>Un estudio elaborado por KPMG, Women Corporate Directors y la Universidad de Chile revela que los directorios chilenos dedican casi el 80% de su tiempo a resultados financieros, estrategia actual y gestión de riesgos, dejando poco espacio para temas de largo plazo como inteligencia artificial, diversidad y ESG. La inteligencia artificial es el área con mayor brecha entre lo percibido como necesario —30,8% de las directoras la identifica como prioridad de formación— y lo que efectivamente ocupa en la agenda de los directorios, donde la transformación digital alcanza apenas el 10% del tiempo. El 31% de las directoras señaló la poca diversidad de perfiles como principal debilidad, mientras que para reactivar el crecimiento sobre el 4%, los directorios apuntan a reducir permisos y burocracia, mayor certeza jurídica y mejoras en productividad.</p><h2 id="3-lo-dio-vuelta-global-soluciones-financieras-logra-ganancias-tras-anos-en-rojo"><strong>3.  Lo dio vuelta: Global Soluciones financieras logra ganancias tras años en rojo</strong></h2><p>Global Soluciones Financieras, la financiera automotriz, revirtió sus pérdidas y registró utilidades de $757 millones en el primer trimestre de 2026, frente a una pérdida de $741 millones en igual período del año anterior. La mejora se explica por mayores volúmenes de colocación, una reducción de 5,4% en el costo de ventas y una baja de 4,3% en gastos de administración, lo que llevó al ROE a 12,8% desde un negativo 15,2%. Los ingresos totales alcanzaron $13.381.542 millones, un alza de 3,9%, con el financiamiento automotriz aportando el 54,8% de los ingresos y la venta de vehículos el 33,6%.</p><h2 id="4-dolar-abre-plano-entre-repunte-de-tension-geopolitica-y-datos-economicos-mas-suaves-de-lo-esperado-en-eeuu"><strong>4.  Dólar abre plano entre repunte de tensión geopolítica y datos económicos más suaves de lo esperado en EEUU</strong></h2><p>El tipo de cambio dólar-peso abrió estable en $895,4, sin variaciones relevantes a pesar de los intercambios de ataques entre EEUU e Irán en el golfo Pérsico, ya que datos económicos estadounidenses más débiles de lo esperado neutralizaron la presión alcista. La revisión a la baja del PIB de EEUU en el primer trimestre y el dato de inflación subyacente del gasto en consumo personal, inferior a lo previsto, moderaron el impulso del dólar a nivel global. Los estrategas de ING señalaron que la incertidumbre en las negociaciones entre EEUU e Irán impide que el dólar global registre movimientos significativos en ningún sentido.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-gyg-thomas-fabricante-de-ropa-industrial-de-iquique-duplica-operacion-en-antofagasta-y-se-expande-a-santiago"><strong>1.  GyG Thomas, fabricante de ropa industrial de Iquique, duplica operación en Antofagasta y se expande a Santiago</strong></h2><p>GyG Thomas Safety, empresa familiar de ropa de seguridad industrial fundada hace 35 años en Iquique, está ejecutando su expansión más ambiciosa con dos inversiones simultáneas: la ampliación de su sucursal en Antofagasta —de 500 a 1.000 m² con una inversión de cerca de US$ 1 millón— y la apertura de su primera sede en Santiago, en Quilicura, con una inversión de alrededor de US$ 1,5 millón. La empresa, que factura cerca de $14 mil millones anuales y emplea a 110 personas, tiene como principales clientes a mineras como Teck, Quebrada Blanca y Minera Meridian, y busca ahora diversificarse hacia la salmonicultura y el sector forestal. La gerenta general Valentina Gattoni destacó la ventaja competitiva de la fabricación local personalizada y la capacidad de respuesta rápida frente a competidores internacionales, y señaló el corredor bioceánico y los proyectos portuarios del norte como oportunidades de crecimiento.</p><h2 id="2-efectividad-en-la-evaluacion-ambiental-en-la-era-kast-mantendria-tendencia-que-se-consolido-al-cierre-del-gobierno-de-boric"><strong>2.  Efectividad en la evaluación ambiental en la era Kast mantendría tendencia que se consolidó al cierre del gobierno de Boric</strong></h2><p>El Índice de Efectividad en la Evaluación Ambiental (IEFEA) de Pivotes subió 1,3 puntos porcentuales en el primer trimestre de 2026, alcanzando el 29,6%, confirmando una mejora en la aprobación de proyectos de inversión que se aceleró en los últimos meses del gobierno de Boric, aunque concentrada en proyectos de menor tamaño. En el sector minero, el indicador aumentó desde 45,4% a 62,3%, y en Biobío se registró un salto notable de 39,5% a 79,8%, mientras que la Región de Valparaíso se mantiene estancada con apenas 0,6% y cerca de US$ 5.000 millones en evaluación pendiente. El director ejecutivo de Pivotes estimó que el gobierno de Kast, que ha priorizado la aceleración de inversiones y ya ha ingresado montos inéditos al sistema, podría mantener o superar esa tendencia, especialmente si la Oficina de Autorizaciones Sectoriales se enfoca en proyectos de alta relevancia.</p><h2 id="3-electrica-de-capitales-suecos-sella-venta-de-su-plataforma-latinoamericana-y-oficializa-ingreso-de-promigas-a-chile"><strong>3.  Eléctrica de capitales suecos sella venta de su plataforma latinoamericana y oficializa ingreso de Promigas a Chile</strong></h2><p>Zelestra —empresa de origen español controlada por el fondo sueco EQT— cerró la venta de su plataforma latinoamericana a Promigas, firma energética colombiana con 52 años de trayectoria y presencia en Colombia y Perú, que con esta adquisición desembarca oficialmente en Chile. La plataforma transferida, Zelestra Latam, cuenta con 1.273 MW entre proyectos en operación y construcción, además de un pipeline de aproximadamente 2,25 GW en desarrollo, diversificado entre energía solar y almacenamiento. Promigas destacó que la operación contempla la continuidad de todos los proyectos en curso, el mantenimiento de los equipos locales y los compromisos existentes, con una visión de largo plazo orientada a la sostenibilidad del sistema energético.</p><h2 id="4-tres-claves-del-caso-por-colusion-entre-pluxee-y-edenred-que-destapo-la-fiscalia-nacional-economica"><strong>4.  Tres claves del caso por colusión entre Pluxee y Edenred que destapó la Fiscalía Nacional Económica</strong></h2><p>La Fiscalía Nacional Económica presentó un requerimiento ante el TDLC acusando a las empresas francesas Pluxee (ex Sodexo) y Edenred de coludirse entre 2013 y 2021 en el mercado chileno de vales y tarjetas de alimentación, coordinando licitaciones a través de celulares prepago, WhatsApp y Telegram. Edenred quedó exenta de multas por haberse acogido al programa de delación compensada en 2023, mientras que Pluxee enfrenta una multa solicitada de cerca de US$ 39,6 millones y su exgerente Machado de US$ 104 mil, quien reconoció parcialmente su participación. El proceso podría extenderse entre cuatro y siete años considerando los plazos del TDLC y una eventual revisión por la Corte Suprema, y los plazos formales aún no han comenzado a correr porque Machado, quien reside en España, aún no ha sido notificado.</p><h2 id="5-amipass-competidor-afectado-por-presunta-colusion-presentiamos-que-algo-mas-alla-de-lo-comercial-estaba-sucediendo"><strong>5.  AmiPASS, competidor afectado por presunta colusión: “Presentíamos que algo más allá de lo comercial estaba sucediendo”</strong></h2><p>El CEO de la empresa afirmó que los contratos involucrados eran de al menos US$ 600 millones anuales. Entre 2000 y 2008, Patricio Dueñas se desempeñó como gerente general en Sodexo. Dieciocho años después, la firma de capital francés, que en 2024 pasó a operar bajo el nombre Pluxee y queeste martes fue acusada por la Fiscalía Nacional Económica (FNE) por presunta colusión junto a la empresa Edenred;no solo es su exempleador, sino que también el principal competidor de su negocio: amiPASS.</p><h2 id="6-quien-es-aquiles-cubillos-el-fiscal-a-cargo-de-las-dos-mayores-investigaciones-penales-de-la-historia-reciente-de-codelco"><strong>6.  Quién es Aquiles Cubillos, el fiscal a cargo de las dos mayores investigaciones penales de la historia reciente de Codelco</strong></h2><p>Aquiles Cubillos, fiscal regional de O'Higgins de 52 años, lidera las dos investigaciones penales más relevantes en la historia reciente de Codelco: el fatal accidente en El Teniente y la sobreestimación de las cifras de producción de diciembre, siendo designado para ambas por el fiscal nacional Ángel Valencia. Con formación en derecho público y amplia experiencia en litigios rurales, Cubillos es descrito por sus cercanos como metódico y exigente, y ha debido sumergirse en la operativa minera, convocando incluso a universidades para apoyar la investigación técnica. Uno de sus casos más emblemáticos previos fue el desmantelamiento de la red que robó $12 mil millones a la sucursal de Brink's en Rancagua, que terminó con 20 detenidos incluyendo funcionarios de Carabineros y PDI.</p><h2 id="7-directorios-modernos-y-profesionalizados-especialistas-respaldan-la-reestructuracion-del-grupo-falabella"><strong>7.  Directorios “modernos” y “profesionalizados”: especialistas respaldan la reestructuración del Grupo Falabella</strong></h2><p>Expertos apuntan a que la empresa se está sumando a una tendencia global y valoraron el recambio generacional al interior del conglomerado. ElGrupo Falabelladio a conocer esta semana una nuevareestructuración en el gobierno corporativo de cuatro de sus principales filiales:Falabella Retail, Hipermercados Tottus, Sodimac y Falabella Inversiones Financieras. Los cambios implicaron lareducción de sus directorios, que pasaron de nueve a siete integrantes, además de la incorporación transversal del presidente del holding, Fernando de Peña, y del gerente general corporativo, Alejandro González. A eso se sumó el ingreso de ejecutivos internacionales con experiencia en gigantes globales como Amazon, Apple, Inditex, Banco Santander y Walmart.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-df-tax-la-competitividad-tributaria-si-importa"><strong>1.  DF Tax | La competitividad tributaria sí importa</strong></h2><p>El artículo de opinión defiende la pertinencia de reducir el impuesto corporativo en Chile, argumentando que la evidencia comparada muestra que la estructura tributaria es un factor sensible para las decisiones de inversión internacional y reinversión de utilidades, especialmente en economías con capital móvil. El autor sostiene que Chile perdió competitividad tributaria relativa durante la última década mientras otros países ajustaban sus sistemas para atraer capital, y que una carga corporativa excesiva genera incentivos para no distribuir utilidades o invertir en otras jurisdicciones, erosionando la base tributaria de largo plazo. Concluye que la rebaja impositiva no resolverá por sí sola los problemas de crecimiento, pero negar su impacto es desconocer cómo funciona una economía globalizada; el verdadero debate debe centrarse en cómo compatibilizar crecimiento y sostenibilidad fiscal.</p><h2 id="2-df-tax-rebaja-del-impuesto-a-las-donaciones-intergeneracionales"><strong>2.  DF Tax | Rebaja del impuesto a las donaciones intergeneracionales</strong></h2><p>El artículo analiza la propuesta incluida en el proyecto de reconstrucción que reduce a la mitad el impuesto a las donaciones intergeneracionales, señalando que si bien generará una mayor recaudación inicial —de innegable interés para los altos patrimonios—, se compensará con menor recaudación futura por concepto de impuesto a la herencia. El autor argumenta, citando a Joseph Stiglitz, que la medida no constituye una estrategia fiscal sostenible ni un vehículo para aumentar el empleo o dinamizar la industria, sino una respuesta coyuntural que prioriza la urgencia recaudatoria de corto plazo sobre una política tributaria estructurada. Califica la iniciativa como propia de un gobierno que actúa en modo emergencia más que de un Estado con planificación de largo plazo, aunque reconoce que recaudará más de lo esperado, compensando parcialmente el déficit general de la reforma.</p><h2 id="3-head-hunters-respaldan-arista-laboral-del-proyecto-de-reconstruccion-pero-anticipan-un-impacto-gradual-en-el-mercado-laboral"><strong>3.  Head hunters respaldan arista laboral del proyecto de reconstrucción, pero anticipan un impacto gradual en el mercado laboral</strong></h2><p>Un panel de reclutadores de ejecutivos elaborado por el Instituto de Políticas Públicas de la Universidad Andrés Bello muestra una valoración moderadamente positiva del crédito tributario al empleo incluido en el proyecto de reconstrucción: el 50% lo considera efectivo o muy efectivo, mientras el 42% estima que su impacto será solo parcial y concentrado en sectores específicos. El principal efecto esperado por los panelistas es la reducción de la informalidad laboral (42% de preferencias), seguido de la creación de nuevos empleos formales (33%), con mayor beneficio proyectado para las pequeñas empresas y resultados visibles en un horizonte de dos a tres años. Los reclutadores advierten que el incentivo podría ser insuficiente para modificar conductas de contratación, e identifican como prioridades complementarias la flexibilidad en la jornada laboral, incentivos específicos para PYME y mayor certeza regulatoria.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-lamborghini-reivindica-su-definicion-sobre-vehiculos-electricos-tras-la-decepcion-que-genero-luce-de-ferrari"><strong>1.  Lamborghini reivindica su definición sobre vehículos eléctricos tras la decepción que generó Luce de Ferrari</strong></h2><p>El CEO de Lamborghini, Stephan Winkelmann, respaldó la estrategia de la compañía de priorizar híbridos enchufables sobre vehículos 100% eléctricos, argumentando que la curva de aceptación de los EV entre su base de clientes de lujo no está creciendo, en contraste implícito con la polémica recepción del Luce, el primer eléctrico de Ferrari. El Luce —diseñado por el exjefe de diseño de Apple, Jony Ive— generó una caída de cerca de 8% en las acciones de Ferrari en Milán y más de 5% en Wall Street, con críticas al diseño minimalista y al temor de que la electrificación diluya la identidad histórica de la marca. El CEO de Ferrari, Benedetto Vigna, salió a defender el modelo y su precio de 550.000 euros, descartando que la presentación del Luce implique un abandono de los motores de combustión tradicionales.</p><h2 id="2-el-ceo-de-nvidia-jensen-huang-se-unira-al-consejo-de-la-prestigiosa-universidad-de-tsinghua-en-beijing"><strong>2.  El CEO de Nvidia, Jensen Huang, se unirá al consejo de la prestigiosa Universidad de Tsinghua en Beijing</strong></h2><p>Jensen Huang, CEO de Nvidia, aceptó integrarse al consejo asesor de la Escuela de Economía y Administración de la Universidad de Tsinghua en Beijing —presidido por Tim Cook de Apple—, como señal de su intención de mantener vínculos con China pese a las restricciones de exportación que prácticamente excluyen los chips avanzados de Nvidia del mercado chino. El consejo de 65 miembros incluye líderes como Elon Musk, Satya Nadella, Mark Zuckerberg, Jamie Dimon y Larry Fink, y funciona como uno de los pocos foros de élite que reúne a ejecutivos globales con responsables de políticas chinos en medio del desacoplamiento entre ambas economías. Huang reconoció la semana pasada que los controles de exportación significaron que Nvidia cedió prácticamente el mercado chino a competidores locales como Huawei, aunque China llegó a representar una quinta parte de los ingresos globales de la compañía.</p><h2 id="3-estados-unidos-e-iran-intercambian-ataques-en-medio-de-una-tregua-cada-vez-mas-tensa"><strong>3.  Estados Unidos e Irán intercambian ataques en medio de una tregua cada vez más tensa</strong></h2><p>Las fuerzas del Comando Central de EEUU derribaron cuatro drones iraníes de ataque unidireccional y atacaron una estación de control en Bandar Abbas al sur de Irán, acciones descritas por Washington como defensivas y destinadas a mantener el alto el fuego. En respuesta, la Guardia Revolucionaria Islámica de Irán atacó una base aérea estadounidense, y Kuwait confirmó haber sido objeto de ataques hostiles con misiles y drones. El crudo Brent subió casi 3% hasta US$ 97 por barril tras el escalamiento, que representa el segundo episodio de ataques estadounidenses en la semana, luego de que el lunes EEUU atacara plataformas de lanzamiento de misiles y embarcaciones iraníes.</p><h2 id="4-de-la-espriella-el-milei-colombiano-que-se-acerca-al-balotaje-contra-el-oficialismo-de-petro"><strong>4.  De la Espriella: el “Milei colombiano” que se acerca al balotaje contra el oficialismo de Petro</strong></h2><p>El candidato outsider, que está dejando fuera de competencia a la postulante de la derecha tradicional, también tiene como referentes a Bukele y Trump. Abelardo De la Espriella, de 47 años, aparece con un empaté técnico frente a Iván Cepeda en la última encuesta de AtlasIntel/Bloomberg. Foto: Bloomberg. Abelardo Gabriel de la Espriella Otero, un outsider de la política, protagoniza un notable rebaraje de las candidaturas que se presentan a la elección presidencial de este domingo en Colombia.</p><h2 id="5-duenos-de-directv-latin-america-toman-el-control-total-de-tyc-sports-y-refuerzan-su-apuesta-regional-rumbo-al-mundial-2026"><strong>5.  Dueños de DirecTV Latin America toman el control total de TyC Sports y refuerzan su apuesta regional rumbo al Mundial 2026</strong></h2><p>El Grupo Werthein, a través de su holding Waiken ILW, adquirió el 50% de TyC Sports que pertenecía al Grupo Clarín por cerca de US$ 25 millones, pasando a controlar el 100% del canal deportivo argentino en la antesala del Mundial de Fútbol 2026, donde DirecTV ya posee los derechos exclusivos de transmisión a través de DSports. La operación se enmarca en una estrategia regional más amplia: en marzo de 2026 el grupo ingresó al mercado de telefonía móvil en Brasil con una inversión de US$ 200 millones, y en diciembre de 2025 adquirió la cartera residencial del operador de internet Nubyx en Perú. Waiken ILW, que tiene presencia en 11 países con un plan de inversiones de US$ 450 millones entre 2026 y 2031, busca consolidar un ecosistema integrado de producción, distribución y transmisión de contenidos deportivos en América Latina.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-fundadores-de-spike-crean-nueva-startup-de-ia-para-mineria-e-industria-y-levantan-capital-con-kayyak-ventures"><strong>1.  Fundadores de Spike crean nueva startup de IA para minería e industria y levantan capital con Kayyak Ventures</strong></h2><p>Los ingenieros Diego Aguayo, Juan Pablo García y Robert Cercós —quienes vendieron su anterior startup Spike a Bain &amp; Company en 2022 y luego lideraron el hub de IA de esa consultora para Sudamérica— fundaron Future Beyond, una startup que desarrolla sistemas de inteligencia artificial para industrias pesadas como la minería, levantando US$ 1,5 millón con Kayyak Ventures. La plataforma integra desarrollo propio, modelos comerciales como Claude y Gemini, y componentes de código abierto, con el objetivo de pasar 'de la predicción a la cognición industrial': comprender los procesos físicos de una faena y recomendar la siguiente mejor acción para mejorar productividad o reducir costos. Los recursos de la ronda se destinarán a construir el equipo, desarrollar la plataforma y validar el producto con uno a tres clientes grandes antes de fin de 2026, apostando a Chile y su minería como laboratorio global de referencia.</p><h2 id="2-concentracion-de-rondas-ia-y-resaca-de-pandemia-el-nuevo-mapa-del-capital-de-riesgo-en-chile"><strong>2.  Concentración de rondas, IA y resaca de pandemia: el nuevo mapa del capital de riesgo en Chile</strong></h2><p>El Chile Venture Capital Summit 2026 de DLA Piper y Endeavor diagnosticó un sector de capital de riesgo en transformación estructural: las operaciones trimestrales en Latinoamérica cayeron de 200 a 96 desde 2022, el capital se concentra en menos compañías, y los múltiplos de valoración bajaron de 7x a 5x en ingresos recurrentes anuales tras la irrupción de la IA, evaporando cerca de US$ 1 billón de capitalización en software. La inteligencia artificial redefine el modelo SaaS —reduciendo el costo de desarrollo y ampliando el mercado objetivo diez veces mediante agentes— mientras los compradores hoy premian la rentabilidad sobre el crecimiento, como ilustró el caso de Comunidad Feliz, vendida a Visma con US$ 10 millones de ingresos anuales con mejores ofertas de private equity que de VC. Los fondos enfrentan además la resaca de las valoraciones infladas de 2020-2022: el tercer fondo de Chile Ventures tardó tres veces más en cerrarse que el anterior, y recuperar los múltiplos de esa época podría tomar cinco años sin pasar por una ronda a la baja.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-editorial-28052026"><strong>1.  Editorial |28/05/2026</strong></h2><p>Contenido no disponible (artículo detrás de paywall).</p><h2 id="2-prudencia-fiscal"><strong>2.  Prudencia fiscal</strong></h2><p>El primer Informe de Finanzas Públicas del gobierno de Kast reveló inconsistencias en la trayectoria de deuda publicada por la administración Boric equivalentes a US$ 10.600 millones (cerca de 3% del PIB), elevando el déficit efectivo proyectado para 2026 de 1,8% a 2,9% del PIB y el déficit estructural de 2,7% a 3,7%, con una deuda que superaría el umbral prudente de 45% del PIB hacia 2028. El deterioro también refleja que la Ley de Cumplimiento Tributario rendirá solo 0,1% del PIB en lugar del 0,7% proyectado, complicando la meta de equilibrio estructural hacia 2030. El editorial advierte que la discusión debe mantenerse en el plano técnico —como han procurado Hacienda y la Dipres— y no derivar en acusaciones constitucionales prematuras que introduzcan incertidumbre frente a clasificadoras de riesgo e inversionistas internacionales.</p><h2 id="3-talon-de-aquiles"><strong>3.  Talón de Aquiles</strong></h2><p>La columna respalda el diagnóstico del presidente de Frutas de Chile, Iván Marambio, sobre la escasez hídrica como el principal obstáculo estructural para el crecimiento económico del país, señalando que el tema aún no figura con la debida relevancia en la agenda de crecimiento. El autor, vicepresidente ejecutivo de ACADES, detalla iniciativas en curso para abordar el problema, incluyendo un estudio de Sistema Integrado de Abastecimiento Hídrico para el Norte de Chile elaborado junto a la Corporación Financiera Internacional con financiamiento japonés, y proyectos de reúso de aguas residuales y desalación en las regiones de Coquimbo y Valparaíso. Destaca que el impacto potencial descrito por Marambio —US$ 8.000 millones y 160 mil empleos al incorporar nuevas hectáreas regadas— depende de que el agua llegue a tiempo y de que el Estado se sume con igual convicción a estas iniciativas.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

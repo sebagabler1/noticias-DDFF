@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 de junio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-06-04.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">4 de junio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-ipsa-abre-con-fuerte-alza-tras-cuatro-sesiones-en-rojo-mientras-agentes-evaluan-posible-resolucion-del-conflicto-en-el-golfo-persico">1.  IPSA abre con fuerte alza tras cuatro sesiones en rojo mientras agentes evalúan posible resolución del conflicto en el golfo Pérsico</a></li><li class="toc-l2"><a href="#2-dolar-abre-en-baja-mientras-el-petroleo-cae-atento-a-esfuerzos-para-resolver-el-conflicto-en-medio-oriente">2.  Dólar abre en baja mientras el petróleo cae atento a esfuerzos para resolver el conflicto en Medio Oriente</a></li><li class="toc-l2"><a href="#3-fintechile-advierte-que-aplazamiento-del-sfa-convierte-a-chile-en-el-pais-mas-lento-en-implementar-esta-solucion">3.  FinteChile advierte que aplazamiento del SFA “convierte a Chile en el país más lento en implementar esta solución”</a></li><li class="toc-l2"><a href="#4-abif-y-la-postergacion-de-finanzas-abiertas-esta-definicion-es-coherente-la-meta-de-julio-de-2026-no-era-viable">4.  Abif y la postergación de finanzas abiertas: “Esta definición es coherente (...) la meta de julio de 2026 no era viable”</a></li><li class="toc-l2"><a href="#5-deloitte-y-nueva-exigencia-de-patrimonio-para-agf-la-industria-evidencia-holgura-respecto-de-los-minimos-establecidos">5.  Deloitte y nueva exigencia de patrimonio para AGF: “La industria evidencia holgura respecto de los mínimos establecidos”</a></li><li class="toc-l2"><a href="#6-ganancias-de-la-industria-aseguradora-de-vida-suben-25-en-el-primer-trimestre-del-ano">6.  Ganancias de la industria aseguradora de vida suben 25% en el primer trimestre del año</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-kast-y-fontaine-se-reunen-por-mas-de-dos-horas-en-la-moneda-cita-se-centro-en-reforzar-control-y-gobierno-corporativo-de-codelco">1.  Kast y Fontaine se reúnen por más de dos horas en La Moneda: cita se centró en reforzar control y gobierno corporativo de Codelco</a></li><li class="toc-l2"><a href="#2-la-region-del-biobio-y-el-mercado-salen-a-respaldar-negociaciones-de-cap-para-vender-la-siderurgica-de-huachipato">2.  La Región del Biobío y el mercado salen a respaldar negociaciones de CAP para vender la siderúrgica de Huachipato</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-desde-el-pan-hasta-los-fideos-baja-en-superficie-plantada-de-trigo-en-el-granero-de-chile-pondria-presion-a-precios-de-la-harina">1.  Desde el pan hasta los fideos: baja en superficie plantada de trigo en &quot;el granero de Chile&quot; pondría presión a precios de la harina</a></li><li class="toc-l2"><a href="#2-la-hoja-de-ruta-de-trabajo-reducir-el-desempleo-a-65-y-mas-adaptabilidad-laboral">2.  La hoja de ruta de Trabajo: reducir el desempleo a 6,5% y más adaptabilidad laboral</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-biotech-chilena-sudvet-abre-oficinas-en-noruega-y-australia-para-globalizar-sus-soluciones-botanicas-para-el-salmon">1.  Biotech chilena Sudvet abre oficinas en Noruega y Australia para globalizar sus soluciones botánicas para el salmón</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-la-advertencia-de-la-ocde-y-la-urgencia-de-actuar">1.  La advertencia de la OCDE y la urgencia de actuar</a></li><li class="toc-l2"><a href="#2-empleo-y-dignidad">2.  Empleo y dignidad</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>4 De Junio De 2026</p><p>5 secciones  ·  13 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-ipsa-abre-con-fuerte-alza-tras-cuatro-sesiones-en-rojo-mientras-agentes-evaluan-posible-resolucion-del-conflicto-en-el-golfo-persico"><strong>1.  IPSA abre con fuerte alza tras cuatro sesiones en rojo mientras agentes evalúan posible resolución del conflicto en el golfo Pérsico</strong></h2><p>El S&amp;P IPSA abrió con un avance de hasta 1,5% recuperando los 10.500 puntos, impulsado por señales de distensión en Medio Oriente tras un alto al fuego entre Israel y el Líbano mediado por EE.UU. En contraste, Wall Street sufrió presiones bajistas encabezadas por Broadcom (-14,8%), cuyas previsiones defraudaron al mercado, arrastrando al Nasdaq (-1%) y al S&amp;P 500 (-0,3%). El petróleo Brent cayó 2,9% a US$ 95 por barril, aunque los inventarios de crudo de EE.UU. se encuentran en mínimos desde 2004, lo que genera alertas sobre un posible rebote de precios en las próximas semanas.</p><h2 id="2-dolar-abre-en-baja-mientras-el-petroleo-cae-atento-a-esfuerzos-para-resolver-el-conflicto-en-medio-oriente"><strong>2.  Dólar abre en baja mientras el petróleo cae atento a esfuerzos para resolver el conflicto en Medio Oriente</strong></h2><p>El tipo de cambio dólar-peso abrió con una baja de $5 hasta $891,6, revirtiendo el alza de mitad de semana producto de una menor tensión en el golfo Pérsico. El petróleo Brent caía 3,1% a US$ 94,8 el barril, lo que llevó a los rendimientos del Tesoro a ceder cerca de 5 puntos base y al dólar index a retroceder 0,3%; el cobre Comex subía modestamente a US$ 6,53 la libra. Trump afirmó que las negociaciones con Irán avanzan y que podría alcanzarse un acuerdo el fin de semana, aunque el canciller iraní descartó avances tangibles.</p><h2 id="3-fintechile-advierte-que-aplazamiento-del-sfa-convierte-a-chile-en-el-pais-mas-lento-en-implementar-esta-solucion"><strong>3.  FinteChile advierte que aplazamiento del SFA “convierte a Chile en el país más lento en implementar esta solución”</strong></h2><p>La líder del gremio aseguró que, con la decisión de la CMF, el sistema plenamente se implementará recién en 2030. Por su parte, FinteChile cuestionó la decisión de la CMF y advirtió que la postergación del SFA retrasará los beneficios que la iniciativa busca generar en materia de competencia, inclusión financiera y acceso al crédito. La directora ejecutiva del gremio, Josefina Movillo, sostuvo que, “dado el esquema gradual contemplado en la ley, su operación plena no se alcanzará antes de 2030, convirtiendo a Chile en el país más lento del mundo en implementar esta solución”.</p><h2 id="4-abif-y-la-postergacion-de-finanzas-abiertas-esta-definicion-es-coherente-la-meta-de-julio-de-2026-no-era-viable"><strong>4.  Abif y la postergación de finanzas abiertas: “Esta definición es coherente (...) la meta de julio de 2026 no era viable”</strong></h2><p>El gremio valoró la decisión del regulador, y reiteró que la seguridad de los datos de los clientes es el eje central del SFA. José Manuel Mena, presidente de la Asociación de Bancos e Instituciones Financieras. Foto: Julio Castro. La banca salió a respaldar la decisión del regulador, argumentando que el calendario original no era compatible con el grado de avance regulatorio y técnico que aún requiere el proyecto.</p><h2 id="5-deloitte-y-nueva-exigencia-de-patrimonio-para-agf-la-industria-evidencia-holgura-respecto-de-los-minimos-establecidos"><strong>5.  Deloitte y nueva exigencia de patrimonio para AGF: “La industria evidencia holgura respecto de los mínimos establecidos”</strong></h2><p>También, señaló que el sector cuenta con un buen posicionamiento para los requerimientos de garantía que pedirá la CMF. En un mes más entrará en vigor la última de una serie de regulaciones que afectará a las gestoras de fondos (AGF): la norma N°526 de la Comisión para el Mercado Financiero (CMF), que establece requerimientos de capital y garantías en base a activos ponderados por riesgo (APR). Conocida como el “Mini Basilea” para las AGF -por su similitud a las exigencias para la banca-, exigirá que el patrimonio de la administradora de fondos deje de ser estático y se calcule según el mayor valor entre UF 5.000 o el 3% de los APR. Desde 2027, la CMF podrá exigir un 3% adicional.</p><h2 id="6-ganancias-de-la-industria-aseguradora-de-vida-suben-25-en-el-primer-trimestre-del-ano"><strong>6.  Ganancias de la industria aseguradora de vida suben 25% en el primer trimestre del año</strong></h2><p>Las compañías de seguros de vida obtuvieron utilidades por US$ 357 millones en el primer trimestre de 2026, un alza de 25% frente a los US$ 285 millones del mismo período del año anterior, impulsadas principalmente por el rendimiento de inversiones, que creció 12,5% hasta US$ 860 millones. La prima directa del sector avanzó 16,7% hasta US$ 3.198 millones, mientras que el portafolio de inversiones totales del sector saltó 9% hasta US$ 79.894 millones, con el negocio de rentas vitalicias creciendo 42%. La renta fija sigue siendo el principal vehículo de inversión con US$ 32.908 millones, seguida por activos inmobiliarios (US$ 21.836 millones) e inversiones en el exterior (US$ 15.024 millones).</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-kast-y-fontaine-se-reunen-por-mas-de-dos-horas-en-la-moneda-cita-se-centro-en-reforzar-control-y-gobierno-corporativo-de-codelco"><strong>1.  Kast y Fontaine se reúnen por más de dos horas en La Moneda: cita se centró en reforzar control y gobierno corporativo de Codelco</strong></h2><p>El Presidente Kast y el titular de Codelco, Bernardo Fontaine, sostuvieron una reunión de más de dos horas centrada en reforzar los mecanismos de control de gestión, la seguridad de los trabajadores, el avance de proyectos estratégicos y cómo aumentar la contribución al Fisco, en el contexto del escándalo por el abultamiento de producción en 27.000 toneladas en diciembre de 2025 y el accidente fatal en El Teniente. Un eje clave de la cita fue cómo perfeccionar la gobernanza de la estatal para evitar decisiones unipersonales, proceder que fue criticado durante la gestión del antecesor de Fontaine. Además, la empresa enfrenta el desafío del declive productivo: no ha cumplido su plan de producción anual desde 2019, lo que hace casi imposible la meta de 1,7 millones de toneladas para 2030.</p><h2 id="2-la-region-del-biobio-y-el-mercado-salen-a-respaldar-negociaciones-de-cap-para-vender-la-siderurgica-de-huachipato"><strong>2.  La Región del Biobío y el mercado salen a respaldar negociaciones de CAP para vender la siderúrgica de Huachipato</strong></h2><p>CAP confirmó negociaciones con Aceros AZA (grupos Del Río y Matetic) para traspasar cerca del 20% de la superficie del complejo de Huachipato y activos siderúrgicos, en una operación que rondaría los US$ 400 millones, de los cuales US$ 120 millones corresponderían a la compra y el resto a la reconversión hacia una acería de acero verde elaborado con 100% energías renovables. La noticia fue recibida positivamente por la Región del Biobío, que desde el cierre de Huachipato enfrenta un 9,8% de desempleo y la pérdida de 1.500 empleos directos, con autoridades estimando que el proyecto podría operar en dos años versus los ocho a diez que requeriría una instalación nueva. En bolsa, la acción de CAP subió 4,3% a $6.767, su mejor sesión de 2026, con analistas señalando que el valor está en el uso alternativo de activos que actualmente están contabilizados a cero.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-desde-el-pan-hasta-los-fideos-baja-en-superficie-plantada-de-trigo-en-el-granero-de-chile-pondria-presion-a-precios-de-la-harina"><strong>1.  Desde el pan hasta los fideos: baja en superficie plantada de trigo en "el granero de Chile" pondría presión a precios de la harina</strong></h2><p>La confluencia de una sequía en EE.UU. que genera la peor cosecha de trigo en 60 años, el alza de 50% en el costo de fertilizantes y un incremento cercano al 40% en el precio de la urea importada llevarán el costo de producción por hectárea en La Araucanía a superar los $2 millones, por encima del rango habitual de $1,8 a $1,9 millones. El presidente de la Asociación de Agricultores de La Araucanía anticipa una caída de entre 10% y 12% en la superficie sembrada esta temporada, en una región que concentra el 42% de la producción nacional de trigo. El sector advierte que operará en números rojos y no podrá reconvertirse hacia otros cultivos sin inversión estatal en infraestructura hídrica, mientras el proyecto de embalse en Curacautín, discutido desde la década de 1990, sigue paralizado.</p><h2 id="2-la-hoja-de-ruta-de-trabajo-reducir-el-desempleo-a-65-y-mas-adaptabilidad-laboral"><strong>2.  La hoja de ruta de Trabajo: reducir el desempleo a 6,5% y más adaptabilidad laboral</strong></h2><p>El Ministerio del Trabajo presentó su plan de acción 2026-2030 estructurado en cuatro ejes: más empleo formal, relaciones laborales modernas, fortalecimiento de la capacitación e institucionalidad con certeza jurídica. La principal meta cuantitativa es reducir la tasa de desempleo a niveles cercanos al 6,5% al término del gobierno, con énfasis en cerrar brechas de empleabilidad entre hombres y mujeres. En materia de jornada, se continuará con la reducción gradual a 40 horas semanales hacia 2028 y se impulsará un proyecto de Estatuto Laboral para el Turismo que permitirá a trabajadores y empleadores pactar sistemas de organización de jornada flexibles.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-biotech-chilena-sudvet-abre-oficinas-en-noruega-y-australia-para-globalizar-sus-soluciones-botanicas-para-el-salmon"><strong>1.  Biotech chilena Sudvet abre oficinas en Noruega y Australia para globalizar sus soluciones botánicas para el salmón</strong></h2><p>Sudvet, biotecnológica chilena fundada en 2013, inauguró oficinas propias en Noruega y avanza en la transición a operación directa en Australia, con el objetivo de competir en los dos principales mercados salmoneros mundiales junto a Chile. La empresa desarrolla soluciones 100% botánicas para la acuicultura que han permitido reducir el uso de antibióticos en la salmonicultura en torno al 50%, con productos que trabajan con todas las salmoneras chilenas. Proyecta un crecimiento de ventas del 30% en 2026 respecto a 2025, y prepara el lanzamiento de tres nuevas líneas de negocio: animales terrestres (vacas, desde octubre de 2027), mascotas y suplementos botánicos para humanos bajo la marca My Body Tech.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-la-advertencia-de-la-ocde-y-la-urgencia-de-actuar"><strong>1.  La advertencia de la OCDE y la urgencia de actuar</strong></h2><p>La OCDE recortó su estimación de crecimiento para Chile en 2026 desde 2,2% a 1,7%, en un contexto de cuatro caídas consecutivas del Imacec, la última de -1,2% en abril, deterioro del empleo e inversión estancada. La columna editorial señala que las dificultades chilenas responden principalmente a factores internos diagnosticados desde hace años, como la baja productividad, la lenta inversión y el sistema de permisos para proyectos. Plantea que la tramitación del proyecto de Reconstrucción Nacional, orientado a agilizar permisos e incentivar la inversión en minería, energía e infraestructura, representa una oportunidad concreta que el Ejecutivo y el Congreso deben abordar con altura de miras para recuperar el dinamismo económico.</p><h2 id="2-empleo-y-dignidad"><strong>2.  Empleo y dignidad</strong></h2><p>La columna recupera la afirmación del Presidente Kast en la Cuenta Pública de que devolverle el empleo a Chile es "un objetivo profundamente humano", vinculándola con la encíclica Magnifica Humanitas, que reivindica el trabajo como dimensión fundamental de la experiencia humana frente a la automatización y la inteligencia artificial. El autor argumenta que la innovación tecnológica solo genera valor real si se orienta con criterios humanos y no exclusivamente desde la eficiencia. Interpela al mundo empresarial a que generar trabajo digno sea parte esencial de su aporte a la sociedad y no una consecuencia secundaria de la actividad económica.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

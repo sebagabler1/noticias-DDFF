@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 de junio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-06-30.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">30 de junio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-ipsa-abre-al-alza-y-supera-los-10800-puntos-tras-distension-geopolitica-de-vuelta-de-un-fin-de-semana-largo-en-chile">1.  IPSA abre al alza y supera los 10.800 puntos tras distensión geopolítica de vuelta de un fin de semana largo en Chile</a></li><li class="toc-l2"><a href="#2-dolar-arranca-estable-una-semana-corta-con-miras-al-reporte-de-nominas-no-agricolas-en-eeuu">2.  Dólar arranca estable una semana corta con miras al reporte de nóminas no agrícolas en EEUU</a></li><li class="toc-l2"><a href="#3-rodrigo-godoy-gerente-de-estudios-de-credicorp-capital-los-bancos-y-centros-comerciales-fueron-los-ganadores-del-primer-semestre">3.  Rodrigo Godoy, gerente de Estudios de Credicorp Capital: “Los bancos y centros comerciales fueron los ganadores del primer semestre”</a></li><li class="toc-l2"><a href="#4-como-pampa-investments-la-exoro-blanco-se-encamina-para-regresar-al-ipsa-tras-dos-anos-fuera-del-indice">4.  Cómo Pampa Investments, la exOro Blanco, se encamina para regresar al IPSA tras dos años fuera del índice</a></li><li class="toc-l2"><a href="#5-cantidad-de-cotizantes-de-afp-menor-a-30-anos-retrocede-mas-de-10-en-una-decada">5.  Cantidad de cotizantes de AFP menor a 30 años retrocede más de 10% en una década</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-cecinas-ancud-activa-plan-de-expansion-con-nueva-red-de-locales-propios-para-fortalecer-canal-de-venta-directa-y-proyecta-alza-de-20-en-ingresos">1.  Cecinas Ancud activa plan de expansión con nueva red de locales propios para fortalecer canal de venta directa y proyecta alza de 20% en ingresos</a></li><li class="toc-l2"><a href="#2-enaex-sella-nuevo-hito-en-su-internacionalizacion-aterriza-en-india-tras-firmar-acuerdo-con-empresa-de-manufactura-avanzada">2.  Enaex sella nuevo hito en su internacionalización: aterriza en India tras firmar acuerdo con empresa de manufactura avanzada</a></li><li class="toc-l2"><a href="#3-en-medio-de-crisis-financiera-empresa-chilena-lider-del-agro-propone-venta-de-activos-para-evitar-su-quiebra">3.  En medio de crisis financiera, empresa chilena líder del agro propone venta de activos para evitar su quiebra</a></li><li class="toc-l2"><a href="#4-ruta-talca-chillan-a-la-venta-los-caminos-que-se-abren-para-la-concesion-de-la-china-crcc-tras-millonarias-deudas">4.  ¿Ruta Talca-Chillán a la venta? Los caminos que se abren para la concesión de la china CRCC tras millonarias deudas</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-un-mayo-con-malas-cifras-la-produccion-industrial-completa-ocho-meses-a-la-baja-y-la-actividad-comercial-se-desacelera">1.  Un mayo con malas cifras: la producción industrial completa ocho meses a la baja y la actividad comercial se desacelera</a></li><li class="toc-l2"><a href="#2-tasa-de-desocupacion-nacional-supera-las-expectativas-y-sube-a-94-en-el-trimestre-marzo-mayo-maximo-en-casi-cinco-anos">2.  Tasa de desocupación nacional supera las expectativas y sube a 9,4% en el trimestre marzo-mayo, máximo en casi cinco años</a></li><li class="toc-l2"><a href="#3-la-carta-de-30-abogados-expertos-en-contra-de-la-acusacion-contra-grau-a-solo-horas-de-que-la-analice-el-senado">3.  La carta de 30 abogados expertos en contra de la acusación contra Grau a sólo horas de que la analice el Senado</a></li><li class="toc-l2"><a href="#4-mas-del-90-de-expertos-del-panel-uc-respalda-elevar-las-exigencias-para-las-acusaciones-constitucionales">4.  Más del 90% de expertos del Panel UC respalda elevar las exigencias para las acusaciones constitucionales</a></li><li class="toc-l2"><a href="#5-mas-inversion-y-menos-inflacion-la-economia-chilena-se-apresta-a-iniciar-un-segundo-semestre-con-renovado-viento-a-favor">5.  Más inversión y menos inflación: la economía chilena se apresta a iniciar un segundo semestre con renovado viento a favor</a></li><li class="toc-l2"><a href="#6-caso-grau-abogados-que-han-defendido-ac-alertan-por-creciente-uso-politico-del-mecanismo">6.  Caso Grau: abogados que han defendido AC alertan por creciente uso político del mecanismo</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-nuevo-regimen-cambiario-en-bolivia-de-que-se-trata">1.  Nuevo régimen cambiario en Bolivia: ¿De qué se trata?</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-la-debil-contratacion-afecta-a-los-trabajadores-jovenes-mas-que-la-ia-segun-estudio">1.  La débil contratación afecta a los trabajadores jóvenes más que la IA, según estudio</a></li><li class="toc-l2"><a href="#2-attom-capital-fondo-de-secundarias-de-antonia-rojas-entra-a-brasil-y-alista-dos-nuevas-inversiones">2.  Attom Capital, fondo de secundarias de Antonia Rojas, entra a Brasil y alista dos nuevas inversiones</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-los-costos-de-la-evasion">1.  Los costos de la evasión</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>30 De Junio De 2026</p><p>6 secciones  ·  19 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-ipsa-abre-al-alza-y-supera-los-10800-puntos-tras-distension-geopolitica-de-vuelta-de-un-fin-de-semana-largo-en-chile"><strong>1.  IPSA abre al alza y supera los 10.800 puntos tras distensión geopolítica de vuelta de un fin de semana largo en Chile</strong></h2><p>La bolsa chilena abrió al alza este martes, con el IPSA subiendo 0,5% hasta 10.817,99 puntos, impulsado por SQM-B (+2,4%) y Banco de Chile (+1,9%), en un contexto de distensión entre EEUU e Irán que retomarían el diálogo este martes en Doha tras nuevos incidentes violentos durante el fin de semana. El petróleo Brent se mantenía estable cerca de US$ 73 por barril, mientras Wall Street abría mixto (Nasdaq +0,5%, S&amp;P 500 +0,1%, Dow Jones -0,2%) y las bolsas europeas y asiáticas mostraban mayoría de alzas. El mercado además se prepara para el informe de nóminas no agrícolas de EEUU de junio, que se conocerá el jueves (adelantado por el feriado del 4 de julio), con expectativas de 115 mil nuevos empleos y desempleo estable en 4,3%. El IPSA se encamina a cerrar junio con escasa variación neta, en un segundo trimestre levemente alcista que sería el octavo consecutivo en terreno positivo.</p><h2 id="2-dolar-arranca-estable-una-semana-corta-con-miras-al-reporte-de-nominas-no-agricolas-en-eeuu"><strong>2.  Dólar arranca estable una semana corta con miras al reporte de nóminas no agrícolas en EEUU</strong></h2><p>El dólar cotizaba estable en $ 923,2 este martes, tras el feriado de San Pedro y San Pablo, en medio de su racha alcista más larga desde 2018 producto del tono restrictivo de la Reserva Federal y la debilidad de la economía chilena. El dollar index subía 0,3% y el cobre Comex avanzaba 1,3% a US$ 6,24 por libra, acumulando un repunte de más de 4% desde sus mínimos de la semana pasada, mientras el petróleo Brent se mantenía cerca de US$ 73 ante la expectativa de una reunión entre EEUU e Irán en Doha tras nuevos enfrentamientos en el fin de semana. Este martes se publican en EEUU las ofertas laborales de mayo y la confianza del consumidor de junio, previo al informe de nóminas no agrícolas del jueves, adelantado por el feriado del 4 de julio, donde se esperan 115 mil nuevos empleos.</p><h2 id="3-rodrigo-godoy-gerente-de-estudios-de-credicorp-capital-los-bancos-y-centros-comerciales-fueron-los-ganadores-del-primer-semestre"><strong>3.  Rodrigo Godoy, gerente de Estudios de Credicorp Capital: “Los bancos y centros comerciales fueron los ganadores del primer semestre”</strong></h2><p>En entrevista, el gerente de Estudios de Credicorp Capital, Rodrigo Godoy, señaló que bancos y centros comerciales fueron los sectores ganadores del primer semestre 2026, destacando además a SQM, Parque Arauco, Mall Plaza, Engie y Enel Chile, mientras forestales (afectadas por la inversión de Copec en Brasil), Entel y Cencosud quedaron rezagados. Proyectó el IPSA en 12.500 puntos a fin de año —con un P/U de 13 veces—, aunque podría bajar a 12.000 puntos si las tasas globales no se relajan; condicionó esa recuperación a la aprobación de la Ley de Reconstrucción Nacional, la estabilización del dólar (hoy en torno a $ 920) y que el cobre no caiga bajo los US$ 6 la libra. Identificó a Latam Airlines como su principal apuesta para el segundo semestre, por su posición competitiva y menor endeudamiento, con el riesgo de una nueva venta de acciones de Sixth Street Partners (13% de la propiedad) como amenaza. También advirtió que el fortalecimiento del dólar frente a monedas emergentes, ligado a expectativas de tasas en EEUU, tiene un impacto mixto: presiona la inflación pero podría favorecer a los bancos.</p><h2 id="4-como-pampa-investments-la-exoro-blanco-se-encamina-para-regresar-al-ipsa-tras-dos-anos-fuera-del-indice"><strong>4.  Cómo Pampa Investments, la exOro Blanco, se encamina para regresar al IPSA tras dos años fuera del índice</strong></h2><p>Pampa Investments, sociedad resultante de la fusión de Oro Blanco, Norte Grande y Global Mining (vinculadas al grupo controlador de SQM), avanza para reingresar al IPSA en el rebalanceo de septiembre, tras dos años fuera del índice, luego de contratar a Banchile Corredores de Bolsa como market maker para elevar su liquidez bursátil. La compañía tendría un valor de mercado de US$ 3.500 millones y un free float de 29,3% (US$ 1.000 millones), lo que la ubicaría en el puesto 20 del índice, según estimaciones de bancos como Banchile, Econsult e Itaú BBA. Fuentes de mercado consultadas por DF aseguran que el regreso está prácticamente asegurado, y que solo una fuerte caída del precio del litio podría frustrarlo.</p><h2 id="5-cantidad-de-cotizantes-de-afp-menor-a-30-anos-retrocede-mas-de-10-en-una-decada"><strong>5.  Cantidad de cotizantes de AFP menor a 30 años retrocede más de 10% en una década</strong></h2><p>La cantidad de cotizantes de AFP menores de 30 años cayó 10,2% en una década, llegando en marzo de 2026 a 1.352.924 personas (-1,2% anual), el nivel más bajo para un primer trimestre desde 2011. Expertos como Soledad Hormázabal y el exsuperintendente Osvaldo Macías atribuyen la caída a la mayor matrícula en educación superior gratuita y al alza del desempleo juvenil, advirtiendo que la menor cotización temprana reduce significativamente la pensión futura por la pérdida de años de interés compuesto. La tendencia también preocupa por su impacto en la sostenibilidad del Fondo Autónomo de Protección Previsional (FAPP), que financia el Seguro Social de la reforma previsional.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-cecinas-ancud-activa-plan-de-expansion-con-nueva-red-de-locales-propios-para-fortalecer-canal-de-venta-directa-y-proyecta-alza-de-20-en-ingresos"><strong>1.  Cecinas Ancud activa plan de expansión con nueva red de locales propios para fortalecer canal de venta directa y proyecta alza de 20% en ingresos</strong></h2><p>Cecinas Ancud, marca chilota con 58 años de historia y facturación cercana a US$ 4 millones anuales, aprobó en junio un plan de expansión con tiendas propias para vender directo al consumidor, comenzando en septiembre en Castro y expandiéndose a Puerto Montt, Temuco, Concepción y eventualmente Santiago. La estrategia busca capturar mayores márgenes evitando intermediarios, aprovechando que sus plantas operan solo al 60%-70% de capacidad tras una inversión post-pandemia de US$ 1,5 millones en infraestructura y maquinaria, lo que le permitiría crecer en volumen 20%-30% sin nuevas inversiones. La empresa también recupera productos de mayor margen como el jamón premium y evalúa retomar su línea de salame, mientras avanza en profesionalizar su gobierno corporativo de cara al relevo generacional.</p><h2 id="2-enaex-sella-nuevo-hito-en-su-internacionalizacion-aterriza-en-india-tras-firmar-acuerdo-con-empresa-de-manufactura-avanzada"><strong>2.  Enaex sella nuevo hito en su internacionalización: aterriza en India tras firmar acuerdo con empresa de manufactura avanzada</strong></h2><p>Enaex, filial de Sigdo Koppers, firmó un joint venture con la india N.A.N. GreenMet para desarrollar una empresa de explosivos y soluciones de voladura en India, marcando su primera incursión en ese país tras un proceso iniciado en 2025. Enaex aportará tecnología propia y estándares operacionales desarrollados en más de un siglo de experiencia, mientras GreenMet contribuirá su conocimiento del ecosistema regulatorio e industrial indio, enfocándose en infraestructura, canteras y minería de hierro y metales. El presidente de Enaex, Juan Eduardo Errázuriz, destacó que un 64% de los ingresos de la compañía ya provienen de operaciones fuera de Chile, reforzando su estrategia de internacionalización.</p><h2 id="3-en-medio-de-crisis-financiera-empresa-chilena-lider-del-agro-propone-venta-de-activos-para-evitar-su-quiebra"><strong>3.  En medio de crisis financiera, empresa chilena líder del agro propone venta de activos para evitar su quiebra</strong></h2><p>Hacienda Chada, ligada a la familia Barros y una de las mayores agrícolas del país, busca renegociar pasivos por US$ 97 millones mediante un proceso de reorganización judicial, proponiendo a sus acreedores la venta de tres campos que suman más de 200 hectáreas (en los fundos Calera de Tango y Huelquén), tras ya haber enajenado activos por US$ 60 millones previamente. La empresa atribuye su crisis a la pandemia, eventos climáticos, una crisis logística y la caída en 2024 del precio de la cereza por sobreoferta en el mercado chino, contando con activos valorizados en más de $ 61.370 millones. La propuesta será votada por los acreedores el 6 de julio; la empresa relacionada BB Trading (Río King), que le compra parte de su producción, también está en proceso de reorganización por pasivos de US$ 105 millones.</p><h2 id="4-ruta-talca-chillan-a-la-venta-los-caminos-que-se-abren-para-la-concesion-de-la-china-crcc-tras-millonarias-deudas"><strong>4.  ¿Ruta Talca-Chillán a la venta? Los caminos que se abren para la concesión de la china CRCC tras millonarias deudas</strong></h2><p>En medio de millonarias deudas y multas, la concesión de la carretera Talca-Chillán, operada por la china CRCC a través de Survías, estaría en proceso de venta pese a que la empresa lo niega públicamente; fuentes del mercado y del MOP confirman a DF que Banco Santander tiene un mandato para ofrecer el activo. Los problemas se originaron en 2025 por incumplimientos en mantención y plazos, acumulando multas por cerca de US$ 7,7 millones, un pago pendiente de unos US$ 75 millones por infraestructura preexistente, y la ejecución de boletas de garantía por unos US$ 35 millones, mientras la deuda financiera de Survías alcanza US$ 773 millones. El MOP evalúa terminar el contrato o facilitar su venta, opción preferida por ser menos costosa que relicitar, y la industria especula que una eventual transacción podría incluir también la concesión Chillán-Collipulli.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-un-mayo-con-malas-cifras-la-produccion-industrial-completa-ocho-meses-a-la-baja-y-la-actividad-comercial-se-desacelera"><strong>1.  Un mayo con malas cifras: la producción industrial completa ocho meses a la baja y la actividad comercial se desacelera</strong></h2><p>El Índice de Producción Industrial cayó 7,5% anual en mayo, completando ocho meses consecutivos de descensos, con la minería retrocediendo 10,6% (metálica -13,0% por menor extracción y procesamiento de cobre) y la manufactura cayendo 7,2% (alimentos -10,9%), según el INE. En contraste, el Índice de Producción de Electricidad, Gas y Agua creció apenas 1,0%, impulsado por la generación solar, mientras el Índice de Actividad del Comercio se desaceleró a 1,6% anual en mayo desde 3,2% en abril, con el comercio minorista creciendo 4,6% por ventas online, y el comercio mayorista de combustibles cayendo 2,1%. El comercio electrónico minorista destacó con un alza de 18,5% anual.</p><h2 id="2-tasa-de-desocupacion-nacional-supera-las-expectativas-y-sube-a-94-en-el-trimestre-marzo-mayo-maximo-en-casi-cinco-anos"><strong>2.  Tasa de desocupación nacional supera las expectativas y sube a 9,4% en el trimestre marzo-mayo, máximo en casi cinco años</strong></h2><p>La tasa de desocupación nacional subió a 9,4% en el trimestre marzo-mayo, su nivel más alto en casi cinco años y por sobre el 9,2% esperado por el consenso de Bloomberg, según el INE, con 981.315 personas desocupadas (63.392 más que un año atrás) y una tasa femenina de 10,5% frente a 8,6% en hombres. El deterioro se explica porque el empleo formal cayó 0,6% anual (-42.502 personas, tercera caída consecutiva), mientras el crecimiento del empleo total (+0,8%) se debió exclusivamente a la informalidad, que subió a una tasa de 27% del total ocupado. Las mayores tasas de desempleo regional se registraron en Valparaíso y O'Higgins (10,2%), mientras la informalidad fue más alta en la Araucanía (37,4%); el subdirector del INE, Leonardo González, destacó que quienes buscan trabajo por primera vez acumulan ocho trimestres de crecimiento sostenido.</p><h2 id="3-la-carta-de-30-abogados-expertos-en-contra-de-la-acusacion-contra-grau-a-solo-horas-de-que-la-analice-el-senado"><strong>3.  La carta de 30 abogados expertos en contra de la acusación contra Grau a sólo horas de que la analice el Senado</strong></h2><p>A horas de que el Senado analice la acusación constitucional contra el exministro de Hacienda Nicolás Grau —aprobada por la Cámara el 23 de junio a instancias del Partido Nacional Libertario y el Partido Republicano—, un grupo de 30 abogados envió una carta pública advirtiendo sobre el uso indebido de este mecanismo fiscalizador y sus efectos negativos para la institucionalidad democrática. Los abogados sostienen que el requisito central para una acusación constitucional es una falta concreta y verificada, no diferencias políticas, y señalan que los supuestos errores de proyección de deuda imputados a Grau ya fueron descartados por expertos y por el Consejo Fiscal Autónomo. El proceso en el Senado se inicia este martes a las 10:30 horas con exposiciones de la comisión acusadora y la defensa de Grau, a cargo del abogado Patricio Zapata, antes de la votación de los cuatro capítulos del libelo.</p><h2 id="4-mas-del-90-de-expertos-del-panel-uc-respalda-elevar-las-exigencias-para-las-acusaciones-constitucionales"><strong>4.  Más del 90% de expertos del Panel UC respalda elevar las exigencias para las acusaciones constitucionales</strong></h2><p>Un 94% de los expertos del Panel de Políticas Públicas de la Escuela de Gobierno UC respaldó en junio elevar las exigencias para presentar acusaciones constitucionales, exigiendo una interpelación previa y reglas de aprobación más estrictas, coincidiendo con la votación en el Senado de la AC contra el exministro Nicolás Grau y con una reforma constitucional presentada por un grupo transversal de parlamentarios. El profesor de la UC Diego Gil atribuyó el respaldo a la percepción de que se está abusando de la herramienta como “lawfare” para obtener victorias políticas que deberían resolverse en las urnas, valorando la propuesta que sube de 10 a 20 las firmas requeridas y exige mayoría absoluta en la Cámara. Gil advirtió, sin embargo, que cambiar las reglas no basta si no cambia la cultura política de los legisladores.</p><h2 id="5-mas-inversion-y-menos-inflacion-la-economia-chilena-se-apresta-a-iniciar-un-segundo-semestre-con-renovado-viento-a-favor"><strong>5.  Más inversión y menos inflación: la economía chilena se apresta a iniciar un segundo semestre con renovado viento a favor</strong></h2><p>Pese a que el Banco Central redujo su proyección de crecimiento del PIB 2026 de 1,5%-2,5% a 1,0%-1,5% en su último IPoM, economistas consultados por Diario Financiero esperan una aceleración hacia el segundo semestre (en torno a 3%), tras una primera mitad débil (PIB -0,5% en el primer trimestre), impulsada por mayor inversión, una base de comparación favorable y la moderación inflacionaria por la baja en combustibles. El consenso de mercado proyecta un crecimiento anual de 1,5%-1,6% para 2026, con inflación entre 3,8% y 4%, dólar bajo $ 900, y estimaciones de inversión (formación bruta de capital fijo) que van de 1,8% (Santander) a 4,5% (BICE Inversiones). Economistas de Gemines, Prudential AGF, Bci y BICE Inversiones coinciden en que la recuperación del segundo semestre se apoyará en el repunte de minería y pesca, mayor gasto público, y la eventual aprobación del proyecto de reconstrucción y reactivación en agosto, aunque advierten riesgos como El Niño.</p><h2 id="6-caso-grau-abogados-que-han-defendido-ac-alertan-por-creciente-uso-politico-del-mecanismo"><strong>6.  Caso Grau: abogados que han defendido AC alertan por creciente uso político del mecanismo</strong></h2><p>Abogados con experiencia defendiendo a exministros en acusaciones constitucionales —Francisco Cox, Claudia Sarmiento, Elisa Walker y Ciro Colombara— advirtieron a DF sobre el creciente uso político de este mecanismo, coincidiendo en que el ambiente político influye fuertemente en sus resultados, en momentos en que el Senado define este martes el destino del exministro de Hacienda Nicolás Grau. Desde el retorno a la democracia se han presentado 51 acusaciones constitucionales, la mayoría rechazadas, y los abogados consultados señalan que el instrumento ha derivado en un uso casi exclusivamente político que erosiona el debido proceso y el rol jurídico que debería primar. Coinciden en que las reformas que buscan elevar los requisitos para presentar acusaciones van en la dirección correcta, aunque advierten que no bastarán sin un cambio de cultura política entre los legisladores.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-nuevo-regimen-cambiario-en-bolivia-de-que-se-trata"><strong>1.  Nuevo régimen cambiario en Bolivia: ¿De qué se trata?</strong></h2><p>Bolivia inició esta semana el mayor cambio en su política cambiaria desde 2011, abandonando el tipo de cambio fijo de 6,96 bolivianos por dólar vigente por 15 años para adoptar un esquema de flexibilización en que el Banco Central publica diariamente un tipo de cambio oficial basado en el promedio ponderado de las operaciones de los bancos, que este martes se ubicó en 9,76 bolivianos por dólar. La medida responde a más de tres años de escasez de divisas y a la expansión del mercado paralelo, y aunque se presenta como un régimen flexible, mantiene intervención oficial al fijar un techo de venta (tipo de cambio oficial más 10 centavos) que las entidades financieras no pueden superar, por lo que analistas la describen como una flotación administrada antes que una libre flotación. El Gobierno boliviano calificó la medida como un “sinceramiento” del mercado cambiario, aunque el sector privado advierte que por sí sola no resolverá la crisis de divisas.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-la-debil-contratacion-afecta-a-los-trabajadores-jovenes-mas-que-la-ia-segun-estudio"><strong>1.  La débil contratación afecta a los trabajadores jóvenes más que la IA, según estudio</strong></h2><p>Un estudio de la Reserva Federal de St. Louis concluyó que la escasez de vacantes laborales en EEUU ha tenido un impacto mucho mayor en el desempleo juvenil que la falta de habilidades en inteligencia artificial, explicando un aumento de 2,9 puntos porcentuales en el desempleo de jóvenes de 18 a 24 años entre abril de 2023 y diciembre de 2025, frente a 1,1 puntos atribuibles a la mayor demanda de habilidades en IA. Entre recién graduados universitarios la diferencia es menor: la debilidad de las vacantes elevó el desempleo en 2,2 puntos, frente a 1,7 puntos por la demanda de habilidades en IA. El estudio se suma a otra investigación de la Fed de Nueva York que atribuye parte del alza del desempleo juvenil al auge del trabajo remoto, ante la reticencia de las empresas a contratar jóvenes para roles a distancia.</p><h2 id="2-attom-capital-fondo-de-secundarias-de-antonia-rojas-entra-a-brasil-y-alista-dos-nuevas-inversiones"><strong>2.  Attom Capital, fondo de secundarias de Antonia Rojas, entra a Brasil y alista dos nuevas inversiones</strong></h2><p>Attom Capital, el fondo de secundarias liderado por la chilena Antonia Rojas, ingresó a Brasil con una inversión en la fintech Nomad y prepara una segunda apuesta en ese país, acercándose a su meta de 10 a 12 compañías en cartera tras concretar siete inversiones en menos de dos años y aprobar una octava. Las startups de su portafolio —que incluyen a la mexicana Kueski— facturan en conjunto US$ 700 millones, y según Rojas, el 30% de los exits de 2025 en la región se dieron vía transacciones secundarias, cuatro veces más que cuando lanzó el fondo en 2023. Rojas calificó el momento actual como el mejor para invertir en Latinoamérica por la liquidez generada por las aperturas bursátiles de tecnológicas en EEUU, y manifestó preocupación por la falta de preparación educativa de los universitarios frente al avance de la IA generativa.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-los-costos-de-la-evasion"><strong>1.  Los costos de la evasión</strong></h2><p>La columna advierte que la evasión en infraestructura vial y transporte público chileno alcanzó niveles insostenibles: la incobrabilidad entre usuarios con TAG activo subió de 4,83% en 2020 a 9% en 2025 (hasta 18%-19% en algunos casos), dejando a concesionarias con más de $ 198 mil millones en deudas de más de 250 días de mora, mientras la evasión en buses de Santiago se mantiene cerca de 35% pese al Plan Antievasión, generando un déficit anual de US$ 150-200 millones. Atribuye el problema al diseño del sistema free flow de Chile Sin Barreras, que eliminó la barrera física de pago inmediato sin reemplazarla por una cobranza igualmente eficaz, citando al CEO de Grupo Costanera, Diego Savino, quien afirmó que ningún sistema puede sostenerse con estos niveles de no pago. Como contraste, destaca el caso de Bogotá, que redujo la evasión en TransMilenio de 30% a 15,32% combinando infraestructura, datos, fiscalización y cultura ciudadana, y concluye que Chile necesita rediseñar el sistema para que pagar sea simple y automático, en lugar de solo aumentar sanciones.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

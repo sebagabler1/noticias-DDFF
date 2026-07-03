@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 de julio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-07-03.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">3 de julio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-cae-a-niveles-de-920-mientras-la-divisa-cede-algo-mas-de-terreno-en-el-plano-global-con-eeuu-cerrado-por-feriado">1.  Dólar cae a niveles de $ 920 mientras la divisa cede algo más de terreno en el plano global con EEUU cerrado por feriado</a></li><li class="toc-l2"><a href="#2-bolsas-suben-y-el-ipsa-recupera-los-10800-puntos-mientras-eeuu-se-toma-un-dia-libre-por-sus-250-anos-de-independencia">2.  Bolsas suben y el IPSA recupera los 10.800 puntos mientras EEUU se toma un día libre por sus 250 años de independencia</a></li><li class="toc-l2"><a href="#3-el-requerimiento-que-se-anoto-un-triunfo-en-el-tc-por-la-norma-de-conformacion-de-directorios-de-las-afp">3.  El requerimiento que se anotó un triunfo en el TC por la norma de conformación de directorios de las AFP</a></li><li class="toc-l2"><a href="#4-de-vitrineo-de-gestoras-a-equipo-interno-la-estrategia-de-vinci-compass-para-potenciar-activos-alternativos-locales">4.  De “vitrineo” de gestoras a equipo interno: la estrategia de Vinci Compass para potenciar activos alternativos locales</a></li><li class="toc-l2"><a href="#5-ipsa-cerro-el-primer-semestre-con-menor-alza-en-la-region-arrastrado-por-bajo-crecimiento-economico">5.  IPSA cerró el primer semestre con menor alza en la región, arrastrado por bajo crecimiento económico</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-novandino-litio-presenta-su-proyecto-emblema-salar-futuro-y-el-salar-de-atacama-suma-mas-de-us-6000-millones-en-inversiones-en-tres-meses">1.  Novandino Litio presenta su proyecto emblema &quot;Salar Futuro&quot; y el Salar de Atacama suma más de US$ 6.000 millones en inversiones en tres meses</a></li><li class="toc-l2"><a href="#2-sonami-amplia-de-14-a-19-los-distritos-mineros-que-identifica-en-chile-e-insta-a-una-mirada-territorial-para-reimpulsar-la-produccion">2.  Sonami amplía de 14 a 19 los distritos mineros que identifica en Chile e insta a una mirada territorial para &quot;reimpulsar&quot; la producción</a></li><li class="toc-l2"><a href="#3-antofagasta-solicitara-permiso-ambiental-para-ampliar-la-exploracion-en-los-proyectos-encierro-y-los-volcanes-en-el-cuarto-trimestre">3.  Antofagasta solicitará permiso ambiental para ampliar la exploración en los proyectos Encierro y Los Volcanes en el cuarto trimestre</a></li><li class="toc-l2"><a href="#4-ley-de-proteccion-de-datos-remueve-la-gestion-de-personas-monitoreo-biometria-y-licencias-medicas-entran-bajo-revision">4.  Ley de Protección de Datos remueve la gestión de personas: monitoreo, biometría y licencias médicas entran bajo revisión</a></li><li class="toc-l2"><a href="#5-cambio-de-mando-en-el-tribunal-constitucional-los-desafios-que-enfrentara-maria-pia-silva">5.  Cambio de mando en el Tribunal Constitucional: los desafíos que enfrentará María Pía Silva</a></li><li class="toc-l2"><a href="#6-rincon-insiste-en-despacho-express-de-proyecto-de-deuda-y-acota-esfuerzos-en-hidrogeno-verde">6.  Rincón insiste en despacho “express” de proyecto de deuda y acota esfuerzos en hidrógeno verde</a></li><li class="toc-l2"><a href="#7-concesionaria-del-aeropuerto-de-santiago-pierde-demanda-contra-el-mop-por-sobrecostos-en-construccion-del-terminal">7.  Concesionaria del Aeropuerto de Santiago pierde demanda contra el MOP por sobrecostos en construcción del terminal</a></li><li class="toc-l2"><a href="#8-baker-mckenzie-promueve-a-juan-pablo-labbe-como-local-partner">8.  Baker McKenzie promueve a Juan Pablo Labbé como local partner</a></li><li class="toc-l2"><a href="#9-exsocia-de-cariola-se-suma-a-parga-montes-vasseur-laborales">9.  Exsocia de Cariola se suma a Parga Montes &amp; Vasseur Laborales</a></li><li class="toc-l2"><a href="#10-invertir-en-investigacioncomo-pais-no-hemos-estado-a-la-altura">10.  Invertir en investigación:“Como país no hemos estado a la altura”</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-rodrigo-hinzpeter-estamos-a-poco-de-caer-en-una-recesion-tecnica-y-eso-siguiendo-la-analogia-del-presidente-confirma-que-nuestra-economia-esta-enferma">1.  Rodrigo Hinzpeter: &quot;Estamos a poco de caer en una recesión técnica y eso, siguiendo la analogía del Presidente, confirma que nuestra economía está enferma&quot;</a></li><li class="toc-l2"><a href="#2-gremios-chilenos-se-preparan-para-audiencias-en-washington-y-asi-evitar-el-arancel-del-125-de-trump">2.  Gremios chilenos se preparan para audiencias en Washington y así evitar el arancel del 12,5% de Trump</a></li><li class="toc-l2"><a href="#3-quiroz-propone-que-parte-del-cobro-por-la-invariabilidad-tributaria-financie-la-exencion-de-contribuciones">3.  Quiroz propone que parte del cobro por la invariabilidad tributaria financie la exención de contribuciones</a></li><li class="toc-l2"><a href="#4-sofofa-estrecha-lazos-con-emiratos-arabes-para-atraer-inversiones-en-minerales-criticos-energia-y-puertos">4.  Sofofa estrecha lazos con Emiratos Árabes para atraer inversiones en minerales críticos, energía y puertos</a></li><li class="toc-l2"><a href="#5-economia-ilicita-mueve-us-5700-millones-por-ano-de-la-mano-de-los-casinos-online">5.  Economía ilícita mueve US$ 5.700 millones por año, de la mano de los casinos online</a></li><li class="toc-l2"><a href="#6-en-debut-ante-economistas-director-de-dipres-resalta-necesidad-de-reimpulsar-el-crecimiento-para-ordenar-cuentas-fiscales">6.  En debut ante economistas, director de Dipres resalta necesidad de reimpulsar el crecimiento para ordenar cuentas fiscales</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-elmer-cuba-el-economista-formado-en-chile-que-lideraria-las-finanzas-de-peru-en-el-gobierno-de-keiko-fujimori">1.  Elmer Cuba: el economista formado en Chile que lideraría las finanzas de Perú en el gobierno de Keiko Fujimori</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-reporte-de-stanford-advierte-que-grandes-tecnologicas-han-retrocedido-en-transparencia-de-la-ia">1.  Reporte de Stanford advierte que grandes tecnológicas han retrocedido en transparencia de la IA</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-multas-y-regulacion-digital">1.  Multas y regulación digital</a></li><li class="toc-l2"><a href="#2-el-tributo-de-lo-prohibido">2.  El tributo de lo prohibido</a></li><li class="toc-l2"><a href="#3-perdidas-del-fondo-e">3.  Pérdidas del Fondo E</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>3 De Julio De 2026</p><p>6 secciones  ·  26 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-cae-a-niveles-de-920-mientras-la-divisa-cede-algo-mas-de-terreno-en-el-plano-global-con-eeuu-cerrado-por-feriado"><strong>1.  Dólar cae a niveles de $ 920 mientras la divisa cede algo más de terreno en el plano global con EEUU cerrado por feriado</strong></h2><p>El tipo de cambio bajó inicialmente este jueves, en línea con las fuertes ventas internacionales de dólares que siguieron al reporte de empleo estadounidense, pero la caída terminó desvaneciéndose por completo al cierre de las operaciones. El precio del dólar caía este viernes en Chile, mientras los inversionistas siguen masticando elúltimo reporte de nóminas no agrícolas de Estados Unidos, con la ausencia de la primera economía global, que se tomó un receso por sus250 años de independencia. La divisa caía $ 5 hasta los $ 921,5 -mínimos de la sesión- a media mañana, según los datos de Bloomberg, mientras a nivel externo,eldollar indexretrocedía 0,1% a 100,8 puntos yel cobre Comex subía 0,8% a US$ 6,22 por libra.</p><h2 id="2-bolsas-suben-y-el-ipsa-recupera-los-10800-puntos-mientras-eeuu-se-toma-un-dia-libre-por-sus-250-anos-de-independencia"><strong>2.  Bolsas suben y el IPSA recupera los 10.800 puntos mientras EEUU se toma un día libre por sus 250 años de independencia</strong></h2><p>El índice chileno ganaba un leve 0,2%, mientras el continental Euro Stoxx 50 crecía 0,6% y los futuros del S&amp;P 500 aumentaban 0,3%. Al cierre de las plazas asiáticas, el Nikkei saltó 1,5% y el Hang Seng avanzó 1,3%. Las bolsas en general subían este viernes, sin referencias desde Wall Street por elDía de la Independencia de Estados Unidos, y mientras sigue habiendo un impulso positivo por las señales que trajeron losúltimos datos de empleo norteamericanos. El S&amp;P IPSA subía 0,2% a 10.813,23 puntos, en gran medida respaldado por las acciones deCopec (0,9%), SQM-B (0,8%) y Cencosud (0,8%), trascerrar a la baja en la víspera.</p><h2 id="3-el-requerimiento-que-se-anoto-un-triunfo-en-el-tc-por-la-norma-de-conformacion-de-directorios-de-las-afp"><strong>3.  El requerimiento que se anotó un triunfo en el TC por la norma de conformación de directorios de las AFP</strong></h2><p>El Tribunal declaró admisible un requerimiento presentado por la controladora de AFP Capital. A inicios de junio, la primera sala del Tribunal Constitucional (TC) asestó un golpe a las AFP en la causa que levantaron en contra de la Superintendencia de Pensiones por la norma que establece mayores requisitos para la conformación de sus respectivos directorios y equipos de inversiones. Ello, porque los ministros que integran la instancia declararon inadmisible el requerimiento de inaplicabilidad por inconstitucionalidad que presentaron las administradoras.</p><h2 id="4-de-vitrineo-de-gestoras-a-equipo-interno-la-estrategia-de-vinci-compass-para-potenciar-activos-alternativos-locales"><strong>4.  De “vitrineo” de gestoras a equipo interno: la estrategia de Vinci Compass para potenciar activos alternativos locales</strong></h2><p>Estaría buscando aumentar su presencia en el mercado privado chileno. Si bien sondeó la compra de alguna AGF especializada, en paralelo avanza en el refuerzo de su plataforma. Una estrategia para fortalecer su presencia en activos alternativos en Chile impulsa la gestora latinoamericana Vinci Compass, que nació de la fusión de Compass Group -ligada a José Manuel Balbontín y Jaime de la Barra- y la brasileña Vinci Partners. LaAGF administra más de US$ 3.700 millones en el país al cierre de 2025y, desde hace poco más de un año,explora alternativas para apostar por el mercado privado local.</p><h2 id="5-ipsa-cerro-el-primer-semestre-con-menor-alza-en-la-region-arrastrado-por-bajo-crecimiento-economico"><strong>5.  IPSA cerró el primer semestre con menor alza en la región, arrastrado por bajo crecimiento económico</strong></h2><p>El selectivo chileno subió 3,42% entre enero y junio. Mientras que la bolsa peruana lo hizo en un 33%. La Bolsa de Santiago cerró el primer semestre con un balance que no alcanza para celebrar. Si bien, el S&amp;P IPSA acumuló un alza en moneda local de 3,42% en los primeros seis meses del año, anotó su peor desempeño para ese período desde 2020. El contraste con 2025 también marca el cambio de tono. A estas alturas del año pasado, el indicador acumulaba un avance de 22,91%, apoyado por un mayor apetito por riesgo y por flujos que habían favorecido a la renta variable chilena. Esta vez, en cambio, no logró seguirle el ritmo al resto de la región.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-novandino-litio-presenta-su-proyecto-emblema-salar-futuro-y-el-salar-de-atacama-suma-mas-de-us-6000-millones-en-inversiones-en-tres-meses"><strong>1.  Novandino Litio presenta su proyecto emblema "Salar Futuro" y el Salar de Atacama suma más de US$ 6.000 millones en inversiones en tres meses</strong></h2><p>La iniciativa "busca demostrar que es posible producir más litio utilizando menos recursos naturales, incorporando tecnologías que hemos desarrollado y validado durante años", dijo Carlos Díaz, gerente general de la alianza entre SQM y Codelco. En medio de la alta expectativa del sector minero por su presentación, la empresa conjunta entre SQM y Codelco,Novandino Litio, ingresó finalmente este viernes a evaluación ambiental su proyecto emblema: Salar Futuro de US$ 3.000 millones de inversión, con el que busca extender la producción del "oro blanco" en el Salar de Atacama hasta 2060. La iniciativa ingresada al Servicio de Evaluación Ambiental propone unatransformación estructural del proceso productivo actual, reduciendo así las icónicas pozas de evaporacióna través de laincorporación de nuevas tecnologíasque "permitirán aumentar la productividad, fortalecer el desempeño ambiental y consolidar el liderazgo de Chile en la producción sostenible de compuestos de litio de alta calidad", indicó la compañía a través de un comunicado.</p><h2 id="2-sonami-amplia-de-14-a-19-los-distritos-mineros-que-identifica-en-chile-e-insta-a-una-mirada-territorial-para-reimpulsar-la-produccion"><strong>2.  Sonami amplía de 14 a 19 los distritos mineros que identifica en Chile e insta a una mirada territorial para "reimpulsar" la producción</strong></h2><p>Según confirmó el gremio minero, esta segunda edición de su estudio será presentada al actual gobierno. Por segundo año consecutivo, la Sociedad Nacional de Minería (Sonami) presentó su estudio de distritos mineros en Chile, donde propone -e insiste- en ver la industria desde una mirada colaborativa, por zonas, y no solo en base a operaciones unitarias. En la edición presentada este jueves, el Centro de Estudios y Documentación Mineros del gremio (CEMS)amplió la cantidad de distritos identificados desde 14 a 19, donde 13 de ellos corresponden a distritos productivos (operativos) y seis de ellos a distritos potenciales (con proyectos en desarrollo).</p><h2 id="3-antofagasta-solicitara-permiso-ambiental-para-ampliar-la-exploracion-en-los-proyectos-encierro-y-los-volcanes-en-el-cuarto-trimestre"><strong>3.  Antofagasta solicitará permiso ambiental para ampliar la exploración en los proyectos Encierro y Los Volcanes en el cuarto trimestre</strong></h2><p>La medida representa un avance para dos de las opciones de crecimiento a largo plazo de la minera del grupo Luksic. Antofagasta ha destinado US$ 60 millones a la exploración de Los Volcanes y US$ 95 millones a Encierro. Antofagasta también avanza en obras de modernización en Centinela y en su mina insignia Los Pelambres (en la fotografía). La mineraAntofagasta planea presentar solicitudes de permiso ambiental para ampliar sus actividades de exploración en los proyectos Encierro y Los Volcanes durante el cuarto trimestre de este año, según un documento de la compañía al que tuvo acceso Reuters.</p><h2 id="4-ley-de-proteccion-de-datos-remueve-la-gestion-de-personas-monitoreo-biometria-y-licencias-medicas-entran-bajo-revision"><strong>4.  Ley de Protección de Datos remueve la gestión de personas: monitoreo, biometría y licencias médicas entran bajo revisión</strong></h2><p>Abogados señalan que las consultas se han disparado, impulsadas por la entrada en vigencia de la normativa y la creación de la nueva Agencia de Protección de Datos. La cuenta regresiva ya comenzó.En diciembre entra plenamente en vigencia la nueva Ley de Protección de Datos Personales, y las empresas están acelerando sus procesos de adecuaciónante una normativa que promete cambiardesde la forma en que se reclutan trabajadores hasta cómo se controla la asistencia, se monitorean correos corporativos o se administran las licencias médicas. La urgencia se nota. Abogados laborales coinciden en que, durante este último tiempo,las consultas empresariales se multiplicaron y dejaron de concentrarse exclusivamente en las áreas de tecnología.Hoy son las gerencias de personas, los equipos de compliance y los propios directoriosquienes buscan entender cómo adaptar procesos que durante años fueron parte de la operación cotidiana.</p><h2 id="5-cambio-de-mando-en-el-tribunal-constitucional-los-desafios-que-enfrentara-maria-pia-silva"><strong>5.  Cambio de mando en el Tribunal Constitucional: los desafíos que enfrentará María Pía Silva</strong></h2><p>Minimizar la existencia de variados votos particulares en los fallos y hasta una reforma asoman como retos para la nueva autoridad. María Pía Silva asumirá la presidencia del TC el próximo 10 de julio. Foto: Aton Sus fallos y el debate sobre su uso son algunos tópicos que tienen al Tribunal Constitucional (TC) en la palestra. El reciente pronunciamiento sobre el proyecto de Escuelas Protegidas, donde se declaró la inconstitucionalidad de algunas de las disposiciones del texto, reactivó la discusión en torno a la instancia. De hecho, en el pódcast “Cómo te lo explico”, la actual presidenta, Daniela Marzi, defendió el rol de la entidad ante los cuestionamientos de que operaría como una “tercera Cámara” e indicó que se trata de críticas “partisanas” de todos los sectores políticos.</p><h2 id="6-rincon-insiste-en-despacho-express-de-proyecto-de-deuda-y-acota-esfuerzos-en-hidrogeno-verde"><strong>6.  Rincón insiste en despacho “express” de proyecto de deuda y acota esfuerzos en hidrógeno verde</strong></h2><p>En el marco de la Cuenta Pública, la ministra se refirió al articulado que el próximo lunes enfrentará su primera valla en el Congreso. Desde la Región del Maule, la ministra de Energía, Ximena Rincón, junto al subsecretario de la cartera, Hugo Briones, encabezaron la Cuenta Pública Participativa 2025-2026 del ministerio. Allí la exsenadora insistió en el pronto despacho del proyecto que busca -entre otras materias- saldar la deuda con las distribuidoras eléctricas. De cara al 6 de julio, donde se prevé votar el texto en la comisión de Minería y Energía de la Cámara de Diputados hasta total despacho, Rincón se dirigió a parlamentarios asistentes y señaló: “El martes 7 (de julio), diputada, diputado, lo votamos en la Sala y ustedes nos tienen que ayudar, porque si no lo votamos en la Sala, no lo puede ver el Senado el miércoles y tenemos que hacer esto de manera express, porque, además, se ha consensuado con todas y todos”. Otro tema que abordó fue el robo de cables y dijo que tienen una indicación lista “para que un proyecto de ley de iniciativa parlamentaria tenga más fuerza todavía y persiga a los que a través del crimen organizado afectan a la familia de nuestro país”.</p><h2 id="7-concesionaria-del-aeropuerto-de-santiago-pierde-demanda-contra-el-mop-por-sobrecostos-en-construccion-del-terminal"><strong>7.  Concesionaria del Aeropuerto de Santiago pierde demanda contra el MOP por sobrecostos en construcción del terminal</strong></h2><p>El último de los tres procesos que enfrentaba al Estado con la sociedad de origen francés finalizó hace poco más de un mes. La firma pedía US$ 50 millones de indemnización. El balance delas controversias judiciales entre el Ministerio de Obras Públicas (MOP) y Nuevo Pudahuelquedó, por ahora, en una victoria, un acuerdo y una derrota para la concesionaria controlada por Vinci Airports y Aéroports de Paris (Groupe ADP). Tras cuatro años de litigio,a fines de mayo la Comisión Arbitral rechazó la demanda mediante la cual la concesionaria buscaba obtener una indemnización por los mayores costos que, a su juicio, debió asumir durante la construcción del nuevo terminal internacional del Aeropuerto Arturo Merino Benítez en el contexto de la pandemia.</p><h2 id="8-baker-mckenzie-promueve-a-juan-pablo-labbe-como-local-partner"><strong>8.  Baker McKenzie promueve a Juan Pablo Labbé como local partner</strong></h2><p>Baker McKenzie anunció la promoción de Juan Pablo Labbé a local partner, efectiva a partir del 1 de julio. Labbé cuenta con más de 10 años de experiencia en litigios complejos y arbitraje, tanto a nivel nacional como internacional, asesorando a clientes en disputas de alta complejidad en diversas industrias. Su práctica se enfoca en arbitraje comercial internacional e inversiones, entre otros procesos.</p><h2 id="9-exsocia-de-cariola-se-suma-a-parga-montes-vasseur-laborales"><strong>9.  Exsocia de Cariola se suma a Parga Montes &amp; Vasseur Laborales</strong></h2><p>Parga Montes &amp; Vasseur Laborales incorporó desde el 1 de julio a Ignacia López como nueva socia,con lo que el estudio pasará a denominarse Parga Montes Vasseur &amp; López Laborales, bajo la sigla PMVL. López fue socia líder del equipo laboral de Cariola Díez Pérez-Cotapos durante los últimos años. Es abogada de la Universidad Católica, cuenta con un máster en Derecho de la Empresa y un diplomado en Dirección de Personas y Organizaciones. La profesional tiene amplia experiencia en asesoría laboral estratégica, litigación de alta complejidad, relaciones sindicales, entre otros asuntos.</p><h2 id="10-invertir-en-investigacioncomo-pais-no-hemos-estado-a-la-altura"><strong>10.  Invertir en investigación:“Como país no hemos estado a la altura”</strong></h2><p>El cardiólogo dejará el decanato con un centro de US$ 25 millones en construcción, que contempla laboratorios de alta seguridad. ¿Qué falta? Siguen buscando donaciones para reunir los fondos. Felipe Heusser, decano de Medicina UC. Foto: Jonathan Duran Especialista en cardiología pediátrica y con cuatro décadas vinculado a la casa de estudios, en los próximos días el doctor Felipe Heusser dejará el decanato de la Facultad de Medicina de la Pontificia Universidad Católica de Chile (UC), que lideraba desde mayo de 2018.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-rodrigo-hinzpeter-estamos-a-poco-de-caer-en-una-recesion-tecnica-y-eso-siguiendo-la-analogia-del-presidente-confirma-que-nuestra-economia-esta-enferma"><strong>1.  Rodrigo Hinzpeter: "Estamos a poco de caer en una recesión técnica y eso, siguiendo la analogía del Presidente, confirma que nuestra economía está enferma"</strong></h2><p>El exministro y actual gerente legal de Quiñenco acompañó al Presidente José Antonio Kast en su gira por Paraguay y Uruguay. Luego de participar en el encuentro empresarial organizado por el sector privado uruguayo en Montevideo,en el marco de la gira del Presidente José Antonio Kast por Paraguay y Uruguay, el exministro del Interior y de Defensa y actual gerente legal de Quiñenco, Rodrigo Hinzpeter, realizó un balance de su participación integrando la comitiva oficial, afirmando que Chile necesita atraer inversión extranjera, pero también corregir algunas medidas adoptadas por el gobierno anterior que -dice- afectaron la inversión y la generación de empleos. - ¿Qué balance hace de la gira por Paraguay y Uruguay?</p><h2 id="2-gremios-chilenos-se-preparan-para-audiencias-en-washington-y-asi-evitar-el-arancel-del-125-de-trump"><strong>2.  Gremios chilenos se preparan para audiencias en Washington y así evitar el arancel del 12,5% de Trump</strong></h2><p>La comitiva público-privada, liderada por la Sofofa y Subrei, contará con la participación de SalmonChile, Frutas de Chile, Vinos de Chile, Corma y ChileCarne. Expondrán en la capital estadounidense ante el poderoso USTR. En una comitiva liderada por laSociedad de Fomento Fabril (Sofofa)junto conla Subsecretaría de Relaciones Económicas Internacionales (Subrei), representantes deSalmonChile, Frutas de Chile, Vinos de Chile, la Corporación Chilena de Madera (Corma) y ChileCarneparticiparán deuna serie de audiencias que se llevarán a cabo en Washington, DC, Estados Unidos, a partir del próximo martes 7 de julio. ¿La razón? Ser parte del proceso deconsulta pública de la Oficina del Representante Comercial de EEUU (USTR, por su sigla en inglés), convocada a raíz de la eventual aplicación de aranceles de 12,5% a 54 países, entre los cuales se encuentra Chile, mientras otras seis naciones recibirían tarifas de 10%.</p><h2 id="3-quiroz-propone-que-parte-del-cobro-por-la-invariabilidad-tributaria-financie-la-exencion-de-contribuciones"><strong>3.  Quiroz propone que parte del cobro por la invariabilidad tributaria financie la exención de contribuciones</strong></h2><p>Ayer, La Moneda fue sede de un encuentro con alcaldes para destrabar la polémica por la pérdida de recursos de los municipios, en el marco de la ley miscelánea. Los ministros políticos recibieron a alcaldes en La Moneda. Foto: Ministerio de Hacienda Momentos clave vive por estos díasla negociación política para destrabar el trámite de la ley miscelánea de reactivación y reconstrucción nacional, ad portas de que este lunes 6 de julio venza el plazo para la presentación de las primeras indicaciones a la propuesta, hoy en segundo trámite en el Senado.</p><h2 id="4-sofofa-estrecha-lazos-con-emiratos-arabes-para-atraer-inversiones-en-minerales-criticos-energia-y-puertos"><strong>4.  Sofofa estrecha lazos con Emiratos Árabes para atraer inversiones en minerales críticos, energía y puertos</strong></h2><p>El gremio se reunió con el ministro de Comercio Exterior emiratí, Thani bin Ahmed Al Zeyoudi. La cita reunió a cerca de 50 altos ejecutivos de ambos países. Los minerales críticos, la infraestructura portuaria y el desarrollo energético se consolidan como los principales focos de interés de Emiratos Árabes Unidos (EAU) para profundizar su relación con Chile.</p><h2 id="5-economia-ilicita-mueve-us-5700-millones-por-ano-de-la-mano-de-los-casinos-online"><strong>5.  Economía ilícita mueve US$ 5.700 millones por año, de la mano de los casinos online</strong></h2><p>Equivale al 1,5% del PIB y provoca pérdidas tributarias anuales superiores a US$ 1.500 millones, según la CPC. La presidenta de la CPC, Susana Jiménez, en la presentación del informe. La Confederación de la Producción y del Comercio (CPC) alertó que los mercados y actividades ilícitas mueven US$ 5.700 millones anualmente, de acuerdo a su último estudio “Por un Chile sin economía ilícita”, que presentó este jueves.</p><h2 id="6-en-debut-ante-economistas-director-de-dipres-resalta-necesidad-de-reimpulsar-el-crecimiento-para-ordenar-cuentas-fiscales"><strong>6.  En debut ante economistas, director de Dipres resalta necesidad de reimpulsar el crecimiento para ordenar cuentas fiscales</strong></h2><p>Para cerrar el déficit estructural, Gómez enfatizó que la estrategia de Hacienda se apoya en cuatro pilares: necesidad de recuperar el crecimiento económico; racionalizar y reordenar el gasto público; mejorar la gestión de la participación estatal en las empresas públicas; y administrar integralmente los activos y pasivos del Fisco. Más de 20 especialistas se congregaron en la Universidad de los Andes. Su debut en sociedad ante un nutrido grupo de economistas del mundo de la academia, exautoridades y bancos tuvo el director de Presupuestos, José Pablo Gómez.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-elmer-cuba-el-economista-formado-en-chile-que-lideraria-las-finanzas-de-peru-en-el-gobierno-de-keiko-fujimori"><strong>1.  Elmer Cuba: el economista formado en Chile que lideraría las finanzas de Perú en el gobierno de Keiko Fujimori</strong></h2><p>Cuba planteó recientemente como un desafío clave de Perú el "reconstruir la relación entre política y desarrollo económico". Con el conteo de votos al 100%, Keiko Fujimori, de Fuerza Popular, ya empieza a armar el equipo que conformará su primer gabinete ministerial para el arranque del nuevo Gobierno. Según fuentes consultadas por Gestión, el economistaElmer Cuba habría aceptado ser el titular del Ministerio de Economía y Finanzas (MEF).</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-reporte-de-stanford-advierte-que-grandes-tecnologicas-han-retrocedido-en-transparencia-de-la-ia"><strong>1.  Reporte de Stanford advierte que grandes tecnológicas han retrocedido en transparencia de la IA</strong></h2><p>Expertos atribuyeron este escenario a la competencia por “capital, usuarios y liderazgo geopolítico”, en un contexto donde la inteligencia artificial avanza más rápido que los resguardos. El AI Index Report 2026, elaborado por el Instituto de Inteligencia Artificial Centrada en el Humano de la Universidad de Stanford, de Estados Unidos, señaló que esta tecnología avanza más rápido que los sistemas para gobernarla, evaluarla y medir sus impactos, y advirtió de un retroceso en la transparencia de las empresas desarrolladoras y un aumento en los incidentes - como sesgos, problemas de seguridad hasta muertes- asociados a la IA. En su novena edición, publicada en abril pasado, el informe, que evalúa el estado global de la inteligencia artificial en colaboración con diversos organismos, muestra que esta tecnología “está propagándose a una velocidad histórica”. Mientras la adopción organizacional alcanzó el 88% a nivel global en 2025, la IA generativa llegó a una adopción del 53% en la población en tres años, “más rápido que el computador personal o internet”.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-multas-y-regulacion-digital"><strong>1.  Multas y regulación digital</strong></h2><p><em>(Sin detalle disponible.)</em></p><h2 id="2-el-tributo-de-lo-prohibido"><strong>2.  El tributo de lo prohibido</strong></h2><p>Chile declara ilegal el juego en línea —la Corte Suprema ordenó bloquear los sitios— y, a la vez, la Resolución Ex. SII N° 69 les abre un portal para inscribirse y pagar IVA, incluso retroactivo. El Estado cobra peaje en la puerta de una casa que dice demoler.El Servicio de Impuestos Internos invoca que la ley tributaria no juzga la licitud del hecho gravado. Cierto. Pero hace de más: extiende el IVA al juego por una circular, no por ley, y revierte por vía administrativa su propio criterio de 2023, en una materia que la Corte ya calificó. Eso roza la reserva legal y se desliza hacia una licencia de hecho, que es acto legislativo.El nervio es la asimetría. El casino formal paga impuesto específico del 20%, IVA, entradas y oferta económica, bajo fiscalización de la Superintendencia de Casinos de Juego (SCJ) y la Unidad de Análisis Financiero (UAF); el operador online paga solo IVA, sin licencia ni control, y sigue operando pese al bloqueo. Cumplir la ley se volvió el camino más caro.La salida está aguas arriba. Legislar una carga simétrica y los deberes que hacen coherente el impuesto. Mientras tanto, el fisco recauda un IVA a cambio de algo más valioso: la consistencia del Estado de Derecho. Andrés Olave EcheñiqueAbogado y docente en la Universidad Austral de Chile</p><h2 id="3-perdidas-del-fondo-e"><strong>3.  Pérdidas del Fondo E</strong></h2><p>Los resultados del Fondo E de las AFP en 2026 son preocupantes: -2,97% en mayo y -3,68% acumulado en el año. Más allá de las causas —volatilidad global, tasas de interés u otras variables—, este fondo en particular simplemente no puede permitirse estos resultados.Quienes están próximos a jubilarse no pueden esperar una recuperación. No tienen ese tiempo. Son los únicos afiliados para quienes una pérdida es irreversible. El Fondo E fue concebido para privilegiar la preservación del ahorro por sobre la búsqueda de rentabilidad. Cuando registra pérdidas de esta magnitud, es legítimo preguntarse si su estrategia de inversión sigue siendo adecuada para quienes están próximos a pensionarse.Las AFP y los reguladores deben revisar esa estrategia, orientándola hacia instrumentos menos sensibles a las tasas de interés y con menor volatilidad. La pregunta de fondo es por qué no se está haciendo.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

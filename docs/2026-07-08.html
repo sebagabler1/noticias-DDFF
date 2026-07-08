@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 de julio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-07-08.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">8 de julio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-sube-a-media-manana-y-se-acerca-a-nuevos-maximos-del-ano-por-renovada-tension-en-medio-oriente-y-tras-sorpresa-del-ipc-en-chile">1.  Dólar sube a media mañana y se acerca a nuevos máximos del año por renovada tensión en Medio Oriente y tras sorpresa del IPC en Chile</a></li><li class="toc-l2"><a href="#2-bolsa-de-santiago-y-wall-street-se-hunden-tras-fin-al-alto-al-fuego-entre-eeuu-e-iran">2.  Bolsa de Santiago y Wall Street se hunden tras fin al alto al fuego entre EEUU e Irán</a></li><li class="toc-l2"><a href="#3-los-precios-del-cobre-caen-en-londres-y-comex-tras-el-recrudecimiento-de-la-tension-en-medio-oriente">3.  Los precios del cobre caen en Londres y Comex tras el recrudecimiento de la tensión en Medio Oriente</a></li><li class="toc-l2"><a href="#4-aseguradores-advierten-al-gobierno-por-sostenibilidad-del-seguro-de-invalidez-y-sobrevivencia">4.  Aseguradores advierten al gobierno por sostenibilidad del Seguro de Invalidez y Sobrevivencia</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-renzo-fenzo-asume-la-gerencia-general-de-renault-en-chile-bajo-la-distribucion-de-astara">1.  Renzo Fenzo asume la gerencia general de Renault en Chile bajo la distribución de Astara</a></li><li class="toc-l2"><a href="#2-pesqueras-sufren-caida-de-70-en-capturas-de-jurel-recortan-inversiones-y-acusan-golpe-tributario">2.  Pesqueras sufren caída de 70% en capturas de jurel, recortan inversiones y acusan golpe tributario</a></li><li class="toc-l2"><a href="#3-chile-y-argentina-reactivan-tratado-minero-binacional-y-apuntan-a-impulsar-proyectos-por-mas-de-us-20700-millones">3.  Chile y Argentina reactivan tratado minero binacional y apuntan a impulsar proyectos por más de US$ 20.700 millones</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-el-ipc-de-junio-sorprende-y-no-registra-variacion-mensual-mientras-que-la-inflacion-en-12-meses-se-acelera-a-43">1.  El IPC de junio sorprende y no registra variación mensual, mientras que la inflación en 12 meses se acelera a 4,3%</a></li><li class="toc-l2"><a href="#2-proyecto-de-ley-miscelaneo-avanza-en-senado-y-gobierno-ingresa-las-primeras-indicaciones">2.  Proyecto de ley misceláneo avanza en Senado y gobierno ingresa las primeras indicaciones</a></li><li class="toc-l2"><a href="#3-confianza-de-los-consumidores-detiene-racha-de-caidas-y-cierra-el-primer-semestre-con-leve-repunte">3.  Confianza de los consumidores detiene racha de caídas y cierra el primer semestre con leve repunte</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-trump-afirma-que-el-alto-al-fuego-con-iran-termino-y-amenaza-con-nuevos-ataques-esta-noche-mientras-el-petroleo-se-dispara">1.  Trump afirma que el alto al fuego con Irán terminó y amenaza con nuevos ataques esta noche mientras el petróleo se dispara</a></li><li class="toc-l2"><a href="#2-india-se-mantiene-como-el-motor-del-crecimiento-tras-el-recorte-de-proyecciones-globales-del-fmi">2.  India se mantiene como el motor del crecimiento tras el recorte de proyecciones globales del FMI</a></li><li class="toc-l2"><a href="#3-apple-comprara-us-30-mil-millones-en-chips-fabricados-en-estados-unidos-a-broadcom">3.  Apple comprará US$ 30 mil millones en chips fabricados en Estados Unidos a Broadcom</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-las-propuestas-que-expuso-la-ministra-lincolao-para-la-gobernanza-de-la-ia-en-el-primer-dialogo-global-de-la-onu-sobre-el-tema">1.  Las propuestas que expuso la ministra Lincolao para la gobernanza de la IA en el primer diálogo global de la ONU sobre el tema</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-codelco-y-el-superciclo-que-no-puede-desaprovechar">1.  Codelco y el superciclo que no puede desaprovechar</a></li><li class="toc-l2"><a href="#2-antes-de-una-ley-de-mercados-digitales-chilena">2.  Antes de una Ley de Mercados Digitales chilena</a></li><li class="toc-l2"><a href="#3-seguridad-hidrica-de-los-diagnosticos-a-las-obras">3.  Seguridad hídrica: de los diagnósticos a las obras</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>8 De Julio De 2026</p><p>6 secciones  ·  17 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-sube-a-media-manana-y-se-acerca-a-nuevos-maximos-del-ano-por-renovada-tension-en-medio-oriente-y-tras-sorpresa-del-ipc-en-chile"><strong>1.  Dólar sube a media mañana y se acerca a nuevos máximos del año por renovada tensión en Medio Oriente y tras sorpresa del IPC en Chile</strong></h2><p>El dollar index se apreciaba un 0,25%, mientras que el cobre Comex bajaba 1,88%, a US$ 6,1 por libra. El dólar subía en la mañana del miércoles se aproximaba a nuevos máximos en lo que va del año en el mercado cambiario chileno,en medio de un aumento en los precios del petróleo por las renovadas hostilidades en Medio Oriente yluego que el presidente Donald Trump diera por finalizado el cese al fuego con Irán, y trasla sorpresa del IPC en Chile en junio que no tuvo variación mensual, cuando se esperaba una leve contracción. A las 10.35 horas,el dólar cotizaba a $935,90, con un alza de $ 5,77desde el cierre del martes, según las cotizaciones de Bloomberg. El dollar index se apreciaba un 0,25%, mientras que el cobre Comex bajaba 1,88%, a US$ 6,1 por libra.</p><h2 id="2-bolsa-de-santiago-y-wall-street-se-hunden-tras-fin-al-alto-al-fuego-entre-eeuu-e-iran"><strong>2.  Bolsa de Santiago y Wall Street se hunden tras fin al alto al fuego entre EEUU e Irán</strong></h2><p>El mercado estará atento durante la jornada a la publicación de las minutas de la reunión de política monetaria de junio de la Reserva Federal. Niun sorpresivo nulo IPC de juniologró mejorar los ánimos al inicio de las operaciones del mercado chileno en la mañana de este miércoles, trasel fin del cese al fuego entre Estados Unidos e Irán que anunció Trumpy que golpea fuerte al sentimiento de los inversionistas. El principal índice de la Bolsa de Santiago, el S&amp;P IPSA, abrió su sesión del miércoles a la baja, arrastrado tras los bombardeos en suelo iraní y posteriores declaraciones de Donald Trump que dispararon al petróleo.</p><h2 id="3-los-precios-del-cobre-caen-en-londres-y-comex-tras-el-recrudecimiento-de-la-tension-en-medio-oriente"><strong>3.  Los precios del cobre caen en Londres y Comex tras el recrudecimiento de la tensión en Medio Oriente</strong></h2><p>"Los metales están experimentando la reacción inicial ante el aumento de los precios del petróleo y el mercado está a la espera de ver si la situación se agrava o si se trata, una vez más, de mera retórica", dijo Ole Hansen, responsable de estrategia de materias primas de Saxo Bank en Copenhague. El precio del cobre bajaba el miércolesdespués de quenuevos enfrentamientos en Medio Orientepusieron en peligro un acuerdo de alto al fuego provisional,lo que reavivó las preocupaciones sobre el crecimiento económico y el suministro de metales. El contrato de referencia de tres meses del cobreen la Bolsa de Metales de Londres (LME) bajaba un 1,2% a US$ 13.210 por tonelada métrica o US$ 5,99 por libraa las 0950 GMT, tras haber caído un 0,3% en la sesión anterior. Los futuros del cobre en laComex de Estados Unidos caían un 2,1%, a US$ 6,1 la libra.</p><h2 id="4-aseguradores-advierten-al-gobierno-por-sostenibilidad-del-seguro-de-invalidez-y-sobrevivencia"><strong>4.  Aseguradores advierten al gobierno por sostenibilidad del Seguro de Invalidez y Sobrevivencia</strong></h2><p>El gremio que agrupa a la industria alertan que una mayor siniestralidad podría poner en riesgo al SIS y al seguro social del que próximamente formará parte. Ante el últimoproceso de licitación del Seguro de Invalidez y Sobrevivencia (SIS) a cargo de las AFP,la Asociación de Aseguradores de Chile (AACH) ha tomado contacto con varias instituciones relevantes del sistema, con el objetivo de alertar sobre la sostenibilidad de este instrumento. Dichas reuniones incluyeron autoridades del gobierno, como la subsecretaria de Previsión Social, Elisa Cabezón, y, más recientemente, el ministro del Trabajo y Previsión Social, Tomás Rau, quien, según el registro de la Ley de Lobby, recibió al gremio encabezado por Alejandro Alzérreca el 5 de junio pasado para tratar de forma exclusiva este tema.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-renzo-fenzo-asume-la-gerencia-general-de-renault-en-chile-bajo-la-distribucion-de-astara"><strong>1.  Renzo Fenzo asume la gerencia general de Renault en Chile bajo la distribución de Astara</strong></h2><p>El ingeniero cuenta con más de 15 años trabajando en el sector automotriz y su carrera destaca por la gestión comercial integral de marcas y el desarrollo de estrategias de negocio orientadas al cliente. Fenzo es ingeniero automotriz del Politécnico de Turín, con estudios de Ingeniería Industrial en Santiago. Luego queAstaraasumió la representación y distribución oficial deRenault, Renzo Fenzo, se incorporó como gerente general de la marca francesa en Chile.</p><h2 id="2-pesqueras-sufren-caida-de-70-en-capturas-de-jurel-recortan-inversiones-y-acusan-golpe-tributario"><strong>2.  Pesqueras sufren caída de 70% en capturas de jurel, recortan inversiones y acusan golpe tributario</strong></h2><p>Si bien en las últimas semanas hay indicios de que las condiciones climáticas podrían traer a los peces de vuelta, en la industria plantean que la crisis es grave y que el marco regulatorio no les permite aguantarla adecuadamente. La principal especie que se pesca en Chile, el jurel, desapareció casi completamente de las costas, reportándose una disminución en las capturas de 70% a junio,explicóel presidente de la Sociedad Nacional de Pesca, Felipe Sandoval. “Y el poco recurso que se detecta no posee la talla mínima exigida en el país o está en zonas más profundas a las que no se puede acceder con las artes de pesca permitidas para esta pesquería”, ahonda. Y aunque en las últimas dos semanas se ha registrado una mejora, señala este dirigente, “como la pesca es una actividad que involucra muchas variables,aún es prematuro saber si esta mayor captura es puntual o marcará una tendencia a futuro”, por lo que sugiere esperar al menos un mes.</p><h2 id="3-chile-y-argentina-reactivan-tratado-minero-binacional-y-apuntan-a-impulsar-proyectos-por-mas-de-us-20700-millones"><strong>3.  Chile y Argentina reactivan tratado minero binacional y apuntan a impulsar proyectos por más de US$ 20.700 millones</strong></h2><p>Con la firma oficial en Buenos Aires, ambas naciones relanzaron el acuerdo de 1997 para facilitar el desarrollo de operaciones transfronterizas. De izq. a derecha: Marcos Stancanell, Cancillería Argentina; Luis Lucero, secretario de Minería; Álvaro González, subse. Minería de Chile; Patricio Torres, subse. RREE Chile. En medio de festejos futboleros, a un costado de la Casa Rosada, específicamente en el edificio que alberga el Ministerio de Economía de Argentina, una delegación del gobierno chileno y otra representante del país trasandino firmaron oficialmente este martes la reanudación del Tratado de Integración y Complementación Minera.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-el-ipc-de-junio-sorprende-y-no-registra-variacion-mensual-mientras-que-la-inflacion-en-12-meses-se-acelera-a-43"><strong>1.  El IPC de junio sorprende y no registra variación mensual, mientras que la inflación en 12 meses se acelera a 4,3%</strong></h2><p>En el resultado de 0% "destacaron las disminuciones en las divisiones de transporte, así como la de vestuario y calzado, y el aumento de la división de alimentos y bebidas no alcohólicas", dijo el INE en un comunicado. Empate sin goles: el aumento en los precios del pan compensó la caída en los precios de los combustibles el mes pasado. (Foto: Aton Chile) El Índice de Precios al Consumidor (IPC) no tuvo variación en junio, informó el miércoles el Instituto Nacional de Estadísticas (INE), en un registro que sorprendió al mercado que esperaba un descenso del indicador y que llevó a la inflación en 12 meses a acelerarse a 4,3% en 12 meses.</p><h2 id="2-proyecto-de-ley-miscelaneo-avanza-en-senado-y-gobierno-ingresa-las-primeras-indicaciones"><strong>2.  Proyecto de ley misceláneo avanza en Senado y gobierno ingresa las primeras indicaciones</strong></h2><p>Un nuevo paso se aprestaba a dar al cierre de la edición de este martes la tramitación del proyecto misceláneo en el Senado. La comisión de Medio Ambiente de la Cámara Alta, en una extensa sesión, estaba despachando los artículos relacionados con el tema luego de más de 200 indicaciones que fueron ingresadas por los senadores y el Ejecutivo. En el caso del gobierno, se establecieron cambios en temas que el mercado mira con atención, como la indemnización de parte del Estado a los inversionistas a quienes se les anule una Resolución de Calificación Ambiental (RCA) para iniciativas de inversión; uno que acota los plazos para invalidar actos administrativos relativos a permisos sectoriales; y otro que norma el proceso para reubicar concesiones acuícolas sin pasar el Servicio de Evaluación Ambiental (SEA), entre las principales. Tras su paso por Medio Ambiente, este miércoles será el turno de la comisión de Trabajo, y la de Hacienda la próxima semana. Una de las indicaciones introducidas por el Ejecutivo plantea que procederá el recurso especial de reclamación ante el director ejecutivo del Servicio de Evaluación Ambiental (SEA) en contra de la resolución que califique ambientalmente favorable, desfavorable, o que establezca condiciones o exigencias a una Declaración de Impacto Ambiental.</p><h2 id="3-confianza-de-los-consumidores-detiene-racha-de-caidas-y-cierra-el-primer-semestre-con-leve-repunte"><strong>3.  Confianza de los consumidores detiene racha de caídas y cierra el primer semestre con leve repunte</strong></h2><p>El indicador elaborado por Ipsos registró una moderada alza en junio, aunque Chile cayó un puesto en la clasificación global. Un respiro tuvo el Índice de Confianza del Consumidor (CCI, por su sigla en inglés) que elabora mensualmente Ipsos en junio.Solo le bastó subir 0,3 décimas hasta 41,2 puntos para romper con las caídas consecutivas que había protagonizado durante este año. No obstante, el leve repunte no le alcanza para recuperar del terreno perdido y, de hecho, el CCI local se situó 1,5 puntos por debajo de su lectura en esta época de 2025.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-trump-afirma-que-el-alto-al-fuego-con-iran-termino-y-amenaza-con-nuevos-ataques-esta-noche-mientras-el-petroleo-se-dispara"><strong>1.  Trump afirma que el alto al fuego con Irán terminó y amenaza con nuevos ataques esta noche mientras el petróleo se dispara</strong></h2><p>El crudo Brent aumentó un 5% hasta los US$ 78 por barril. Las bolsas mundiales cayeron, mientras los operadores anticipaban subidas más rápidas de las tasas de interés por parte de los bancos centrales. Durante la cumbre de la OTAN en Ankara, el presidente estadounidense dijo a los periodistas: "En lo que a mí respecta, se ha acabado". Donald Trump declaró este miércoles que el alto al fuego entre Estados Unidos e Irán ha "terminado"trasla reanudación de los ataques militaresentre ambos países.</p><h2 id="2-india-se-mantiene-como-el-motor-del-crecimiento-tras-el-recorte-de-proyecciones-globales-del-fmi"><strong>2.  India se mantiene como el motor del crecimiento tras el recorte de proyecciones globales del FMI</strong></h2><p>El organismo publicó este miércoles un nuevo informe con estimaciones para las principales economías globales y regionales, dando cuenta de las tensiones generadas por la guerra y la inteligencia artificial. Una nota de moderación en el ritmo de actividad internacional este año anticipó elFondo Monetario Internacional (FMI)en su informe dePerspectivas de la Economía Mundial, publicado este miércoles. Un resultado que se dará en un contexto donde la tensión provendrá de dos factores: el shock petrolero derivado de la guerra entre Estados Unidos e Irán; y el desarrollo de la inteligencia artificial (IA). De acuerdo con las estimaciones, habrá unadesaceleración del crecimiento mundial hasta 3%en 2026, por debajo del 3,5% registrado en 2024-2025, para luego subir hasta 3,4% en 2027.</p><h2 id="3-apple-comprara-us-30-mil-millones-en-chips-fabricados-en-estados-unidos-a-broadcom"><strong>3.  Apple comprará US$ 30 mil millones en chips fabricados en Estados Unidos a Broadcom</strong></h2><p>El fabricante del iPhone continúa buscando ganarse el favor de Donald Trump mediante inversiones en una planta de Colorado. El Presidente de Estados Unidos, Donald Trump, y el director ejecutivo de Apple, Tim Cook. Foto: Bloomberg Apple se comprometió a comprar US$ 30 mil millones en chips fabricados en Estados Unidos a Broadcom, mientras el fabricante del iPhone continúa cortejando a la administración deDonald Trumpcon promesas para fortalecer la industria estadounidense de semiconductores.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-las-propuestas-que-expuso-la-ministra-lincolao-para-la-gobernanza-de-la-ia-en-el-primer-dialogo-global-de-la-onu-sobre-el-tema"><strong>1.  Las propuestas que expuso la ministra Lincolao para la gobernanza de la IA en el primer diálogo global de la ONU sobre el tema</strong></h2><p>Planteó avanzar en formación técnica, estándares internacionales, una red multilateral de sandboxes para probar modelos, y datos abiertos. La ministra de Ciencia, Tecnología, Conocimiento e Innovación, Ximena Lincolao, en Ginebra, Suiza. En 2025 la Organización de las Naciones Unidas (ONU) creó el Panel Científico Internacional Independiente sobre Inteligencia Artificial, el que presentó su primer informe de evidencia en torno a las oportunidades, los riesgos y el impacto de la IA. Este documento fue el punto de partida del primer Diálogo Global sobre Gobernanza de la IA, impulsado por la ONU, que se realizó este lunes y martes en Ginebra, Suiza, y en el que participaron gobiernos, empresas, la academia y expertos.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-codelco-y-el-superciclo-que-no-puede-desaprovechar"><strong>1.  Codelco y el superciclo que no puede desaprovechar</strong></h2><p><em>(Sin detalle disponible.)</em></p><h2 id="2-antes-de-una-ley-de-mercados-digitales-chilena"><strong>2.  Antes de una Ley de Mercados Digitales chilena</strong></h2><p>Su editorial del viernes (“Multas y regulación digital”) usa la multa de €4.100 millones confirmada por el TJUE contra Google para sugerir que Chile necesita una Ley de Mercados Digitales (DMA) propia. A mi parecer, dicha conclusión merece revisión. La DMA no ha logrado alcanzar el éxito que se anunció. La propia Comisión Europea reconoce en su informe de revisión de 2026 (COM(2026) 178) que los “gatekeepers” han adoptado estrategias que retrasan o limitan el cumplimiento efectivo de sus obligaciones. Economistas de primer nivel (Crémer, Scott Morton y otros) advirtieron, durante la negociación de la norma, sobre vacíos de diseño no menores, como la interoperabilidad. Si esos problemas persisten donde se escribió la norma, con el mayor presupuesto regulatorio del mundo en la materia, no hay base para suponer que Chile los resolvería mejor importando dicha regulación. En Chile, la conducta de las “Big Tech” es alcanzable bajo el artículo 3° del DL 211 y a través del control ex ante de la FNE en fusiones –además de los estudios de mercado, como en su reciente estudio sobre comercio electrónico-. Un régimen paralelo, con su propia designación de “gatekeepers”, exige recursos que la FNE hoy no dispone y cuya falta ha advertido reiteradamente.</p><h2 id="3-seguridad-hidrica-de-los-diagnosticos-a-las-obras"><strong>3.  Seguridad hídrica: de los diagnósticos a las obras</strong></h2><p>El debate sobre un pago por el uso del agua vuelve a abrirse. Pero el problema de fondo no son los instrumentos que se discutan, sino cómo garantizamos agua para producir alimentos y sostener el desarrollo del país. El cambio climático ha reducido las lluvias y la nieve en la cordillera, y Chile ya no puede postergar su capacidad de almacenar y conducir el agua. Eso se logra con obras de infraestructura. Es positivo que el gobierno priorice nuevos embalses, riego tecnificado y la agilización de proyectos estratégicos. El punto ahora es la ejecución: hay estudios y diseños listos hace años, a la espera de financiamiento y decisión política.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

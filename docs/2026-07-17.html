@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17 de julio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-07-17.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">17 de julio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-dolar-sube-a-media-manana-tras-feriado-por-caida-del-precio-del-cobre-y-tension-en-medio-oriente">1.  El dólar sube a media mañana tras feriado por caída del precio del cobre y tensión en Medio Oriente</a></li><li class="toc-l2"><a href="#2-el-petroleo-brent-bordea-los-us-86-por-barril-y-camina-a-su-tercera-alza-semanal-consecutiva">2.  El petróleo Brent bordea los US$ 86 por barril y camina a su tercera alza semanal consecutiva</a></li><li class="toc-l2"><a href="#3-el-exblackrock-que-se-transformo-en-el-orejero-del-mercado-de-capitales-de-la-subsecretaria-elisa-cabezon">3.  El exBlackRock que se transformó en el “orejero” del mercado de capitales de la subsecretaria Elisa Cabezón</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-gigante-china-byd-apuesta-por-el-futbol-de-elite-y-sella-alianza-de-tres-anos-con-el-bicampeon-de-la-champions">1.  Gigante china BYD apuesta por el fútbol de elite y sella alianza de tres años con el bicampeón de la Champions</a></li><li class="toc-l2"><a href="#2-una-paradoja-minera-imacec-y-empleo-del-sector-acumulan-meses-de-caidas-pese-a-boom-del-cobre">2.  “Una paradoja minera”: Imacec y empleo del sector acumulan meses de caídas pese a boom del cobre</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-extenso-sistema-frontal-deja-al-menos-tres-muertos-y-mas-de-345-mil-clientes-sin-luz-por-fuertes-vientos-y-lluvias-que-seguiran-el-fin-de-semana">1.  Extenso sistema frontal deja al menos tres muertos y más de 345 mil clientes sin luz por fuertes vientos y lluvias que seguirán el fin de semana</a></li><li class="toc-l2"><a href="#2-proyecto-de-reconstruccion-entra-en-semana-clave-en-la-camara-de-diputados-tras-luz-verde-del-senado">2.  Proyecto de reconstrucción entra en semana clave en la Cámara de Diputados tras luz verde del Senado</a></li><li class="toc-l2"><a href="#3-suseso-cierra-la-puerta-a-usar-gps-y-reconocimiento-facial-para-fiscalizar-reposo-de-licencias-medicas">3.  Suseso cierra la puerta a usar GPS y reconocimiento facial para fiscalizar reposo de licencias médicas</a></li><li class="toc-l2"><a href="#4-fallos-recientes-abren-debate-por-el-cobro-del-impuesto-al-lujo-pese-a-cambios-legales-para-facilitar-su-aplicacion">4.  Fallos recientes abren debate por el cobro del impuesto al lujo pese a cambios legales para facilitar su aplicación</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-xi-jinping-llama-a-establecer-leyes-reglamentos-y-monitoreos-para-garantizar-que-la-ia-este-siempre-bajo-control-humano">1.  Xi Jinping llama a establecer leyes, reglamentos y monitoreos &quot;para garantizar que la IA esté siempre bajo control humano&quot;</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-andres-couve-exministro-de-ciencia-tecnologia-conocimiento-e-innovacion-para-llegar-al-1-del-pib-el-sector-privado-tiene-que-aumentar-siete-veces-su-inversion-en-id">1.  Andrés Couve, exministro de Ciencia, Tecnología, Conocimiento e Innovación: “Para llegar al 1% del PIB, el sector privado tiene que aumentar siete veces su inversión en I+D”</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-necesidad-de-mayor-flexibilidad-de-la-jornada-laboral">1.  Necesidad de mayor flexibilidad de la jornada laboral</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>17 De Julio De 2026</p><p>6 secciones  ·  12 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-dolar-sube-a-media-manana-tras-feriado-por-caida-del-precio-del-cobre-y-tension-en-medio-oriente"><strong>1.  El dólar sube a media mañana tras feriado por caída del precio del cobre y tensión en Medio Oriente</strong></h2><p>El peso chileno cedió terreno a media mañana del viernes, con el dólar negociándose a $931,71 (alza de $6 respecto al cierre del miércoles), presionado por una baja de 1,46% en el cobre Comex a US$6,24 por libra y por la escalada del conflicto entre Estados Unidos e Irán en el golfo Pérsico. La tensión geopolítica ha impulsado los precios del petróleo un 12,7% en la semana, generando preocupaciones inflacionarias que limitan el espacio de la Reserva Federal para flexibilizar su política monetaria. La baja del cobre fue parcialmente contenida por preocupaciones de oferta, luego de que un sistema frontal afectara operaciones e infraestructura en Chile, el principal productor mundial del metal.</p><h2 id="2-el-petroleo-brent-bordea-los-us-86-por-barril-y-camina-a-su-tercera-alza-semanal-consecutiva"><strong>2.  El petróleo Brent bordea los US$ 86 por barril y camina a su tercera alza semanal consecutiva</strong></h2><p>Los precios del crudo subían cerca de un 2% el viernes, con el Brent en US$85,76 por barril y el WTI en US$80,64, luego de que Estados Unidos e Irán intensificaran ataques en el golfo Pérsico amenazando las rutas marítimas del estrecho de Ormuz y el mar Rojo. Ambos referenciales acumulan cerca de un 13% de alza en la semana, con el Brent encaminándose a su tercera alza semanal consecutiva y el WTI a su segunda. Analistas de Commerzbank advierten que un eventual bloqueo del estrecho de Bab al-Mandab podría impulsar aún más los precios del crudo si la escalada continúa.</p><h2 id="3-el-exblackrock-que-se-transformo-en-el-orejero-del-mercado-de-capitales-de-la-subsecretaria-elisa-cabezon"><strong>3.  El exBlackRock que se transformó en el “orejero” del mercado de capitales de la subsecretaria Elisa Cabezón</strong></h2><p>La autoridad fichó al economista Cristóbal Doberti para los desafíos de la implementación de los fondos generacionales y la licitación de stock. El asesor económico fichado por la subsecretaria de Previsión Social, Elisa Cabezón, Cristóbal Doberti. La implementación de la reforma previsional no solo tendrá un impacto directo en el sistema de pensiones, sino que también en el mercado de capitales. Sobre todo, con la transición de los multifondos los fondos generacionales y la posterior puesta en marcha de la licitación de stock de afiliados.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-gigante-china-byd-apuesta-por-el-futbol-de-elite-y-sella-alianza-de-tres-anos-con-el-bicampeon-de-la-champions"><strong>1.  Gigante china BYD apuesta por el fútbol de elite y sella alianza de tres años con el bicampeón de la Champions</strong></h2><p>BYD selló una alianza global de tres años con el Paris Saint-Germain, vigente hasta junio de 2029, convirtiéndose en el socio automotriz oficial del club francés, bicampeón de la UEFA Champions League en 2025 y 2026. El acuerdo contempla presencia de marca en el Parc des Princes, campañas globales, contenido exclusivo con ambos equipos masculino y femenino, y suministro de vehículos BYD y DENZA para las operaciones diarias del club; los montos del acuerdo no fueron revelados. La alianza refuerza la estrategia de expansión global de BYD, empresa que opera en más de 100 países y fue el primer fabricante mundial en abandonar la producción exclusiva de vehículos a combustibles fósiles.</p><h2 id="2-una-paradoja-minera-imacec-y-empleo-del-sector-acumulan-meses-de-caidas-pese-a-boom-del-cobre"><strong>2.  “Una paradoja minera”: Imacec y empleo del sector acumulan meses de caídas pese a boom del cobre</strong></h2><p>La actividad económica del país se ha visto arrastrada con fuerza por el desempeño del sector, mientras los ocupados mineros han retrocedido en 15 mil puestos en 2026. “Una paradoja minera”. Así califican algunas de las voces más relevantes del sector minero nacional lo que está sucediendo conlas principales cifras macroeconómicas de la industria, que llevan meses en rojo, a pesar de los históricos precios de los metales y la seguidilla de anuncios de millonarias inversiones en proyectos. Así, mientrasel Índice de Actividad Económica (Imacec) cayó un 0,9% en mayo-encadenando cinco retrocesos mensuales consecutivos-, en un doble click a la cifra se observa que el indicador fue arrastrado principalmente por la actividad minera, que restó 1,5 puntos al crecimiento del mes tras contraerse 11,6% interanual.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-extenso-sistema-frontal-deja-al-menos-tres-muertos-y-mas-de-345-mil-clientes-sin-luz-por-fuertes-vientos-y-lluvias-que-seguiran-el-fin-de-semana"><strong>1.  Extenso sistema frontal deja al menos tres muertos y más de 345 mil clientes sin luz por fuertes vientos y lluvias que seguirán el fin de semana</strong></h2><p>Un extenso sistema frontal que azotó Chile desde el jueves entre las regiones de Atacama y La Araucanía dejó al menos tres fallecidos, más de 345 mil clientes sin electricidad, 468 albergados, 158 aislados y más de 800 viviendas con daños al viernes por la mañana. En el peak de la emergencia el jueves, más de 660 mil personas estuvieron sin suministro eléctrico, con vientos de hasta 160 km/h en el Biobío que derribaron árboles, anegaron zonas costeras y afectaron operaciones en los puertos de Valparaíso, Quintero y San Antonio, entre otros. La ministra de Energía, Ximena Rincón, advirtió que la reposición del servicio será más lenta de lo usual por las condiciones de riesgo para los trabajadores en terreno, en tanto el sistema frontal continuará con precipitaciones intensas durante el fin de semana.</p><h2 id="2-proyecto-de-reconstruccion-entra-en-semana-clave-en-la-camara-de-diputados-tras-luz-verde-del-senado"><strong>2.  Proyecto de reconstrucción entra en semana clave en la Cámara de Diputados tras luz verde del Senado</strong></h2><p>El proyecto de ley de reconstrucción nacional del gobierno de Kast fue aprobado por el Senado en un segundo trámite constitucional que se extendió por más de 16 horas, con varios artículos clave aprobados por estrechos márgenes, y ahora enfrentará su tercer trámite en la Cámara de Diputados el martes 21 de julio. Los diputados deberán pronunciarse sobre las enmiendas introducidas por el Senado y, si aprueban la totalidad de los cambios, el proyecto podrá despacharse a ley; de lo contrario irá a comisión mixta. Entre las medidas centrales figuran la rebaja del impuesto de primera categoría de 27% a 23%, la reintegración del sistema tributario, invariabilidad para grandes inversiones, exenciones de contribuciones para adultos mayores y medidas para acelerar la inversión y reconstrucción post-incendios en Valparaíso, Ñuble y Biobío.</p><h2 id="3-suseso-cierra-la-puerta-a-usar-gps-y-reconocimiento-facial-para-fiscalizar-reposo-de-licencias-medicas"><strong>3.  Suseso cierra la puerta a usar GPS y reconocimiento facial para fiscalizar reposo de licencias médicas</strong></h2><p>La Superintendencia de Seguridad Social (Suseso) determinó mediante dictamen del 1 de julio que las Compin y las Isapres no pueden utilizar sistemas de geolocalización activa (GPS), reconocimiento facial ni biometría para verificar el cumplimiento del reposo médico, incluso con consentimiento del trabajador. El fundamento es que la normativa que regula las licencias médicas no contempla ni autoriza estas tecnologías, y que su uso implicaría tratamiento de datos sensibles sin habilitación legal expresa. Cualquier incorporación de estos mecanismos requeriría una ley que defina su procedencia, alcance y garantías, aunque expertos aclaran que el dictamen no impide que los empleadores continúen realizando visitas domiciliarias bajo la normativa vigente.</p><h2 id="4-fallos-recientes-abren-debate-por-el-cobro-del-impuesto-al-lujo-pese-a-cambios-legales-para-facilitar-su-aplicacion"><strong>4.  Fallos recientes abren debate por el cobro del impuesto al lujo pese a cambios legales para facilitar su aplicación</strong></h2><p>Varios Tribunales Tributarios y Aduaneros han fallado recientemente contra el SII en cobros del impuesto al lujo sobre aeronaves y helicópteros, pese a que en 2024 el gobierno de Boric modificó la ley para clarificar criterios de valoración y habilitar su aplicación efectiva. Los fallos adversos argumentan que el SII emitió giros masivos sin identificar los bienes gravados ni desglosar la base imponible, y que utilizó bases de datos internacionales de aeronaves ignorando los factores de depreciación técnica obligatorios según los propios manuales. El SII contrarreplicó que desde los cambios de 2024 recaudó más de US$20 millones mediante 14.760 cobros en el año tributario 2025, y que de los 11 fallos de primera instancia dictados hasta la fecha, siete le fueron favorables.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-xi-jinping-llama-a-establecer-leyes-reglamentos-y-monitoreos-para-garantizar-que-la-ia-este-siempre-bajo-control-humano"><strong>1.  Xi Jinping llama a establecer leyes, reglamentos y monitoreos "para garantizar que la IA esté siempre bajo control humano"</strong></h2><p>El presidente chino Xi Jinping inauguró la Conferencia Mundial de Inteligencia Artificial (WAIC) en Shanghái llamando a construir marcos regulatorios y sistemas de monitoreo que garanticen la IA bajo control humano, y cuestionó veladamente a Washington al oponerse a que el concepto de seguridad nacional se use para limitar la cooperación tecnológica internacional. En el plano de la cooperación con el Sur Global, anunció 5.000 oportunidades de capacitación en IA para países en desarrollo en cinco años y la creación de centros de cooperación con la ASEAN, la Unión Africana, la Celac, la OCS y los BRICS. Xi destacó además la creación de la Organización Mundial de Cooperación en Inteligencia Artificial (WAICO) con 29 países adherentes, posicionando a China como referente en gobernanza global de la IA frente a las restricciones tecnológicas impuestas por Estados Unidos.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-andres-couve-exministro-de-ciencia-tecnologia-conocimiento-e-innovacion-para-llegar-al-1-del-pib-el-sector-privado-tiene-que-aumentar-siete-veces-su-inversion-en-id"><strong>1.  Andrés Couve, exministro de Ciencia, Tecnología, Conocimiento e Innovación: “Para llegar al 1% del PIB, el sector privado tiene que aumentar siete veces su inversión en I+D”</strong></h2><p>El científico dijo que el país debe fortalecer los incentivos para la I+D, involucrar al sector privado en la transferencia tecnológica y no descuidar todo lo construido para promover la investigación básica y el conocimiento. En los últimos años, el biólogo y exministro de Ciencia, Tecnología, Conocimiento e Innovación (CTCI), Andrés Couve, se ha desempeñado como académico de la Universidad de Chile, pero su “núcleo de trabajo” se ha centrado en contribuir a que el sector productivo incorpore “de forma intensiva” ciencia y tecnología, principalmente desde la consultora Idemax, ligada a la presidenta de la Sofofa, Rosario Navarro. En el marco del encuentro Future Health Chile 2026, organizado por Bupa Chile, Couve contó a DF que ha estado investigando casos de impacto en la colaboración ciencia-empresa que sirvan para la formación de estudiantes de economía e innovación. Aunque dijo que hay avances en esta materia en algunas industrias, “son casos aislados y ninguno, todavía, mueve la aguja de nuestra economía”.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-necesidad-de-mayor-flexibilidad-de-la-jornada-laboral"><strong>1.  Necesidad de mayor flexibilidad de la jornada laboral</strong></h2><p>El gobierno presentó un proyecto de ley que amplía de 4 a 16 semanas el período de cálculo para la jornada de 42 horas semanales (que bajará a 40 en 2028), con un tope de 45 horas ordinarias por semana y un régimen especial de hasta 52 semanas para el sector turismo. La medida busca incentivar la contratación indefinida en lugar de contratos temporales para cubrir temporadas altas y alinear la regulación laboral chilena con los estándares de la OCDE, en un contexto en que Chile ocupa el puesto 81 en el índice global de libertad laboral de Heritage Foundation pese a liderar el ranking económico en América Latina. El artículo argumenta que la mayor flexibilidad no equivale a precarización sino a una mejor adaptación de la normativa a las realidades de jóvenes, mujeres y adultos mayores, grupos especialmente afectados por el desempleo, en un mercado laboral con cerca de un millón de desocupados.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

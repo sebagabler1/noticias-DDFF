@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 de julio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-07-21.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">21 de julio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-dolar-baja-en-la-apertura-por-fuerte-alza-del-cobre-y-pese-a-las-apuestas-de-extranjeros-contra-el-peso">1.  El dólar baja en la apertura por fuerte alza del cobre y pese a las apuestas de extranjeros contra el peso</a></li><li class="toc-l2"><a href="#2-superintendencia-de-pensiones-eleva-tasa-del-retiro-programado-para-el-tercer-trimestre">2.  Superintendencia de Pensiones eleva tasa del retiro programado para el tercer trimestre</a></li><li class="toc-l2"><a href="#3-el-nuevo-mapa-de-l0s-etf-ia-y-criptomonedas-son-las-nuevas-tendencias-segun-blackrock">3.  El nuevo mapa de l0s ETF: IA y criptomonedas son las nuevas tendencias, según BlackRock</a></li><li class="toc-l2"><a href="#4-patrimonio-de-fondos-mutuos-sigue-al-alza-y-se-consolida-sobre-us-100-mil-millones-por-sexto-mes-consecutivo">4.  Patrimonio de fondos mutuos sigue al alza y se consolida sobre US$ 100 mil millones por sexto mes consecutivo</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-fne-pide-a-la-corte-suprema-confirmar-multa-de-2400-millones-contra-matriz-de-oxxo-por-entregar-informacion-falsa">1.  FNE pide a la Corte Suprema confirmar multa de $ 2.400 millones contra matriz de Oxxo por entregar información falsa</a></li><li class="toc-l2"><a href="#2-la-fifa-eleva-en-unos-us-2-mil-millones-su-proyeccion-de-ingresos-tras-el-mundial">2.  La FIFA eleva en unos US$ 2 mil millones su proyección de ingresos tras el Mundial</a></li><li class="toc-l2"><a href="#3-pisco-chile-estima-que-mas-de-150-de-sus-cooperados-han-sido-afectados-por-devastador-sistema-frontal-y-anticipa-impacto-en-el-mercado-interno">3.  Pisco Chile estima que más de 150 de sus cooperados han sido afectados por devastador sistema frontal y anticipa impacto en el mercado interno</a></li><li class="toc-l2"><a href="#4-gobierno-presenta-ley-para-agilizar-las-obras-ferroviarias-de-efe-con-eliminacion-de-cobros-y-permisos-municipales">4.  Gobierno presenta ley para agilizar las obras ferroviarias de EFE con eliminación de cobros y permisos municipales</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-quiroz-optimista-pese-a-amenaza-del-pdg-de-pasar-a-comision-mixta-proyecto-de-reconstruccion-esperamos-que-votacion-refrende-sentido-de-urgencia-de-sacar-el-pais-adelante">1.  Quiroz optimista pese a amenaza del PDG de pasar a comisión mixta proyecto de reconstrucción: “Esperamos que votación refrende sentido de urgencia de sacar el país adelante”</a></li><li class="toc-l2"><a href="#2-proyecto-miscelaneo-llegara-a-comision-mixta-pdg-anuncia-voto-en-contra-a-cambios-aprobados-en-el-senado">2.  Proyecto misceláneo llegará a comisión mixta: PDG anuncia voto en contra a cambios aprobados en el Senado</a></li><li class="toc-l2"><a href="#3-cfa-ve-espacio-para-fortalecer-implementacion-de-sus-sugerencias-mas-importantes">3.  CFA ve espacio para fortalecer implementación de sus sugerencias más importantes</a></li><li class="toc-l2"><a href="#4-mercado-ve-por-ahora-impactos-acotados-en-la-actividad-en-julio-y-la-trayectoria-de-los-precios-por-el-sistema-frontal-que-afecta-al-pais">4.  Mercado ve por ahora impactos acotados en la actividad en julio y la trayectoria de los precios por el sistema frontal que afecta al país</a></li><li class="toc-l2"><a href="#5-mas-de-120-mil-trabajadores-del-pais-dejaron-de-tener-un-empleo-de-calidad-en-el-ultimo-ano">5.  Más de 120 mil trabajadores del país dejaron de tener un empleo de calidad en el último año</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-petroleo-alcanza-los-us-91-el-barril-mientras-huties-comienzan-a-hacer-efectivo-el-bloqueo-a-arabia-saudita-en-el-mar-rojo">1.  Petróleo alcanza los US$ 91 el barril mientras hutíes comienzan a hacer efectivo el bloqueo a Arabia Saudita en el mar Rojo</a></li><li class="toc-l2"><a href="#2-novo-nordisk-demanda-a-eli-lilly-por-publicidad-enganosa-de-sus-medicamentos-para-la-obesidad">2.  Novo Nordisk demanda a Eli Lilly por publicidad engañosa de sus medicamentos para la obesidad</a></li><li class="toc-l2"><a href="#3-donald-trump-prepara-su-ofensiva-arancelaria-a-decenas-de-paises-por-trabajo-forzoso-antes-que-expiren-los-gravamenes-del-10-este-viernes">3.  Donald Trump prepara su ofensiva arancelaria a decenas de países por trabajo forzoso antes que expiren los gravámenes del 10% este viernes</a></li><li class="toc-l2"><a href="#4-decimo-dia-de-escalada-en-medio-oriente-crudo-se-acerca-a-los-us-90-pero-expertos-advierten-complacencia">4.  Décimo día de escalada en Medio Oriente: crudo se acerca a los US$ 90, pero expertos advierten complacencia</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-udd-ventures-muchos-emprendedores-no-tienen-claro-que-deben-cobrar-y-terminan-dejando-de-capturar-valor">1.  UDD Ventures: “Muchos emprendedores no tienen claro qué deben cobrar y terminan dejando de capturar valor”</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-lecciones-mundialistas">1.  LECCIONES MUNDIALISTAS</a></li><li class="toc-l2"><a href="#2-sala-cuna-e-impacto-homogeneo">2.  Sala cuna e impacto homogéneo</a></li><li class="toc-l2"><a href="#3-ampliar-infraestructura-y-capacidades">3.  Ampliar infraestructura y capacidades</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>21 De Julio De 2026</p><p>6 secciones  ·  21 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-dolar-baja-en-la-apertura-por-fuerte-alza-del-cobre-y-pese-a-las-apuestas-de-extranjeros-contra-el-peso"><strong>1.  El dólar baja en la apertura por fuerte alza del cobre y pese a las apuestas de extranjeros contra el peso</strong></h2><p>Las apuestas contra el peso chileno alcanzan los US$17.845 millones, el nivel más alto del año y superior al máximo registrado el pasado 9 de julio, dijo Rodrigo Castillo, director general de BeFX. A nivel internacional, la falta de claridad sobre el rumbo que tomará el conflicto entre Estados Unidos e Irán ha dejado al dólar en una situación de incertidumbre. El dólar abrió en baja este martes en el mercado cambiario chileno, favorecido porun fuerte repunte en la cotización del cobrepor la sólida demanda de China —el principal consumidor—, la disminución de las existencias y las esperanzas de que los mediadores puedan restablecer el alto el fuego en la guerra con Irán, y pese a un nuevo máximo en las apuestas contra el peso por parte de extranjeros.</p><h2 id="2-superintendencia-de-pensiones-eleva-tasa-del-retiro-programado-para-el-tercer-trimestre"><strong>2.  Superintendencia de Pensiones eleva tasa del retiro programado para el tercer trimestre</strong></h2><p>Para este período, cifró la tasa en 3,45%, evidenciando un alza de 0,14 puntos base respecto de enero a junio. La Superintendencia de Pensiones dio a conocer la nueva Tasa de Interés Técnico para el Retiro Programado (Titrp), con la cual se calculan los montos de este tipo de jubilación que ofrecen las AFP como modalidad de jubilación y que compite con la renta vitalicia que otorgan las compañías de seguros de vida. De acuerdo con la Circular Nº 2.417 que emitió el regulador previsional el 6 de julio, la cifra para el tercer trimestre de este 2026 será de 3,45%, lo que significa un alza de 0,14 puntos base respecto del 3,31% que estableció para el período que comprendió entre enero y marzo, y entre abril y junio.</p><h2 id="3-el-nuevo-mapa-de-l0s-etf-ia-y-criptomonedas-son-las-nuevas-tendencias-segun-blackrock"><strong>3.  El nuevo mapa de l0s ETF: IA y criptomonedas son las nuevas tendencias, según BlackRock</strong></h2><p>“Ya no se trata únicamente de productos que replican un índice”, explica el head of wealth business y ETF para Chile, Uruguay y Argentina de BlackRock, Eric Sternberg. La industria de fondos cotizados en bolsa -más conocidos como ETF, por su sigla en inglés-, enfrenta uno de sus momentos de mayor transformación. Solo este año, BlackRock listó 63 vehículos de esta clase en la Bolsa de Santiago -que se sumaron a los 209 que ya transaban localmente-, con una lógica diferente a los 25 años de historia de estos instrumentos financieros. “Durante los últimos dos o tres años ha existido un boom importante en innovación y lanzamiento de ideas, no solamente por parte de BlackRock (...) Ya no se trata únicamente de productos que replican un índice” dijo a DF el head of wealth business and ETF &amp; index investments para Chile, Uruguay y Argentina de BlackRock, Eric Sternberg.</p><h2 id="4-patrimonio-de-fondos-mutuos-sigue-al-alza-y-se-consolida-sobre-us-100-mil-millones-por-sexto-mes-consecutivo"><strong>4.  Patrimonio de fondos mutuos sigue al alza y se consolida sobre US$ 100 mil millones por sexto mes consecutivo</strong></h2><p>Patrimonio de fondos mutuos sigue al alza y se consolida sobre los US$ 100 mil millones por sexto mes consecutivo. La industria de fondos mutuos sigue superando sus récords de tamaño. Durante junio, el patrimonio efectivo del segmento promedió $ 98,4 billones (millones de millones), su cifra más alta de la historia, equivalentes a US$ 108.975 millones, según la Asociación Administradora de Fondos Mutuos (AFM). Asimismo, los activos administrados aumentaron 8,91% durante la primera mitad del año, anotando una racha de seis meses consecutivos por sobre los US$ 100 mil millones, cifra alcanzada por primera vez en su historia durante enero.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-fne-pide-a-la-corte-suprema-confirmar-multa-de-2400-millones-contra-matriz-de-oxxo-por-entregar-informacion-falsa"><strong>1.  FNE pide a la Corte Suprema confirmar multa de $ 2.400 millones contra matriz de Oxxo por entregar información falsa</strong></h2><p>El persecutor acusó que la firma dijo que solo tenía en su poder 40 antecedentes de aquellos exigidos por la ley, en circunstancias que poseía, al menos, 60 documentos adicionales. La Fiscalía Nacional Económica (FNE) solicitó a la Corte Suprema rechazar el recurso de reclamación presentado por Cadena Comercial Andina SpA (CCA) -matriz del grupo Oxxo en Chile, ligada a la mexicana Femsa- contra la sentencia del Tribunal de Defensa de la Libre Competencia (TDLC),que acogió el requerimiento del organismo porla entrega de información falsa al notificar su operación de concentración con Ok Market en 2021. El fallo del TDLC condenó a CCA a pagar una multa a beneficio fiscal de 2.898 Unidades Tributarias Anuales -equivalente a más de $ 2.400 millones-, al considerar que la compañíainfringió el artículo que sanciona a quien notifica una operación de concentración entregando información falsa.</p><h2 id="2-la-fifa-eleva-en-unos-us-2-mil-millones-su-proyeccion-de-ingresos-tras-el-mundial"><strong>2.  La FIFA eleva en unos US$ 2 mil millones su proyección de ingresos tras el Mundial</strong></h2><p>Con España conquistando el domingo su segundo título mundial tras derrotar 1-0 a Argentina en el tiempo suplementario,la Copa Mundial de Fútbol de 2026 superó todos los obstáculos que enfrentó. La FIFA elevó en unos US$ 2 mil millones su proyección de ingresos para el ciclo de cuatro años,según un comunicado, que se suman a una estimación previa de unos US$ 9 mil millones vinculada al Mundial. Más de 15 millones de personas llenaron los estadios y las zonas para aficionados en total durante el torneo, convirtiendo el evento en el Mundial con mayor asistencia de público de la historia, pese a los altísimos precios de las entradas.</p><h2 id="3-pisco-chile-estima-que-mas-de-150-de-sus-cooperados-han-sido-afectados-por-devastador-sistema-frontal-y-anticipa-impacto-en-el-mercado-interno"><strong>3.  Pisco Chile estima que más de 150 de sus cooperados han sido afectados por devastador sistema frontal y anticipa impacto en el mercado interno</strong></h2><p>Los primeros catastros del gremio señalan que sus productores asociados han sufrido pérdidas en parrones, daños en infraestructura agrícola, interrupción de faenas y dificultades de acceso. El intenso sistema frontal en las regiones de Atacama y Coquimbo, en el norte del país, encendió las alarmas en la industria pisquera local.Ante la emergencia climática, gran parte de las plantas de producción han suspendido temporalmente sus operaciones. Esta medida preventiva busca resguardar la seguridad de los colaboradores, proteger instalaciones y apoyar a las comunidades golpeadas por las precipitaciones y bajadas de quebradas. La Asociación de Productores de Pisco (Pisco Chile A.G.)informó a través de una declaración pública que está desarrollando un intenso monitoreo a la situación del sector, pero reconoció que el impacto total todavía no es calculable debido a los graves problemas de conectividad en los valles altos.</p><h2 id="4-gobierno-presenta-ley-para-agilizar-las-obras-ferroviarias-de-efe-con-eliminacion-de-cobros-y-permisos-municipales"><strong>4.  Gobierno presenta ley para agilizar las obras ferroviarias de EFE con eliminación de cobros y permisos municipales</strong></h2><p>Expertos sostienen que la medida reducirá costos e incertidumbre para proyectos como Alameda-Melipilla y Santiago-Batuco, aunque advierten que deberá mantenerse la coordinación con los municipios. A comienzos de julio, el Ejecutivo ingresó a la Cámara de Diputados un proyecto de ley que modifica la Ley Orgánica de la Empresa de Ferrocarriles del Estado (EFE) con el objetivo de equiparar el régimen de la estatal con el que actualmente tiene Metro en la concreción de obras ferroviarias. La iniciativa incorpora un nuevo artículo que exime a EFE del pago de derechos y tributos municipales asociados a la construcción de infraestructura ferroviaria vinculada a su objeto -como vías férreas, túneles, estaciones, talleres y subestaciones eléctricas- y establece que dichas obras serán consideradas infraestructura ejecutada por el Estado, por lo que no requerirán permisos municipales de construcción.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-quiroz-optimista-pese-a-amenaza-del-pdg-de-pasar-a-comision-mixta-proyecto-de-reconstruccion-esperamos-que-votacion-refrende-sentido-de-urgencia-de-sacar-el-pais-adelante"><strong>1.  Quiroz optimista pese a amenaza del PDG de pasar a comisión mixta proyecto de reconstrucción: “Esperamos que votación refrende sentido de urgencia de sacar el país adelante”</strong></h2><p>La Cámara de Diputados inició tercer trámite del proyecto con el anuncio del PDG de votar en contra para enviar a comisión mixta algunas normas. El ministro de Hacienda, Jorge Quiroz, se mostró optimista de cara a la votación que se realizará hoy del proyecto de ley de reconstrucción y reactivación en la Cámara de Diputados,donde cumple su tercer trámite y que ya inició el debate programado de tres horas antes de resolver si acepta los cambios del Senado o envía a comisión mixta algún artículo. A pesar del anuncio dela bancada de diputados del Partido de la Gente (PDG), de votar en contra algunos cambios para enviarlos a comisión mixta, Quiroz sostuvo que“esperamos que la votación de hoy refrende el sentido de urgencia que tiene sacar el país adelante” y que “ojalá que sea una jornada positiva donde aprobemos en el la Cámara y podamos pasar a la etapa siguiente, que es la etapa del crecimiento”.</p><h2 id="2-proyecto-miscelaneo-llegara-a-comision-mixta-pdg-anuncia-voto-en-contra-a-cambios-aprobados-en-el-senado"><strong>2.  Proyecto misceláneo llegará a comisión mixta: PDG anuncia voto en contra a cambios aprobados en el Senado</strong></h2><p>Cambios al Sence, sala cuna, fondo de emergencia para reconstrucción y las compensaciones de contribuciones son parte de los aspectos donde la colectividad espera mejoras. Los ministros Quiroz y Alvarado reforzaron las negociaciones con el PDG ad portas del tercer trámite. Foto: Ministerio de Hacienda Pese a los pedidos de la oposición de postergar la sesión de este martes debidoa los temporales que azotaron a gran parte del país,el gobierno optó que mantener la urgencia del proyecto de reconstrucción y reactivación económica. Así, la iniciativa se someterá a la votación en la Sala de la Cámara de Diputados -su tercer trámite constitucional- bajo el riesgo de que el Partido de la Gente (PDG) no entregue un apoyo total y, por ende, se abra el camino a una comisión mixta para algunos artículos.</p><h2 id="3-cfa-ve-espacio-para-fortalecer-implementacion-de-sus-sugerencias-mas-importantes"><strong>3.  CFA ve espacio para fortalecer implementación de sus sugerencias más importantes</strong></h2><p>En sus seis años de existencia, la entidad ha elaborado 286 recomendaciones a Hacienda y la Dipres. Hermann González, Marcela Guzmán, Paula Benavides (presidenta), Sebastián Izquierdo (vicepresidente) y Joaquín Vial. Aunque el Consejo Fiscal Autónomo (CFA) destaca que la mayoría de sus recomendaciones han tenido algún nivel de acogida por parte del Ministerio de Hacienda y la Dirección de Presupuestos (Dipres), el organismo encendió una alerta: los mayores avances se concentran en aquellas de relevancia media, mientras que las de mayor impacto para la sostenibilidad de las finanzas públicas muestran un menor grado de implementación. Este es el principal diagnóstico del informe de incidencia publicado por el organismo, en el cual revisa lo emitido entre septiembre de 2019 -cuando comenzó a operar el Consejo- y diciembre de 2025.</p><h2 id="4-mercado-ve-por-ahora-impactos-acotados-en-la-actividad-en-julio-y-la-trayectoria-de-los-precios-por-el-sistema-frontal-que-afecta-al-pais"><strong>4.  Mercado ve por ahora impactos acotados en la actividad en julio y la trayectoria de los precios por el sistema frontal que afecta al país</strong></h2><p>“No se ha manifestado hasta el momento ninguna variación en los precios actuales de fruta o verdura”, dijo el subsecretario de Agricultura. La seguidilla de sistemas frontales que han afectado a una amplia zona del país confuertes lluvias y vientos que hasta el momento han dejado diez personas muertas y miles de damnificadostambién confirmó uno de los temores que algunos analistas ya advertían a inicios de año:la llegada de El Niño podía afectar la actividad económica y los precios del país. Una consideración que, en algunos casos, se vio reafirmada por el análisis que publicaron economistas del Banco Central a comienzos de junio con el título El fenómeno de El Niño y sus posibles impactos económicos en Chile.</p><h2 id="5-mas-de-120-mil-trabajadores-del-pais-dejaron-de-tener-un-empleo-de-calidad-en-el-ultimo-ano"><strong>5.  Más de 120 mil trabajadores del país dejaron de tener un empleo de calidad en el último año</strong></h2><p>Una nueva medición de Horizontal, basada en la Encuesta Nacional de Empleo (ENE), mostró que el retroceso perjudicó principalmente a mujeres y evidenció también un escenario de subempleo. No solo el desempleo y la informalidad son síntomas de un mercado laboral que se ha debilitado en el país. Un nuevo indicador elaborado por el centro de estudios Horizontal advirtió que también se está deteriorando la calidad de los puestos de trabajo. Acorde con la medición realizada por la entidad, entre marzo y mayo del año en curso, 126 mil personas dejaron de tener una ocupación que cumple con las condiciones mínimas que sugieren un grado de excelencia.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-petroleo-alcanza-los-us-91-el-barril-mientras-huties-comienzan-a-hacer-efectivo-el-bloqueo-a-arabia-saudita-en-el-mar-rojo"><strong>1.  Petróleo alcanza los US$ 91 el barril mientras hutíes comienzan a hacer efectivo el bloqueo a Arabia Saudita en el mar Rojo</strong></h2><p>Este martes un petrolero chino que salía desde el puerto saudita de Yanbu se vio obligado a dar la vuelta tras las amenazas de los rebeldes de Yemen aliados de Irán. El petróleo volvió a subir con fuerza este martes y elBrent alcanzó los US$ 91 por barril, ante el persistente intercambio de agresiones entre Estados Unidos e Irán y las primeras consecuencias concretasdel bloqueo naval anunciado por los hutíes de Yemen contra Arabia Saudita. La señal más clara de que la amenaza dejó de ser solo retórica llegó pocas horas después del anuncio de la organización política militar yemení respaldada por Irán. De acuerdo con un reporte de Bloomberg, un petrolero chino de gran tamaño (VLCC) dio media vuelta en el sur del mar Rojo tras la advertencia de los rebeldesde que atacarían a los buques que hicieran escala en puertos sauditas o zarparan desde ellos.</p><h2 id="2-novo-nordisk-demanda-a-eli-lilly-por-publicidad-enganosa-de-sus-medicamentos-para-la-obesidad"><strong>2.  Novo Nordisk demanda a Eli Lilly por publicidad engañosa de sus medicamentos para la obesidad</strong></h2><p>Novo sostiene que las campañas publicitarias de Lilly se basan en comparaciones desactualizadas sobre pérdida de peso, utilizando dosis inferiores de su propio medicamento contra la obesidad, Wegovy. Novo Nordisk demandó a Eli Lilly en un tribunal federal de Estados Unidos, al asegurar quela publicidad de su exitoso tratamiento contra la obesidad Zepbound y de la inyección para diabetes Mounjaro es engañosa, en momentos en que se intensifica la competencia entre ambas farmacéuticas. Novo sostiene que las campañas publicitarias de Lillyse basan en comparaciones desactualizadas sobre pérdida de peso, utilizando dosis inferiores de su propio medicamento contra la obesidad, Wegovy, respecto de las que actualmente están disponibles en el mercado, según una copia de la demanda proporcionada por la compañía danesa.</p><h2 id="3-donald-trump-prepara-su-ofensiva-arancelaria-a-decenas-de-paises-por-trabajo-forzoso-antes-que-expiren-los-gravamenes-del-10-este-viernes"><strong>3.  Donald Trump prepara su ofensiva arancelaria a decenas de países por trabajo forzoso antes que expiren los gravámenes del 10% este viernes</strong></h2><p>Los aranceles que podrían anunciarse esta semana oscilarán entre el 10% y el 12,5% y se aplicarán a 60 países; estas medidas fueron propuestas inicialmente por funcionarios comerciales estadounidenses en junio. Asesores han advertido a Trump que no conviene arriesgarse a sufrir las sacudidas económicas propias de su guerra comercial inicial justo antes de las elecciones de mitad de mandato. (Foto: Reuters) Donald Trump se dispone a imponer nuevos aranceles a decenas de países esta misma semana, a pesar de que sus asesores le advierten que no conviene arriesgarse a sufrir las sacudidas económicas propias de su guerra comercial inicial justo antes de las elecciones de mitad de mandato.</p><h2 id="4-decimo-dia-de-escalada-en-medio-oriente-crudo-se-acerca-a-los-us-90-pero-expertos-advierten-complacencia"><strong>4.  Décimo día de escalada en Medio Oriente: crudo se acerca a los US$ 90, pero expertos advierten complacencia</strong></h2><p>Con las hostilidades extendiéndose al mar Rojo y nuevas amenazas sobre Bab el-Mandeb, se teme que el conflicto entre en una fase de guerra de desgaste. “Ya no se trata de dinero. No se trata de ninguna otra causa superior. Se trata simplemente del miedo que está rigiendo la toma de decisiones en este momento”. Con esa frase, el CEO de la firma de riesgo marítimo Marisks, Dimitris Maniatis, resumió durante una sesión informativa de Lloyd’s List Intelligence la gravedad con que la industria marítima observa una escalada que ya cumple 10 días, se extiende al mar Rojo y amenaza con prolongarse mucho más de lo que los mercados parecen estar incorporando. Este lunes el Brent llegó a superar brevemente los US$ 90 por barril antes de moderar su avance y cerrar en US$ 89,20. Pese a ello, el referencial internacional acumula un alza de 22,3% desde el cierre de junio (US$ 72,92), un movimiento que, para varios analistas, sigue siendo insuficiente frente al riesgo de una interrupción prolongada del suministro energético.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-udd-ventures-muchos-emprendedores-no-tienen-claro-que-deben-cobrar-y-terminan-dejando-de-capturar-valor"><strong>1.  UDD Ventures: “Muchos emprendedores no tienen claro qué deben cobrar y terminan dejando de capturar valor”</strong></h2><p>El director ejecutivo, Ángel Morales, dijo que el principal reto para las startups deep tech y las que desarrollan IA es transformar la innovación en clientes y ventas. Las startups deep tech o de tecnologías avanzadas -inteligencia artificial (IA), biotecnología, computación cuántica, materiales avanzados o robótica-, están en pleno auge en Chile y el mundo. Según el Latin American Dynamism Project -iniciativa que investiga e impulsa este ecosistema en América Latina-, en 2025, el país registró 251 startups en esta categoría, que equivalen al 10% del total regional. En este contexto, el director ejecutivo de UDD Ventures, Ángel Morales, dijo que este año, por primera vez, la aceleradora de la Universidad del Desarrollo abrió la convocatoria Potencia Startup 2026 -con apoyo de Corfo- para firmas de base científico-tecnológica con foco en deep tech -incluyendo IA- y emprendimientos digitales.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-lecciones-mundialistas"><strong>1.  LECCIONES MUNDIALISTAS</strong></h2><p><em>(Sin detalle disponible.)</em></p><h2 id="2-sala-cuna-e-impacto-homogeneo"><strong>2.  Sala cuna e impacto homogéneo</strong></h2><p>En la edición de ayer de Diario Financiero se publicó un estudio del Observatorio Territorial de la Universidad Adolfo Ibáñez (UAI) elaborado por el decano adjunto y académico de la Escuela de Negocios de la Universidad Adolfo Ibáñez, Alejandro Montecinos, el cual advierte que el proyecto de ley de sala cuna no tendría un impacto homogéneo en el país y que el elevado copago limitaría sus efectos. Como ejemplo señala que en la Región del Maule las familias tendrían que copagar $ 267 mil.El análisis se hace bajo dos supuestos. El primero, que el fondo de sala cuna transfiere a la sala cuna elegida UTM 4,11($ 294 mil aproximadamente). Y el segundo, que la reforma operará de igual manera en todo Chile. Estos dos supuestos ya no se encuentran en el proyecto de ley.Para evitar los riesgos que el estudio advierte, el proyecto de ley ha ido experimentando mejoras sustantivas en las cuales hemos trabajado con los gobiernos: ya no señala un aporte de tan solo 4,11 UTM a las salas cuna, el cual claramente es muy inferior a los costos efectivos e implicaría un elevado copago. Con el propósito de cubrir los valores reales y evitar en lo posible copagos, se crea en el proyecto la Comisión Técnica de Financiamiento y Sustentabilidad, la cual informa periódicamente al Ministerio de Hacienda los montos que considere los “costos razonables y efectivos” de la provisión del servicio, con diferencias geográficas. Francisca JünemannPresidenta ejecutiva ChileMujeres</p><h2 id="3-ampliar-infraestructura-y-capacidades"><strong>3.  Ampliar infraestructura y capacidades</strong></h2><p>La decisión de iniciar los estudios para una tercera pista y nuevos terminales en el Aeropuerto de Santiago refleja una virtud poco frecuente: planificar la infraestructura que el país necesitará dentro de varias décadas. Ese mismo enfoque de largo plazo debería extenderse a otro activo igualmente estratégico, aunque mucho menos visible: la infraestructura de capacidades.Durante el siglo XX, el crecimiento dependió de construir carreteras, puertos, aeropuertos y redes energéticas que conectaran mercados y redujeran costos. Esa infraestructura sigue siendo indispensable.Pero en una economía impulsada por el conocimiento y la inteligencia artificial, ya no basta.Hoy la productividad también depende de las capacidades de las personas y de las organizaciones para aprender, innovar, adaptarse y transformar la tecnología en valor. Sin esa infraestructura de capacidades, incluso las mayores inversiones en capital físico o digital tendrán un impacto limitado.El desafío del desarrollo ya no consiste solo en ampliar la infraestructura que mueve personas y mercancías. También exige construir la infraestructura que moviliza conocimiento. Porque, en las próximas décadas, las economías más competitivas no serán únicamente las que inviertan más, sino aquellas que desarrollen mejores capacidades. Jesús Juyumaya, PhDVera Voitova, PhDFacultad de Economía y Negocios Universidad Andrés Bello</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23 de julio de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-07-23.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">23 de julio de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-dolar-sube-casi-10-a-media-manana-a-maximos-en-2026-por-el-alza-del-petroleo-y-la-caida-en-el-precio-del-cobre">1.  El dólar sube casi $10 a media mañana a máximos en 2026 por el alza del petróleo y la caída en el precio del cobre</a></li><li class="toc-l2"><a href="#2-ipsa-abre-con-leve-retroceso-bajo-11000-puntos-mientras-wall-street-y-europa-caen-por-salto-del-petroleo-y-tras-resultados-de-alphabet-y-tesla">2.  IPSA abre con leve retroceso bajo 11.000 puntos, mientras Wall Street y Europa caen por salto del petróleo y tras resultados de Alphabet y Tesla</a></li><li class="toc-l2"><a href="#3-michael-clark-se-distancia-de-irregularidades-en-el-caso-sartor-su-declaracion-ante-el-ministerio-publico">3.  Michael Clark se distancia de irregularidades en el caso Sartor: su declaración ante el Ministerio Público</a></li><li class="toc-l2"><a href="#4-deloitte-asegura-que-la-banca-local-destina-hasta-us-400-millones-anuales-a-la-prevencion-de-lavado-de-activos">4.  Deloitte asegura que la banca local destina hasta US$ 400 millones anuales a la prevención de lavado de activos</a></li><li class="toc-l2"><a href="#5-chilena-ame-y-francesa-edf-ponen-en-venta-santiago-solar-uno-de-los-mayores-parques-fotovoltaicos-de-la-capital">5.  Chilena AME y francesa EDF ponen en venta Santiago Solar, uno de los mayores parques fotovoltaicos de la capital</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-mercadolibre-busca-operar-su-farmacia-propia-en-chile-tras-lanzamiento-en-brasil">1.  MercadoLibre busca operar su farmacia propia en Chile tras lanzamiento en Brasil</a></li><li class="toc-l2"><a href="#2-el-doctor-pionero-de-la-medicina-nuclear-en-chile-abrira-su-segundo-centro-de-salud-propio-en-el-pais">2.  El doctor pionero de la medicina nuclear en Chile abrirá su segundo centro de salud propio en el país</a></li><li class="toc-l2"><a href="#3-consulta-de-marina-del-sol-suma-nuevas-fichas-municipalidad-de-vina-del-mar-fne-y-corporacion-meier-presentan-sus-posturas-ante-el-tdlc">3.  Consulta de Marina del Sol suma nuevas fichas: Municipalidad de Viña del Mar, FNE y Corporación Meier presentan sus posturas ante el TDLC</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-operadores-financieros-estiman-alza-de-01-en-el-ipc-de-julio-pero-anticipan-aumentos-mayores-para-agosto-y-septiembre">1.  Operadores financieros estiman alza de 0,1% en el IPC de julio, pero anticipan aumentos mayores para agosto y septiembre</a></li><li class="toc-l2"><a href="#2-rebaja-al-impuesto-a-las-donaciones-abre-ventana-para-adelantar-sucesiones-y-activa-consultas-a-expertos-tributarios">2.  Rebaja al impuesto a las donaciones abre ventana para adelantar sucesiones y activa consultas a expertos tributarios</a></li><li class="toc-l2"><a href="#3-hacienda-evaluara-capitalizar-el-fees-o-reducir-la-deuda-si-la-recaudacion-supera-lo-previsto">3.  Hacienda evaluará capitalizar el FEES o reducir la deuda si la recaudación supera lo previsto</a></li><li class="toc-l2"><a href="#4-de-la-parte-alta-a-la-media-el-cambio-de-chile-en-el-ranking-de-la-ocde-de-impuesto-corporativo">4.  De la parte alta a la media: el cambio de Chile en el ranking de la OCDE de impuesto corporativo</a></li><li class="toc-l2"><a href="#5-antonio-walker-advierte-por-magnitud-de-millonarios-danos-por-temporal-y-reto-de-reconstruir-infraestructura-es-el-frente-atmosferico-mas-grande-que-he-visto">5.  Antonio Walker advierte por magnitud de millonarios daños por temporal y reto de reconstruir infraestructura: &quot;Es el frente atmosférico más grande que he visto&quot;</a></li><li class="toc-l2"><a href="#6-se-resiente-el-volumen-exportado-de-la-fruta-chilena-durante-la-primera-parte-del-ano">6.  Se resiente el volumen exportado de la fruta chilena durante la primera parte del año</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-petroleo-toco-los-us-100-tras-ataques-reivindicados-por-los-huties-a-barcos-en-el-mar-rojo">1.  Petróleo tocó los US$ 100 tras ataques reivindicados por los hutíes a barcos en el Mar Rojo</a></li><li class="toc-l2"><a href="#2-el-bce-pausa-el-alza-de-tasas-pese-al-nuevo-incremento-de-los-precios-del-petroleo">2.  El BCE pausa el alza de tasas pese al nuevo incremento de los precios del petróleo</a></li><li class="toc-l2"><a href="#3-la-ue-multa-a-google-con-890-millones-de-euros-en-una-prueba-a-las-amenazas-de-trump-de-proteger-a-las-grandes-tecnologicas">3.  La UE multa a Google con 890 millones de euros en una prueba a las amenazas de Trump de proteger a las grandes tecnológicas</a></li><li class="toc-l2"><a href="#4-han-cumplido-los-aranceles-de-trump-sus-objetivos-en-eeuu-las-cifras-sugieren-que-no">4.  ¿Han cumplido los aranceles de Trump sus objetivos en EEUU? Las cifras sugieren que no</a></li><li class="toc-l2"><a href="#5-tesla-y-google-abren-sin-festejos-la-temporada-de-resultados-de-las-siete-magnificas">5.  Tesla y Google abren sin festejos la temporada de resultados de las siete magníficas</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-bruna-ai-startup-que-predice-y-optimiza-la-calidad-de-materias-primas-llegara-a-brasil-colombia-y-ecuador-con-apoyo-de-sonda">1.  Bruna AI, startup que predice y optimiza la calidad de materias primas llegará a Brasil, Colombia y Ecuador con apoyo de Sonda</a></li><li class="toc-l2"><a href="#2-fundacion-chile-inicia-desinversion-de-clin-y-anuncia-dos-nuevos-fondos-para-startups">2.  Fundación Chile inicia desinversión de CLIN y anuncia dos nuevos fondos para startups</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-editorial-23072026">1.  Editorial |23/07/2026</a></li><li class="toc-l2"><a href="#2-un-paso-trascendental">2.  UN PASO TRASCENDENTAL</a></li><li class="toc-l2"><a href="#3-el-costo-oculto-de-la-ia">3.  El costo oculto de la IA</a></li><li class="toc-l2"><a href="#4-evidencia-territorial-y-politica-publica">4.  Evidencia territorial y política pública</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>23 De Julio De 2026</p><p>6 secciones  ·  25 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-dolar-sube-casi-10-a-media-manana-a-maximos-en-2026-por-el-alza-del-petroleo-y-la-caida-en-el-precio-del-cobre"><strong>1.  El dólar sube casi $10 a media mañana a máximos en 2026 por el alza del petróleo y la caída en el precio del cobre</strong></h2><p>El tipo de cambio alcanzó $ 946 en las primeras operaciones del jueves, su nivel más alto del año, impulsado por el fortalecimiento global del dólar, el quinto alza consecutiva del petróleo —que cruzó US$ 100 el barril por ataques hutíes en el Mar Rojo— y datos de empleo en Estados Unidos mejores de lo esperado. El cobre Comex retrocedió 2% hasta US$ 6,36 por libra, mientras el dollar index avanzó 0,35%. Según el director de BeFX, Rodrigo Castillo, la rotura de la resistencia de $ 940 refleja que un mercado laboral sólido reduce la urgencia de la Fed por recortar tasas, en tanto las posiciones apostadoras contra el peso chileno marcaron un nuevo récord de US$ 18.417 millones, lo que limita correcciones del tipo de cambio.</p><h2 id="2-ipsa-abre-con-leve-retroceso-bajo-11000-puntos-mientras-wall-street-y-europa-caen-por-salto-del-petroleo-y-tras-resultados-de-alphabet-y-tesla"><strong>2.  IPSA abre con leve retroceso bajo 11.000 puntos, mientras Wall Street y Europa caen por salto del petróleo y tras resultados de Alphabet y Tesla</strong></h2><p>La Bolsa de Santiago retrocedió 0,09% hasta 10.998,88 puntos al inicio de la sesión del jueves, en línea con la caída generalizada de los mercados globales por la escalada bélica en Medio Oriente y el salto del petróleo por sobre US$ 100 el barril. En Wall Street, el Dow Jones cedía 1,03%, el S&amp;P 500 bajaba 1% y el Nasdaq perdía 1,7%, afectados además por los resultados de Alphabet —cuyo aumento del gasto de capital hasta US$ 205.000 millones inquietó a los inversores— y Tesla, que se desplomaba más de 9% tras ganancias inferiores a lo esperado. La tasa del bono del Tesoro a 10 años alcanzó su nivel más alto desde enero de 2025, reflejando la presión conjunta del conflicto geopolítico y la temporada de balances corporativos.</p><h2 id="3-michael-clark-se-distancia-de-irregularidades-en-el-caso-sartor-su-declaracion-ante-el-ministerio-publico"><strong>3.  Michael Clark se distancia de irregularidades en el caso Sartor: su declaración ante el Ministerio Público</strong></h2><p>El expresidente de Azul Azul y exdirector de Sartor AGF, Michael Clark, declaró ante el Ministerio Público en más de 120 páginas que tomó distancia de las irregularidades detectadas en la gestora, señalando que la pandemia transformó los comités de crédito presenciales en simples validaciones por correo electrónico, mecanismo que facilitó la aprobación de prórrogas que de otro modo habrían encontrado mayor resistencia. Clark afirmó que manifestó reparos por escrito y que se retiró de los comités de crédito a fines de 2021, sosteniendo además que nunca percibió alertas durante las sesiones de directorio ni fue informado de anomalías, infracciones o incumplimientos normativos relevantes. La formalización de 11 imputados está programada para el 30 de julio, y la declaración de Clark incluye referencias a operaciones con Emprender Capital, Cellcorp y un financiamiento para Ñublense garantizado con ingresos televisivos.</p><h2 id="4-deloitte-asegura-que-la-banca-local-destina-hasta-us-400-millones-anuales-a-la-prevencion-de-lavado-de-activos"><strong>4.  Deloitte asegura que la banca local destina hasta US$ 400 millones anuales a la prevención de lavado de activos</strong></h2><p>Según Deloitte, la banca chilena invierte entre US$ 300 millones y US$ 400 millones anuales en prevención de lavado de activos, dentro de un gasto global del sector financiero de aproximadamente US$ 200.000 millones. A raíz de la Operación Tokio —que reveló una red del Tren de Aragua que movilizó cerca de $ 75.000 millones al exterior—, el líder de riesgo de Deloitte, Franco Rizza, descartó fallas en los sistemas bancarios, pero identificó tres desafíos clave: modernizar la ley de la UAF —diseñada antes de la banca digital— para permitir retroalimentación a quienes emiten reportes de operaciones sospechosas, crear un canal permanente de intercambio de información entre el Ministerio Público, la UAF y el sector privado, y fomentar el trabajo conjunto entre instituciones financieras bajo supervisión del regulador. Rizza advirtió que la solidez individual de un banco es insuficiente si el crimen organizado puede ingresar por entidades más débiles del sistema.</p><h2 id="5-chilena-ame-y-francesa-edf-ponen-en-venta-santiago-solar-uno-de-los-mayores-parques-fotovoltaicos-de-la-capital"><strong>5.  Chilena AME y francesa EDF ponen en venta Santiago Solar, uno de los mayores parques fotovoltaicos de la capital</strong></h2><p>AME y EDF Power Solutions Chile —dueños al 50% cada uno— pusieron en venta Santiago Solar, parque fotovoltaico de 115 MW ubicado en Til Til con más de 360.000 paneles, a través de un proceso competitivo en dos fases mandatado a BTG Pactual que se espera cierre entre fines de 2026 y comienzos de 2027. El activo cuenta con contratos de compraventa de energía de largo plazo a precios de aproximadamente US$ 109 por MWh —denominados en dólares e indexados al IPC de EE.UU.— con distribuidoras como Enel, Chilquinta, CGE y Grupo Saesa, y generó ingresos de US$ 18 millones en 2025. Al proyecto fotovoltaico se suma un sistema de almacenamiento con baterías (BESS) de 360 MWh en etapa avanzada de desarrollo, y la venta se enmarca en un proceso de optimización del portafolio de AME, para quien Santiago Solar es el único activo que no forma parte de una plataforma de generación más amplia.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-mercadolibre-busca-operar-su-farmacia-propia-en-chile-tras-lanzamiento-en-brasil"><strong>1.  MercadoLibre busca operar su farmacia propia en Chile tras lanzamiento en Brasil</strong></h2><p>MercadoLibre ha sostenido al menos seis reuniones con autoridades chilenas en 2025 para explorar la posibilidad de operar como farmacia exclusivamente en línea en Chile, un modelo que incluiría entregas en menos de 24 horas e incluso en pocas horas en ciertos sectores. El Ministerio de Salud recomendó que la empresa solicitara una evaluación técnica al ISP, dado que la propuesta requiere cambios o reinterpretaciones normativas, ya que la regulación vigente no permite farmacias que operen solo en línea. La iniciativa replica la estrategia que la compañía ya ensayó en Brasil —donde adquirió una farmacia física y lanzó entregas en menos de tres horas en São Paulo— y se enmarca en una expansión de su negocio minorista propio que ha presionado sus márgenes y llevado las acciones a caer cerca de 11% en el año, a US$ 1.799.</p><h2 id="2-el-doctor-pionero-de-la-medicina-nuclear-en-chile-abrira-su-segundo-centro-de-salud-propio-en-el-pais"><strong>2.  El doctor pionero de la medicina nuclear en Chile abrirá su segundo centro de salud propio en el país</strong></h2><p>El doctor Horacio Amaral, fundador de PositronMed y pionero de la medicina nuclear en Chile, está próximo a abrir su segundo centro en Avenida La Dehesa 440, Lo Barnechea, con una inversión de US$ 5 millones y equipos PET y SPECT, pendiente solo de la resolución de la Seremi. El primer centro en Providencia, orientado principalmente a pacientes Fonasa de hospitales públicos, genera ingresos superiores a $ 5.400 millones anuales y realiza más de 13.000 prestaciones, mientras el nuevo recinto apuntará al segmento ABC1 y compite con clínicas privadas. Además, a través de su empresa PositronPharma —en la que posee el 60% junto a la FALP— opera un ciclotrón que produce radiofármacos, actúa simultáneamente como prestador y proveedor, e instala actualmente un segundo sitio de producción en Quilicura.</p><h2 id="3-consulta-de-marina-del-sol-suma-nuevas-fichas-municipalidad-de-vina-del-mar-fne-y-corporacion-meier-presentan-sus-posturas-ante-el-tdlc"><strong>3.  Consulta de Marina del Sol suma nuevas fichas: Municipalidad de Viña del Mar, FNE y Corporación Meier presentan sus posturas ante el TDLC</strong></h2><p>La Fiscalía Nacional Económica (FNE) analizó las condiciones cuestionadas por Marina del Sol en los concursos de casinos de Iquique, Viña del Mar, Pucón y Coquimbo, y concluyó que ninguna de ellas tiene aptitud para afectar de forma relevante el proceso competitivo, aunque identificó como único riesgo real que las licitaciones queden desiertas y formuló recomendaciones para futuros procesos, como mantener reservadas las ofertas mínimas hasta su apertura. La Municipalidad de Viña del Mar rechazó los argumentos de Marina del Sol por considerar que se basan en una errónea interpretación de la Ley de Casinos, y destacó que el casino representa el 30% de sus ingresos propios —unos $ 3.100 millones a mayo de 2026—, por lo que una interrupción prolongada afectaría servicios a más de 300.000 habitantes. Corporación Meier, grupo peruano dueño de casinos en Talca y Puerto Natales, volvió a pedir que se suspendan los cuatro procesos y se convoque a una nueva licitación con bases técnicas completas y estables, solicitando además limitaciones que impidan a un mismo operador adjudicarse una cantidad relevante de licencias simultáneas.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-operadores-financieros-estiman-alza-de-01-en-el-ipc-de-julio-pero-anticipan-aumentos-mayores-para-agosto-y-septiembre"><strong>1.  Operadores financieros estiman alza de 0,1% en el IPC de julio, pero anticipan aumentos mayores para agosto y septiembre</strong></h2><p>La Encuesta de Operadores Financieros (EOF) del Banco Central publicada este jueves mostró consenso en que el IPC de julio subirá apenas 0,1% mensual, para luego acelerarse a 0,3% en agosto y 0,5% en septiembre. En cuanto a la política monetaria, la totalidad de los encuestados espera que el Banco Central mantenga la tasa en 4,5% en la Reunión de Política Monetaria de la próxima semana, sin proyectar movimientos en los próximos 24 meses. Para el tipo de cambio, la encuesta anticipa un dólar a $ 930 en los próximos siete días y a $ 920 en 28 días, con una inflación que converge a la meta del 3% en un horizonte de 12 meses.</p><h2 id="2-rebaja-al-impuesto-a-las-donaciones-abre-ventana-para-adelantar-sucesiones-y-activa-consultas-a-expertos-tributarios"><strong>2.  Rebaja al impuesto a las donaciones abre ventana para adelantar sucesiones y activa consultas a expertos tributarios</strong></h2><p>La rebaja transitoria al impuesto a las donaciones incluida en el proyecto de reconstrucción y reactivación —aún pendiente de publicación en el Diario Oficial— reducirá en 50% el impuesto, eliminará la insinuación judicial y permitirá anticipar sucesiones por una sola vez mediante escritura pública, restringiéndose a legitimarios y asignatarios con un tope del 50% del patrimonio del donante. Consultoras como PwC, EY, KPMG y Deloitte reportan un fuerte aumento de consultas de familias empresarias, grupos con activos inmobiliarios y personas con procesos sucesorios postergados, que buscan aprovechar una ventana que los expertos califican como la más atractiva en años para ordenar el patrimonio. Respecto a la recaudación proyectada de US$ 290 millones, el consenso de las firmas es que la cifra es alcanzable e incluso podría superarse, aunque su impacto real dependerá de la certeza jurídica en la implementación y del funcionamiento de los nuevos controles antielusión.</p><h2 id="3-hacienda-evaluara-capitalizar-el-fees-o-reducir-la-deuda-si-la-recaudacion-supera-lo-previsto"><strong>3.  Hacienda evaluará capitalizar el FEES o reducir la deuda si la recaudación supera lo previsto</strong></h2><p>El director de Presupuestos, José Pablo Gómez, calificó de 'extremadamente conservadoras' las proyecciones de recaudación del informe financiero del proyecto misceláneo en materia de impuesto a las donaciones y repatriación de capitales, en contraste con estimaciones de mercado que hablan de US$ 1.000 millones solo en donaciones frente a los US$ 300 millones oficiales. Ante la posibilidad de ingresos superiores a lo previsto, Gómez planteó dos usos posibles: capitalizar el Fondo de Estabilización Económica y Social (FEES) —actualmente en torno a US$ 3.900 millones— o reducir el nivel de endeudamiento público. El funcionario destacó que el crecimiento económico es el principal determinante de los ingresos fiscales, representando los tributos del resto de los contribuyentes 15,7 de los 21,9 puntos del PIB proyectados como ingresos efectivos para 2026.</p><h2 id="4-de-la-parte-alta-a-la-media-el-cambio-de-chile-en-el-ranking-de-la-ocde-de-impuesto-corporativo"><strong>4.  De la parte alta a la media: el cambio de Chile en el ranking de la OCDE de impuesto corporativo</strong></h2><p>Con la rebaja del impuesto corporativo de 27% a 23% contemplada en la ley miscelánea para 2029, Chile descenderá del puesto 11 al puesto 16 en el ranking de tasas corporativas de los países de la OCDE, ubicándose al mismo nivel que Austria e Israel. Actualmente, Chile supera a países como Italia (27,8%), pero quedará aún por encima de Grecia, Noruega y Eslovenia, que mantienen una tasa del 22%, mientras los extremos del ranking permanecerán estables —Hungría como mínimo con 9% y Francia como máximo con 36,1%. El socio de Deloitte, Joseph Courand, destacó que la baja de la tasa, junto con la integración tributaria y la invariabilidad, apuntan en la dirección correcta para revertir la caída de la inversión que Chile viene experimentando.</p><h2 id="5-antonio-walker-advierte-por-magnitud-de-millonarios-danos-por-temporal-y-reto-de-reconstruir-infraestructura-es-el-frente-atmosferico-mas-grande-que-he-visto"><strong>5.  Antonio Walker advierte por magnitud de millonarios daños por temporal y reto de reconstruir infraestructura: "Es el frente atmosférico más grande que he visto"</strong></h2><p>El presidente de la SNA, Antonio Walker, advirtió que los daños causados por el sistema frontal que azotó las regiones de Atacama y Coquimbo —que dejó 13 fallecidos y obligó al Gobierno a decretar estado de catástrofe— superarán ampliamente los US$ 400 millones estimados inicialmente, con el mayor costo concentrado en la reconstrucción de infraestructura vial, viviendas, obras sanitarias y canales de riego destruidos. Walker calificó el evento como el frente atmosférico más intenso que ha presenciado, enmarcándolo en el cambio climático y en la prolongada sequía que antecedía a las lluvias, y señaló que cuantificar las pérdidas totales —incluyendo impacto en comercio y posibles alzas de precios— sigue siendo difícil en plena emergencia. En contrapunto, destacó que las precipitaciones contribuirán a recuperar reservas de nieve y elevar la disponibilidad de agua en embalses y acuíferos, aliviando un déficit hídrico histórico.</p><h2 id="6-se-resiente-el-volumen-exportado-de-la-fruta-chilena-durante-la-primera-parte-del-ano"><strong>6.  Se resiente el volumen exportado de la fruta chilena durante la primera parte del año</strong></h2><p>Las exportaciones frutícolas chilenas alcanzaron US$ 4.251 millones en el primer semestre de 2026, una caída de casi 10% respecto a igual período de 2025, marcada por una contracción de más de 22% en el volumen exportado en el primer trimestre y una estimada de 3,3% en el segundo, acumulando dos trimestres consecutivos de retrocesos por primera vez desde 2023. Las uvas de mesa fueron el principal lastre, con una caída de 21,4% en volumen atribuida a lluvias tardías de marzo que dejó los envíos en su mínimo desde al menos 2017, aunque las cerezas aportaron una incidencia positiva de 13,4 puntos porcentuales en el segundo trimestre tras un repunte de 36,3%. El OCEC-UDP proyecta un repunte exportador en el segundo semestre, aunque limitado dado que la mayor parte de la temporada frutícola ya pasó, por lo que el sector cerraría el año con una contracción anual en sus exportaciones reales.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-petroleo-toco-los-us-100-tras-ataques-reivindicados-por-los-huties-a-barcos-en-el-mar-rojo"><strong>1.  Petróleo tocó los US$ 100 tras ataques reivindicados por los hutíes a barcos en el Mar Rojo</strong></h2><p>Los hutíes, respaldados por Irán, atacaron con misiles y drones dos petroleros saudíes en el Mar Rojo —el Encelia y el Layla— en lo que representa su primer ataque a buques mercantes en meses, abriendo un nuevo frente en el conflicto entre EE.UU. e Irán que ya tiene prácticamente cerrado el estrecho de Ormuz. El petróleo Brent cruzó brevemente los US$ 100 el barril antes de moderarse a US$ 99,49, mientras Trump amenazó con responsabilizar a Irán y destruir infraestructura iraní si los hutíes vuelven a actuar, en medio del duodécimo día consecutivo de ataques aéreos estadounidenses contra instalaciones militares iraníes. El Mar Rojo se convirtió en ruta alternativa vital para las exportaciones saudíes desde el cierre de Ormuz, lo que hace que los ataques en Bab el-Mandeb amenacen con bloquear también esa alternativa, con impacto directo sobre el suministro energético mundial.</p><h2 id="2-el-bce-pausa-el-alza-de-tasas-pese-al-nuevo-incremento-de-los-precios-del-petroleo"><strong>2.  El BCE pausa el alza de tasas pese al nuevo incremento de los precios del petróleo</strong></h2><p>El Banco Central Europeo mantuvo sus tasas sin cambios en 2,25% en su reunión del jueves, seis semanas después de haberlas subido un cuarto de punto —la primera alza del G7 en respuesta al shock energético por el conflicto en Medio Oriente—, citando que la incertidumbre sigue siendo elevada y que el impacto inflacionario total aún no se ha materializado. Desde comienzos de julio, el petróleo ha subido más de 30% por el colapso del alto el fuego entre EE.UU. e Irán, y el BCE proyecta que la inflación de la Eurozona alcanzará un máximo de 3,4% en el segundo semestre de 2026, para luego mantenerse en torno a 3% a comienzos de 2027, por encima de su meta del 2%. Los mercados de swaps ya descuentan otras dos alzas de un cuarto de punto hacia el primer trimestre de 2027, con la próxima esperada en septiembre u octubre, y analistas señalan que el comunicado del BCE deja completamente abierta esa posibilidad.</p><h2 id="3-la-ue-multa-a-google-con-890-millones-de-euros-en-una-prueba-a-las-amenazas-de-trump-de-proteger-a-las-grandes-tecnologicas"><strong>3.  La UE multa a Google con 890 millones de euros en una prueba a las amenazas de Trump de proteger a las grandes tecnológicas</strong></h2><p>La Comisión Europea multó a Google con 890 millones de euros —460 millones por otorgar trato preferente a sus propios servicios en el buscador y 430 millones por restricciones a desarrolladores de aplicaciones— bajo el Reglamento de Mercados Digitales (DMA), con un plazo de 60 días para presentar soluciones o enfrentar sanciones periódicas de hasta el 5% de su facturación diaria. La medida reaviva la tensión con Washington, dado que Trump ha comparado previamente estas multas con una 'extorsión en el extranjero', aunque la jefa de Competencia de la UE, Teresa Ribera, reafirmó el deber del bloque de defender el Estado de derecho independientemente de presiones externas. Google, cuya matriz Alphabet reportó ingresos de US$ 402.830 millones en 2025, rechazó las sanciones argumentando que la aplicación del DMA deteriora productos utilizados por consumidores europeos en beneficio de un grupo pequeño de demandantes.</p><h2 id="4-han-cumplido-los-aranceles-de-trump-sus-objetivos-en-eeuu-las-cifras-sugieren-que-no"><strong>4.  ¿Han cumplido los aranceles de Trump sus objetivos en EEUU? Las cifras sugieren que no</strong></h2><p>El artículo incorpora un mapa interactivo que ilustra los distintos frentes del conflicto entre EE.UU. e Irán y sus aliados en la región, detallando ataques en Bahréin, Kuwait, Jordania, Qatar, Irak, el estrecho de Ormuz, Irán, Yemen, Líbano, Arabia Saudita, el estrecho de Bab el-Mandeb, Siria, Emiratos Árabes Unidos y Omán. El contenido textual del artículo sobre los aranceles de Trump no estaba disponible en el archivo, ya que la nota parece centrarse en infografías interactivas sin cuerpo de texto que pueda resumirse. El título sugiere un análisis crítico sobre si los aranceles arancelarios estadounidenses han logrado sus objetivos declarados de reactivar la industria local y reducir el déficit comercial.</p><h2 id="5-tesla-y-google-abren-sin-festejos-la-temporada-de-resultados-de-las-siete-magnificas"><strong>5.  Tesla y Google abren sin festejos la temporada de resultados de las siete magníficas</strong></h2><p>Tesla reportó una ganancia ajustada de US$ 0,33 por acción frente a los US$ 0,53 esperados, con una utilidad operacional que cayó 57% hasta US$ 398 millones y un margen operativo que se contrajo a 1,4%, afectado por menores precios de venta, la caída de ingresos por créditos regulatorios y un alza de 49% en gastos de I+D ligados a IA y robotaxis, pese a que los ingresos crecieron 26% hasta US$ 28.240 millones. Alphabet, en cambio, superó las estimaciones de ingresos con US$ 119.800 millones y Google Cloud creció 82% hasta US$ 24.770 millones, pero el mercado reaccionó negativamente al alza de su presupuesto de gasto de capital de 2026 hasta un rango de US$ 195.000–205.000 millones, generando un flujo de caja libre negativo de US$ 5.900 millones. Analistas coinciden en que ambos balances plantean preguntas distintas: en Tesla, si puede seguir estimulando ventas sin deteriorar aún más los márgenes; en Alphabet, si puede financiar sostenidamente su expansión en IA solo con sus flujos de caja.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-bruna-ai-startup-que-predice-y-optimiza-la-calidad-de-materias-primas-llegara-a-brasil-colombia-y-ecuador-con-apoyo-de-sonda"><strong>1.  Bruna AI, startup que predice y optimiza la calidad de materias primas llegará a Brasil, Colombia y Ecuador con apoyo de Sonda</strong></h2><p>Bruna AI, startup chilena con 12 clientes activos en sectores de alimentos, minería y manufactura, desarrolló una plataforma de inteligencia artificial que predice la composición de materias primas con horas o días de anticipación, permitiendo optimizar su uso en procesos industriales, y proyecta triplicar sus ventas en 2026 respecto a 2025 gracias a su expansión regional. Desde 2024, la compañía opera bajo una alianza con Sonda que le proporciona acceso a redes locales de ventas, oficinas e infraestructura, reemplazando intentos fallidos de internacionalización con equipos remotos o contrataciones locales. Este año apunta a Colombia —con Nestlé como cuenta estratégica—, Ecuador —donde ya opera con empresas de manufactura y acuicultura— y Brasil, enfocada en minería, además del lanzamiento de un modelo de lenguaje propio que permite a los usuarios interactuar con los modelos predictivos en el lenguaje operativo de su industria.</p><h2 id="2-fundacion-chile-inicia-desinversion-de-clin-y-anuncia-dos-nuevos-fondos-para-startups"><strong>2.  Fundación Chile inicia desinversión de CLIN y anuncia dos nuevos fondos para startups</strong></h2><p>ChileGlobal Ventures, brazo de inversión de Fundación Chile, inició el proceso de desinversión de su fondo CLIN —vehículo de US$ 20 millones con 16 startups de sectores como minería, agricultura y software— aprovechando una ventana de dos años antes de su vencimiento para vender posiciones sin presión, concretando ya la venta de su participación en Wareclouds por US$ 500.000 y negociando otras dos salidas secundarias. En paralelo, prepara dos nuevos vehículos: un fondo ángel de entre $ 2.000 y $ 5.000 millones —el primero de su tipo en Chile— para etapas tempranas en alianza con ChileGlobal Angels, y un fondo de escalamiento con tickets de US$ 5–10 millones orientado a serie B, segmento donde actualmente no hay oferta institucional local. A estos fondos se suma un venture builder de startups basadas en IA, diseñado para cuando múltiples corporativos demandan la misma solución tecnológica, con tres proyectos apuntando al cuarto trimestre de 2026.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-editorial-23072026"><strong>1.  Editorial |23/07/2026</strong></h2><p><em>(Sin detalle disponible.)</em></p><h2 id="2-un-paso-trascendental"><strong>2.  UN PASO TRASCENDENTAL</strong></h2><p>La aprobación del proyecto de Reconstrucción Nacional en la Cámara de Diputados es calificada como un hito histórico para la economía chilena, al ser la primera vez desde el retorno a la democracia que se reduce la tasa de impuesto corporativo, que había subido sostenidamente del 10% al 27% en 35 años, mientras los países de la OCDE avanzaban en sentido contrario. Los pilares del proyecto —rebaja de la tasa de 27% a 23%, invariabilidad tributaria y retorno a la plena integración tributaria— se mantuvieron intactos pese a las negociaciones parlamentarias, dejando a Chile en torno al promedio de la OCDE en materia de tributación empresarial. La editorial considera que la aprobación, combinada con las próximas medidas de reactivación y una reforma al mercado de capitales, podría marcar un punto de inflexión en las expectativas empresariales y retomar la senda hacia el desarrollo perdida hace más de una década.</p><h2 id="3-el-costo-oculto-de-la-ia"><strong>3.  El costo oculto de la IA</strong></h2><p>La columna plantea que, siguiendo la inversión de la paradoja de Arrow, las empresas que adoptan inteligencia artificial corren el riesgo de transferir a los proveedores el conocimiento operacional que las hace únicas y competitivas, pagando la herramienta dos veces: con dinero y con información estratégica. Este riesgo se produce en paralelo a la expansión del mercado de hardware para IA —ejemplificada por la cumbre de AMD en San Francisco— que busca ofrecer a las empresas opciones para alojar y controlar su propia capacidad computacional sin depender exclusivamente de la nube de terceros. El autor llama a las organizaciones chilenas a incorporar activamente el debate sobre dónde queda la soberanía del conocimiento y la seguridad de los datos generados al usar IA.</p><h2 id="4-evidencia-territorial-y-politica-publica"><strong>4.  Evidencia territorial y política pública</strong></h2><p>La columna celebra que el proyecto de ley de Sala Cuna haya incorporado una Comisión Técnica para reconocer diferencias geográficas, validando la tesis del Observatorio Territorial de la UAI de que Chile no es homogéneo y que aplicar parámetros uniformes genera desigualdad y barreras de acceso, especialmente para la contratación femenina. El análisis había modelado escenarios con aportes estatales fijos para identificar puntos ciegos de la política, una metodología de pruebas de estrés que los autores reivindican como aporte de la academia al debate legislativo. El desafío pendiente, señalan, es que la diferenciación geográfica consagrada en la ley se traduzca en cobertura real con copagos que no asfixien a las familias en regiones con menores ingresos y mayores costos de provisión.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

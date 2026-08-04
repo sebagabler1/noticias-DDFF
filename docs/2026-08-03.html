@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-03.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">3 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-estados-unidos-y-japon-elevan-la-presion-para-defender-el-yen-con-una-coordinacion-inedita">1.  Estados Unidos y Japón elevan la presión para defender el yen con una coordinación inédita</a></li><li class="toc-l2"><a href="#2-ipsa-pierde-los-11000-puntos-ante-caida-de-sqm-y-wall-street-sube-tras-la-distension-del-conflicto-en-medio-oriente">2.  IPSA pierde los 11.000 puntos ante caída de SQM y Wall Street sube tras la distensión del conflicto en Medio Oriente</a></li><li class="toc-l2"><a href="#3-que-hay-detras-de-la-distension-entre-eeuu-e-iran-y-la-caida-del-petroleo">3.  ¿Qué hay detrás de la distensión entre EEUU e Irán y la caída del petróleo?</a></li><li class="toc-l2"><a href="#4-dolar-abre-a-la-baja-tras-positivo-imacec-de-junio-intervencion-del-yen-y-senales-de-diplomacia-en-medio-oriente">4.  Dólar abre a la baja tras positivo Imacec de junio, intervención del yen y señales de diplomacia en Medio Oriente</a></li><li class="toc-l2"><a href="#5-por-que-banco-de-chile-constituyo-50-mil-millones-en-provisiones-adicionales-en-el-primer-semestre">5.  ¿Por qué Banco de Chile constituyó $ 50 mil millones en provisiones adicionales en el primer semestre?</a></li><li class="toc-l2"><a href="#6-cantidad-de-venezolanos-cotizantes-de-afp-cae-mas-de-11-en-seis-meses-y-llega-a-su-menor-nivel-desde-2020">6.  Cantidad de venezolanos cotizantes de AFP cae más de 11% en seis meses y llega a su menor nivel desde 2020</a></li><li class="toc-l2"><a href="#7-alexandre-saigh-cofundador-y-ceo-de-patria-investments-chile-ya-era-un-buen-lugar-para-invertir-y-con-el-nuevo-marco-regulatorio-del-gobierno-es-aun-mejor">7.  Alexandre Saigh, cofundador y CEO de Patria Investments: “Chile ya era un buen lugar para invertir, y con el nuevo marco regulatorio del gobierno, es aún mejor”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-demanda-de-oficinas-por-mineras-y-proveedores-relacionados-crece-200-en-el-ultimo-ano">1.  Demanda de oficinas por mineras y proveedores relacionados crece 200% en el último año</a></li><li class="toc-l2"><a href="#2-radiografia-a-la-industria-del-juego-fisico-en-chile-en-siete-anos-casinos-redujeron-en-20-sus-ingresos-y-casi-30-sus-visitas">2.  Radiografía a la industria del juego físico en Chile: en siete años casinos redujeron en 20% sus ingresos y casi 30% sus visitas</a></li><li class="toc-l2"><a href="#3-con-la-comuna-de-santiago-liderando-y-dr-simi-dando-la-sorpresa-el-mapa-de-las-2467-farmacias-de-la-rm">3.  Con la comuna de Santiago liderando y Dr. Simi dando la sorpresa: el mapa de las 2.467 farmacias de la RM</a></li><li class="toc-l2"><a href="#4-corte-excluye-a-nuevo-pudahuel-de-ley-del-consumidor-y-abre-debate-sobre-su-responsabilidad-con-usuarios-finales">4.  Corte excluye a Nuevo Pudahuel de Ley del Consumidor y abre debate sobre su responsabilidad con usuarios finales</a></li><li class="toc-l2"><a href="#5-lorena-herrera-nueva-directora-de-concesiones-buscamos-dar-mayor-certidumbre-para-que-financistas-y-accionistas-vean-que-esta-cartera-es-interesante-para-participar">5.  Lorena Herrera, nueva directora de Concesiones “Buscamos dar mayor certidumbre para que financistas y accionistas vean que esta cartera es interesante para participar”</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-imacec-actividad-economica-sorprende-en-junio-con-un-crecimiento-mayor-de-lo-previsto-y-elude-recesion-tecnica">1.  Imacec: actividad económica sorprende en junio con un crecimiento mayor de lo previsto y elude recesión técnica</a></li><li class="toc-l2"><a href="#2-crece-el-club-del-3-aumenta-el-numero-de-quienes-apuestan-por-mas-crecimiento-el-proximo-ano">2.  Crece el club del 3%: aumenta el número de quienes apuestan por más crecimiento el próximo año</a></li><li class="toc-l2"><a href="#3-pablo-zenteno-exdirector-del-trabajoel-crecimiento-no-puede-condicionarse-a-tener-menos-derechos-laborales">3.  Pablo Zenteno, exdirector del Trabajo:“El crecimiento no puede condicionarse a tener menos derechos laborales”</a></li><li class="toc-l2"><a href="#4-gobierno-invertira-us-525-millones-en-infraestructura-para-carabineros-y-pdi">4.  Gobierno invertirá US$ 525 millones en infraestructura para Carabineros y PDI</a></li><li class="toc-l2"><a href="#5-panel-uc-respalda-establecer-criterios-de-seleccion-escolar-desde-7-basico">5.  Panel UC respalda establecer criterios de selección escolar desde 7° básico</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-kevin-burgett-economista-cofundador-de-monetary-policy-analytics-unas-tasas-mas-altas-de-la-fed-equilibrarian-mejor-los-riesgos">1.  Kevin Burgett, economista cofundador de Monetary Policy Analytics: “Unas tasas más altas (de la Fed) equilibrarían mejor los riesgos”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-dflab-opinion-por-que-los-datos-definiran-a-las-empresas">1.  DFLab Opinión/ Por qué los datos definirán a las empresas</a></li><li class="toc-l2"><a href="#2-las-habilidades-en-ia-son-mas-valiosas-que-un-mba-segun-el-86-de-los-ejecutivos-financieros">2.  Las habilidades en IA son más valiosas que un MBA, según el 86% de los ejecutivos financieros</a></li><li class="toc-l2"><a href="#3-ignacio-gei-experto-argentino-en-gestion-de-datos-aplicada-a-ciudades-uno-pierde-soberania-cuando-no-tiene-el-control-total-de-los-datos-ni-puede-utilizarlos-para-un-destino-final">3.  Ignacio Gei, experto argentino en gestión de datos aplicada a ciudades: “Uno pierde soberanía cuando no tiene el control total de los datos ni puede utilizarlos para un destino final”</a></li><li class="toc-l2"><a href="#4-tras-liderar-capitalizarme-por-una-decada-gabriel-cid-se-instala-en-san-francisco-con-su-nueva-startup-de-ia">4.  Tras liderar Capitalizarme por una década, Gabriel Cid se instala en San Francisco con su nueva startup de IA</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-expectativas-sobre-nueva-normativa-en-vivienda">1.  EXPECTATIVAS SOBRE NUEVA NORMATIVA EN VIVIENDA</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>3 De Agosto De 2026</p><p>6 secciones  ·  23 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-estados-unidos-y-japon-elevan-la-presion-para-defender-el-yen-con-una-coordinacion-inedita"><strong>1.  Estados Unidos y Japón elevan la presión para defender el yen con una coordinación inédita</strong></h2><p>EEUU y Japón realizaron su primera intervención cambiaria conjunta en 15 años para apoyar al yen, con Japón gastando aproximadamente US$53 mil millones en un solo día —posiblemente un récord— y el Tesoro estadounidense vendiendo euros para comprar yenes. El secretario Bessent prometió públicamente que EEUU 'no dudará' en volver a intervenir, mientras que Japón activará una facilidad de la Fed para acceder hasta US$60 mil millones diarios sin vender bonos del Tesoro. La acción elevó las probabilidades de un alza de tasas del Banco de Japón en septiembre al 46%, desde el 30%, aunque analistas advierten que la presión sobre el yen es estructural y que la demanda de dólares podría revertir cualquier repunte temporal.</p><h2 id="2-ipsa-pierde-los-11000-puntos-ante-caida-de-sqm-y-wall-street-sube-tras-la-distension-del-conflicto-en-medio-oriente"><strong>2.  IPSA pierde los 11.000 puntos ante caída de SQM y Wall Street sube tras la distensión del conflicto en Medio Oriente</strong></h2><p>El S&amp;P IPSA inició agosto con una baja de 0,3%, situándose en 10.981 puntos, presionado principalmente por SQM-B (-2,1%), a pesar de un Imacec de junio que superó las expectativas con un alza de 2,4% interanual frente al consenso de 1,8%. En Wall Street, el Dow Jones subía 1,2% y el S&amp;P 500 ganaba 0,6% gracias a la distensión en Medio Oriente, mientras el petróleo Brent retrocedía 5,3% a US$83,3 por barril. Los inversionistas locales se preparan para recibir resultados de Latam Airlines, Mallplaza y Cencosud durante la semana, con la temporada de resultados del IPSA arrojando hasta ahora sorpresas positivas en el ámbito operacional.</p><h2 id="3-que-hay-detras-de-la-distension-entre-eeuu-e-iran-y-la-caida-del-petroleo"><strong>3.  ¿Qué hay detrás de la distensión entre EEUU e Irán y la caída del petróleo?</strong></h2><p>El conflicto entre EEUU e Irán, iniciado el 11 de julio, entró en pausa durante el fin de semana tras gestiones diplomáticas de Arabia Saudita, Emiratos y Qatar, lo que provocó una caída del WTI superior al 6% hasta US$79,10 y del Brent de más del 5% hasta US$83 por barril. Trump canceló una ofensiva descrita como 'la mayor desde la Segunda Guerra Mundial' y afirmó estar cerca de un acuerdo, aunque Irán negó negociar directamente con Washington y señaló que sus conversaciones con Omán sobre el estrecho de Ormuz —aún prácticamente cerrado— están en 'etapas finales'. A la presión bajista se sumó la decisión de siete países de la OPEP+ de aumentar la producción en 188 mil barriles diarios a partir de septiembre, completando así el retiro gradual de recortes voluntarios por 1,65 millones de barriles diarios.</p><h2 id="4-dolar-abre-a-la-baja-tras-positivo-imacec-de-junio-intervencion-del-yen-y-senales-de-diplomacia-en-medio-oriente"><strong>4.  Dólar abre a la baja tras positivo Imacec de junio, intervención del yen y señales de diplomacia en Medio Oriente</strong></h2><p>El dólar inició agosto con una baja de $6,9, situándose en $925, acumulando una caída de $16,7 en la semana previa, impulsado por múltiples factores convergentes: el positivo Imacec de junio (2,4% anual), la intervención coordinada de EEUU y Japón en favor del yen —primera desde 2011—, y la distensión en Medio Oriente que redujo la prima de riesgo geopolítico. El dollar index retrocedía 0,2%, el cobre subía 0,4% a US$6,28 por libra, y el Brent caía 5,6% a US$83 el barril. La conferencia de prensa del presidente de la Fed, Kevin Warsh, tampoco satisfizo al mercado respecto a la justificación de mantener tasas ante la persistente inflación.</p><h2 id="5-por-que-banco-de-chile-constituyo-50-mil-millones-en-provisiones-adicionales-en-el-primer-semestre"><strong>5.  ¿Por qué Banco de Chile constituyó $ 50 mil millones en provisiones adicionales en el primer semestre?</strong></h2><p>Banco de Chile constituyó $50 mil millones en provisiones adicionales en el segundo trimestre de 2026 para cubrir el posible deterioro de la calidad crediticia derivado de las tensiones geopolíticas en Medio Oriente y factores internos como la discusión de reformas económicas. A pesar de este resguardo, la entidad reportó una utilidad neta de $390.567 millones en el trimestre, un alza de 28,1% respecto al mismo período de 2025, impulsada por una mayor inflación (UF +2,5% en el trimestre vs. +1% el año anterior) y el crecimiento en comisiones. El banco revisó ligeramente a la baja su proyección de crecimiento de colocaciones para 2026, desde 7% a 6%, y elevó su estimación de pérdidas crediticias al rango 1,2%-1,3%.</p><h2 id="6-cantidad-de-venezolanos-cotizantes-de-afp-cae-mas-de-11-en-seis-meses-y-llega-a-su-menor-nivel-desde-2020"><strong>6.  Cantidad de venezolanos cotizantes de AFP cae más de 11% en seis meses y llega a su menor nivel desde 2020</strong></h2><p>El número de cotizantes venezolanos en las AFP chilenas cayó a 200.708 en marzo de 2026, su nivel más bajo desde 2020 y una contracción de 10,5% respecto a marzo de 2025, con una baja aún mayor de 11,7% frente a septiembre de 2025 cuando había 227.466. Los expertos señalan que el retroceso responde a una combinación de emigración —la fuerza laboral venezolana en Chile registró su mayor caída interanual en siete meses consecutivos según el INE— y deterioro de la inserción laboral formal, con la tasa de informalidad del conjunto de extranjeros aumentando a 29,6%. Un factor adicional es que muchos venezolanos cotizaban voluntariamente sin estar empleados para mejorar sus probabilidades de aprobación de visa, práctica que cesó al no demostrar impacto positivo en las resoluciones migratorias.</p><h2 id="7-alexandre-saigh-cofundador-y-ceo-de-patria-investments-chile-ya-era-un-buen-lugar-para-invertir-y-con-el-nuevo-marco-regulatorio-del-gobierno-es-aun-mejor"><strong>7.  Alexandre Saigh, cofundador y CEO de Patria Investments: “Chile ya era un buen lugar para invertir, y con el nuevo marco regulatorio del gobierno, es aún mejor”</strong></h2><p>La gestora de capitales brasileños actualmente administra US$ 60 mil millones, y mira oportunidades en electrificación, data centers, autopistas concesionadas y desalinización en el país. El fundador de Patria da cuenta de la hoja de ruta de la firma en la región. En plena pandemia, mientras gran parte del mundo mantenía restricciones para viajar, el brasileño Alexandre Saighacumuló más de 60 días en México sorteando las limitaciones para ingresar a Estados Unidos. No estaba de vacaciones. Había cruzado el continente en medio de una negociación que terminaría cambiando el mapa de la industria de inversiones en la región:la compra de Moneda Asset Management por parte de Patria Investments.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-demanda-de-oficinas-por-mineras-y-proveedores-relacionados-crece-200-en-el-ultimo-ano"><strong>1.  Demanda de oficinas por mineras y proveedores relacionados crece 200% en el último año</strong></h2><p>La demanda de oficinas corporativas por parte de empresas mineras y su cadena de valor creció cerca de 200% en el último año, según Colliers, impulsada por el alza del precio del cobre y la expansión de la cartera de inversión minera que Cochilco estima en US$104.549 millones para 2025-2034, el mayor nivel en más de una década. Las empresas buscan principalmente edificios Clase A y A+ en Las Condes, Providencia y Vitacura, aunque Ciudad Empresarial gana participación entre proveedores por mayor disponibilidad, costos competitivos y buena conectividad. Cochilco elevó su proyección de precio del cobre a US$5,55 por libra para 2026 y US$5,10 para 2027, niveles que el gobierno calificó de históricamente altos.</p><h2 id="2-radiografia-a-la-industria-del-juego-fisico-en-chile-en-siete-anos-casinos-redujeron-en-20-sus-ingresos-y-casi-30-sus-visitas"><strong>2.  Radiografía a la industria del juego físico en Chile: en siete años casinos redujeron en 20% sus ingresos y casi 30% sus visitas</strong></h2><p>Los 25 casinos físicos del país registraron ingresos de UF 4.563.333 en los primeros cuatro meses de 2026, un nivel 20% inferior al de igual período en 2019, mientras las visitas cayeron 29%, de 2,7 millones a 1,9 millones en el mismo lapso. La industria atribuye el deterioro a la competencia de plataformas de apuestas online no reguladas, cambios en hábitos de consumo acelerados por la pandemia y la falta de actualización de la oferta de entretenimiento en los recintos físicos. Los operadores exigen regulación urgente del juego online y modernización del marco normativo para los casinos autorizados, advirtiendo que la caída de ingresos también reduce los aportes tributarios a municipios y gobiernos regionales.</p><h2 id="3-con-la-comuna-de-santiago-liderando-y-dr-simi-dando-la-sorpresa-el-mapa-de-las-2467-farmacias-de-la-rm"><strong>3.  Con la comuna de Santiago liderando y Dr. Simi dando la sorpresa: el mapa de las 2.467 farmacias de la RM</strong></h2><p>La Región Metropolitana cuenta con 2.467 farmacias, con la comuna de Santiago concentrando 339 locales (13,7% del total), seguida por Las Condes (172) y Maipú (152), según un catastro de Colliers. Cruz Verde lidera el mercado de cadenas con 391 sucursales (15,8%), pero la sorpresa es Dr. Simi que, con 247 locales, se posiciona como el segundo actor (10%), superando por una plaza a Salcobrand (246) y dejando atrás a Ahumada (214). La mitad del mercado corresponde a farmacias independientes o de barrio con menos de cinco sucursales, que compiten principalmente por cercanía geográfica.</p><h2 id="4-corte-excluye-a-nuevo-pudahuel-de-ley-del-consumidor-y-abre-debate-sobre-su-responsabilidad-con-usuarios-finales"><strong>4.  Corte excluye a Nuevo Pudahuel de Ley del Consumidor y abre debate sobre su responsabilidad con usuarios finales</strong></h2><p>La Corte de Apelaciones de Santiago revocó una multa de UTM 100 a Nuevo Pudahuel —concesionaria del Aeropuerto de Santiago— al resolver que los pasajeros no son sus consumidores bajo la Ley del Consumidor, dado que los derechos y obligaciones de la firma emanan exclusivamente del contrato de concesión con el Estado y no de un vínculo contractual con los usuarios. El fallo abre un debate sobre el alcance de la legislación de consumo en las concesiones de infraestructura: si existe un contrato implícito con el usuario, aplicaría el Derecho del Consumidor; si la relación es solo de Derecho Público, la fiscalización recaería en el Ministerio de Obras Públicas. El caso se originó en un incidente de seguridad en un counter de Latam Airlines dentro del terminal, donde el tribunal de primera instancia había condenado a ambas empresas.</p><h2 id="5-lorena-herrera-nueva-directora-de-concesiones-buscamos-dar-mayor-certidumbre-para-que-financistas-y-accionistas-vean-que-esta-cartera-es-interesante-para-participar"><strong>5.  Lorena Herrera, nueva directora de Concesiones “Buscamos dar mayor certidumbre para que financistas y accionistas vean que esta cartera es interesante para participar”</strong></h2><p>En su primera entrevista, Lorena Herrera detalla las prioridades de su gestión para un portafolio cercano a los US$ 15 mil millones. Hace poco más de una semana,Lorena Herrera asumió como directora general de Concesiones, quedando a cargo de un portafolio de infraestructura cercano a los US$ 15 mil millones. En su primera entrevista desde que llegó al cargo, la ingeniera comercialaborda las prioridades de su gestión, los cambios que busca introducir al modelo para atraer nuevos inversionistas y los desafíos para destrabar proyectos que hoy enfrentan retrasos. - ¿Qué significa para usted asumir la Dirección General de Concesiones (DGC)?</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-imacec-actividad-economica-sorprende-en-junio-con-un-crecimiento-mayor-de-lo-previsto-y-elude-recesion-tecnica"><strong>1.  Imacec: actividad económica sorprende en junio con un crecimiento mayor de lo previsto y elude recesión técnica</strong></h2><p>El Imacec de junio marcó un alza de 2,4% anual, superando el consenso de mercado de 1,8% y revirtiendo cinco meses consecutivos de cifras negativas; el resultado fue impulsado por la minería —especialmente el cobre—, el comercio (5,4% anual) y los servicios (1,7% anual), con el sector mayorista destacando por ventas de maquinaria y equipos. Con este dato, el PIB del segundo trimestre habría avanzado un 0,1% eludiendo la recesión técnica, aunque el primer semestre de 2026 cierra con una contracción de 0,2%. La serie desestacionalizada mostró un incremento mensual de 0,6%, favorecida adicionalmente por un día hábil más que en junio de 2025.</p><h2 id="2-crece-el-club-del-3-aumenta-el-numero-de-quienes-apuestan-por-mas-crecimiento-el-proximo-ano"><strong>2.  Crece el club del 3%: aumenta el número de quienes apuestan por más crecimiento el próximo año</strong></h2><p>Mientras la proyección de crecimiento para Chile en 2026 converge hacia 1,5%, las estimaciones para 2027 se aceleran, con 12 de las 26 entidades del Consensus Forecast de julio anticipando una expansión del PIB superior al 3% y un promedio del panel de 2,8%. Los economistas sustentan el optimismo en la normalización de la producción minera y pesquera, la recuperación gradual de la inversión apoyada por la Ley de Reconstrucción y las mejoras permisológicas, y un escenario externo más favorable si se estabiliza el conflicto en el Golfo Pérsico. Las advertencias apuntan al elevado costo de financiamiento de largo plazo, al déficit fiscal, y a la incertidumbre derivada de la aprobación pendiente del proyecto misceláneo y los recursos ante el Tribunal Constitucional.</p><h2 id="3-pablo-zenteno-exdirector-del-trabajoel-crecimiento-no-puede-condicionarse-a-tener-menos-derechos-laborales"><strong>3.  Pablo Zenteno, exdirector del Trabajo:“El crecimiento no puede condicionarse a tener menos derechos laborales”</strong></h2><p>La exautoridad acusó que se está “incumpliendo” el compromiso de no cambiar la Ley de 40 Horas y cree que flexibilizar la jornada sin resguardos puede traducirse en mayor precariedad. Tras casi un año de dejar la Dirección del Trabajo, y en los últimos meses regresar al ejercicio privado con Zenteno &amp; Asociados, Pablo Zenteno tiene una mirada crítica del rumbo que ha tomado la agenda laboral de la administración de José Antonio Kast. “El gobierno está empujando un cambio a la Ley de 40 Horas, incumpliendo de alguna manera el compromiso que adquirió con los trabajadores de no tocarla. Primero, lo hizo vía dictámenes (sobre los trabajadores sin control de jornada) y ahora por la vía legislativa”, critica.</p><h2 id="4-gobierno-invertira-us-525-millones-en-infraestructura-para-carabineros-y-pdi"><strong>4.  Gobierno invertirá US$ 525 millones en infraestructura para Carabineros y PDI</strong></h2><p>El gobierno presentó una cartera de US$525 millones destinada a infraestructura para Carabineros y la PDI, que contempla construcción, ampliación y reposición de comisarías, retenes y complejos policiales en distintas regiones, con la Cárcel El Arenal de Copiapó como el proyecto más grande (US$285 millones, entrega en 2031) y el Complejo Policial de la PDI en Concepción por US$62 millones (programado para 2029). Esta inversión forma parte de un plan mayor anunciado por el biministro De Grange en el Consejo de Políticas de Infraestructura, que suma US$2.440 millones en conectividad, US$1.293 millones en seguridad hídrica y US$1.953 millones en salud. La infraestructura para seguridad fue identificada como uno de los cuatro ejes estratégicos del gobierno.</p><h2 id="5-panel-uc-respalda-establecer-criterios-de-seleccion-escolar-desde-7-basico"><strong>5.  Panel UC respalda establecer criterios de selección escolar desde 7° básico</strong></h2><p>Un 61% de los 43 panelistas del Panel de Políticas Públicas de la Escuela de Gobierno UC respaldó que los establecimientos con alta demanda puedan usar criterios académicos —notas, ranking o pruebas— para seleccionar estudiantes desde 7° básico, en el marco del proyecto de ley del gobierno que modifica el Sistema de Admisión Escolar (SAE). La propuesta reemplaza el modelo exclusivamente aleatorio por un sistema mixto con dos mecanismos —Elección Mutua (EM) y Asignación Aleatoria (AA)— operados por una plataforma única del Ministerio de Educación. El académico Harald Beyer subrayó que el mecanismo de admisión no cambiará radicalmente la calidad del sistema educativo y llamó a lograr un acuerdo legislativo para avanzar luego al tema de fondo: la calidad de la educación.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-kevin-burgett-economista-cofundador-de-monetary-policy-analytics-unas-tasas-mas-altas-de-la-fed-equilibrarian-mejor-los-riesgos"><strong>1.  Kevin Burgett, economista cofundador de Monetary Policy Analytics: “Unas tasas más altas (de la Fed) equilibrarían mejor los riesgos”</strong></h2><p>El experto proyecta, sin embargo, que el tipo rector se mantendrá intacto el resto del año. En su análisis también destaca que el banco central flexibilizó su política demasiado rápido el año pasado, pese a la resistencia inflacionaria. La semana pasada, el Comité Federal de Mercado Abierto (FOMC) de la Reserva Federal de Estados Unidos, mantuvo la tasa de interés sin cambios en el rango de 3,5% y 3,75%. En esta ocasión, su presidente, Kevin Warsh, enfrentó una “vigorosa discusión familiar”, cuando tres de los 12 miembros del comité votaron contra la decisión, respaldando un aumento. En conversación con DF, el economista senior y cofundador –junto con el exgobernador de la Fed, Larry Meyer– de la firma independiente Monetary Policy Analytics Macro, Kevin Burgett, evaluó el estado de la economía estadounidense, entregó su escenario base para el resto del año y se refirió a los cambios que Warsh ha implementado en las comunicaciones de la Fed.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-dflab-opinion-por-que-los-datos-definiran-a-las-empresas"><strong>1.  DFLab Opinión/ Por qué los datos definirán a las empresas</strong></h2><p>Leandro Vieira, vicepresidente de IA e Infraestructura de Nube de Oracle para América Latina, argumenta que la inteligencia artificial no es el punto de partida sino el resultado de una disciplina de datos bien construida: estandarización, limpieza, gobernanza y una fuente de verdad confiable que permita tomar decisiones con velocidad y certeza. Critica que algunas empresas tecnológicas empujan la adopción rápida de IA sin asegurar la arquitectura de datos subyacente, lo que genera pilotos que no escalan, costos que se disparan y frustración interna. La ventaja competitiva no residirá en tener más datos sino en comprenderlos mejor y usarlos sin comprometer seguridad y privacidad, construyendo primero confianza en el dato, luego analítica, y finalmente la IA como acelerador natural.</p><h2 id="2-las-habilidades-en-ia-son-mas-valiosas-que-un-mba-segun-el-86-de-los-ejecutivos-financieros"><strong>2.  Las habilidades en IA son más valiosas que un MBA, según el 86% de los ejecutivos financieros</strong></h2><p>Una encuesta de PwC a más de 1.000 ejecutivos del sector financiero en EEUU reveló que el 86% considera que la formación en IA es más valiosa que un MBA para muchas nuevas contrataciones, y el 91% está aumentando la remuneración de empleados con habilidades en inteligencia artificial. Las universidades de elite responden con programas ejecutivos cortos centrados en IA —el MIT ofrece uno de cinco días por ~US$13 mil, una fracción del costo de un MBA que ronda los US$300 mil— mientras empresas como IBM, Shopify y Cloudflare privilegian perfiles de nivel inicial con dominio de estas herramientas. La tendencia refleja la urgencia del sector por contar con personas que sepan no solo qué es un agente de IA sino cómo se construye y gestiona a escala empresarial.</p><h2 id="3-ignacio-gei-experto-argentino-en-gestion-de-datos-aplicada-a-ciudades-uno-pierde-soberania-cuando-no-tiene-el-control-total-de-los-datos-ni-puede-utilizarlos-para-un-destino-final"><strong>3.  Ignacio Gei, experto argentino en gestión de datos aplicada a ciudades: “Uno pierde soberanía cuando no tiene el control total de los datos ni puede utilizarlos para un destino final”</strong></h2><p>El secretario de Ciudad Inteligente y Transformación Digital de la Municipalidad de Córdoba dijo que la seguridad de la información no depende de la jurisdicción en la que se almacene y que la baja interoperabilidad en el Estado chileno le impide tomar mejores decisiones. Ignacio Gei es el secretario de Ciudad Inteligente y Transformación Digital de la Municipalidad de Córdoba, Argentina. Desde hace más de 20 años se dedica a temas de modernización e innovación pública. También fue director de Gobierno Electrónico de la provincia de Córdoba, donde impulsó proyectos como Expediente Digital y Ciudadano Digital. El experto, que hoy lidera el diseño e implementación de MiDocta, una plataforma que centraliza y simplifica los servicios y trámites digitales del municipio, viajó a Chile para participar en laSmart City Expo Santiago 2026, donde expuso sobre soberanía y ética digital en la gestión de datos de las ciudades.</p><h2 id="4-tras-liderar-capitalizarme-por-una-decada-gabriel-cid-se-instala-en-san-francisco-con-su-nueva-startup-de-ia"><strong>4.  Tras liderar Capitalizarme por una década, Gabriel Cid se instala en San Francisco con su nueva startup de IA</strong></h2><p>Gabriel Cid, fundador de Capitalizarme —plataforma inmobiliaria que factura US$12 millones anuales con Ebitda positivo y mueve más de US$300 millones en transacciones—, dejó la gerencia general para cofundar Nexor AI junto a Ian Lee (Examedi) y Daniel Jiménez, startup que construye infraestructura empresarial para gestionar agentes de IA con mayor control y menos alucinaciones. En cuatro meses, Nexor AI alcanzó US$1 millón en ingresos anuales recurrentes con 100 clientes en 20 países, tracción que llamó la atención de Andreessen Horowitz: la firma fue aceptada en el programa de aceleración Speedrun, que seleccionó 90 de 31.000 postulantes y entrega US$500 mil por el 10% de la empresa más US$500 mil comprometidos para una ronda futura. La meta es cerrar 2026 con US$10 millones de ingresos y presencia en 30 países.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-expectativas-sobre-nueva-normativa-en-vivienda"><strong>1.  EXPECTATIVAS SOBRE NUEVA NORMATIVA EN VIVIENDA</strong></h2><p>El decreto del Ejecutivo que reforma la Ordenanza General de Urbanismo y Construcciones (OGUC) promete una baja de 10%-15% en el precio real de las viviendas nuevas y mayor agilidad en permisos, en un contexto donde los precios reales subieron 126% desde 2008 frente a un alza salarial de solo 42%. La efectividad de la medida es incierta porque los municipios conservan herramientas para neutralizarla —pueden redefinir la densidad local, modificar su plan regulador o congelar permisos— y la consulta pública ya generó descontento por la propuesta de reducir la densidad máxima por vivienda. Históricamente los precios de vivienda rara vez bajan en términos absolutos, lo que expone al gobierno al riesgo de incumplir sus propias promesas de reducción de precios si la reforma no alcanza adhesión municipal suficiente.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

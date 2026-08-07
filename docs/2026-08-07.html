@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-07.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">7 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-abogado-defensor-del-principal-socio-de-sartor-pedro-pablo-larrain-hay-un-reconocimiento-de-su-parte-de-que-tendrian-que-haber-reestructurado-la-agf">1.  El abogado defensor del principal socio de Sartor Pedro Pablo Larraín: “Hay un reconocimiento de su parte de que tendrían que haber reestructurado la AGF&quot;</a></li><li class="toc-l2"><a href="#2-ipsa-abre-al-alza-sobre-11300-puntos-mientras-tasas-de-interes-se-van-para-abajo-tras-malos-datos-de-empleo-en-eeuu">2.  IPSA abre al alza sobre 11.300 puntos mientras tasas de interés se van para abajo tras malos datos de empleo en EEUU</a></li><li class="toc-l2"><a href="#3-dolar-se-hunde-casi-10-en-apertura-tras-sorpresiva-contraccion-de-las-nominas-de-empleo-estadounidenses">3.  Dólar se hunde casi $ 10 en apertura tras sorpresiva contracción de las nóminas de empleo estadounidenses</a></li><li class="toc-l2"><a href="#4-ticketplus-fija-precio-para-su-opi-en-la-bolsa-de-nueva-york-apertura-alcanza-un-total-de-us-15-millones">4.  Ticketplus fija precio para su OPI en la Bolsa de Nueva York: apertura alcanza un total de US$ 15 millones</a></li><li class="toc-l2"><a href="#5-sistema-unico-de-cobranza-de-cotizaciones-ya-recupero-el-40-de-la-deuda-previsional-impaga-de-mayo">5.  Sistema Único de Cobranza de Cotizaciones ya recuperó el 40% de la deuda previsional impaga de mayo</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-subtel-alista-giro-al-regimen-de-concesiones-en-telecomunicaciones-para-dar-mas-certeza-y-flexibilidad-a-operadoras">1.  Subtel alista giro al régimen de concesiones en telecomunicaciones para dar más certeza y flexibilidad a operadoras</a></li><li class="toc-l2"><a href="#2-cobre-bate-record-en-londres-y-fisco-podria-obtener-sobre-us-9000-millones-extra-por-mayor-precio">2.  Cobre bate récord en Londres y Fisco podría obtener sobre US$ 9.000 millones extra por mayor precio</a></li><li class="toc-l2"><a href="#3-tres-ex-dla-piper-se-suman-como-socios-a-osp-legal-firma-que-anade-nuevas-areas-de-practica">3.  Tres ex-DLA Piper se suman como socios a O’SP Legal, firma que añade nuevas áreas de práctica</a></li><li class="toc-l2"><a href="#4-expertos-aterrizan-los-posibles-alcances-legales-de-dar-rango-constitucional-a-la-seguridad">4.  Expertos aterrizan los posibles alcances legales de dar rango constitucional a la seguridad</a></li><li class="toc-l2"><a href="#5-fontaine-anticipa-cuatro-anos-dificiles-para-codelco-reevaluara-plan-de-inversiones-por-us-34-mil-millones">5.  Fontaine anticipa “cuatro años difíciles” para Codelco: reevaluará plan de inversiones por US$ 34 mil millones</a></li><li class="toc-l2"><a href="#6-cencosud-registra-perdidas-y-su-ceo-advierte-una-competencia-agresiva-en-chile">6.  Cencosud registra pérdidas y su CEO advierte una “competencia agresiva” en Chile</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-la-economia-se-esta-encauzando-hacia-la-estabilidad-biministro-mas-valora-leve-variacion-del-ipc">1.  “La economía se está encauzando hacia la estabilidad”: biministro Mas valora leve variación del IPC</a></li><li class="toc-l2"><a href="#2-ipc-sube-leve-en-julio-en-linea-con-las-expectativas-y-la-inflacion-en-12-meses-se-modera-a-35">2.  IPC sube leve en julio en línea con las expectativas y la inflación en 12 meses se modera a 3,5%</a></li><li class="toc-l2"><a href="#3-juan-gabriel-valdes-y-el-arancel-de-125-que-impuso-el-gobierno-de-trump-esta-medida-es-una-nueva-escalada-de-control-de-la-region">3.  Juan Gabriel Valdés y el arancel de 12,5% que impuso el gobierno de Trump: “Esta medida es una nueva escalada de control de la región”</a></li><li class="toc-l2"><a href="#4-fallo-historico-y-us-13-millones-en-juego-tribunal-aplica-la-norma-antielusion-en-una-operacion-para-diluir-patrimonio">4.  Fallo histórico y US$ 13 millones en juego: tribunal aplica la Norma Antielusión en una operación para diluir patrimonio</a></li><li class="toc-l2"><a href="#5-quiroz-destaca-rol-del-sector-privado-como-motor-del-crecimiento-en-lanzamiento-de-libro-de-exministro-fontaine">5.  Quiroz destaca rol del sector privado como motor del crecimiento en lanzamiento de libro de exministro Fontaine</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-el-refugio-argentino-de-campo-y-montana-donde-los-ceo-tecnologicos-planean-capear-el-apocalipsis">1.  El refugio argentino de campo y montaña donde los CEO tecnológicos planean capear el apocalipsis</a></li><li class="toc-l2"><a href="#2-eeuu-pierde-23000-empleos-en-julio-y-enfria-las-expectativas-de-una-pronta-alza-de-tasas-de-la-fed">2.  EEUU pierde 23.000 empleos en julio y enfría las expectativas de una pronta alza de tasas de la Fed</a></li><li class="toc-l2"><a href="#3-los-precios-mundiales-de-los-alimentos-alcanzaron-en-julio-su-nivel-mas-alto-en-tres-anos">3.  Los precios mundiales de los alimentos alcanzaron en julio su nivel más alto en tres años</a></li><li class="toc-l2"><a href="#4-felipe-gomez-managing-director-ashmore-colombia-la-apuesta-de-de-la-espriella-debe-ser-recuperar-la-confianza-y-volver-a-crecer-con-inversion">4.  Felipe Gómez, Managing Director Ashmore Colombia: “La apuesta de De la Espriella debe ser recuperar la confianza y volver a crecer con inversión”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-fen-ventures-lanza-su-cuarto-fondo-de-inversion-en-startups-con-foco-en-inteligencia-artificial">1.  Fen Ventures lanza su cuarto fondo de inversión en startups con foco en inteligencia artificial</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-agenda-contra-el-crimen-e-impacto-en-el-crecimiento">1.  AGENDA CONTRA EL CRIMEN E IMPACTO EN EL CRECIMIENTO</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>7 De Agosto De 2026</p><p>6 secciones  ·  22 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-abogado-defensor-del-principal-socio-de-sartor-pedro-pablo-larrain-hay-un-reconocimiento-de-su-parte-de-que-tendrian-que-haber-reestructurado-la-agf"><strong>1.  El abogado defensor del principal socio de Sartor Pedro Pablo Larraín: “Hay un reconocimiento de su parte de que tendrían que haber reestructurado la AGF"</strong></h2><p>El penalista Jaime Winter aseguró que, si bien su representado no admite los delitos perseguidos en su contra, sí sostiene que debieron adaptarse a la creciente exposición a activos ilíquidos. Durante cinco jornadas, los imputados delcaso Sartorllegaron cada mañana al Centro de Justicia de Santiago para escuchar, en silencio, la extensa exposición del Ministerio Público y los querellantes. Las exposiciones de los primeros días de audiencia de formalización se vieron marcados por una detallada reconstrucción del presunto esquema, en que la Fiscalía atribuyó a exsocios, directores y ejecutivos una serie de operaciones que, a su juicio, provocaron unperjuicio cercano a US$ 190 millones para los fondos administrados por la gestora.</p><h2 id="2-ipsa-abre-al-alza-sobre-11300-puntos-mientras-tasas-de-interes-se-van-para-abajo-tras-malos-datos-de-empleo-en-eeuu"><strong>2.  IPSA abre al alza sobre 11.300 puntos mientras tasas de interés se van para abajo tras malos datos de empleo en EEUU</strong></h2><p>Hubo también noticias económicas en Chile. El IPC de julio, que al marcar un alza de 0,1% mensual estuvo en línea con las expectativas, mientras la tasa de inflación se desaceleró de 4,3% a 3,5% anual. La bolsa chilena seguía al alza este viernes, recogiendo en Chile unosfavorables datos de inflación de julio, y viendo que en Estados Unidos la volatilidad se amplía trasnegativos datos de empleo no agrícola. En los primeros negocios de la jornada,el S&amp;P IPSA escalaba 0,5% hasta los 11.327,42 puntos, encabezado porSantander (2,1%), Bci (1,5%) y SQM-B (1,5%), todas acciones de alta ponderación en el índice.</p><h2 id="3-dolar-se-hunde-casi-10-en-apertura-tras-sorpresiva-contraccion-de-las-nominas-de-empleo-estadounidenses"><strong>3.  Dólar se hunde casi $ 10 en apertura tras sorpresiva contracción de las nóminas de empleo estadounidenses</strong></h2><p>El rendimiento del Tesoro a dos años -sensible a las expectativas de política monetaria en EEUU- se desplomaba 9 puntos-, y en la misma línea el dollar index retrocedía 0,4%, mientras los precios del cobre moderaban sus caídas previas. Las nóminas no agrícolas de julio en Estados Unidos decepcionarony están desatando masivas ventas de dólares este viernes, pues fueron mucho más débiles de lo que el mercado tenía previsto. A su vez, lostradersrecibían en Chiledatos de inflación constructivos. Tras dos díasrecuperando terreno,el tipo de cambio dólar-peso caía $ 9,2 hasta los $ 907,2 en la apertura de esta última sesión de la semana, según los datos de Bloomberg.</p><h2 id="4-ticketplus-fija-precio-para-su-opi-en-la-bolsa-de-nueva-york-apertura-alcanza-un-total-de-us-15-millones"><strong>4.  Ticketplus fija precio para su OPI en la Bolsa de Nueva York: apertura alcanza un total de US$ 15 millones</strong></h2><p>Las acciones ordinarias de la compañía debieran comenzar a transarse en la NYSE American durante esta mañana, bajo el símbolo “TP”, dijo en un comunicado. La OPI considera un precio de US$ 8,00 por acción. (Foto: Reuters) Ticketplus,la empresa de tecnología que opera una plataforma tecnológica propietaria y full-stack de entretenimiento en vivo en América Latina, anunció este viernes la fijación del precio desu oferta pública inicial de 1.875.000 acciones ordinarias a un precio de US$ 8,00 por acción en la Bolsa de Nueva York.</p><h2 id="5-sistema-unico-de-cobranza-de-cotizaciones-ya-recupero-el-40-de-la-deuda-previsional-impaga-de-mayo"><strong>5.  Sistema Único de Cobranza de Cotizaciones ya recuperó el 40% de la deuda previsional impaga de mayo</strong></h2><p>La cifra corresponde a la deuda declarada y no pagada. El gerente general del SUCC, Nicolás Pizarro, apunta a que entre un 80% y un 85% de toda esa mora se salde en cuatro meses. El gerente general del Sistema Único de Cobranza de Cotizaciones, Nicolás Pizarro. Foto: Jonathan Duran Además de los beneficios y modificaciones en las inversiones de los fondos de pensiones, la reforma previsional también abordó el modo en que se persiguen las cotizaciones impagas.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-subtel-alista-giro-al-regimen-de-concesiones-en-telecomunicaciones-para-dar-mas-certeza-y-flexibilidad-a-operadoras"><strong>1.  Subtel alista giro al régimen de concesiones en telecomunicaciones para dar más certeza y flexibilidad a operadoras</strong></h2><p>La entidad liderada por Romina Garrido busca ingresar a fin de año un proyecto de ley enfocado en disminuir trabas en la evolución de la industria y reducir burocracias en la entidad. Cambios regulatorios se avecinan en la industria de las telcos.Así lo adelantóla subsecretaria de Telecomunicaciones, Romina Garrido, al asegurar que “a fin de año o en enero” buscarán ingresar al Congreso una propuesta normativaque introduzca modificaciones a la Ley General de Telecomunicaciones, específicamente a su capítulo relativo aconcesiones y autorizaciones que rigen al sector. Pese a que el detalle del proyecto aún no está totalmente definido, la titular entregó algunas luces de lo que hoy se encuentra estudiando internamente en Subtel, “con un sentido de urgencia”, precisó, cosa que el escrito final respectivo sea tramitado en el Congreso y obtenga luz verde durante los próximos tres años.</p><h2 id="2-cobre-bate-record-en-londres-y-fisco-podria-obtener-sobre-us-9000-millones-extra-por-mayor-precio"><strong>2.  Cobre bate récord en Londres y Fisco podría obtener sobre US$ 9.000 millones extra por mayor precio</strong></h2><p>El metal rojo cerró en US$ 6,55 por libra, 38,9% por sobre el promedio de 2025. Bancos y analistas proyectan déficit para este año y el próximo. Justo al partir el mes de la Minería,el cobreanotó un nuevo máximo histórico en la Bolsa de Metales de Londres (LME), tras cerrar la jornada de ayer en US$ 6,55 la libra,con un avance de 2,03% respecto de la jornada previa, según el reporte diario de Cochilco. En esa línea, el promedio del año está rozando los US$ 6, con una cotización de US$ 5,97, casi 40% por sobre igual período de 2025. El impulso en el precio se apoya en un mercado físico cada vez más apretado. De acuerdo a Cochilco, los inventarios en la LME retrocedieron 2,23% en la jornada, hasta las 226.650 toneladas. En ese contexto, Bank of America (BofA) sostuvo en su último Global Metals Weekly que el mercado global del metal rojo sigue estrecho:el aumento de los stocks visibles responde, a su juicio, al traslado de material hacia EEUU, donde se han acumulado cerca de 1,2 millones de toneladas, más que a un superávit real,mientras los inventarios en China rondan mínimos de varios años y la producción de refinado se ha estancado por la escasez de concentrados.</p><h2 id="3-tres-ex-dla-piper-se-suman-como-socios-a-osp-legal-firma-que-anade-nuevas-areas-de-practica"><strong>3.  Tres ex-DLA Piper se suman como socios a O’SP Legal, firma que añade nuevas áreas de práctica</strong></h2><p>La firma avanza desde una boutique enfocada en materias corporativas, M&amp;A, libre competencia y regulación hacia un modelo de servicios múltiples. Salgado &amp; O’Ryan Abogados cambió su nombre a O’SP Legal e incorporó como socios a Diego Peña, Mauricio Halpern y Claudio Sepúlveda, todos provenientes de DLA Piper.Con estas incorporaciones, la firma avanza desde una boutique enfocada en materias corporativas, M&amp;A, libre competencia y regulación hacia un modelo de servicios múltiples. Peña liderará las áreas de proyectos, energía y recursos naturales; Halpern estará a cargo de financiamiento, mercado de capitales y compliance corporativo; y Sepúlveda encabezará infraestructura, minería e inmobiliario. Los tres cuentan con estudios de posgrado en Estados Unidos y experiencia profesional en el extranjero.</p><h2 id="4-expertos-aterrizan-los-posibles-alcances-legales-de-dar-rango-constitucional-a-la-seguridad"><strong>4.  Expertos aterrizan los posibles alcances legales de dar rango constitucional a la seguridad</strong></h2><p>Abogados abordan los efectos que podría tener el anuncio de Kast y advierten que su impacto dependerá del contenido de la reforma. Fueel propio Presidente José Antonio Kastquien, en su mensaje del miércoles en la noche, dejó claro que su próximo objetivo, tras el proyecto misceláneo,será enfocarse en seguridad, al anunciar, entre otras cosas, que le dará rango constitucional. “Por primera vez, el Estado va a decir en su propia Constitución que proteger a su gente no es una opción más, sino una obligación. Será un mandato que ningún gobierno, de ningún color, podrá desconocer”, adelantó el mandatario.</p><h2 id="5-fontaine-anticipa-cuatro-anos-dificiles-para-codelco-reevaluara-plan-de-inversiones-por-us-34-mil-millones"><strong>5.  Fontaine anticipa “cuatro años difíciles” para Codelco: reevaluará plan de inversiones por US$ 34 mil millones</strong></h2><p>El presidente del directorio sostuvo que la empresa debe priorizar las inversiones que “efectivamente agregan valor”, fortalecer las asociaciones público-privadas y evaluar la venta de activos ante las necesidades de financiamiento de la compañía. Un crudo diagnóstico sobre Codelco y su plan para recuperar el liderazgo de la estatal, otrora la mayor productora de cobre del mundo, hizoel presidente del directorio de Codelco,Bernardo Fontaine. Este tema marcó parte importante de la tercera edición de Ecos de la Minería, encuentro organizado este jueves por El Mercurio y que reunió a autoridades, representantes de compañías y dirigentes del sector.</p><h2 id="6-cencosud-registra-perdidas-y-su-ceo-advierte-una-competencia-agresiva-en-chile"><strong>6.  Cencosud registra pérdidas y su CEO advierte una “competencia agresiva” en Chile</strong></h2><p>El CFO de la empresa, Andrés Neely Erdös, aseguró que este deterioro no se perpetuará durante el segundo semestre y afirmó que ya observan un repunte en el mercado chileno. El mercado chileno le pasó la cuenta a Cencosud. En medio de un consumo más débil y una intensa actividad promocional, la compañía vio caer la rentabilidad de supermercados, Paris y Easy, mientras suCEO, Rodrigo Larraín, advirtió en el análisis razonado que el grupo enfrenta una “competencia agresiva, particularmente en Chile”. El deterioro operacional se sumó al efecto de la deuda reajustada por inflación y a los ajustes cambiarios y contables de Argentina. Así, Cencosud cerróel segundo trimestre con pérdidas atribuibles a los propietarios de la controladora por $36.455 millones, frente a ganancias por $86.491 millones un año antes.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-la-economia-se-esta-encauzando-hacia-la-estabilidad-biministro-mas-valora-leve-variacion-del-ipc"><strong>1.  “La economía se está encauzando hacia la estabilidad”: biministro Mas valora leve variación del IPC</strong></h2><p>El responsable de las carteras de Economía y Minería resaltó que desde el Ejecutivo miran la cifra “con los pies sobre la tierra”. Celebración generó en La Monedael leve aumento de 0,1% que registró el Índice de Precios al Consumidor (IPC) en julio, tal como lo había anticipado el mercado, y que suavizó la inflación en 12 meses. Quien dio voz al Ejecutivo fueel biministro de Economía Minería, Daniel Mas, el que aseguró que el número “que está en la parte baja de lo que proyectaba el mercado”, permitió “moderar la inflación anual a un 3,5%”.</p><h2 id="2-ipc-sube-leve-en-julio-en-linea-con-las-expectativas-y-la-inflacion-en-12-meses-se-modera-a-35"><strong>2.  IPC sube leve en julio en línea con las expectativas y la inflación en 12 meses se modera a 3,5%</strong></h2><p>El INE informó que en el avance de 0,1% el mes pasado destacaron las alzas en las divisiones de alimentos y bebidas no alcohólicas, así como la de vivienda y servicios básicos, que fueron amortiguados por una disminución en la división de transporte. Entre las divisiones con aumentos en sus precios, destacaron alimentos y bebidas no alcohólicas. Foto: Aton Chile El Índice de Precios al Consumidor (IPC) subió un 0,1% en julio, informó el viernes el Instituto Nacional de Estadísticas (INE), en una variación que se ubicó en línea con las expectativas del mercado y quellevó a la inflación en 12 meses a moderarse a un 3,5%.</p><h2 id="3-juan-gabriel-valdes-y-el-arancel-de-125-que-impuso-el-gobierno-de-trump-esta-medida-es-una-nueva-escalada-de-control-de-la-region"><strong>3.  Juan Gabriel Valdés y el arancel de 12,5% que impuso el gobierno de Trump: “Esta medida es una nueva escalada de control de la región”</strong></h2><p>El excanciller y exrepresentante chileno en Washington estima que el escenario se ve cuesta arriba, con probabilidades de que el país norteamericano plantee demandas cada vez mayores. El excanciller y exembajador de Chile en Estados Unidos, Juan Gabriel Valdés, afirmó este jueves que Chile se está enfrentado a una transformación política de “dimensiones revolucionarias”, donde los aranceles -queahora la administración Trump los estableció en 12,5%- representan una nueva forma de control en la región, algo que va más allá de los aspectos técnicos. Y, en esta lógica, visualizó enDF al Cierreun futuro cuesta arriba, con demandas por parte de Estados Unidos que serán cada vez mayores. “Esta es una escalada de control de la región que está ya nombrada como una nueva doctrina Monroe, que ahora se llama Donroe, y que efectivamente pretende que los países de América Latina sean países que están a disposición de Estados Unidos para las distintas cosas que le sirvan desde el punto de vista de productos naturales o productos”, expuso.</p><h2 id="4-fallo-historico-y-us-13-millones-en-juego-tribunal-aplica-la-norma-antielusion-en-una-operacion-para-diluir-patrimonio"><strong>4.  Fallo histórico y US$ 13 millones en juego: tribunal aplica la Norma Antielusión en una operación para diluir patrimonio</strong></h2><p>Un tribunal de Los Lagos determinó que una reorganización empresarial escondía una donación indirecta entre familias empresarias, por lo que dictaminó que el SII podía aplicar la Norma Antielusión. Si bien en agosto del año pasado un tribunal falló por primera vez a favor delServicio de Impuestos Internos (SII)y le permitióaplicar la Norma General Antielusión (NGA),recientemente se marcó un nuevo hito en la materia, involucrando millonarios montos. Se trata deun fallo de primera instancia, evacuado por el Tribunal Tributario y Aduanero (TTA) de Los Lagos, que por primera vez autorizó al SII a calificar como elusiva una operación mediante la cual un contribuyente buscó diluir su patrimonio, a través de la transferencia del mismo a sus familiares.Esto, en último instancia, habría permitido al contribuyente principal involucrado en la transacciónla elusión del impuesto a las herencias y donaciones.</p><h2 id="5-quiroz-destaca-rol-del-sector-privado-como-motor-del-crecimiento-en-lanzamiento-de-libro-de-exministro-fontaine"><strong>5.  Quiroz destaca rol del sector privado como motor del crecimiento en lanzamiento de libro de exministro Fontaine</strong></h2><p>“La verdad es que el sector privado, actuando con los pesos adecuados, el incentivo adecuado, es capaz de hacer maravillas. Y es el que lleva a los países adelante”, dijo la autoridad. “Creo que estamos viviendo un minuto en una coyuntura especial”, calificó el ministro de Hacienda, Jorge Quiroz, el actual momento económico a días de que se haya aprobado la ley miscelánea. El lanzamiento del libro El gran impulso: cómo la economía chilena despegó entre 1985 y 1989, del economista y exministro Juan Andrés Fontaine, fue el escenario para que el secretario de Estado analizara el panorama actual.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-el-refugio-argentino-de-campo-y-montana-donde-los-ceo-tecnologicos-planean-capear-el-apocalipsis"><strong>1.  El refugio argentino de campo y montaña donde los CEO tecnológicos planean capear el apocalipsis</strong></h2><p>Atraídos por los paisajes agrestes y un presidente singular, varios ejecutivos están construyendo un refugio en San Carlos, en el Valle de Uco, una de las zonas menos exploradas de Mendoza. Wamani es un destino remoto de campo y montaña en San Carlos, Mendoza, al sudoeste de Pareditas. (Foto: IG @martinvars) En las estribaciones de los Andes en San Carlos, en el Valle de Uco, Mendoza, a lo largo de una vasta extensión de terreno accidentado cinco veces mayor que Manhattan, un grupo de emprendedores se prepara para el fin.</p><h2 id="2-eeuu-pierde-23000-empleos-en-julio-y-enfria-las-expectativas-de-una-pronta-alza-de-tasas-de-la-fed"><strong>2.  EEUU pierde 23.000 empleos en julio y enfría las expectativas de una pronta alza de tasas de la Fed</strong></h2><p>Aunque la tasa de desempleo descendió a 4,1%, frente al 4,2% registrado en junio, la baja se condice con una caída en la participación en la fuerza de trabajo hasta 61,4%, lo que -descontando la pandemia- representa su nivel más bajo desde la década de 1970. La economía estadounidense perdió 23.000 empleos en julio, lo que supone una nueva señal de enfriamiento del mercado laboral y lleva a los operadores areducir sus apuestas sobre una subida de las tasas de interés por parte de la Reserva Federal. La cifra publicada el viernes por la Oficina de Estadísticas Laborales (BLS) se situó por debajo de los 20.000 empleos creados en junio —dato revisado a la baja— y muy lejos del fuerte crecimiento registrado a principios de año. Los economistas encuestados por Bloomberg habían previsto una cifra de 80.000 empleos.</p><h2 id="3-los-precios-mundiales-de-los-alimentos-alcanzaron-en-julio-su-nivel-mas-alto-en-tres-anos"><strong>3.  Los precios mundiales de los alimentos alcanzaron en julio su nivel más alto en tres años</strong></h2><p>La FAO indicó que las condiciones meteorológicas adversas y la escalada del conflicto en el golfo Pérsico y el mar Negro encarecieron los mercados de cereales. Los precios mundiales de los alimentos subieron en julio hasta alcanzar su nivel más alto en más de tres años, ya que las condiciones meteorológicas adversas y la escalada del conflicto en el golfo Pérsico y el mar Negro encarecieron los mercados de cereales, según informó el viernes la Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO). El Índice de Precios de los Alimentos de la FAO, que mide las variaciones mensuales de una cesta de productos alimenticios puntos en julio, frente a los 130,3 de junio, lo que suponecomercializados a nivel internacional, registró una media de 131,1 el valor más alto desde enero de 2023.</p><h2 id="4-felipe-gomez-managing-director-ashmore-colombia-la-apuesta-de-de-la-espriella-debe-ser-recuperar-la-confianza-y-volver-a-crecer-con-inversion"><strong>4.  Felipe Gómez, Managing Director Ashmore Colombia: “La apuesta de De la Espriella debe ser recuperar la confianza y volver a crecer con inversión”</strong></h2><p>El ejecutivo colombiano destacó que el cambio de ciclo político ha reactivado el interés por los activos locales, pero advirtió que la valorización dependerá de recuperar la inversión, ordenar el frente fiscal y destrabar proyectos. Las expectativas del mercado son altas ante la llegada de Abelardo de la Espriella, quien este viernes asume la presidencia de Colombia, como dan cuenta la apreciación de sus activos y caída en el riesgo país. El managing director de Ashmore Colombia, Felipe Gómez, sostuvo a DF que el cambio de mando ha comenzado a recuperar la confianza de los inversionistas y puede abrir un nuevo ciclo de crecimiento basado en la inversión. Gómez, quien ha participado en webinars con clientes de LarrainVial presentando su visión sobre el país cafetero, destaca las oportunidades que se estan abriendo, aunque advirtió que el nuevo mandatario enfrentará riesgos importantes, particularmente en la negociación política con un Congreso.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-fen-ventures-lanza-su-cuarto-fondo-de-inversion-en-startups-con-foco-en-inteligencia-artificial"><strong>1.  Fen Ventures lanza su cuarto fondo de inversión en startups con foco en inteligencia artificial</strong></h2><p>La gestora ligada a LarrainVial salió a levantar capital y proyecta alcanzar el primer cierre y comenzar a invertir en compañías de la región durante el segundo semestre. Menos fondos activos, más disrupción tecnológica y startups que crecen a velocidades impensadas hace pocos años. Esa combinación es la que Fen Ventures quiere capturar con su cuarto fondo de inversión, un vehículo con el que la gestora ligada a LarrainVial busca levantar entre US$ 30 millones y US$ 50 millones para invertir en compañías de Latinoamérica en pleno auge de la inteligencia artificial (IA). “Estamos en las puertas de una revolución tecnológica que está cambiando la forma de hacer las cosas en casi todas las industrias y eso genera oportunidades gigantes”, dijo a DF el cofundador y managing partner de Fen Ventures, Cristóbal Silva.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-agenda-contra-el-crimen-e-impacto-en-el-crecimiento"><strong>1.  AGENDA CONTRA EL CRIMEN E IMPACTO EN EL CRECIMIENTO</strong></h2><p><em>(Sin detalle disponible.)</em></p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

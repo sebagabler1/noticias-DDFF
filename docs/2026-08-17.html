@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-17.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">17 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-fondo-de-acciones-nacionales-de-larrainvial-limita-temporalmente-aportes-para-evaluar-liquidez-de-la-bolsa">1.  Fondo de acciones nacionales de LarrainVial limita temporalmente aportes para evaluar liquidez de la bolsa</a></li><li class="toc-l2"><a href="#2-bolsa-chilena-abre-al-alza-mientras-falabella-busca-recuperarse-tras-semana-de-ventas-de-grandes-accionistas">2.  Bolsa chilena abre al alza mientras Falabella busca recuperarse tras semana de ventas de grandes accionistas</a></li><li class="toc-l2"><a href="#3-dolar-abre-a-la-baja-en-medio-de-ventas-globales-por-expectativas-de-una-fed-menos-inclinada-a-subir-las-tasas">3.  Dólar abre a la baja en medio de ventas globales por expectativas de una Fed menos inclinada a subir las tasas</a></li><li class="toc-l2"><a href="#4-mas-de-13-millones-de-afiliados-alcanzaran-la-edad-de-pension-en-los-proximos-cinco-anos">4.  Más de 1,3 millones de afiliados alcanzarán la edad de pensión en los próximos cinco años</a></li><li class="toc-l2"><a href="#5-rosario-del-rio-la-chilena-que-llego-al-banco-de-inglaterra-y-hoy-disena-politicas-para-proteger-al-sistema-financiero-britanico">5.  Rosario del Río, la chilena que llegó al Banco de Inglaterra y hoy diseña políticas para proteger al sistema financiero británico</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-mallplaza-sorprende-y-revive-millonario-proyecto-de-centro-comercial-en-concon">1.  Mallplaza sorprende y revive millonario proyecto de centro comercial en Concón</a></li><li class="toc-l2"><a href="#2-hernan-uribe-presidente-de-ripley-corp-afirma-que-la-empresa-esta-cosechando-el-cambio-estructural-que-hizo-hace-bastante-tiempo">2.  Hernán Uribe, presidente de Ripley Corp, afirma que la empresa “está cosechando el cambio estructural que hizo hace bastante tiempo”</a></li><li class="toc-l2"><a href="#3-mercado-libre-respalda-credito-tributario-en-ley-de-reconstruccion-nacional-refuerza-las-ganas-de-invertir-en-chile">3.  Mercado Libre respalda crédito tributario en ley de reconstrucción nacional: “Refuerza las ganas de invertir en Chile”</a></li><li class="toc-l2"><a href="#4-el-cambio-de-ultima-hora-que-hizo-el-mop-para-destrabar-equipamiento-del-hospital-de-buin-paine">4.  El cambio de última hora que hizo el MOP para destrabar equipamiento del Hospital de Buin-Paine</a></li><li class="toc-l2"><a href="#5-el-exceo-de-enjoy-pucon-que-ahora-compite-por-la-licitacion-del-casino-de-la-comuna">5.  El exCEO de Enjoy Pucón que ahora compite por la licitación del casino de la comuna</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-claves-del-congreso-la-reforma-constitucional-en-materia-de-seguridad-se-llevara-toda-la-atencion">1.  Claves del Congreso: La reforma constitucional en materia de seguridad se llevará toda la atención</a></li><li class="toc-l2"><a href="#2-peter-navarro-advierte-a-paises-con-aranceles-bajos-acceso-preferencial-a-eeuu-no-es-una-licencia-para-triangular-exportaciones">2.  Peter Navarro advierte a países con aranceles bajos: acceso preferencial a EEUU “no es una licencia” para triangular exportaciones</a></li><li class="toc-l2"><a href="#3-como-el-factor-de-un-pdg-molesto-por-el-portazo-al-feriado-el-17-de-septiembre-puede-afectar-la-agenda-del-gobierno-en-la-camara">3.  Cómo el factor de un PDG molesto por el portazo al feriado el 17 de septiembre puede afectar la agenda del gobierno en la Cámara</a></li><li class="toc-l2"><a href="#4-mundo-empresarial-se-entusiasma-con-los-proximos-seis-meses-mientras-la-ciudadania-reprueba-gestion-del-gobierno-por-aranceles">4.  Mundo empresarial se entusiasma con los próximos seis meses, mientras la ciudadanía reprueba gestión del gobierno por aranceles</a></li><li class="toc-l2"><a href="#5-osvaldo-rosales-exdirector-de-la-direcon-es-bastante-risible-que-algunos-pretendan-que-eeuu-es-nuestro-principal-socio-estrategico-miren-como-nos-maltrata">5.  Osvaldo Rosales, exdirector de la Direcon: “Es bastante risible que algunos pretendan que EEUU es nuestro principal socio estratégico. Miren cómo nos maltrata”</a></li><li class="toc-l2"><a href="#6-las-razones-tras-el-freno-a-la-contratacion-gremios-apuntan-a-mayores-costos-bajas-ventas-y-debil-inversion">6.  Las razones tras el freno a la contratación: gremios apuntan a mayores costos, bajas ventas y débil inversión</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-los-nuevos-superricos-de-la-ia-estan-transformando-el-mercado-de-jets-yates-y-automoviles">1.  Los nuevos superricos de la IA están transformando el mercado de jets, yates y automóviles</a></li><li class="toc-l2"><a href="#2-goldman-sachs-considera-demasiado-agresivas-las-apuestas-del-mercado-a-nuevas-alzas-de-la-fed">2.  Goldman Sachs considera demasiado agresivas las apuestas del mercado a nuevas alzas de la Fed</a></li><li class="toc-l2"><a href="#3-los-problemas-economicos-de-china-se-agravan-con-un-decepcionante-inicio-del-segundo-semestre">3.  Los problemas económicos de China se agravan con un decepcionante inicio del segundo semestre</a></li><li class="toc-l2"><a href="#4-hugo-de-zela-excanciller-de-peru-la-alianza-del-pacifico-es-la-gran-apuesta-que-tenemos-que-hacer">4.  Hugo de Zela, excanciller de Perú: “La Alianza del Pacífico es la gran apuesta que tenemos que hacer”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-la-propuesta-del-gremio-de-capital-de-riesgo-para-crear-el-primer-fondo-de-fondos-de-chile">1.  La propuesta del gremio de capital de riesgo para crear el primer fondo de fondos de Chile</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-nueva-etapa-de-la-megarreforma">1.  NUEVA ETAPA DE LA MEGARREFORMA</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>17 De Agosto De 2026</p><p>6 secciones  ·  22 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-fondo-de-acciones-nacionales-de-larrainvial-limita-temporalmente-aportes-para-evaluar-liquidez-de-la-bolsa"><strong>1.  Fondo de acciones nacionales de LarrainVial limita temporalmente aportes para evaluar liquidez de la bolsa</strong></h2><p>LarrainVial Asset Management decidió suspender temporalmente la recepción de nuevos aportes en su fondo mutuo LV Enfoque, uno de los de mejor desempeño en renta variable chilena, que alcanzó un patrimonio de US$ 640 millones a julio de 2026, habiendo crecido cerca de US$ 200 millones en el año. La medida es preventiva y busca evitar que el tamaño del fondo dificulte la gestión de la cartera, dado que la liquidez de la Bolsa de Santiago podría no ser suficiente para armar o desarmar posiciones con agilidad. La restricción no afecta los rescates ni los planes de inversión sistemática ya contratados, y se mantiene vigente hasta que la administradora estime que las condiciones de mercado permiten retomar la operación normal; fuentes del mercado estiman que podría durar entre dos y tres meses.</p><h2 id="2-bolsa-chilena-abre-al-alza-mientras-falabella-busca-recuperarse-tras-semana-de-ventas-de-grandes-accionistas"><strong>2.  Bolsa chilena abre al alza mientras Falabella busca recuperarse tras semana de ventas de grandes accionistas</strong></h2><p>La Bolsa de Santiago abrió la semana al alza con el S&amp;P IPSA subiendo 0,3% hasta los 11.074 puntos, impulsado por Bci, Engie y Falabella, esta última tras haber perdido 4,5% la semana anterior luego de que las hermanas Cúneo enajenaran acciones por US$ 170 millones y la familia Del Río vendiera otros US$ 69 millones. En el plano internacional, Wall Street operaba con ligeras caídas y el dólar se debilitaba globalmente ante expectativas de que la Fed no subiría tasas en septiembre, lo que también impulsó el precio del cobre. El mercado espera los resultados del segundo trimestre de SQM para el martes, con proyecciones de un alza interanual de más de 500% en utilidades netas gracias al repunte del litio; la geopolítica en Oriente Medio seguía como factor de incertidumbre con el petróleo Brent estable en US$ 88,8 por barril.</p><h2 id="3-dolar-abre-a-la-baja-en-medio-de-ventas-globales-por-expectativas-de-una-fed-menos-inclinada-a-subir-las-tasas"><strong>3.  Dólar abre a la baja en medio de ventas globales por expectativas de una Fed menos inclinada a subir las tasas</strong></h2><p>El tipo de cambio en Chile bajó US$ 2 hasta los $913,6 al inicio de la jornada del lunes, en línea con la debilidad global del dólar: el dollar index cedió 0,2% hasta los 99,4 puntos, su menor nivel desde inicios de junio. Los mercados monetarios descuentan 70% de probabilidad de que la Fed mantenga tasas sin cambios en septiembre, escenario que a principios de mes era menos probable que un alza, tras datos de consumo, inflación y empleo más débiles de lo esperado en Estados Unidos. La caída del dólar favoreció al cobre, cuyo futuro en Londres subía 1% hasta US$ 6,48 por libra, aunque la geopolítica en Oriente Medio, con el alto el fuego EEUU-Irán en suspenso y el estrecho de Ormuz bloqueado, mantuvo cierta demanda de refugio en la divisa estadounidense.</p><h2 id="4-mas-de-13-millones-de-afiliados-alcanzaran-la-edad-de-pension-en-los-proximos-cinco-anos"><strong>4.  Más de 1,3 millones de afiliados alcanzarán la edad de pensión en los próximos cinco años</strong></h2><p>Según la Asociación de AFP, 1.354.355 afiliados activos —equivalentes al 11,1% del total del sistema a marzo de 2026— cumplirán la edad legal de jubilación en los próximos cinco años, cifra que se eleva a 2.787.721 personas (22,9% del total) en el horizonte de una década. Actualmente unas 220.000 personas llegan a la edad de pensión cada año, número que subirá a 250.000 en la próxima década y a 350.000 hacia 2050. El exsuperintendente de Pensiones Osvaldo Macías advirtió que el aumento de jubilados se reflejará principalmente en rentas vitalicias y exigió modernizar con urgencia la regulación de solvencia de las aseguradoras de vida, cuyo pasivo garantizado por el Estado supera los US$ 50.000 millones, a través de un proyecto de ley de supervisión basada en riesgo que lleva 15 años en el Congreso.</p><h2 id="5-rosario-del-rio-la-chilena-que-llego-al-banco-de-inglaterra-y-hoy-disena-politicas-para-proteger-al-sistema-financiero-britanico"><strong>5.  Rosario del Río, la chilena que llegó al Banco de Inglaterra y hoy diseña políticas para proteger al sistema financiero británico</strong></h2><p>La economista chilena Rosario del Río trabaja desde mayo de 2024 como lead policy analyst en la prudential policy directorate del Banco de Inglaterra, la unidad encargada de diseñar el marco regulatorio prudencial para las principales instituciones financieras del Reino Unido, función análoga a la CMF en Chile pero enfocada en estabilidad financiera. Del Río estudió ingeniería comercial en la UC, trabajó en el Grupo Security y en el Ministerio de Economía antes de completar un MPA en la London School of Economics en 2022. En conversación con DF, identificó tres áreas de mejora para Chile: avanzar en Basilea III y marcos de resolución bancaria, fortalecer la regulación de fintech y finanzas abiertas, y mejorar el acceso al financiamiento y la inclusión financiera mediante herramientas como el sistema de finanzas abiertas y el registro de deuda consolidada.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-mallplaza-sorprende-y-revive-millonario-proyecto-de-centro-comercial-en-concon"><strong>1.  Mallplaza sorprende y revive millonario proyecto de centro comercial en Concón</strong></h2><p>Mallplaza decidió reactivar su proyecto de centro comercial en Concón, en la esquina de las avenidas Eluchans y Soza Cousiño, después de haberlo descartado en 2024 y abierto un proceso de venta de lotes —incluyendo un acuerdo de US$ 100 millones que finalmente se cayó. El nuevo plan es más acotado que el original: contempla cerca de 50.000 m² de superficie arrendable y alrededor de 200 locales con una inversión estimada en US$ 80 millones, frente a los casi 60.000 m² y más de US$ 120 millones del proyecto anterior. La empresa apunta a un formato lifestyle al aire libre con comercio, gastronomía, cine y servicios, y se encuentra en etapa inicial de relacionamiento con vecinos y la municipalidad, con perspectivas favorecidas por un nuevo acceso vial directo desde Santiago previsto para fines de 2026.</p><h2 id="2-hernan-uribe-presidente-de-ripley-corp-afirma-que-la-empresa-esta-cosechando-el-cambio-estructural-que-hizo-hace-bastante-tiempo"><strong>2.  Hernán Uribe, presidente de Ripley Corp, afirma que la empresa “está cosechando el cambio estructural que hizo hace bastante tiempo”</strong></h2><p>El chairman detalló cómo el negocio inmobiliario en Perú, la reconversión del retail hacia un modelo híbrido y la transformación de Banco Ripley explican la estabilización financiera del grupo. Tres negocios y un mismo foco: reducir la dependencia del ciclo del consumo. Con esa lógicaHernán Uribe Gabler, presidente del directorio de Ripley Corp, analiza la recuperación financiera de la compañía, que el año pasado redujo su deuda en US$ 100 millones y este año mejoró sus clasificaciones de riesgo, que están en A+ tanto por Feller Rate como Humphreys. El directivo sostiene que la empresa ligada a la familia Calderón “está cosechando el cambio estructural que hizo hace bastante tiempo”.</p><h2 id="3-mercado-libre-respalda-credito-tributario-en-ley-de-reconstruccion-nacional-refuerza-las-ganas-de-invertir-en-chile"><strong>3.  Mercado Libre respalda crédito tributario en ley de reconstrucción nacional: “Refuerza las ganas de invertir en Chile”</strong></h2><p>Según Cristóbal Aninat, la medida –que contempla un crédito de 15% sobre las remuneraciones asociadas a la exportación de servicios de conocimiento– podría atraer más inversión extranjera y una mayor productividad en el país. Cristóbal Aninat, head of government relations en Mercado Libre para Chile y la región Andina. Aunque de manera más desapercibida, uno de los protagonistas de la ley de reconstrucción nacional impulsada por el gobierno es el concepto de economía digital.</p><h2 id="4-el-cambio-de-ultima-hora-que-hizo-el-mop-para-destrabar-equipamiento-del-hospital-de-buin-paine"><strong>4.  El cambio de última hora que hizo el MOP para destrabar equipamiento del Hospital de Buin-Paine</strong></h2><p>A pocos meses de su marcha blanca —prevista para el segundo semestre de 2026—, el MOP modificó mediante decreto el contrato de concesión del Hospital de Buin-Paine (concesionado a SCMS por US$ 250 millones) para agilizar la compra de equipamiento médico. El cambio permite prescindir de licitación pública para adquirir 58 catres clínicos eléctricos en reemplazo de los mecánicos originalmente contemplados, ya que cada proceso de licitación implicaba plazos aproximados de 275 días y los tres intentos requeridos por las bases habrían extendido el proceso a más de dos años. La concesionaria deberá presentar al menos tres cotizaciones en un plazo máximo de 90 días, y la diferencia de costo será cubierta con cargo al monto máximo ya establecido para equipamiento en el contrato.</p><h2 id="5-el-exceo-de-enjoy-pucon-que-ahora-compite-por-la-licitacion-del-casino-de-la-comuna"><strong>5.  El exCEO de Enjoy Pucón que ahora compite por la licitación del casino de la comuna</strong></h2><p>En la audiencia de presentación de ofertas para las licitaciones de casinos de Viña del Mar, Pucón, Iquique y Coquimbo ante la Superintendencia de Casinos de Juego, solo se recibieron dos propuestas —una para Pucón y otra para Coquimbo—, quedando desiertos los concursos de Iquique y Viña del Mar. Para Pucón se presentó Casino Volcán Pucón S.A., liderada por Gonzalo Grob, exCEO de Enjoy Pucón entre 2018 y abril de 2025, como gerente general, y Andrés Raggio, extesorerero de Enjoy, como principal accionista. La propuesta contempla operar en el mismo inmueble donde funciona actualmente el casino (Miguel Ansorena 23, adquirido recientemente con financiamiento bancario), garantizar continuidad laboral del 100% de la dotación, y habilitar un renovado salón de eventos para convenciones y espectáculos de primer nivel.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-claves-del-congreso-la-reforma-constitucional-en-materia-de-seguridad-se-llevara-toda-la-atencion"><strong>1.  Claves del Congreso: La reforma constitucional en materia de seguridad se llevará toda la atención</strong></h2><p>La semana legislativa del 17 de agosto estará dominada por el debate en torno a la reforma constitucional en materia de seguridad, cuyo ingreso al Congreso fue postergado desde la semana anterior por diferencias al interior del propio oficialismo, incluso del gabinete del Presidente Kast. La iniciativa generó controversia sobre la necesidad de modificar el artículo 1° de la Constitución, y requiere 89 votos en la Cámara y 29 en el Senado para su aprobación. En paralelo, se activan las primeras comisiones relacionadas con el proyecto de Ley de Presupuestos 2027, con la Comisión Especial Mixta de Presupuestos recibiendo al director de Dipres, José Pablo Gómez, y la Comisión de Minería debatiendo el Código Minero y los alcances de la capitalización del 100% de las utilidades de Codelco del ejercicio 2025.</p><h2 id="2-peter-navarro-advierte-a-paises-con-aranceles-bajos-acceso-preferencial-a-eeuu-no-es-una-licencia-para-triangular-exportaciones"><strong>2.  Peter Navarro advierte a países con aranceles bajos: acceso preferencial a EEUU “no es una licencia” para triangular exportaciones</strong></h2><p>El asesor principal de la Casa Blanca para comercio sostuvo que los acuerdos comerciales impulsados por Trump buscan evitar que los países “alquilen” sus ventajas arancelarias a terceros, en una columna donde se refirió a la investigación “La gran estafa del transbordo”, en la que se involucra a Chile y más de 40 países. El mensaje de laCasa Blancapara los países que enfrentan aranceles relativamente bajos enEstados Unidoses que esas condiciones preferenciales no pueden ser utilizadas para facilitar el ingreso de mercancías procedentes de terceros mercados. Así lo planteóPeter Navarro, asistente del presidente Donald Trump y asesor principal para comercio y manufactura,en una columna de opinión publicada este domingo en The New York Times, en la que profundizó en las conclusiones de“La gran estafa del transbordo”, la investigación que la Casa Blanca dio a conocer el jueves pasado sobre el uso de terceros países para encubrir el verdadero origen de exportaciones destinadas a Estados Unidos.</p><h2 id="3-como-el-factor-de-un-pdg-molesto-por-el-portazo-al-feriado-el-17-de-septiembre-puede-afectar-la-agenda-del-gobierno-en-la-camara"><strong>3.  Cómo el factor de un PDG molesto por el portazo al feriado el 17 de septiembre puede afectar la agenda del gobierno en la Cámara</strong></h2><p>El rechazo del Ejecutivo a patrocinar el proyecto del PDG para declarar feriado el 17 de septiembre generó una respuesta de la diputada Zandra Parisi que fue interpretada como amenaza en el oficialismo: recordó que el gobierno necesita 89 votos del PDG para sus proyectos, aunque luego matiztó sus dichos. Cientistas políticos analizan la relación como transaccional y señalan que el gobierno enfrenta un dilema: depende del PDG para alcanzar quórums en la Cámara, pero conceder su agenda genera cuestionamientos de otros socios como republicanos y libertarios. La vía alternativa que proponen varios expertos es que el Ejecutivo tienda puentes con el Socialismo Democrático y la Democracia Cristiana, repitiendo la fórmula del fast track legislativo que lideraron Coloma y Mirosevic, lo que le permitiría reducir la dependencia del PDG en votaciones clave como la reforma constitucional de seguridad.</p><h2 id="4-mundo-empresarial-se-entusiasma-con-los-proximos-seis-meses-mientras-la-ciudadania-reprueba-gestion-del-gobierno-por-aranceles"><strong>4.  Mundo empresarial se entusiasma con los próximos seis meses, mientras la ciudadanía reprueba gestión del gobierno por aranceles</strong></h2><p>El Índice de Riesgos Deloitte-Cadem de julio muestra una brecha marcada entre la visión del mundo empresarial y la ciudadanía: el 82% del Panel de Negocios prevé que la situación económica mejorará en los próximos seis meses —impulsado principalmente por la aprobación de la ley de reconstrucción nacional y el Imacec de junio que subió 2,4% anual—, mientras solo el 44% de la opinión pública comparte ese optimismo. En materia de aranceles de EEUU, el 56% de los ejecutivos aprueba la gestión del gobierno frente a la administración Trump, mientras que solo el 29% de la ciudadanía lo hace; además, el 73% del empresariado opta por negociar directamente con Washington versus el 48% de la ciudadanía que preferiría buscar nuevos mercados. Por primera vez en varias mediciones, el riesgo tecnológico (37%) desplazó al económico como principal preocupación del Panel de Negocios, reflejo de la creciente exposición a ciberseguridad, IA y disrupción digital en el mundo corporativo.</p><h2 id="5-osvaldo-rosales-exdirector-de-la-direcon-es-bastante-risible-que-algunos-pretendan-que-eeuu-es-nuestro-principal-socio-estrategico-miren-como-nos-maltrata"><strong>5.  Osvaldo Rosales, exdirector de la Direcon: “Es bastante risible que algunos pretendan que EEUU es nuestro principal socio estratégico. Miren cómo nos maltrata”</strong></h2><p>Quien también se desempeñó como jefe negociador del Tratado de Libre Comercio con EEUU, aseguró que Washington no está respetando este acuerdo, mientras llamó a reflexionar sobre lo que el gobierno de Trump espera de Chile. En el marco de su ofensiva arancelaria, el gobierno de Donald Trump publicó la semana pasada el informe La Gran Estafa del Transbordo, donde acusa a más de 40 países, incluido Chile, de ayudar a China a evadir aranceles. Se trata de un reporte que fue calificado como “la nueva jugarreta de Trump”, por el exdirector de la Dirección General de Relaciones Económicas Internacionales -actual Subsecretaría de Relaciones Económicas Internacionales (Subrei)- durante el gobierno de Ricardo Lagos, Osvaldo Rosales.</p><h2 id="6-las-razones-tras-el-freno-a-la-contratacion-gremios-apuntan-a-mayores-costos-bajas-ventas-y-debil-inversion"><strong>6.  Las razones tras el freno a la contratación: gremios apuntan a mayores costos, bajas ventas y débil inversión</strong></h2><p>Los principales gremios empresariales coinciden en que la baja creación de empleo formal obedece a una combinación de factores: ventas que no justifican ampliar dotaciones (CNC reporta que el 70,1% de las empresas planea mantener personal y solo el 17,6% aumentarlo), y costos laborales que Sofofa estima podrían inhibir la creación de entre 387.000 y 712.000 empleos asalariados formales hacia 2033 por el efecto acumulado de la reducción de jornada, alza del salario mínimo y reforma de pensiones. La informalidad laboral creció 4,6% anual en el período marzo-mayo, con trabajadores por cuenta propia aumentando 5,3% y asalariados informales, 7,1%, mientras la Multigremial reporta que el Índice de Costos Laborales llegó a 7,9% anual en mayo. La agricultura es el sector que se diferencia del resto: tiene demanda de trabajadores pero dificultad para cubrirla, dado que los chilenos se concentran en labores técnicas y rechazan los trabajos físicos y de temporada, brecha que se cubre principalmente con migrantes.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-los-nuevos-superricos-de-la-ia-estan-transformando-el-mercado-de-jets-yates-y-automoviles"><strong>1.  Los nuevos superricos de la IA están transformando el mercado de jets, yates y automóviles</strong></h2><p>El auge de la inteligencia artificial generó una nueva cohorte de millonarios y multimillonarios —el número de multimillonarios globales creció 13% interanual hasta 3.302 según UBS, con más de 1.000 radicados en EEUU— que está transformando el mercado de bienes de lujo con patrones de consumo distintos a los de generaciones anteriores. Esta nueva clase de ricos, algunos de apenas 25 años, prioriza eficiencia, privacidad y personalización extrema sobre el lujo ostentoso: en aviación privada prefieren reservar vía app o WhatsApp y pagar con bitcoin; en automóviles optan por vehículos altamente personalizables como el Lamborghini Urus; y en yates buscan embarcaciones de expedición rápidas con Starlink y equipamiento fitness. Los precios inmobiliarios en San Francisco reflejan el fenómeno: el precio mediano de una vivienda unifamiliar subió a US$ 2,1 millones en junio, casi 25% más que en el mismo mes de 2025.</p><h2 id="2-goldman-sachs-considera-demasiado-agresivas-las-apuestas-del-mercado-a-nuevas-alzas-de-la-fed"><strong>2.  Goldman Sachs considera demasiado agresivas las apuestas del mercado a nuevas alzas de la Fed</strong></h2><p>Goldman Sachs señaló que un alza de tasas por parte de la Reserva Federal en su reunión de septiembre se ha vuelto muy improbable a la luz de los datos económicos más recientes de EEUU, que mostraron debilidad en consumo, inflación y empleo. El banco de inversión considera que las apuestas del mercado a nuevas subidas de tasas son excesivamente agresivas, en línea con la revisión de expectativas que ha llevado a los mercados monetarios a descontar 70% de probabilidad de que la Fed mantenga tasas sin cambios en septiembre.</p><h2 id="3-los-problemas-economicos-de-china-se-agravan-con-un-decepcionante-inicio-del-segundo-semestre"><strong>3.  Los problemas económicos de China se agravan con un decepcionante inicio del segundo semestre</strong></h2><p>China tuvo un inicio débil del segundo semestre de 2026: la producción industrial creció solo 4,5% interanual en julio —primera desaceleración en tres meses—, las ventas minoristas se expandieron apenas 0,6%, la inversión en activos fijos cayó 6,7% en los primeros siete meses y la tasa de desempleo urbano subió a 5,2%. Según BNP Paribas, estas cifras sugieren que el PIB creció alrededor del 4,1% en el segundo semestre, por debajo del 4,3% que Beijing necesita para alcanzar su objetivo anual, en un contexto donde la crisis inmobiliaria se agrava: la inversión del sector cayó 19,2% interanual en los primeros siete meses, nuevo mínimo histórico. Los responsables de política tienen disponibles herramientas como bonos soberanos especiales y nuevas líneas de financiamiento, y podrían adoptarse medidas adicionales tan pronto como a fines de septiembre si el crecimiento amenaza con caer por debajo del límite inferior del objetivo oficial de 4,5%.</p><h2 id="4-hugo-de-zela-excanciller-de-peru-la-alianza-del-pacifico-es-la-gran-apuesta-que-tenemos-que-hacer"><strong>4.  Hugo de Zela, excanciller de Perú: “La Alianza del Pacífico es la gran apuesta que tenemos que hacer”</strong></h2><p>El diplomático destacó las oportunidades que plantean los gabinetes binacionales entre Chile y Perú. Además, distinguió la relación estratégica que el vecino país mantiene con EEUU de la relación de carácter comercial que tiene con China. La convergencia ideológica entre el Presidente de Chile, José Antonio Kast, y su par de Perú, Keiko Fujimori, representa una oportunidad para la cooperación entre ambos países, de acuerdo con el excanciller del vecino país Hugo de Zela. De visita en Santiago, para participar del seminario organizado por la Cámara Chileno Peruana de Comercio, conversó con DF destacando particularmente a los gabinetes binacionales como una herramienta concreta de trabajo entre ambas regiones y presentando a la Alianza del Pacífico como la gran apuesta a nivel regional.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-la-propuesta-del-gremio-de-capital-de-riesgo-para-crear-el-primer-fondo-de-fondos-de-chile"><strong>1.  La propuesta del gremio de capital de riesgo para crear el primer fondo de fondos de Chile</strong></h2><p>La Asociación Chilena de Venture Capital (ACVC) prepara una propuesta formal para crear un fondo de fondos de capital de riesgo de entre US$ 100 y US$ 200 millones, con el Estado —a través de Corfo— como inversionista ancla aportando entre 30% y 40% del capital en equity, y el resto proveniente de AFP, compañías de seguros y multilaterales. El vehículo busca cerrar la brecha de financiamiento para startups en fase de escalamiento (Series A en adelante): actualmente los fondos locales promedian US$ 20 millones, insuficientes para tickets de Series A o B, por lo que las compañías terminan levantando capital en el exterior y los fondos chilenos quedan excluidos de los retornos. La propuesta requiere dos cambios regulatorios —una modificación legal que permita a Corfo invertir en cuotas de fondos de inversión, y ajustes al régimen de inversión de las AFP—, y ya fue presentada a Hacienda, Economía, Corfo y la Superintendencia de Pensiones, con buena recepción inicial.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-nueva-etapa-de-la-megarreforma"><strong>1.  NUEVA ETAPA DE LA MEGARREFORMA</strong></h2><p>Tras superar el control del Tribunal Constitucional (TC), la Ley de Reconstrucción Nacional y Desarrollo Económico Social quedó lista para entrar en vigencia, aunque el fallo implicó ajustes relevantes: el TC mantuvo la invariabilidad tributaria de hasta 20 años para grandes inversiones desde US$ 50 millones —umbral intermedio entre el modelo peruano (US$ 5 millones) y el argentino (US$ 200 millones)—, pero eliminó íntegramente el mecanismo de indemnización estatal por anulación de Resoluciones de Calificación Ambiental (RCA) y las disposiciones para microrelocalizaciones de concesiones acuícolas sin pasar por el SEIA. El gobierno enfrenta ahora tres desafíos simultáneos: gestionar la presión fiscal derivada de la rebaja gradual del impuesto corporativo hasta 23%, implementar la invariabilidad dentro del alcance estrictamente fijado por el TC (sin extensión a proyectos conexos), y agilizar la permisología para compensar ante los inversores la eliminación de las indemnizaciones estatales. El cumplimiento de los compromisos macroeconómicos del gobierno —crecimiento del 3,5% y desempleo del 6,5% al final del mandato— dependerá en gran medida de que la inversión privada responda al ritmo adecuado.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

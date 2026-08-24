@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-24.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">24 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-ipsa-abre-con-nueva-alza-y-supera-los-11400-puntos-mientras-sigue-firme-el-apetito-local-pese-a-incertidumbre-externa">1.  IPSA abre con nueva alza y supera los 11.400 puntos mientras sigue firme el apetito local pese a incertidumbre externa</a></li><li class="toc-l2"><a href="#2-dolar-abre-estable-mientras-agentes-siguen-atentos-al-golfo-persico-y-esperan-el-simposio-de-jackson-hole">2.  Dólar abre estable mientras agentes siguen atentos al golfo Pérsico y esperan el simposio de Jackson Hole</a></li><li class="toc-l2"><a href="#3-el-petroleo-cae-antes-de-anuncio-de-eeuu-de-nuevas-sanciones-economicas-contra-iran-este-lunes">3.  El petróleo cae antes de anuncio de EEUU de nuevas sanciones económicas contra Irán este lunes</a></li><li class="toc-l2"><a href="#4-ganancias-de-la-industria-aseguradora-caen-casi-7-al-primer-semestre">4.  Ganancias de la industria aseguradora caen casi 7% al primer semestre</a></li><li class="toc-l2"><a href="#5-jpmorgan-proyecta-mas-actividad-en-el-mercado-local-en-medio-de-flujo-hacia-emergentes">5.  JPMorgan proyecta más actividad en el mercado local en medio de flujo hacia emergentes</a></li><li class="toc-l2"><a href="#6-fondos-familiares-privados-la-nueva-estructura-que-gana-terreno-entre-los-family-offices-chilenos">6.  Fondos familiares privados: la nueva estructura que gana terreno entre los family offices chilenos</a></li><li class="toc-l2"><a href="#7-inteligencia-artificial-y-electrificacion-seguiran-impulsando-a-los-metales-en-la-proxima-decada">7.  Inteligencia artificial y electrificación seguirán impulsando a los metales en la próxima década</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-ante-creciente-demanda-y-escasez-de-oferta-gana-fuerza-la-idea-de-usar-residuos-agricolas-para-la-produccion-de-pellets">1.  Ante creciente demanda y escasez de oferta, gana fuerza la idea de usar residuos agrícolas para la producción de pellets</a></li><li class="toc-l2"><a href="#2-la-arremetida-de-constructora-pacal-para-evitar-el-pago-de-millonarias-multas-por-proyectos-en-antofagasta">2.  La arremetida de Constructora Pacal para evitar el pago de millonarias multas por proyectos en Antofagasta</a></li><li class="toc-l2"><a href="#3-la-rusa-indrive-apunta-a-competir-con-las-grandes-aplicaciones-de-transporte-en-la-region-metropolitana">3.  La rusa InDrive apunta a competir con las grandes aplicaciones de transporte en la Región Metropolitana</a></li><li class="toc-l2"><a href="#4-mop-alista-cambio-legal-para-crear-un-panel-que-resuelva-controversias-en-las-obras-publicas">4.  MOP alista cambio legal para crear un panel que resuelva controversias en las obras públicas</a></li><li class="toc-l2"><a href="#5-entel-se-alia-con-tecnologica-lituana-para-conectar-activos-pagos-y-hasta-transportes">5.  Entel se alía con tecnológica lituana para conectar activos, pagos y hasta transportes</a></li><li class="toc-l2"><a href="#6-negociaciones-colectivas-de-escondida-y-albemarle-entran-en-fase-critica-y-soplan-vientos-de-huelga">6.  Negociaciones colectivas de Escondida y Albemarle entran en fase crítica y soplan vientos de huelga</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-kast-reconoce-abusos-en-uso-de-convenio-169-de-la-oit-pero-descarta-innovar-en-su-aplicacion">1.  Kast reconoce “abusos” en uso de Convenio 169 de la OIT, pero descarta innovar en su aplicación</a></li><li class="toc-l2"><a href="#2-acuerdo-comercial-con-trinidad-y-tobago-le-ahorraria-a-chile-costos-de-importacion-de-gnl">2.  Acuerdo comercial con Trinidad y Tobago le ahorraría a Chile costos de importación de GNL</a></li><li class="toc-l2"><a href="#3-rosario-navarro-presidenta-de-sofofa-no-se-si-existe-mejor-momento-que-el-que-estamos-viviendo-hoy-para-invertir">3.  Rosario Navarro, presidenta de Sofofa: “No sé si existe mejor momento que el que estamos viviendo hoy para invertir”</a></li><li class="toc-l2"><a href="#4-sii-concluye-auditorias-por-operaciones-entre-relacionados-y-recauda-us-100-millones-por-diferencias-de-impuestos">4.  SII concluye auditorías por operaciones entre relacionados y recauda US$ 100 millones por diferencias de impuestos</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-trump-no-logra-debilitar-el-control-economico-de-china-sobre-america-latina">1.  Trump no logra debilitar el control económico de China sobre América Latina</a></li><li class="toc-l2"><a href="#2-internet-se-acerca-a-los-10-zettabytes-y-consolida-a-los-datos-como-motor-de-la-economia-global">2.  Internet se acerca a los 10 zettabytes y consolida a los datos como motor de la economía global</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-df-lab-opinion-se-acabaron-los-agentes-llego-el-trabajador-digital-autonomo">1.  DF Lab Opinión/ Se acabaron los agentes: llegó el trabajador digital autónomo</a></li><li class="toc-l2"><a href="#2-alibaba-se-desploma-tras-la-venta-de-acciones-por-us-10200-millones-para-financiar-su-apuesta-por-la-ia">2.  Alibaba se desploma tras la venta de acciones por US$ 10.200 millones para financiar su apuesta por la IA</a></li><li class="toc-l2"><a href="#3-nicolas-szekasy-cofundador-y-managing-partner-de-kaszek-deberia-haber-companias-de-ia-chilenas-que-sean-las-mejores-del-mundo-en-mineria">3.  Nicolás Szekasy cofundador y managing partner de Kaszek: “Debería haber compañías de IA chilenas que sean las mejores del mundo en minería”</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-los-costos-de-un-eeuu-mas-riesgoso">1.  LOS COSTOS DE UN EEUU MÁS RIESGOSO</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>24 De Agosto De 2026</p><p>6 secciones  ·  23 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-ipsa-abre-con-nueva-alza-y-supera-los-11400-puntos-mientras-sigue-firme-el-apetito-local-pese-a-incertidumbre-externa"><strong>1.  IPSA abre con nueva alza y supera los 11.400 puntos mientras sigue firme el apetito local pese a incertidumbre externa</strong></h2><p>El S&amp;P IPSA subía 0,7% hasta los 11.419 puntos al inicio de la semana, impulsado por las mejores perspectivas económicas internas y el anuncio de nuevos estímulos chinos, acercándose a su máximo histórico de 11.627 puntos registrado en enero. BCI, Santander y Latam lideraban las alzas, mientras que en Wall Street el S&amp;P 500 y el Nasdaq retrocedían. En el plano internacional, la atención se centraba en las nuevas sanciones económicas de EEUU contra Irán, el petróleo Brent estabilizado sobre US$ 93 por barril y el Simposio de Jackson Hole, donde el presidente de la Fed, Kevin Warsh, hablará el viernes en un contexto de crecientes expectativas de alza de tasas para diciembre.</p><h2 id="2-dolar-abre-estable-mientras-agentes-siguen-atentos-al-golfo-persico-y-esperan-el-simposio-de-jackson-hole"><strong>2.  Dólar abre estable mientras agentes siguen atentos al golfo Pérsico y esperan el simposio de Jackson Hole</strong></h2><p>El dólar cotizaba plano a $916,3 al inicio de la jornada, luego de cerrar la semana previa sin variación relevante gracias al alza en el precio del cobre. Los rendimientos del Tesoro estadounidense a 30 años aflojaban 3,9 puntos base ante el trascendido de que el secretario Scott Bessent podría recurrir a la Cuenta General —que acumula US$ 950 mil millones custodios por la Fed— para financiar el programa de recompra de bonos largos. Los mercados también seguían de cerca la estrategia de aislamiento económico de EEUU contra Irán, con 46 buques bajo amenaza de restricciones en el Estrecho de Ormuz, y aguardaban el discurso de Warsh en Jackson Hole, donde los futuros anticipan un alza de 25 puntos base en la tasa de la Fed antes de fin de año.</p><h2 id="3-el-petroleo-cae-antes-de-anuncio-de-eeuu-de-nuevas-sanciones-economicas-contra-iran-este-lunes"><strong>3.  El petróleo cae antes de anuncio de EEUU de nuevas sanciones económicas contra Irán este lunes</strong></h2><p>El Brent retrocedía a US$ 93 por barril y el WTI a cerca de US$ 86, después de acumular ganancias de casi 13% en las dos semanas previas, a la espera de la conferencia de prensa de Scott Bessent en la que detallaría el plan de sanciones económicas contra Irán. El crudo ha avanzado más de 50% en lo que va del año debido a los seis meses de conflicto bélico entre EEUU e Irán, que restringe los suministros globales. En señal de que los precios más altos frenan la demanda, Sinopec reportó caídas de casi 8% en consumo de gasolina y 12% en diésel durante el primer semestre chino, en parte por el avance de los vehículos eléctricos.</p><h2 id="4-ganancias-de-la-industria-aseguradora-caen-casi-7-al-primer-semestre"><strong>4.  Ganancias de la industria aseguradora caen casi 7% al primer semestre</strong></h2><p>Las utilidades del sector asegurador chileno totalizaron US$ 556,3 millones en el primer semestre de 2026, una caída de 6,8% frente a los US$ 597,2 millones del mismo período de 2025, pese a que las primas directas crecieron 11,5% hasta US$ 9.391 millones. El segmento de vida —el más grande— registró una baja de 3,4% en ganancias hasta US$ 405,3 millones, mientras que seguros generales cayó 15% hasta US$ 151 millones, con primas estancadas en US$ 2.662 millones. Según analistas, la contracción refleja el menor dinamismo económico y una dinámica dispar: el crecimiento se concentró en el negocio previsional, mientras los seguros generales, más ligados a la actividad e inversión, acusaron el golpe.</p><h2 id="5-jpmorgan-proyecta-mas-actividad-en-el-mercado-local-en-medio-de-flujo-hacia-emergentes"><strong>5.  JPMorgan proyecta más actividad en el mercado local en medio de flujo hacia emergentes</strong></h2><p>El jefe de capital markets para Chile, Latam y emergentes de JPMorgan, Miguel Anacoreta, señaló que, si bien Chile enfrenta la competencia de países con mayor diferencial de tasas frente a EEUU, a mediano plazo el cobre y el litio le confieren una importancia estratégica creciente. El ejecutivo anticipó que el mercado local seguirá viendo emisiones y financiamientos estructurados activos, respaldados en spreads históricamente bajos y en inversionistas institucionales sólidos como las AFP. JPMorgan también planea aprovechar las oportunidades que abre la reforma de pensiones, ofreciendo soluciones de inversión a los fondos de pensiones locales una vez que se definan los benchmarks.</p><h2 id="6-fondos-familiares-privados-la-nueva-estructura-que-gana-terreno-entre-los-family-offices-chilenos"><strong>6.  Fondos familiares privados: la nueva estructura que gana terreno entre los family offices chilenos</strong></h2><p>Al menos tres family offices chilenos estarían avanzando hacia fondos de inversión privados —en particular el vehículo luxemburgués RAIF— como forma de ordenar patrimonios complejos con múltiples sociedades, activos y ramas familiares. La estructura permite calcular un valor cuota único, comparar gestores bajo una misma metodología y simplificar la sucesión al traspasar cuotas valorizadas en lugar de activos dispersos, sin alterar el control familiar sobre las decisiones de inversión. Según los abogados especializados, la fórmula comienza a tener sentido a partir de US$ 50 millones y se vuelve claramente eficiente sobre los US$ 100 millones, funcionando por compartimentos que pueden tener estrategias y pasivos independientes entre ramas de la familia.</p><h2 id="7-inteligencia-artificial-y-electrificacion-seguiran-impulsando-a-los-metales-en-la-proxima-decada"><strong>7.  Inteligencia artificial y electrificación seguirán impulsando a los metales en la próxima década</strong></h2><p>El jefe de sostenibilidad y desarrollo del mercado físico de la Bolsa de Metales de Londres (LME), Hugo Brodie, afirmó que los metales industriales —especialmente el cobre— seguirán ganando relevancia como clase de activo durante los próximos cinco a diez años, impulsados por la expansión de vehículos eléctricos y la inteligencia artificial. La LME marcó nuevos máximos históricos en el cobre, con precio que alcanzó US$ 6,73 la libra, y se posiciona como referente global gracias a su red de almacenes en América, Asia y Medio Oriente. Brodie descartó la creación de nuevos contratos con liquidación física en el corto plazo para minerales críticos, y en cambio anunció una agencia de información para generar referencias de precios mediante métodos tradicionales.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-ante-creciente-demanda-y-escasez-de-oferta-gana-fuerza-la-idea-de-usar-residuos-agricolas-para-la-produccion-de-pellets"><strong>1.  Ante creciente demanda y escasez de oferta, gana fuerza la idea de usar residuos agrícolas para la producción de pellets</strong></h2><p>La baja disponibilidad de pellets durante el invierno —que llevó al gobierno a descartar un quiebre de stock y a parlamentarios a pedir intervención— está impulsando el debate sobre diversificar las materias primas más allá de la biomasa forestal. Investigadores de la Universidad Católica de la Santísima Concepción proponen incorporar residuos agrícolas como cáscaras de avellana, paja de trigo y la especie invasora retamilla, que ya demostró ser apta técnicamente para fabricar pellets, lo que permitiría romper la marcada estacionalidad de la producción concentrada en verano. La industria, que enfrenta altos costos de combustibles y electricidad, demanda además subsidios, mayor bodegaje y políticas públicas que promuevan el uso industrial del pellet para estabilizar la demanda durante todo el año.</p><h2 id="2-la-arremetida-de-constructora-pacal-para-evitar-el-pago-de-millonarias-multas-por-proyectos-en-antofagasta"><strong>2.  La arremetida de Constructora Pacal para evitar el pago de millonarias multas por proyectos en Antofagasta</strong></h2><p>La Constructora Pacal, ligada al empresario Pablo Castro y una de las mayores en viviendas sociales del país, presentó recursos judiciales ante la Corte de Apelaciones y la Corte Suprema para evitar el cobro de multas superiores a $1.600 millones por retrasos en los proyectos habitacionales Portal Alto Parinacota y Portal Alto del Sol en Antofagasta. La empresa alega que los retrasos se debieron a fuerza mayor —incluyendo efectos de la pandemia— y que las familias beneficiarias habían acordado compensaciones directas con la constructora, lo que a su juicio revocó tácitamente el mandato del Serviu para cobrar las multas. La Corte de Apelaciones declaró inadmisible el recurso, y la disputa queda ahora en manos de la Corte Suprema.</p><h2 id="3-la-rusa-indrive-apunta-a-competir-con-las-grandes-aplicaciones-de-transporte-en-la-region-metropolitana"><strong>3.  La rusa InDrive apunta a competir con las grandes aplicaciones de transporte en la Región Metropolitana</strong></h2><p>InDrive, plataforma de ridesharing originada en Siberia que opera en más de 48 países, prepara una entrada agresiva al mercado de Santiago para competir con Uber, Didi y Cabify, tras consolidar su presencia en más de 200 localidades del país con fuerte peso en Arica, Iquique y Antofagasta. La firma cobra una comisión de 12% —la más baja del sector según afirman— y cuenta actualmente con más de un millón de usuarios activos mensuales y más de 115 mil conductores en Chile, mercado que figura en el top 5 global de la compañía. El country manager Javier Silva advirtió que la Ley Uber, con su reglamento actual sobre antigüedad de vehículos, dejaría fuera al 70% de sus conductores en el norte del país, lo que preocupa a la empresa.</p><h2 id="4-mop-alista-cambio-legal-para-crear-un-panel-que-resuelva-controversias-en-las-obras-publicas"><strong>4.  MOP alista cambio legal para crear un panel que resuelva controversias en las obras públicas</strong></h2><p>El Ministerio de Obras Públicas trabaja en un proyecto de ley para crear un mecanismo de resolución de controversias entre el Estado y los contratistas, similar al Panel Técnico de Concesiones, que reemplazaría el actual sistema donde el MOP decide unilateralmente o los conflictos se resuelven en tribunales ordinarios en seis a ocho años. La propuesta contempla tres niveles: un Libro de Alertas Tempranas para contratos de todo tamaño, Comisiones Consultivas para obras regionales menores a UTM 200 mil y un Panel de Resolución de cinco expertos para contratos más grandes, que representan solo el 8% de los contratos pero el 45% de los montos en ejecución. La DGOP ya cuenta con la versión casi final de los cambios normativos y espera abrir el debate en el Congreso en septiembre, luego de generar consenso con la CChC, el Instituto de la Construcción y el CPI.</p><h2 id="5-entel-se-alia-con-tecnologica-lituana-para-conectar-activos-pagos-y-hasta-transportes"><strong>5.  Entel se alía con tecnológica lituana para conectar activos, pagos y hasta transportes</strong></h2><p>Entel Digital y Teltonika, fabricante lituano especializado en IoT, anunciaron una alianza para desarrollar aplicaciones de Internet de las Cosas sobre las redes 5G y NB-IoT de Entel. El acuerdo contempla la homologación técnica de los equipos europeos y ofrecerá a clientes empresariales soluciones integradas de dispositivos, conectividad y gestión con usos en monitoreo de activos, automatización, medios de pago, transporte, minería y servicios públicos.</p><h2 id="6-negociaciones-colectivas-de-escondida-y-albemarle-entran-en-fase-critica-y-soplan-vientos-de-huelga"><strong>6.  Negociaciones colectivas de Escondida y Albemarle entran en fase crítica y soplan vientos de huelga</strong></h2><p>En la mina de cobre más grande del mundo, el Sindicato N°2 de Supervisores y Staff de Escondida rechazó la propuesta de BHP del 20 de agosto, argumentando que la empresa aduce condiciones económicas adversas pese a la producción récord de 1,3 millones de toneladas en el año fiscal 2025; la primera mesa formal está citada para el 27 de agosto. En Albemarle, el sindicato unitario de la planta de La Negra —que agrupa al 90% de la fuerza laboral— votará esta semana la última oferta de la compañía norteamericana, y su directiva anticipa una probable huelga dado que las negociaciones están muy lejos de consenso en los puntos sustanciales del petitorio. En ambos casos, los trabajadores exigen que los contratos reflejen el alza actual de precios del cobre y el litio, respectivamente.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-kast-reconoce-abusos-en-uso-de-convenio-169-de-la-oit-pero-descarta-innovar-en-su-aplicacion"><strong>1.  Kast reconoce “abusos” en uso de Convenio 169 de la OIT, pero descarta innovar en su aplicación</strong></h2><p>El mandatario se refirió a la idea del ministro de Defensa, Fernando Barros, quien planteó la posibilidad de “deshacerse” del acuerdo internacional. El Presidente José Antonio Kast descartó el lunes la idea del ministro de Defensa, Fernando Barros, quienen entrevista con DF MAS propuso “deshacerse” del Convenio 169 de la Organización Internacional del Trabajo (OIT) y la Ley Lafkenche. En la entrevista publicada el fin de semana, Barros calificó ambas normas como una amenaza en materia de defensa e indicó que “hay chilenos que se dividen y tienen un trato distinto por su origen étnico y eso es un caldo de cultivo de conflicto.Y para mí, el Convenio 169, la Ley Lafkenche y una serie de otras disposiciones legales que salen de esa visión de conflicto entre las personas, son un riesgo para el país”.</p><h2 id="2-acuerdo-comercial-con-trinidad-y-tobago-le-ahorraria-a-chile-costos-de-importacion-de-gnl"><strong>2.  Acuerdo comercial con Trinidad y Tobago le ahorraría a Chile costos de importación de GNL</strong></h2><p>El Acuerdo de Alcance Parcial entre Chile y Trinidad y Tobago completó su primer trámite en la Cámara de Diputados y se encamina a entrar en vigor, eliminando el arancel de 6% sobre el gas natural licuado y el amoniaco, lo que implicaría un ahorro de hasta US$ 31,9 millones anuales para Chile. Trinidad y Tobago es el principal proveedor de ambos productos, concentrando el 51% de las importaciones de GNL y el 69% de las de amoniaco, con importaciones totales de US$ 531 millones en 2025. El acuerdo también abrirá el mercado caribeño para exportaciones chilenas como salmón, frutas y vino —con aranceles hoy de hasta 40%—, y representa el primer paso de una estrategia de vinculación comercial con el Caribe.</p><h2 id="3-rosario-navarro-presidenta-de-sofofa-no-se-si-existe-mejor-momento-que-el-que-estamos-viviendo-hoy-para-invertir"><strong>3.  Rosario Navarro, presidenta de Sofofa: “No sé si existe mejor momento que el que estamos viviendo hoy para invertir”</strong></h2><p>La dirigenta empresarial destacó la reciente aprobación de la reforma para la reactivación como uno de los elementos que contribuyen a que los privados tomen decisiones de nuevos negocios, pero anticipó que también es necesario abordar la flexibilidad laboral. Optimista sobre el futuro económico del país estála presidenta de la Sociedad de Fomento Fabril (Sofofa), Rosario Navarro, quien cree que se han generado las condiciones habilitantes -a pesar de alguna cifra mala de las últimas semanas- para que el sector empresarial ponga el pie en el acelerador y aproveche oportunidades que no se veían hace años y que ponen a Chile en el camino de un círculo virtuoso de inversión, empleo y crecimiento. Entrando a su último año a la cabeza del gremio industrial, la mirada de la dirigenta está puesta en lo que viene, y no se amilana ante lanueva caída de 0,2% que registró el Producto Interno Bruto (PIB) en el segundo trimestre, ni ante la desaceleración de la formación bruta de capital fijo -un indicador de inversión-, que no se expandió en el período, ni ante la moderación del consumo de los hogares.</p><h2 id="4-sii-concluye-auditorias-por-operaciones-entre-relacionados-y-recauda-us-100-millones-por-diferencias-de-impuestos"><strong>4.  SII concluye auditorías por operaciones entre relacionados y recauda US$ 100 millones por diferencias de impuestos</strong></h2><p>El Servicio de Impuestos Internos completó 125 auditorías de precios de transferencia en 2025, recaudando US$ 102 millones adicionales por diferencias impositivas en operaciones entre empresas chilenas y sus filiales extranjeras. Las revisiones se enfocaron principalmente en transacciones financieras y compraventas de bienes intragrupales; en el año comercial 2024, el 36% de las exportaciones nacionales se realizó hacia partes relacionadas en el exterior, equivalente a US$ 36.830 millones, mientras las importaciones desde relacionadas sumaron US$ 26.021 millones. El SII aplica un enfoque basado en riesgo, cruzando declaraciones juradas, estados financieros e intercambios automáticos de información tributaria internacional para focalizar sus fiscalizaciones en contribuyentes con pérdidas recurrentes, márgenes fuera de mercado u operaciones en territorios de baja tributación.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-trump-no-logra-debilitar-el-control-economico-de-china-sobre-america-latina"><strong>1.  Trump no logra debilitar el control económico de China sobre América Latina</strong></h2><p>A pesar de los avances políticos de la administración Trump en la región —con siete victorias electorales de candidatos afines en el último año—, su objetivo de establecer dominio económico estadounidense en América Latina enfrenta la resistencia de una presencia china profundamente arraigada que abarca puertos, energía, minería y consumo masivo. El comercio de China con América Latina creció desde US$ 14 mil millones en 2000 hasta más de US$ 500 mil millones en 2024, y el gigante asiático ha superado a EEUU como principal socio comercial de Sudamérica, con empresas chinas controlando más de la mitad de la transmisión y distribución eléctrica en Chile y distribuyendo electricidad en Lima. Beijing ha adaptado su estrategia hacia canales privados más discretos, alejándose de grandes proyectos gubernamentales expuestos, mientras avanza en sectores como baterías, vehículos eléctricos, servicios financieros y minerales críticos donde Washington presta menos atención.</p><h2 id="2-internet-se-acerca-a-los-10-zettabytes-y-consolida-a-los-datos-como-motor-de-la-economia-global"><strong>2.  Internet se acerca a los 10 zettabytes y consolida a los datos como motor de la economía global</strong></h2><p>Un informe del think tank estadounidense Progressive Policy Institute estima que el tráfico de internet superará los 10 zettabytes en 2027, con un crecimiento de 40 millones de veces desde los orígenes de la web, impulsado principalmente por cables submarinos de fibra óptica —cuyo número pasó de 100 en los años 2000 a 694 en 2026— y no por satélites. El número de usuarios de internet pasará de 360 millones en 2000 a unos 6.100 millones en 2026, representando cerca de tres cuartas partes de la población mundial, mientras que las exportaciones estadounidenses de servicios digitales alcanzaron US$ 959 mil millones en 2025, equivalentes al 3% del PIB. Según el informe, los flujos de datos digitales ya constituyen una parte relevante del comercio internacional, y tanto la ausencia de regulación como el extremo contrario —la autarquía de datos— implicarían pérdidas de PIB global de 0,9% y 4,5% respectivamente.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-df-lab-opinion-se-acabaron-los-agentes-llego-el-trabajador-digital-autonomo"><strong>1.  DF Lab Opinión/ Se acabaron los agentes: llegó el trabajador digital autónomo</strong></h2><p>El lanzamiento de Grok Bot por parte de xAI representa un salto cualitativo desde los agentes de IA tradicionales hacia el concepto de "trabajador digital autónomo": sistemas que operan en un entorno de computación en la nube propio, pueden usar herramientas como navegadores y correo electrónico, y —crucialmente— trabajar en equipo con otros Grok Bots de manera coordinada y continua, las 24 horas. Esta capacidad de colaboración entre múltiples inteligencias artificiales marca el paso de una IA que aumenta la productividad del trabajador a una que puede reemplazar funciones completas como ventas, análisis, soporte y administración. El autor concluye que la transformación empresarial que se avecina no consistirá en incorporar IA a las organizaciones, sino en rediseñar las organizaciones en torno a ella, donde los humanos gestionarán equipos mixtos de personas y trabajadores digitales.</p><h2 id="2-alibaba-se-desploma-tras-la-venta-de-acciones-por-us-10200-millones-para-financiar-su-apuesta-por-la-ia"><strong>2.  Alibaba se desploma tras la venta de acciones por US$ 10.200 millones para financiar su apuesta por la IA</strong></h2><p>Alibaba lanzó una emisión de acciones por 80.000 millones de dólares hongkoneses (US$ 10.200 millones) a un descuento de 8,4% sobre el precio de cierre del viernes, destinada a financiar chips, infraestructura y modelos de inteligencia artificial, lo que provocó una caída de hasta 10,5% en sus acciones en Hong Kong. La operación, que representa el 3,6% del total ampliado de acciones en circulación, registró una demanda de US$ 28.000 millones, con el 40% de la cartera adjudicada a inversores de largo plazo y fondos soberanos como QIA, Norges y Hillhouse. Pese al interés de los inversores, persisten dudas sobre la capacidad de Alibaba para competir en IA dado que su ADN está en el comercio electrónico, sector que muestra estancamiento frente al crecimiento de su división de nube e inteligencia artificial.</p><h2 id="3-nicolas-szekasy-cofundador-y-managing-partner-de-kaszek-deberia-haber-companias-de-ia-chilenas-que-sean-las-mejores-del-mundo-en-mineria"><strong>3.  Nicolás Szekasy cofundador y managing partner de Kaszek: “Debería haber compañías de IA chilenas que sean las mejores del mundo en minería”</strong></h2><p>El inversionista y exCFO de MercadoLibre dice que el ajuste post 2021 es “historia antigua”, anticipa IPO latinoamericanas en EEUU y apunta a la energía como la gran ventaja de la región en inteligencia artificial. Si hay alguien en la región que puede hablar de capital de riesgo y tecnología con propiedad esNicolás Szekasy. Durante una década fue chief financial officer (CFO) deMercadoLibre, donde lanzóMercadoPagoy lideró su apertura en bolsa en el Nasdaq en 2007. MBA de Stanford y economista de la Universidad de Buenos Aires,en 2011 fundó Kaszek junto a Hernán Kazah -cofundador de MercadoLibre- con la convicción de que la región podía producir compañías tecnológicas de escala mundial.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-los-costos-de-un-eeuu-mas-riesgoso"><strong>1.  LOS COSTOS DE UN EEUU MÁS RIESGOSO</strong></h2><p>La columna analiza cómo la presión creciente sobre los bonos del Tesoro estadounidense —con el bono a 30 años alcanzando 5,33%, su mayor nivel desde 2007— refleja no solo factores financieros como el déficit fiscal y la inflación elevada, sino también una pérdida de confianza de los mercados en la previsibilidad institucional de EEUU. La presión política de Trump sobre la Fed para bajar tasas erosiona la credibilidad de la institución, cuya independencia es parte integral del precio de los activos estadounidenses dado el rol del dólar como reserva internacional. Para economías abiertas como Chile, el riesgo concreto es que el alza global de tasas encarezca el financiamiento del Fisco —con una trayectoria de deuda creciente— y de las empresas, frenando los planes de inversión y la reactivación que el país necesita.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

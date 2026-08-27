@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>27 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-27.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">27 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-como-la-nueva-pelicula-de-spider-man-sigue-rompiendo-records-de-taquilla-e-impulsa-a-la-accion-de-sony">1.  Cómo la nueva película de Spider-Man sigue rompiendo récords de taquilla e impulsa a la acción de Sony</a></li><li class="toc-l2"><a href="#2-ipsa-abre-al-alza-con-impulso-de-sqm-y-wall-street-celebra-luego-de-que-nvidia-proyectara-un-alza-de-70-en-sus-ventas-anuales">2.  IPSA abre al alza con impulso de SQM y Wall Street celebra luego de que Nvidia proyectara un alza de 70% en sus ventas anuales</a></li><li class="toc-l2"><a href="#3-dolar-gana-terreno-sobre-920-en-apertura-con-todas-las-miradas-puestas-en-la-cumbre-de-jackson-hole">3.  Dólar gana terreno sobre $ 920 en apertura con todas las miradas puestas en la cumbre de Jackson Hole</a></li><li class="toc-l2"><a href="#4-jeronimo-correa-country-head-de-ubs-chile-con-la-reforma-del-gobierno-estamos-construyendo-una-muy-buena-carta-de-presentacion-para-que-entren-capitales-nuevos-al-pais">4.  Jerónimo Correa, country head de UBS Chile: “Con la reforma del gobierno estamos construyendo una muy buena carta de presentación para que entren capitales nuevos al país”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-moller-perez-cotapos-gana-6543-millones-en-el-primer-semestre-de-2026-y-habla-de-un-punto-de-inflexion-decisivo-en-el-sector">1.  Moller &amp; Pérez-Cotapos gana $ 6.543 millones en el primer semestre de 2026 y habla de &quot;un punto de inflexión decisivo&quot; en el sector</a></li><li class="toc-l2"><a href="#2-chile-organiza-conclave-minero-con-argentina-para-activar-tratado-binacional-y-abre-dialogo-con-peru-y-bolivia">2.  Chile organiza cónclave minero con Argentina para activar tratado binacional y abre diálogo con Perú y Bolivia</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-corbo-preve-alza-del-pib-de-09-a-14-este-ano-y-advierte-sobre-la-tragedia-del-mercado-laboral">1.  Corbo prevé alza del PIB de 0,9% a 1,4% este año y advierte sobre “la tragedia del mercado laboral”</a></li><li class="toc-l2"><a href="#2-eeuu-presentaria-en-dos-semanas-una-propuesta-para-que-mas-productos-chilenos-queden-exentos-del-arancel-de-125">2.  EEUU presentaría en dos semanas una propuesta para que más productos chilenos queden exentos del arancel de 12,5%</a></li><li class="toc-l2"><a href="#3-estevez-tras-reunion-valoramos-esta-visita-como-una-muestra-del-compromiso-de-la-india-con-esta-negociacion">3.  Estévez tras reunión: “Valoramos esta visita como una muestra del compromiso de la India con esta negociación”</a></li><li class="toc-l2"><a href="#4-joseph-courand-socio-de-tax-legal-de-deloitte-y-la-repatriacion-de-capitales-se-pueden-acoger-bienes-corporales-incorporales-criptomonedas-es-muy-amplio">4.  Joseph Courand, socio de Tax &amp; Legal de Deloitte y la repatriación de capitales: &quot;Se pueden acoger bienes corporales, incorporales, criptomonedas... es muy amplio&quot;</a></li><li class="toc-l2"><a href="#5-enfermedades-profesionales-de-salud-mental-aumentan-con-fuerza-y-ya-explican-siete-de-cada-10-dias-perdidos">5.  Enfermedades profesionales de salud mental aumentan con fuerza y ya explican siete de cada 10 días perdidos</a></li><li class="toc-l2"><a href="#6-fraude-en-licencias-medicas-han-concluido-3-mil-sumarios-y-600-funcionarios-publicos-han-sido-destituidos">6.  Fraude en licencias médicas: han concluido 3 mil sumarios y 600 funcionarios públicos han sido destituidos</a></li><li class="toc-l2"><a href="#7-df-tax-cuando-el-dinero-volvio-a-tener-precio">7.  DF Tax | Cuando el dinero volvió a tener precio</a></li><li class="toc-l2"><a href="#8-df-tax-perdonando-a-santos-y-pecadores">8.  DF Tax | Perdonando a santos y pecadores</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-equipos-de-consultoras-vuelven-a-las-oficinas-a-medida-que-la-ia-aumenta-la-necesidad-de-habilidades-humanas">1.  Equipos de consultoras vuelven a las oficinas a medida que la IA aumenta la necesidad de habilidades humanas</a></li><li class="toc-l2"><a href="#2-casi-1500-personas-desaparecidas-en-nepal-y-china-tras-el-devastador-alud-en-rio-del-himalaya">2.  Casi 1.500 personas desaparecidas en Nepal y China tras el devastador alud en río del Himalaya</a></li><li class="toc-l2"><a href="#3-la-guerra-comercial-abre-una-fractura-entre-canada-y-eeuu-que-podria-perdurar-mas-alla-de-trump">3.  La guerra comercial abre una fractura entre Canadá y EEUU que podría perdurar más allá de Trump</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-ciberlab-busca-abrir-una-conversacion-estrategica-a-nivel-pais-en-ciberdefensa">1.  CiberLab busca abrir una conversación estratégica a nivel país en ciberdefensa</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-el-desafio-de-prestar-un-mejor-servicio">1.  El desafío de prestar un mejor servicio</a></li><li class="toc-l2"><a href="#2-primera-vivienda-de-adultos-mayores">2.  Primera vivienda de adultos mayores</a></li><li class="toc-l2"><a href="#3-seguros-y-reclamos">3.  Seguros y reclamos</a></li><li class="toc-l2"><a href="#4-falsificacion-un-delito-que-debe-perseguirse-de-oficio">4.  Falsificación: un delito que debe perseguirse de oficio</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>27 De Agosto De 2026</p><p>6 secciones  ·  22 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-como-la-nueva-pelicula-de-spider-man-sigue-rompiendo-records-de-taquilla-e-impulsa-a-la-accion-de-sony"><strong>1.  Cómo la nueva película de Spider-Man sigue rompiendo récords de taquilla e impulsa a la acción de Sony</strong></h2><p>"Spider-Man: Brand New Day" superó los US$ 2.000 millones en taquilla mundial y se instaló como el sexto filme con mayor recaudación de la historia, impulsando la acción de Sony hasta acumular un alza de 12% desde su estreno, que luego se moderó a 6%, con una capitalización de mercado en torno a US$ 141 mil millones. El éxito refleja el modelo diversificado de Sony, donde videojuegos (36%), música (17%) y cine (12%) son los principales segmentos de ingresos. Las ganancias son parcialmente compartidas con Disney, que financió cerca de un cuarto de los costos de producción. Analistas advierten que el verdadero valor para los inversionistas depende de la capacidad de monetizar la franquicia de manera recurrente vía streaming, licencias, videojuegos y merchandising, más allá del desempeño puntual en taquilla.</p><h2 id="2-ipsa-abre-al-alza-con-impulso-de-sqm-y-wall-street-celebra-luego-de-que-nvidia-proyectara-un-alza-de-70-en-sus-ventas-anuales"><strong>2.  IPSA abre al alza con impulso de SQM y Wall Street celebra luego de que Nvidia proyectara un alza de 70% en sus ventas anuales</strong></h2><p>El IPSA repuntó 0,5% hasta los 11.425,70 puntos, impulsado principalmente por SQM-B (+2,1%), tras dos sesiones consecutivas a la baja. En Wall Street, el Nasdaq avanzó 0,8% y el S&amp;P 500 un 0,3%, alentados por los resultados de Nvidia, que más que duplicó sus ingresos trimestrales y proyectó un crecimiento de 70% en ventas para su año fiscal 2028, muy por encima del 40% que anticipaba el consenso. La estratega jefe de Saxo Bank advirtió que el reporte despeja preocupaciones de corto plazo sobre la demanda de infraestructura de IA, pero que el debate sobre valorización continúa y los hiperescaladores deben demostrar retornos adecuados. El foco del mercado está en el Simposio de Jackson Hole, donde el viernes hablará el presidente de la Fed, Kevin Warsh; los futuros descuentan un tercio de probabilidad de alza de tasas en septiembre y la dan por segura en diciembre.</p><h2 id="3-dolar-gana-terreno-sobre-920-en-apertura-con-todas-las-miradas-puestas-en-la-cumbre-de-jackson-hole"><strong>3.  Dólar gana terreno sobre $ 920 en apertura con todas las miradas puestas en la cumbre de Jackson Hole</strong></h2><p>El tipo de cambio abrió en $ 924,8, subiendo $ 3 en la apertura tras un alza de $ 7 en la sesión previa, impulsado por datos del índice PCE de EE.UU. que muestran una inflación difícil de controlar en un contexto de guerra en Medio Oriente. El mercado opera con cautela antes del discurso del presidente de la Fed, Kevin Warsh, este viernes en el Simposio Económico de Jackson Hole, el encuentro de banqueros centrales más influyente del mundo, que actúa como sustituto de reunión de política monetaria entre las citas de julio y septiembre. Los operadores de futuros descuentan cerca de un tercio de probabilidad de un alza de 25 puntos base en septiembre; si no ocurre en esa reunión, diciembre se da por seguro. Los rendimientos del Tesoro subían alrededor de 2 puntos base a lo largo de la curva, mientras el cobre transado en Londres no mostraba cambios relevantes.</p><h2 id="4-jeronimo-correa-country-head-de-ubs-chile-con-la-reforma-del-gobierno-estamos-construyendo-una-muy-buena-carta-de-presentacion-para-que-entren-capitales-nuevos-al-pais"><strong>4.  Jerónimo Correa, country head de UBS Chile: “Con la reforma del gobierno estamos construyendo una muy buena carta de presentación para que entren capitales nuevos al país”</strong></h2><p>El ejecutivo señaló que clientes de la entidad ya están solicitando asesorías para evaluar oportunidades de inversión en Chile. LaLey de Reconstrucción Nacionaldel gobierno ha alimentado el optimismo entre los actores del mercado, quienes esperan que esta iniciativa impulse el crecimiento. Una de las apuestas que más se repiten en la industria es queChile vuelva a ganar espacio en el radar de los inversionistas internacionales. Y esa es precisamente la arista que pone sobre la mesa, el country head del banco suizo UBS Chile, Jerónimo Correa. “Los inversionistas observan países como Chile como un asset class, y con la reforma del gobierno estamos construyendo una muy buena carta de presentación para que entren capitales nuevos al país”, aseguró a DF.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-moller-perez-cotapos-gana-6543-millones-en-el-primer-semestre-de-2026-y-habla-de-un-punto-de-inflexion-decisivo-en-el-sector"><strong>1.  Moller &amp; Pérez-Cotapos gana $ 6.543 millones en el primer semestre de 2026 y habla de "un punto de inflexión decisivo" en el sector</strong></h2><p>La constructora Moller &amp; Pérez-Cotapos reportó ingresos de $ 59.418 millones en el primer semestre de 2026, una caída de 4,5% respecto al mismo período de 2025, pero logró una ganancia atribuible a los controladores de $ 6.543 millones, un salto drástico frente a los $ 79,4 millones de igual período del año anterior. La mejora se explica por mayores márgenes brutos en inmobiliario y construcción a terceros, más una reducción del 21% en costos financieros producto de un proceso de desapalancamiento. La empresa ve un punto de inflexión con las tasas hipotecarias estabilizándose en torno al 4% y las recientes medidas gubernamentales que mejoran la certeza regulatoria y el acceso al crédito para las familias. Para el segundo semestre planea iniciar construcción de ocho nuevos proyectos en distintas regiones, con un pipeline estratégico orientado al ciclo de expansión proyectado desde 2027.</p><h2 id="2-chile-organiza-conclave-minero-con-argentina-para-activar-tratado-binacional-y-abre-dialogo-con-peru-y-bolivia"><strong>2.  Chile organiza cónclave minero con Argentina para activar tratado binacional y abre diálogo con Perú y Bolivia</strong></h2><p>Chile concentró esta semana dos encuentros de integración minera regional: una sesión de la Comisión Administradora del Tratado de Integración y Complementación Minera Argentino-Chilena —la segunda en poco más de un mes, con expectativas de aprobar Protocolos Adicionales Específicos para proyectos fronterizos— y una reunión ministerial con Argentina, Bolivia y Perú convocada por el biministro Daniel Mas para el viernes. La reactivación del tratado de 1997 coincide con el mayor ciclo de inversiones cupríferas en Argentina y más de US$ 24.300 millones en proyectos mineros chilenos ingresados a tramitación ambiental desde marzo pasado, con una cartera binacional superior a US$ 20.700 millones que incluye el Distrito Vicuña de Lundin Mining y BHP y proyectos de litio en el noroeste argentino. El encuentro ampliado del viernes busca coordinar acciones en minerales críticos, sostenibilidad y cadenas de valor, con una declaración conjunta esperada al cierre.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-corbo-preve-alza-del-pib-de-09-a-14-este-ano-y-advierte-sobre-la-tragedia-del-mercado-laboral"><strong>1.  Corbo prevé alza del PIB de 0,9% a 1,4% este año y advierte sobre “la tragedia del mercado laboral”</strong></h2><p>El expresidente del Banco Central indicó que de sumar las reformas al mercado laboral y educación, el crecimiento podría llegar a 4%. El economista y expresidente del Banco Central, Vittorio Corbo. Foto: Julio Castro Elexpresidente del Banco Central Vittorio Corbo prevé que este año la economía chilena crecerá entre 0,9% y 1,4% y que “va a haber que trabajar para llegar al rango hacia arriba de ese número”.</p><h2 id="2-eeuu-presentaria-en-dos-semanas-una-propuesta-para-que-mas-productos-chilenos-queden-exentos-del-arancel-de-125"><strong>2.  EEUU presentaría en dos semanas una propuesta para que más productos chilenos queden exentos del arancel de 12,5%</strong></h2><p>La visita del segundo al mando del USTR, Jeffrey Goettman, a Chile no concluyó con acuerdo comercial, pero fue interpretada como señal positiva dado que no se realizaron visitas similares a otros países. En dos semanas, EE.UU. entregaría a Chile una propuesta para ampliar la base de acceso al mercado, actualmente en 53% de exportaciones exentas del arancel de 12,5% que la administración Trump impuso en julio. Las conversaciones con la subsecretaria Paula Estévez se centraron en productos como salmón, fruta y vino, argumentando contraestacionalidad y ausencia de producción doméstica estadounidense suficiente. El encuentro tuvo como telón de fondo el agravamiento de la disputa comercial entre EE.UU. y Canadá, cuya escalada —con aranceles de hasta 50% y represalias canadienses equivalentes— contrasta con la receptividad que mostró Goettman hacia Chile.</p><h2 id="3-estevez-tras-reunion-valoramos-esta-visita-como-una-muestra-del-compromiso-de-la-india-con-esta-negociacion"><strong>3.  Estévez tras reunión: “Valoramos esta visita como una muestra del compromiso de la India con esta negociación”</strong></h2><p>La titular de la Subrei sostuvo un encuentro con el secretario de Comercio de India, Rajesh Agrawal, en vista de avanzar en un acuerdo. Tal como estaba anunciado, este miércoles la subsecretaria de Relaciones Económicas Internacionales, Paula Estévez, se reunió con el secretario de Comercio de India, Rajesh Agrawal, para seguir con el diálogo presencial en pro de un Acuerdo de Asociación Económica Integral (CEPA) entre ambos países. Actualmente, Chile e India tienen un Acuerdo de Alcance Parcial (AAP), vigente desde 2007 y ampliado en 2017, el cual da preferencias a 1.100 productos chilenos.</p><h2 id="4-joseph-courand-socio-de-tax-legal-de-deloitte-y-la-repatriacion-de-capitales-se-pueden-acoger-bienes-corporales-incorporales-criptomonedas-es-muy-amplio"><strong>4.  Joseph Courand, socio de Tax &amp; Legal de Deloitte y la repatriación de capitales: "Se pueden acoger bienes corporales, incorporales, criptomonedas... es muy amplio"</strong></h2><p>En el podcast La Ruta Tributaria, el socio de Tax &amp; Legal de Deloitte, Joseph Courand, analiza las disposiciones de repatriación de capitales incluidas en la ley de reconstrucción nacional. El mecanismo destaca por su amplitud, al permitir acoger bienes corporales, incorporales y criptomonedas bajo el mismo régimen. El episodio aborda los cambios específicos que introduce esta ley respecto a esquemas anteriores de declaración de bienes y rentas extranjeros.</p><h2 id="5-enfermedades-profesionales-de-salud-mental-aumentan-con-fuerza-y-ya-explican-siete-de-cada-10-dias-perdidos"><strong>5.  Enfermedades profesionales de salud mental aumentan con fuerza y ya explican siete de cada 10 días perdidos</strong></h2><p>En 2025 se registraron 7.454 enfermedades profesionales en Chile, un 84,6% más que en 2019, con 4.763 diagnósticos de salud mental que generaron 239.318 días laborales perdidos, equivalentes al 76% del total nacional. Los sectores más afectados son educación (1.261 casos, +21%), sector público (1.250 casos) y comercio y retail (823 casos, +15%), vinculados principalmente a conflictos con jefaturas (26,1%), hostilidad entre pares (23,2%) y aumento de la carga de trabajo, que saltó de 5% a 18,7% como factor de riesgo en un año. Las mujeres concentran el 74,4% de los casos, con una tasa de 2,7 por cada mil trabajadoras frente a 0,7 en hombres, y los casos femeninos aumentaron 167,6% entre 2019 y 2025; la directora médica de la ACHS atribuye parte del incremento a la mayor conciencia del tema y a la entrada en vigencia de la Ley Karin.</p><h2 id="6-fraude-en-licencias-medicas-han-concluido-3-mil-sumarios-y-600-funcionarios-publicos-han-sido-destituidos"><strong>6.  Fraude en licencias médicas: han concluido 3 mil sumarios y 600 funcionarios públicos han sido destituidos</strong></h2><p>A 15 meses del informe de la Contraloría que detectó más de 25.000 funcionarios con viajes al extranjero durante licencias médicas, la Dipres reporta 30.392 sumarios instruidos, de los cuales 20.823 están en curso y 3.297 completamente cerrados. De los sumarios concluidos, 596 derivaron en destitución, 1.115 en censura, 149 en multas y 1.345 terminaron sin sanción. El costo fiscal mensual de los funcionarios actualmente con licencias supera los US$ 47 millones, con sueldos promedio de $ 2 millones mensuales y una duración media de reposo de 22,1 días. El Ministerio de Salud concentra la mayor cantidad de casos con 15.516 funcionarios involucrados y 10.820 sumarios en curso, seguido por Educación y Justicia.</p><h2 id="7-df-tax-cuando-el-dinero-volvio-a-tener-precio"><strong>7.  DF Tax | Cuando el dinero volvió a tener precio</strong></h2><p>El artículo argumenta que el retorno de tasas de interés elevadas transformó la lógica de inversión: en la era de dinero barato el mercado premiaba historias de crecimiento y expectativas de valorización, mientras que hoy vuelven a importar los fundamentos y la capacidad de generar flujos de caja sostenibles. En Chile, el mercado de private credit alcanza apenas US$ 7.000 millones (1,9% del PIB), muy por debajo del mercado global de US$ 1,7 billones, lo que refleja el amplio espacio para profundizar el mercado de capitales local y diversificar las fuentes de financiamiento empresarial. La inteligencia artificial y el análisis avanzado de datos emergen como herramientas que permiten evaluar mejor la calidad de los activos, sin reemplazar el criterio humano pero mejorando la toma de decisiones. El autor concluye que la riqueza sostenible se construye sobre la capacidad de generar valor de manera constante, no sobre expectativas.</p><h2 id="8-df-tax-perdonando-a-santos-y-pecadores"><strong>8.  DF Tax | Perdonando a santos y pecadores</strong></h2><p>La nueva reforma tributaria chilena incorpora un mecanismo de repatriación de capitales que permite declarar bienes y rentas extranjeros pagando un impuesto de 10%, innovando respecto a las amnistías de 2014 y 2024 al permitir acogerse también a contribuyentes que han cumplido íntegramente con sus obligaciones tributarias chilenas. La medida es atractiva principalmente para quienes tienen utilidades retenidas en países con baja o nula tributación, ya que quienes invierten en jurisdicciones de alta carga impositiva —como EE.UU., Brasil, Argentina o México— podrían eliminar el Impuesto de Primera Categoría mediante créditos por impuestos pagados en el exterior, haciendo innecesario el beneficio. El autor traza un paralelo con la American Jobs Creation Act de Bush en 2004 y señala que la clave será medir si la medida logra su efecto reactivador de inversión, más allá del impacto recaudatorio.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-equipos-de-consultoras-vuelven-a-las-oficinas-a-medida-que-la-ia-aumenta-la-necesidad-de-habilidades-humanas"><strong>1.  Equipos de consultoras vuelven a las oficinas a medida que la IA aumenta la necesidad de habilidades humanas</strong></h2><p>Grandes firmas de consultoría del Reino Unido —EY, KPMG, BCG, Accenture y Azets— están impulsando el retorno presencial de empleados junior con el argumento de que la IA está asumiendo las tareas técnicas rutinarias, haciendo que las habilidades interpersonales —empatía, liderazgo, narración y manejo de clientes— sean cada vez más valiosas y deban desarrollarse en persona. EY reconoció abiertamente que reducir la flexibilidad será un "verdadero desafío de liderazgo", dado que muchos trabajadores organizaron sus vidas en torno al trabajo remoto tras la pandemia, periodo en que las firmas priorizaron habilidades técnicas y de IA sobre las habilidades humanas. Deloitte mantiene la autonomía por equipos, mientras Azets llega a exigir cuatro días presenciales a la semana a empleados junior y se asoció con pubs y hoteles para desarrollar habilidades blandas. El fenómeno replica posturas similares de Microsoft y JPMorgan, que también reforzaron el presencialismo en la era de la IA.</p><h2 id="2-casi-1500-personas-desaparecidas-en-nepal-y-china-tras-el-devastador-alud-en-rio-del-himalaya"><strong>2.  Casi 1.500 personas desaparecidas en Nepal y China tras el devastador alud en río del Himalaya</strong></h2><p>Un alud de lodo y rocas en el Himalaya desencadenó inundaciones catastróficas que dejaron cerca de 1.500 desaparecidos —más de 800 extranjeros de más de 20 países, incluyendo 177 indios, 63 estadounidenses y 34 australianos— entre Nepal y el Tíbet chino, con al menos 165 muertos confirmados y expectativas de que la cifra aumente a medida que avanza la búsqueda. Según el USGS, lo que inicialmente se reportó como un sismo de 4,4 grados fue en realidad energía sísmica generada por el derrumbe de rocas y hielo glacial, seguido de un flujo de escombros; China alertó además sobre un lago represado aguas arriba que podría complicar los rescates. Las labores de rescate involucran más de 5.000 efectivos en Nepal y apoyo internacional de India, EE.UU. (US$ 500.000) y la ONU, mientras la zona afectada —frecuentada por peregrinos al monte Kailash y el lago Mansarovar— quedó completamente arrasada según testigos.</p><h2 id="3-la-guerra-comercial-abre-una-fractura-entre-canada-y-eeuu-que-podria-perdurar-mas-alla-de-trump"><strong>3.  La guerra comercial abre una fractura entre Canadá y EEUU que podría perdurar más allá de Trump</strong></h2><p>La escalada arancelaria entre EE.UU. y Canadá —con gravámenes estadounidenses de 50% sobre autos, autopartes y acero canadienses, y represalias de Ottawa de 15% a 50% sobre US$ 20.000 millones en bienes americanos desde el 8 de septiembre— está consolidando un quiebre estructural en la relación bilateral que expertos consideran irreversible independientemente del gobierno de turno. El primer ministro Carney rechazó las exigencias de Washington de acceso exclusivo a minerales críticos canadienses, restricciones para firmar acuerdos con terceros y cambios en protecciones a la lengua francesa, declarando que la diversificación comercial y autonomía estratégica es el "plan A" de Canadá. El conflicto frustró además la revisión del CUSMA: Trump se negó a extender el acuerdo por 16 años y optó por revisiones anuales, abriendo un período de mayor incertidumbre. Investigadores del CSIS advierten que la integración económica profunda de Norteamérica —donde los países construyen productos cruzando fronteras múltiples veces— hace que el conflicto sea «existencial» para la soberanía canadiense.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-ciberlab-busca-abrir-una-conversacion-estrategica-a-nivel-pais-en-ciberdefensa"><strong>1.  CiberLab busca abrir una conversación estratégica a nivel país en ciberdefensa</strong></h2><p>El Laboratorio de Ciberdefensa CiberLab —iniciativa del Centro de Innovación UC, el Ejército y actores público-privados— realizó el Summit de Ciberdefensa 2026 para abordar las principales brechas del país: la ausencia de un modelo de inteligencia de amenazas compartido para infraestructuras críticas, la fragmentación en soberanía tecnológica (decisiones pendientes sobre quién controla las capas de IA, nube, semiconductores y energía) y la falta de capacidades de ciberresiliencia y gestión de crisis. La directora Rocío Ortiz enfatizó que Chile debe definir alianzas estratégicas y capacidades internas para enfrentar las presiones de proveedores internacionales y los distintos vectores de ataque a infraestructuras críticas. El evento reunió a expertos de Portugal, Hungría, Brasil y Dinamarca para transferir buenas prácticas de países con ecosistemas de ciberdefensa más avanzados.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-el-desafio-de-prestar-un-mejor-servicio"><strong>1.  El desafío de prestar un mejor servicio</strong></h2><p>Una evaluación de la Dipres en 2026 reveló que los siete programas gubernamentales examinados —con presupuesto conjunto de US$ 157 millones— no alcanzaron desempeño medio o bueno, con tres calificados con mal desempeño y cuatro con desempeño bajo; una cohorte previa de 20 programas mostró patrón similar, con 11 de ellos con mala o baja nota en sectores como salud, educación y seguridad. La nueva comisión "Nueva Arquitectura del Estado" —de composición transversal, con exministros de tres gobiernos y presidida por la directora de Libertad y Desarrollo, Bettina Horst— tiene 120 días para revisar los 25 ministerios, evaluar fusiones y duplicidades y reasignar recursos. El editorial argumenta que la modernización debe ir más allá de la digitalización —en la que Chile ya lidera Latinoamérica y ocupa el décimo lugar de la OCDE— hacia una revisión integral de procesos, responsabilidades y calidad del servicio. Una arquitectura estatal más eficiente puede convertirse en instrumento de bienestar ciudadano, reducción de trámites para empresas y mejora de la productividad económica.</p><h2 id="2-primera-vivienda-de-adultos-mayores"><strong>2.  Primera vivienda de adultos mayores</strong></h2><p>La exención voluntaria de contribuciones para la primera vivienda de adultos mayores que regirá desde 2027 exige no mantener deudas con el municipio, pero la morosidad en Chile se disparó de $ 63.000 millones en 2022 a $ 442.100 millones en 2025, con casos extremos como Las Condes (+1.700%) y Maipú (+650%), lo que excluirá a una proporción significativa de potenciales beneficiarios. El autor propone dos alternativas para resolver el problema: una "hipoteca reversa tributaria", en la que el Estado asuma la mora y la transfiera al municipio a cambio de un porcentaje de la plusvalía futura al vender o heredar el inmueble; o una postergación patrimonial que congele la deuda sin intereses penales, exigible solo ante enajenación o transmisión. Ambas opciones buscan permitir que adultos mayores con deudas históricas accedan al beneficio sin destinar parte de sus pensiones a ponerse al día.</p><h2 id="3-seguros-y-reclamos"><strong>3.  Seguros y reclamos</strong></h2><p>El ranking de reclamos del Sernac en seguros automotrices muestra que en un semestre con más de 2.000 reclamos, casi el 50% no fueron acogidos favorablemente, siendo la negativa al pago del siniestro la principal causa de descontento de los clientes. El autor identifica tres palancas clave para reducir los reclamos en la industria: responder rápido incluso cuando la respuesta es negativa —ya que el silencio erosiona más la confianza que un rechazo fundamentado—, simplificar las pólizas para evitar malentendidos contractuales, y adoptar trazabilidad digital que acelere respuestas y reduzca errores administrativos. El autor señala que FID Seguros lideró el ranking de mejor comportamiento del Sernac en el semestre, demostrando que transparencia y velocidad de respuesta son estándares alcanzables para toda la industria.</p><h2 id="4-falsificacion-un-delito-que-debe-perseguirse-de-oficio"><strong>4.  Falsificación: un delito que debe perseguirse de oficio</strong></h2><p>La falsificación de productos y marcas ha evolucionado de ser un daño patrimonial a titulares para convertirse en un fenómeno de comercio ilícito vinculado a contrabando, evasión tributaria, lavado de activos y estructuras criminales organizadas, lo que justifica una persecución penal más robusta. El régimen actual exige la denuncia del titular afectado para iniciar la persecución penal, incluso cuando el Estado detecte de manera directa una operación de falsificación. El autor valora el proyecto de ley en primer trámite en la Cámara de Diputados que establece acción penal pública para delitos contra la propiedad industrial —con apoyo político transversal— y urge incorporarlo a la agenda de seguridad del gobierno, dado que facilitaría el comiso de mercancías y el desmantelamiento de redes ilícitas.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

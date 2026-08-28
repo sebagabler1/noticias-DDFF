@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>28 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-28.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">28 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-salta-sobre-los-930-a-media-manana-por-subitas-compras-globales-tras-comentarios-de-warsh-en-jackson-hole">1.  Dólar salta sobre los $ 930 a media mañana por súbitas compras globales tras comentarios de Warsh en Jackson Hole</a></li><li class="toc-l2"><a href="#2-bolsa-chilena-abre-con-nueva-alza-y-el-ipsa-supera-los-11500-puntos-a-medida-que-se-extiende-el-boom-del-sector-commodities">2.  Bolsa chilena abre con nueva alza y el IPSA supera los 11.500 puntos a medida que se extiende el boom del sector commodities</a></li><li class="toc-l2"><a href="#3-que-es-el-suitability-de-la-cmf-y-por-que-las-corredoras-deben-estar-atentas">3.  ¿Qué es el “suitability” de la CMF y por qué las corredoras deben estar atentas?</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-ceo-de-andes-iron-anuncia-que-minera-dominga-inicio-ya-su-construccion-tras-13-anos-de-tramites">1.  CEO de Andes Iron anuncia que Minera Dominga inició ya su construcción tras 13 años de trámites</a></li><li class="toc-l2"><a href="#2-liviandad-atenta-contra-derecho-de-propiedad-e-inconstitucional-las-razones-de-las-empresas-de-servicios-basicos-para-insistir-ante-el-tc-por-norma-que-obliga-a-recolectar-a-morosos">2.  &quot;Liviandad&quot;, atenta contra &quot;derecho de propiedad&quot; e &quot;inconstitucional&quot;: las razones de las empresas de servicios básicos para insistir ante el TC por norma que obliga a recolectar a morosos</a></li><li class="toc-l2"><a href="#3-ministra-toledo-delinea-lo-que-viene-en-la-recta-final-de-la-reforma-al-seia-y-pone-el-foco-en-la-sma">3.  Ministra Toledo delinea lo que viene en la recta final de la reforma al SEIA y pone el foco en la SMA</a></li><li class="toc-l2"><a href="#4-cumbre-de-la-mineria-sonami-pide-que-kast-regalonee-al-sector-y-mandatario-valoro-aporte-de-la-industria-al-pais">4.  Cumbre de la Minería: Sonami pide que Kast “regalonee” al sector y mandatario valoró aporte de la industria al país</a></li><li class="toc-l2"><a href="#5-forvis-mazars-ficha-a-exaz-andrea-bobadilla-como-nueva-socia">5.  Forvis Mazars ficha a exAZ, Andrea Bobadilla, como nueva socia</a></li><li class="toc-l2"><a href="#6-de-marchena-y-urcelay-abogados-refuerza-su-practica-laboral">6.  De Marchena y Urcelay Abogados refuerza su práctica laboral</a></li><li class="toc-l2"><a href="#7-exdeloitte-apuestan-por-la-asesoria-independiente-queremos-ser-el-brazo-tributario-de-los-clientes">7.  ExDeloitte apuestan por la asesoría independiente: “Queremos ser el brazo tributario de los clientes”</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-quiroz-anuncia-que-la-ley-de-reconstruccion-se-promulgara-en-la-primera-quincena-de-septiembre-y-no-ve-necesario-bajar-la-tasa-de-interes-para-crecer-35-en-2027">1.  Quiroz anuncia que la ley de reconstrucción se promulgará en la primera quincena de septiembre y no ve necesario bajar la tasa de interés para crecer 3,5% en 2027</a></li><li class="toc-l2"><a href="#2-la-tasa-de-desocupacion-nacional-sube-a-95-en-mayo-julio-en-un-nuevo-maximo-en-cinco-anos-y-el-tiempo-promedio-sin-empleo-aumenta-a-81-meses">2.  La tasa de desocupación nacional sube a 9,5% en mayo-julio en un nuevo máximo en cinco años y el tiempo promedio sin empleo aumenta a 8,1 meses</a></li><li class="toc-l2"><a href="#3-quiroz-y-el-fallo-del-tc-en-apoyo-a-la-invariabilidad-tributaria-es-muy-contundente">3.  Quiroz y el fallo del TC en apoyo a la invariabilidad tributaria: “Es muy contundente”</a></li><li class="toc-l2"><a href="#4-alzas-de-la-carne-y-las-papas-anticipan-el-18-mas-caro-de-los-ultimos-cinco-anos">4.  Alzas de la carne y las papas anticipan el 18 más caro de los últimos cinco años</a></li><li class="toc-l2"><a href="#5-la-economia-perdio-vuelo-en-julio-mercado-asume-el-golpe-de-los-temporales-en-la-actividad">5.  La economía perdió vuelo en julio: mercado asume el golpe de los temporales en la actividad</a></li><li class="toc-l2"><a href="#6-gobierno-abre-proceso-para-modernizar-el-mercado-de-deuda-publica-y-fortalecer-su-liquidez">6.  Gobierno abre proceso para modernizar el mercado de deuda pública y fortalecer su liquidez</a></li><li class="toc-l2"><a href="#7-ximena-nino-senior-advisor-de-tax-legal-de-deloitte-y-el-impacto-de-los-cambios-al-dfl-2-este-mecanismo-busca-incentivar-la-inversion">7.  Ximena Niño, senior advisor de Tax &amp; Legal de Deloitte y el impacto de los cambios al DFL-2: &quot;Este mecanismo busca incentivar la inversión&quot;</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-warsh-afirma-que-la-fed-tiene-trabajo-por-hacer-si-la-elevada-inflacion-persiste-y-aboga-por-la-discrecion-del-banco-central-estadounidense">1.  Warsh afirma que la Fed tiene “trabajo por hacer” si la elevada inflación persiste y aboga por la discreción del banco central estadounidense</a></li><li class="toc-l2"><a href="#2-las-ganancias-de-byd-aumentan-por-primera-vez-en-cinco-trimestres-gracias-a-las-exportaciones">2.  Las ganancias de BYD aumentan por primera vez en cinco trimestres gracias a las exportaciones</a></li><li class="toc-l2"><a href="#3-el-rey-harald-de-noruega-fallece-a-los-89-anos-y-es-sucedido-por-su-hijo-haakon-viii">3.  El rey Harald de Noruega fallece a los 89 años y es sucedido por su hijo Haakon VIII</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-ensayo-de-bill-gates-sobre-el-impacto-de-la-ia-expertos-coinciden-en-el-diagnostico-pero-dudan-de-sus-recetas">1.  Ensayo de Bill Gates sobre el impacto de la IA: expertos coinciden en el diagnóstico, pero dudan de sus recetas</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-reforma-previsional-y-evaluacion-de-riesgos">1.  Reforma previsional y evaluación de riesgos</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>28 De Agosto De 2026</p><p>6 secciones  ·  22 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-salta-sobre-los-930-a-media-manana-por-subitas-compras-globales-tras-comentarios-de-warsh-en-jackson-hole"><strong>1.  Dólar salta sobre los $ 930 a media mañana por súbitas compras globales tras comentarios de Warsh en Jackson Hole</strong></h2><p>El dollar index subía 0,3%, mientras el rendimiento del Tesoro a dos años aumentaba 7,6 puntos. Los mercados monetarios pasaron a descontar 50% de probabilidad de que la Fed anuncie un alza de tasas de 25 puntos en septiembre. Lasrecientes declaracionesdel presidente de la Reserva Federal (Fed),Kevin Warsh, desataron un repunte de las tasas de interés a corto plazo en Estados Unidos y una ola de compras de dólares a lo largo del mundo. El precio del dólar subía $ 6,2 hasta los $ 932,6 a media mañana en Chile, alcanzando máximos de la sesión, después dehaberse incrementado más de $ 10 en dos días, según los datos de Bloomberg.</p><h2 id="2-bolsa-chilena-abre-con-nueva-alza-y-el-ipsa-supera-los-11500-puntos-a-medida-que-se-extiende-el-boom-del-sector-commodities"><strong>2.  Bolsa chilena abre con nueva alza y el IPSA supera los 11.500 puntos a medida que se extiende el boom del sector commodities</strong></h2><p>En minutos el presidente de la Fed, Kevin Warsh, dará su discurso en el marco del Simposio Económico de Jackson Hole, el mayor evento global de banqueros centrales, que empezó este jueves y terminará mañana sábado. El mercado bursátil chileno seguía viéndose potenciado por las compras de acciones de materias primas en la sesión de este viernes, mientras en general lostradersaguardan las palabras del presidente de la Reserva Federal (Fed) en Jackson Hole. El S&amp;P IPSA subía 0,7% hasta los 11.555,27 puntos, con el liderazgo deSQM-B (2%), CMPC (1,9%) y Copec (1,5%)en estos primeros negocios, de forma similar alo visto en la jornada anterior. Resultados positivos de SQM y Copec, los más grandes exponentes, y promesas de estímulo en China han colaborado en esta tendencia.</p><h2 id="3-que-es-el-suitability-de-la-cmf-y-por-que-las-corredoras-deben-estar-atentas"><strong>3.  ¿Qué es el “suitability” de la CMF y por qué las corredoras deben estar atentas?</strong></h2><p>“La normativa vigente, en términos generales, busca evitar que se ofrezcan a los clientes productos que no sean acordes a sus necesidades, expectativas y disposición al riesgo”, dijo la CMF. La presidenta de la Comisión para el Mercado Financiero, Catherine Tornel. En cuestión de semanas,la Comisión para el Mercado Financiero (CMF) sancionó a tres corredoras de bolsa por infracciones ligadas a un concepto denominado suitability, que, en términos simples, busca procurar quelos productos ofrecidos sean adecuados al perfil de cada inversionista.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-ceo-de-andes-iron-anuncia-que-minera-dominga-inicio-ya-su-construccion-tras-13-anos-de-tramites"><strong>1.  CEO de Andes Iron anuncia que Minera Dominga inició ya su construcción tras 13 años de trámites</strong></h2><p>El proyecto minero-portuario de la comuna de La Higuera, en la Región de Coquimbo, contempla una inversión superior a US$ 3.000 millones y una producción anual de 12 millones de toneladas de concentrado de hierro de alta ley y 150.000 toneladas de concentrado de cobre. El CEO de Andes Iron, Pedro Ducci, realizó el anuncio al cierre de la Cumbre de la Minería 2026 de Sonami. Después de 13 años de tramitación ambiental, litigios y reveses administrativos,el proyecto minero-portuario Dominga entró oficialmente en fase de construcción. Así lo confirmó elCEO de Andes Iron, Pedro Ducci,en la cena de Sonami con que este jueves en la noche se cerró la Cumbre de la Minería, donde detalló ante la industria y las autoridades que la compañía ya ejecuta obras tempranas en terreno.</p><h2 id="2-liviandad-atenta-contra-derecho-de-propiedad-e-inconstitucional-las-razones-de-las-empresas-de-servicios-basicos-para-insistir-ante-el-tc-por-norma-que-obliga-a-recolectar-a-morosos"><strong>2.  "Liviandad", atenta contra "derecho de propiedad" e "inconstitucional": las razones de las empresas de servicios básicos para insistir ante el TC por norma que obliga a recolectar a morosos</strong></h2><p>Empresas Eléctricas y AGN arremetieron nuevamente en la entidad para que, aprovechando una causa pendiente respecto a control preventivo obligatorio de constitucionalidad del articulado, se derogue la normativa cuestionada. Luego de que el Tribunal Constitucional (TC) rechazara el requerimiento presentado por el Ejecutivo que buscaba impugnar un artículo incluido en la ley miscelánea, el cual establece la restitución gratuita de los servicios de agua, electricidad y gas en zonas de catástrofe a pesar de que las personas estén en deuda de estos servicios,aún parece no cerrarse del todo el debate. Si bien ya se habían alineado a la oposición manifestada por el Ejecutivo presentando escritos ante el TC,la Asociación de Empresas Eléctricas y la Asociación de Empresas de Gas Natural (AGN) arremetieron nuevamente en la entidad para que, aprovechandouna causa pendiente respecto a control preventivo obligatorio de constitucionalidad del articulado, se derogue la normativa cuestionada.</p><h2 id="3-ministra-toledo-delinea-lo-que-viene-en-la-recta-final-de-la-reforma-al-seia-y-pone-el-foco-en-la-sma"><strong>3.  Ministra Toledo delinea lo que viene en la recta final de la reforma al SEIA y pone el foco en la SMA</strong></h2><p>En el Ciclo 2026 de Conversaciones Entre Códigos, los abogados Paola Cifuentes y Rodrigo Guzmán también participaron en el panel que analizó el nuevo mapa regulatorio que se configura en materia ambiental. Paola Cifuentes (Anglo American Chile), Rodrigo Guzmán (GTR Abogados), Francisca Toledo (ministra del Medio Ambiente) y Paula Vargas (Diario Financiero). Tras la ley de autorizaciones sectoriales, ahora será el turno de la implementación de la ley de reconstrucción nacional, la cual los privados miran con buenos ojos. Pero el reordenamiento del tablero no queda ahí. La vereda ambiental -que ya con las legislaciones anteriores tenía una voz relevante- también deberá sumar un entramado regulatorio que toca su raíz:la reforma al Sistema de Evaluación de Impacto Ambiental (SEIA), que pronto podría ver la luz; e incluso una iniciativa para reformar los Tribunales Ambientales.</p><h2 id="4-cumbre-de-la-mineria-sonami-pide-que-kast-regalonee-al-sector-y-mandatario-valoro-aporte-de-la-industria-al-pais"><strong>4.  Cumbre de la Minería: Sonami pide que Kast “regalonee” al sector y mandatario valoró aporte de la industria al país</strong></h2><p>El Presidente de la República se comprometió a “darle confianza a los inversionistas” y dijo “que va a haber certeza, reglas claras y sostenibilidad”. El Presidente José Antonio Kast con el timonel de Sonami, Jorge Riesco, y ministros de su gobierno. Foto: Presidencia. Acostumbrada a celebrar el Mes de la Minería con una cena, la Sociedad Nacional de Minería (Sonami) optó esta vez por realizar una cumbre donde no solo congregó a autoridades, empresarios, parlamentarios y trabajadores, sino también a ministros de varios países.</p><h2 id="5-forvis-mazars-ficha-a-exaz-andrea-bobadilla-como-nueva-socia"><strong>5.  Forvis Mazars ficha a exAZ, Andrea Bobadilla, como nueva socia</strong></h2><p>Los movimientos en el área de Tax &amp; Legal siguen a la orden del día. Hace algunas semanas, Forvis Mazars sumó a Andrea Bobadilla (exdirectora del grupo tributario de AZ) como nueva socia del área para fortalecerla, justo ad portas de la implementación de la megareforma. Tal como señaló la firma, su incorporación apunta a fortalecer la asesoría en reestructuraciones empresariales y patrimoniales, planificación fiscal, herencias y donaciones, además de asuntos complejos ante el Servicio de Impuestos Internos.</p><h2 id="6-de-marchena-y-urcelay-abogados-refuerza-su-practica-laboral"><strong>6.  De Marchena y Urcelay Abogados refuerza su práctica laboral</strong></h2><p>De Marchena y Urcelay Abogados (DMU) anunció la incorporación de Santiago Swett y José Tomás Honour como nuevos directores del estudio. Swett se incorpora proveniente de Deloitte, mientras que Honour llega desde Munita &amp; Olavarría. Durante sus respectivas trayectorias han desarrollado una amplia experiencia en asesoría laboral, negociación colectiva y litigios, asesorando a empresas nacionales e internacionales en materias de alta complejidad.</p><h2 id="7-exdeloitte-apuestan-por-la-asesoria-independiente-queremos-ser-el-brazo-tributario-de-los-clientes"><strong>7.  ExDeloitte apuestan por la asesoría independiente: “Queremos ser el brazo tributario de los clientes”</strong></h2><p>Están convencidos de que es el mejor momento para armar su propio emprendimiento legal-tributario. Una firma de asesoría especializada con la trayectoria de haber transitado por una big four por más de una década (Deloitte) y ad portas de un cambio legal con un fuerte tinte tributario, como es la implementación de la ley de Reconstrucción Nacional. “La idea es tratar de hacer las cosas distinto, no sé si mejor, pero sí aprovechar nuestra experiencia y también los cambios que implicará la reforma, que creemos que va a ser bastante masiva”. Así es como Cristián Meneses relata la motivación para formar este nuevo proyecto, que lanzó junto a otros dos exintegrantes de la firma de asesorías; Ignacio Pinochet y Nicole León. Bajo el paraguas de MPL Tax, dicen, buscan crear una relación distinta al trabajo por volumen que realizan las auditoras tradicionales. Esa visión también la comparte Ignacio Pinochet, quien añade que este proyecto pretende ir más allá de solo prestar servicios legales, sino también “meterse en los números y arremangarse las manos”. Es decir, “ser el brazo tributario de los clientes: que puedan contar con nosotros y sentirnos tan cercanos como si estuviéramos dentro”, agrega Nicole León.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-quiroz-anuncia-que-la-ley-de-reconstruccion-se-promulgara-en-la-primera-quincena-de-septiembre-y-no-ve-necesario-bajar-la-tasa-de-interes-para-crecer-35-en-2027"><strong>1.  Quiroz anuncia que la ley de reconstrucción se promulgará en la primera quincena de septiembre y no ve necesario bajar la tasa de interés para crecer 3,5% en 2027</strong></h2><p>En el marco de un seminario de PwC y Bci, el secretario de Estado también anticipó una expansión de 7% en la inversión el próximo año. El ministro Jorge Quiroz esta mañana en el seminario "Ley de Reconstrucción, oportunidades para impulsar el crecimiento económico", de Bci y Pwc. El ministro de Hacienda, Jorge Quiroz, realizó este viernesanuncios relevantes respecto de la ley de reconstrucción nacional, luego de que se conocieran las recientes sentencias del Tribunal Constitucional (TC) respecto al artículo -impugnado por el Ejecutivo- que obligaba a la reconexión de los servicios básicos de forma gratuita para clientes en zonas de catástrofe, la que allanaba la invariabilidad tributaria -aunque con ajustes que limitaban su alcance original- y la compensación por una Resolución de Calificación Ambiental (RCA) aprobada pero que fue anulada, la que fue declarada inconstitucional por el tribunal.</p><h2 id="2-la-tasa-de-desocupacion-nacional-sube-a-95-en-mayo-julio-en-un-nuevo-maximo-en-cinco-anos-y-el-tiempo-promedio-sin-empleo-aumenta-a-81-meses"><strong>2.  La tasa de desocupación nacional sube a 9,5% en mayo-julio en un nuevo máximo en cinco años y el tiempo promedio sin empleo aumenta a 8,1 meses</strong></h2><p>El INE informó que en 12 meses el indicador registró un ascenso de 0,8 puntos porcentuales (pp.), producto del alza de la fuerza de trabajo (0,7%) y de la reducción presentada por las personas ocupadas (-0,2%). En las mujeres, la tasa de desocupación aumentó a un 10,3%. La tasa de desocupación en mujeres alcanzó a un 10,3% y en hombres aumentó a un 8,9%. (Foto: Aton Chile) El mercado laboral local sigue en terreno difícil.El Instituto Nacional de Estadísticas (INE) informó este viernes que la tasa de desocupación durante el trimestre mayo-julio de 2026 se ubicó en 9,5%,un registro quealcanzó un nuevo máximo en cinco años.</p><h2 id="3-quiroz-y-el-fallo-del-tc-en-apoyo-a-la-invariabilidad-tributaria-es-muy-contundente"><strong>3.  Quiroz y el fallo del TC en apoyo a la invariabilidad tributaria: “Es muy contundente”</strong></h2><p>La invariabilidad, yo creo, llegó para quedarse. Y cuando llega la invariabilidad tributaria para quedarse, también llega la rebaja de impuestos para quedarse”, sentenció. Como “contundente” calificó el ministro de Hacienda, Jorge Quiroz,el fallo a través del cual el Tribunal Constitucional avaló la figura de la invariabilidad tributaria que incluyó el gobierno en el proyecto de reconstrucción en esta materia. “Me leí anoche el fallo completo y la sentencia es muy, muy, muy contundente. La invariabilidad, yo creo, llegó para quedarse. Y cuando llega la invariabilidad tributaria para quedarse, también llega la rebaja de impuestos para quedarse”, sentenció. Este mecanismo le da certeza sobre todo al mundo minero, dijo en el marco de los anuncios en una actividad de Mercado Libre.</p><h2 id="4-alzas-de-la-carne-y-las-papas-anticipan-el-18-mas-caro-de-los-ultimos-cinco-anos"><strong>4.  Alzas de la carne y las papas anticipan el 18 más caro de los últimos cinco años</strong></h2><p>Análisis de XTB reveló que los precios de la canasta para las Fiestas Patrias sería 5,4% más que en 2025 y 16,3% que en 2022. El asado para este 18 de septiembre sería el más caro de los últimos cinco años. Así lo constató un análisis realizado por la analista de mercados de XTB, Emanoelle Santos, en el cual señaló que la canasta estandarizada alcanzaría los $ 42.984. Esto es un 5,4% más alto que en 2025 y 16,3% por encima de 2022.</p><h2 id="5-la-economia-perdio-vuelo-en-julio-mercado-asume-el-golpe-de-los-temporales-en-la-actividad"><strong>5.  La economía perdió vuelo en julio: mercado asume el golpe de los temporales en la actividad</strong></h2><p>Analistas prevén que se debilitó el impulso de los servicios en el séptimo mes del año, en parte debido a la suspensión de clases por las condiciones climáticas adversas. El martes se conoce el Imacec. Los temporales que afectaron al país durante julio no pasaron inadvertidos ni para la población -entre la cual hubo numerosos damnificados- ni tampoco para la estructura productiva. Tanto así, que distintas proyecciones del mercado apuntan a que el Indicador Mensual de Actividad Económica (Imacec) del séptimo mes -que informará el Banco Central el próximo martes- se desaceleró notoriamente.</p><h2 id="6-gobierno-abre-proceso-para-modernizar-el-mercado-de-deuda-publica-y-fortalecer-su-liquidez"><strong>6.  Gobierno abre proceso para modernizar el mercado de deuda pública y fortalecer su liquidez</strong></h2><p>El documento estará en consulta pública hasta el 23 de septiembre y nace de un trabajo con la CMF, Banco Central y Super de Pensiones. Ad portas del ingreso al Congreso de la esperada reforma al mercado de capitales, el Ministerio de Hacienda informó este jueves la apertura de un proceso para avanzar en la modernización del mercado de deuda pública y fortalecer la liquidez. El denominado “Programa de Formadores de Mercado” recoge el trabajo del comité integrado por Hacienda, el Banco Central, la Comisión para el Mercado Financiero (CMF) y la Superintendencia de Pensiones. Se recibirán observaciones al documento hasta el 23 de septiembre.</p><h2 id="7-ximena-nino-senior-advisor-de-tax-legal-de-deloitte-y-el-impacto-de-los-cambios-al-dfl-2-este-mecanismo-busca-incentivar-la-inversion"><strong>7.  Ximena Niño, senior advisor de Tax &amp; Legal de Deloitte y el impacto de los cambios al DFL-2: "Este mecanismo busca incentivar la inversión"</strong></h2><p>En este episodio de La Ruta Tributaria, la experta analiza las modificaciones para enfrentar el déficit habitacional a partir de la ley miscelánea del gobierno de José Antonio Kast. En este episodio de La Ruta Tributaria, Ximena Niño, senior advisor de Tax &amp; Legal de Deloitte analiza las modificaciones para enfrentar el déficit habitacional a partir de la ley miscelánea del gobierno de José Antonio Kast.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-warsh-afirma-que-la-fed-tiene-trabajo-por-hacer-si-la-elevada-inflacion-persiste-y-aboga-por-la-discrecion-del-banco-central-estadounidense"><strong>1.  Warsh afirma que la Fed tiene “trabajo por hacer” si la elevada inflación persiste y aboga por la discreción del banco central estadounidense</strong></h2><p>En su debut en Jackson Hole, el presidente de la Reserva Federal se centró en ofrecer una visión general de su enfoque de gobernanza, evitando entregar orientaciones prospectivas. En sudebut en Jackson Hole, el foro más importante de la banca central global,el presidente de la Reserva Federal de Estados Unidos (Fed), Kevin Warsh,tomó la palabra en un escenario marcado por la incertidumbre, con los mercados atentos a cualquier señal sobre el rumbo de la política monetaria y los riesgos económicos derivados de la guerra en Irán. Sin embargo, Warshse abstuvo de entregar pistas sobre los próximos movimientos de las tasas de interés, evitando asíforward guidance-una práctica que ha criticado anteriormente-, y optando por utilizar su primera presentación en el encuentro para exponer una visión más general sobre la gobernanza y el rumbo que busca imprimir al banco central estadounidense.</p><h2 id="2-las-ganancias-de-byd-aumentan-por-primera-vez-en-cinco-trimestres-gracias-a-las-exportaciones"><strong>2.  Las ganancias de BYD aumentan por primera vez en cinco trimestres gracias a las exportaciones</strong></h2><p>El resultado neto del segundo trimestre aumentó un 30% interanual hasta los 8.200 millones de yuanes (US$ 1.200 millones). Estos resultados suponen un impulso muy necesario para BYD. (Foto: Reuters) Las ganancias de BYD aumentaron por primera vez en cinco trimestres, ya queel fuerte incremento de las exportacionesy la demanda de algunos de sus modelos de mayor precio ayudaron al mayor fabricante de vehículos eléctricos del mundo a superar la desaceleración del mercado chino.</p><h2 id="3-el-rey-harald-de-noruega-fallece-a-los-89-anos-y-es-sucedido-por-su-hijo-haakon-viii"><strong>3.  El rey Harald de Noruega fallece a los 89 años y es sucedido por su hijo Haakon VIII</strong></h2><p>El monarca accedió al trono en 1991 e introdujo poco a poco toques modernos que llevaron al siglo XXI un cargo ceremonial considerado principalmente como un símbolo de la independencia nacional. El nuevo monarca, Haakon VIII, tuvo dificultades durante años para aceptar su papel en la realeza, pero con el tiempo fue asumiendo su papel como sucesor del rey Harald. (Foto: Reuters) El rey Harald de Noruega, un reformista que salió de la sombra de su querido y extrovertido padre tras más de tres décadas en el trono, falleció el viernes a los 89 años tras más de 10 días internado en el hospital y fue sucedido inmediatamente por su hijo que adoptó el nombre de rey Haakon VIII, según informó el Palacio Real.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-ensayo-de-bill-gates-sobre-el-impacto-de-la-ia-expertos-coinciden-en-el-diagnostico-pero-dudan-de-sus-recetas"><strong>1.  Ensayo de Bill Gates sobre el impacto de la IA: expertos coinciden en el diagnóstico, pero dudan de sus recetas</strong></h2><p>El cofundador de Microsoft advirtió que la era de la IA “será uno de los momentos más turbulentos de la historia” y propuso reservar empleos para humanos y gravar robots. Tres voces locales analizan qué tan viable es aterrizar esas ideas en Chile. Bill Gates publicó el ensayo La turbulenta era de la inteligencia artificial ya está aquí. Las decisiones que tomemos ahora son cruciales, en su blog personal (Gatesnotes) Foto: Bloomberg. Elensayo que Bill Gatespublicó este miércoles en su blogse convirtió en eltexto obligado de la semana para cualquiera que siga de cerca la inteligencia artificial (IA).</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-reforma-previsional-y-evaluacion-de-riesgos"><strong>1.  Reforma previsional y evaluación de riesgos</strong></h2><p><em>(Sin detalle disponible.)</em></p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

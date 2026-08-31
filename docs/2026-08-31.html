@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>31 de agosto de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-08-31.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">31 de agosto de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-supera-los-935-a-medida-que-el-repunte-de-la-violencia-en-medio-oriente-impulsa-los-precios-del-petroleo">1.  Dólar supera los $ 935 a medida que el repunte de la violencia en Medio Oriente impulsa los precios del petróleo</a></li><li class="toc-l2"><a href="#2-ipsa-abre-con-leve-caida-presionado-por-latam-y-acciones-de-retail-tras-los-nuevos-ataques-en-medio-oriente">2.  IPSA abre con leve caída presionado por Latam y acciones de retail tras los nuevos ataques en Medio Oriente</a></li><li class="toc-l2"><a href="#3-petroleo-sube-3-tras-intercambio-de-ataques-entre-eeuu-e-iran-por-primera-vez-en-un-mes">3.  Petróleo sube 3% tras intercambio de ataques entre EEUU e Irán por primera vez en un mes</a></li><li class="toc-l2"><a href="#4-aseguradoras-de-vida-amplian-financiamiento-inmobiliario-para-compras-de-family-offices">4.  Aseguradoras de vida amplían financiamiento inmobiliario para compras de family offices</a></li><li class="toc-l2"><a href="#5-fondos-generacionales-si-queremos-subir-el-retorno-deben-haber-mas-activos-iliquidos">5.  Fondos generacionales: “Si queremos subir el retorno deben haber más activos ilíquidos”</a></li><li class="toc-l2"><a href="#6-las-acciones-de-consumo-que-sacarian-provecho-del-18-de-septiembre">6.  Las acciones de consumo que sacarían provecho del 18 de septiembre</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-parque-arauco-y-ripley-activan-ampliacion-de-mall-curico-e-invertiran-us-53-millones-en-el-centro-comercial-maulino">1.  Parque Arauco y Ripley activan ampliación de Mall Curicó e invertirán US$ 53 millones en el centro comercial maulino</a></li><li class="toc-l2"><a href="#2-reves-para-vitacura-justicia-ordena-a-municipio-retrotraer-licitacion-de-borderio-tras-reclamo-de-empresa-rechazada">2.  Revés para Vitacura: Justicia ordena a municipio retrotraer licitación de BordeRío tras reclamo de empresa rechazada</a></li><li class="toc-l2"><a href="#3-subtel-denuncia-toma-digital-privados-adeudan-7346-millones-en-concesiones-de-espectro">3.  Subtel denuncia “toma digital”: privados adeudan $ 7.346 millones en concesiones de espectro</a></li><li class="toc-l2"><a href="#4-gigante-brasileno-del-streaming-deportivo-ligado-a-cristiano-ronaldo-registra-su-marca-en-chile">4.  Gigante brasileño del streaming deportivo ligado a Cristiano Ronaldo registra su marca en Chile</a></li><li class="toc-l2"><a href="#5-los-pellets-el-nuevo-negocio-del-holding-familiar-de-gabriel-ruiz-tagle">5.  Los pellets: el nuevo negocio del holding familiar de Gabriel Ruiz-Tagle</a></li><li class="toc-l2"><a href="#6-hernan-rodriguez-presidente-de-colbun-pese-a-las-lluvias-seguimos-con-un-deficit-de-agua-en-practicamente-todas-las-cuencas-relevantes-para-generacion">6.  Hernán Rodríguez, presidente de Colbún: “Pese a las lluvias, seguimos con un déficit de agua en prácticamente todas las cuencas relevantes para generación”</a></li><li class="toc-l2"><a href="#7-el-e-commerce-crece-en-grandes-retailers-ventas-online-de-multitiendas-falabella-y-paris-se-encaminan-al-50">7.  El e-commerce crece en grandes retailers: ventas online de multitiendas Falabella y Paris se encaminan al 50%</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-kast-raya-la-cancha-a-los-ministerios-en-la-recta-final-del-ingreso-del-presupuesto-2027-compatibilizar-prioridades-con-los-recursos-que-tenemos">1.  Kast raya la cancha a los ministerios en la recta final del ingreso del Presupuesto 2027: “Compatibilizar prioridades con los recursos que tenemos”</a></li><li class="toc-l2"><a href="#2-claves-del-congreso-feriado-de-septiembre-y-alzamiento-de-secreto-bancario-se-tomaran-la-agenda">2.  Claves del Congreso: Feriado de septiembre y alzamiento de secreto bancario se tomarán la agenda</a></li><li class="toc-l2"><a href="#3-se-confirma-un-julio-flojo-para-la-economia-chilena-produccion-minera-manufactura-y-comercio-cayeron-en-el-mes">3.  ¿Se confirma un julio flojo para la economía chilena? Producción minera, manufactura y comercio cayeron en el mes</a></li><li class="toc-l2"><a href="#4-claro-rechazo-de-expertos-del-panel-uc-a-la-creacion-de-un-nuevo-estado-de-excepcion-por-seguridad-publica">4.  Claro rechazo de expertos del Panel UC a la creación de un nuevo estado de excepción por seguridad pública</a></li><li class="toc-l2"><a href="#5-confianza-de-los-consumidores-sufre-fuerte-caida-en-agosto-y-chile-acusa-el-peor-resultado-de-america-latina">5.  Confianza de los consumidores sufre fuerte caída en agosto y Chile acusa el peor resultado de América Latina</a></li><li class="toc-l2"><a href="#6-de-25-a-nueve-gobierno-fusiona-programas-sociales-tras-comprobar-disenos-similares">6.  De 25 a nueve: gobierno fusiona programas sociales tras comprobar diseños similares</a></li><li class="toc-l2"><a href="#7-lorena-flores-directora-del-centro-de-microdatos-de-la-u-de-chilepuede-que-veamos-que-la-gente-esta-perdiendo-empleo-pero-que-no-se-vea-tan-afectada-la-pobreza">7.  Lorena Flores, directora del Centro de Microdatos de la U. de Chile:“Puede que veamos que la gente está perdiendo empleo, pero que no se vea tan afectada la pobreza”</a></li><li class="toc-l2"><a href="#8-a-un-mes-del-debut-de-nueva-ley-la-mayoria-de-las-empresas-esta-en-deuda-con-medir-la-brecha-salarial">8.  A un mes del debut de nueva ley, la mayoría de las empresas está en deuda con medir la brecha salarial</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-el-estancamiento-de-la-actividad-y-el-debil-mercado-laboral-ponen-a-prueba-la-gestion-economica-de-milei">1.  El estancamiento de la actividad y el débil mercado laboral ponen a prueba la gestión económica de Milei</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-df-lab-opinion-donde-esta-el-mayor-riesgo-de-la-ia-en-la-empresa">1.  DF Lab Opinión/ ¿Dónde está el mayor riesgo de la IA en la empresa?</a></li><li class="toc-l2"><a href="#2-startup-oddness-llevara-sus-robots-de-logistica-a-europa-tras-levantar-capital">2.  Startup Oddness llevará sus robots de logística a Europa, tras levantar capital</a></li><li class="toc-l2"><a href="#3-df-lab-opinion-ninguna-reforma-tributaria-descubrio-jamas-un-continente">3.  DF Lab Opinión / Ninguna reforma tributaria descubrió jamás un continente</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-limites-impracticables-en-servicios-basicos">1.  Límites impracticables en servicios básicos</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>31 De Agosto De 2026</p><p>6 secciones  ·  26 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-supera-los-935-a-medida-que-el-repunte-de-la-violencia-en-medio-oriente-impulsa-los-precios-del-petroleo"><strong>1.  Dólar supera los $ 935 a medida que el repunte de la violencia en Medio Oriente impulsa los precios del petróleo</strong></h2><p>El crudo Brent superaba ños US$ 90 por barril. El tipo de cambio venía de cerrar en máximos de un mes debido al último discurso del presidente de la Fed, Kevin Warsh, que motivó fuertes compras de dólares por su postura restrictiva. Chile pasaba por nuevas compras de dólares en este último día de agosto, y así el tipo de cambio expandesus fuertes ganancias del viernes, a medida queel conflicto en Medio Oriente se agudizay lasúltimas cifras sectorialesno colaboran en favor de la divisa local. El dólar-peso subía $ 3,7 hasta los $ 935,6 este lunes en las pantallas de Bloomberg, después decerrar en máximos de un mesdebido al último discurso del presidente de la Reserva Federal (Fed),Kevin Warsh, que motivó fuertes compras de dólares porsu postura restrictiva.</p><h2 id="2-ipsa-abre-con-leve-caida-presionado-por-latam-y-acciones-de-retail-tras-los-nuevos-ataques-en-medio-oriente"><strong>2.  IPSA abre con leve caída presionado por Latam y acciones de retail tras los nuevos ataques en Medio Oriente</strong></h2><p>En temas macroeconómicos, las cifras sectoriales de julio decepcionaron, haciendo prever un Imacec más débil cuando se publique mañana martes. En concreto, las ventas minoristas subieron 2,2% y la producción industrial cayo 5,1% interanual. La bolsa chilena abrió levemente más abajo este lunes, viendo quela situación geopolítica en Medio Oriente se ha deteriorado, tras los últimos enfrentamientos armados entre Estados Unidos e Irán. El S&amp;P IPSA caía 0,1% hasta los 11.429,75 puntos, arrastrado porLatam (-1,7%), Cencosud (-1,5%) y Falabella (-1,1%), acciones de alta ponderación que son sensibles al conflicto geopolítico y su impacto económico. El alza deSQM-B (2%)amortiguaba estas presiones.</p><h2 id="3-petroleo-sube-3-tras-intercambio-de-ataques-entre-eeuu-e-iran-por-primera-vez-en-un-mes"><strong>3.  Petróleo sube 3% tras intercambio de ataques entre EEUU e Irán por primera vez en un mes</strong></h2><p>Las fuerzas estadounidenses atacaron posiciones iraníes en la isla de Larak, en el estrecho de Ormuz. Teherán respondió con ataques contra bases de EEUU en Jordania y afirmó haber atacado instalaciones militares en Emiratos Árabes Unidos. Estados Unidos e Irán intercambiaron ataques por primera vez en cerca de un mes, después de que las fuerzas estadounidenses golpearan una isla en el estrecho de Ormuz y la República Islámica respondiera lanzando ofensivas contraEmiratos Árabes Unidos y Jordania. La renovada escalada provocó una reacción inmediata en los mercados .El Brent sube 3,3% hasta US$ 91 por barril en las primeras operaciones del lunes, mientras el West Texas Intermediate (WTI) avanza 3,6% a US$ 86,36, ante el temor de nuevas interrupciones de suministro. Los precios del gas natural europeo también aumentaron.</p><h2 id="4-aseguradoras-de-vida-amplian-financiamiento-inmobiliario-para-compras-de-family-offices"><strong>4.  Aseguradoras de vida amplían financiamiento inmobiliario para compras de family offices</strong></h2><p>Las compañías de seguros están privilegiando operaciones desde UF 100 mil y plazos que pueden extenderse hasta 30 años. Las aseguradoras de vida y los grandes family offices son inversionistas institucionales que frecuentemente se encuentran en grandes operaciones, pero también hacen diversos negocios en conjunto. En el caso de las compañías de seguros de vida, el auge de las rentas vitalicias llevó a estos actores a elevar la inversión en activos inmobiliarios para financiar este tipo de pensión en el mediano y largo plazo.</p><h2 id="5-fondos-generacionales-si-queremos-subir-el-retorno-deben-haber-mas-activos-iliquidos"><strong>5.  Fondos generacionales: “Si queremos subir el retorno deben haber más activos ilíquidos”</strong></h2><p>El ejecutivo señaló que la propuesta de la Super de Pensiones para el régimen de inversión se hizo con el objetivo de no impactar el mercado de capitales. Hernán Martin, gerente general BTG Pactual Chile Asset Management. Foto: Verónica Ortíz A mediados de la semana pasada, BTG Pactual recibió la visita del superintendente de Pensiones, Joaquín Cortez, en marco del “Asset Day 2026” de la firma, que reunió a inversionistas institucionales, gestores, entre otros actores del mercado.</p><h2 id="6-las-acciones-de-consumo-que-sacarian-provecho-del-18-de-septiembre"><strong>6.  Las acciones de consumo que sacarían provecho del 18 de septiembre</strong></h2><p>La más beneficiada sería SMU porque su operación de supermercados está concentrada en el mercado local. A tres semanas de la celebración de Fiestas Patrias, algunas acciones podrían sacar provecho de este 18 y 19 de septiembre. El sector de supermercados, bebidas y viajes concentrarían el mayor gasto de los consumidores y los papeles vinculados a estos sectores serían los más beneficiados, aunque con efecto desigual entre ellos.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-parque-arauco-y-ripley-activan-ampliacion-de-mall-curico-e-invertiran-us-53-millones-en-el-centro-comercial-maulino"><strong>1.  Parque Arauco y Ripley activan ampliación de Mall Curicó e invertirán US$ 53 millones en el centro comercial maulino</strong></h2><p>La iniciativa considera una construcción total de 42 mil m² y 400 nuevos estacionamientos. La apertura al público está prevista para el segundo semestre de 2028. Parque Arauco y Ripley avanzan con una nueva inversión en su negocio de centros comerciales. El directorio de Inmobiliaria Mall Viña del Mar -Mall Marina-, sociedad controlada en partes iguales por ambas compañías, aprobó por unanimidad la ejecución del proyecto de ampliación de Mall Curicó. La iniciativa contempla una inversión neta de UF 1,2 millones, equivalentes a aproximadamente US$ 53 millones al tipo de cambio actual, según informó la sociedad mediante un hecho esencial enviado a la Comisión para el Mercado Financiero (CMF).</p><h2 id="2-reves-para-vitacura-justicia-ordena-a-municipio-retrotraer-licitacion-de-borderio-tras-reclamo-de-empresa-rechazada"><strong>2.  Revés para Vitacura: Justicia ordena a municipio retrotraer licitación de BordeRío tras reclamo de empresa rechazada</strong></h2><p>Tribunal de Contratación Pública dijo que “se vulneraron las reglas que disciplinaban el procedimiento licitatorio y, consecuencialmente, el principio de igualdad entre los oferentes”. “Se acoge parcialmente la acción de impugnación” y“se ordena a la Ilustre Municipalidad de Vitacura retrotraer el procedimiento licitatorio al estado de evaluación de las ofertas”. El Tribunal de Contratación Pública acogió parcialmentela demanda presentada por la empresa que quedó en segundo lugar en el proceso lanzado por la Municipalidad de Vitacura para adjudicar la nueva concesión de BordeRío,el centro gastronómico y cultural emplazado en el Parque del Río Mapocho.</p><h2 id="3-subtel-denuncia-toma-digital-privados-adeudan-7346-millones-en-concesiones-de-espectro"><strong>3.  Subtel denuncia “toma digital”: privados adeudan $ 7.346 millones en concesiones de espectro</strong></h2><p>El organismo liderado por Romina Garrido busca ir detrás de dichos recursos, que deben cerca de 2 mil RUT ligados a personas naturales y empresas. Con unextenso listado de deudores fue que la Subsecretaría de Telecomunicaciones (Subtel)se encontró en materia de concesiones de espectro radioeléctrico. Tras una autodenuncia ante la Contraloría General de la República, la autoridad inició en 2025 un proceso para identificar con nombre y apellido a las personas y empresas que tenían saldos impagos con el Estado. ¿El total encontrado?2.091 RUT, los que –al 30 de junio de 2026– adeudan un monto total de UTM 102.529, es decir, unos $ 7.346 millones.</p><h2 id="4-gigante-brasileno-del-streaming-deportivo-ligado-a-cristiano-ronaldo-registra-su-marca-en-chile"><strong>4.  Gigante brasileño del streaming deportivo ligado a Cristiano Ronaldo registra su marca en Chile</strong></h2><p>La industria del streaming deportivo podría sumar un nuevo actor en Chile. La brasileña CazéTV, una de las principales plataformas digitales de deportes de Brasil, solicitó registrar su marca en el país, según una publicación de este viernes en el Diario Oficial. La solicitud fue presentada por CazéTV Produções Ltda. y busca proteger “Cazé TV” para servicios que incluyen streaming de video, transmisión de contenidos por redes sociales y plataformas digitales, televisión y podcasts. También considera actividades deportivas y culturales, producción y distribución audiovisual y servicios de entretenimiento La plataforma se ha convertido en un fenómeno de audiencia. Durante el Mundial de 2026 transmitió gratuitamente por YouTube los 104 partidos y, en la semifinal entre España y Francia, superó los 23 millones de espectadores simultáneos en Brasil, marcando un récord global para una transmisión individual en vivo en YouTube.</p><h2 id="5-los-pellets-el-nuevo-negocio-del-holding-familiar-de-gabriel-ruiz-tagle"><strong>5.  Los pellets: el nuevo negocio del holding familiar de Gabriel Ruiz-Tagle</strong></h2><p>Con una inversión de US$ 50 millones, están poniendo en marcha esta nueva actividad productiva en La Unión, en el sur de Chile. Un nuevo proyecto empresarial está poniendo en marcha el holding familiar del empresario Gabriel Ruiz-Tagle. Se trata de una nueva planta productiva en La Unión, en el sur de Chile, destinada a producir pellets. En la iniciativa están participando activamente dos de sus hijos: Ignacio Ruiz-Tagle Barros, como director industrial, y Matías Ruiz-Tagle Barros, en la parte del desarrollo de marca y comercial. La iniciativa considera una inversión de US$ 50 millones y, según explica Gonzalo Díaz, el gerente general de Chile Panel -la firma tras el proyecto- es una ampliación de la actividad que ya desarrollan en la empresa adquirida en 2019 y que hasta ahora se ha enfocado en la producción de tableros OSB, marca Ultu.</p><h2 id="6-hernan-rodriguez-presidente-de-colbun-pese-a-las-lluvias-seguimos-con-un-deficit-de-agua-en-practicamente-todas-las-cuencas-relevantes-para-generacion"><strong>6.  Hernán Rodríguez, presidente de Colbún: “Pese a las lluvias, seguimos con un déficit de agua en prácticamente todas las cuencas relevantes para generación”</strong></h2><p>El ejecutivo abordó los retos del sector y la posibilidad de que el país avance en la descarbonización. Reconoció que la ley de reconstrucción es relevante, pero todavía faltan los cambios en materia ambiental. La seguridad del sistema eléctrico cada vez resuena con más fuerza en el sector. Tras el apagón del 25 de febrero de 2025, a inicios de julio nuevamente reinó la expectación cuando el gobierno estuvo a punto de publicar un decreto preventivo de racionamiento eléctrico, lo cual fue evitado por intensas precipitaciones. El tópico fue clave el jueves pasado en el seminario El sistema eléctrico bajo estrés: aprendizajes y desafíos, organizado por la Cátedra de Transición Energética Responsable Colbún junto al Centro de Energía UC.</p><h2 id="7-el-e-commerce-crece-en-grandes-retailers-ventas-online-de-multitiendas-falabella-y-paris-se-encaminan-al-50"><strong>7.  El e-commerce crece en grandes retailers: ventas online de multitiendas Falabella y Paris se encaminan al 50%</strong></h2><p>Ripley, en tanto, cuenta con una penetración online de cerca de un tercio de las ventas totales. El comercio electrónico sigue ganando espacio entre las grandes tiendas por departamento. Falabella Retail encabeza esta carrera, con una penetración online de 47% durante el segundo trimestre. Por su parte, Cencosud señaló que entre abril y junio de 2026 la participación de las ventas online en tiendas por departamento (donde la firma ligada a los Paulmann opera mediante la marca Paris) alcanzó un 40,6%.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-kast-raya-la-cancha-a-los-ministerios-en-la-recta-final-del-ingreso-del-presupuesto-2027-compatibilizar-prioridades-con-los-recursos-que-tenemos"><strong>1.  Kast raya la cancha a los ministerios en la recta final del ingreso del Presupuesto 2027: “Compatibilizar prioridades con los recursos que tenemos”</strong></h2><p>El mandatario también reconoció que será más lenta la recuperación laboral, que espera conversar temas limítrofes con Milei esta semana y que no va a retirar del Congreso al reforma constitucional que crea un nuevo estado de excepción. El viernes pasado, en el consejo de gabinete en Cerro Castillo, el presidente de la República, José Antonio Kast, inició el trabajo formal con los ministerios para delinear el contenido del Presupuesto 2027, que debe presentar al Congreso a más tardar el 30 de septiembre. La discusión presupuestaria se genera en medio de un escenario de estrechez fiscal, en el que el ministro de Hacienda, Jorge Quiroz, anticipó que el incremento del gasto será entre un 0% y 1%.</p><h2 id="2-claves-del-congreso-feriado-de-septiembre-y-alzamiento-de-secreto-bancario-se-tomaran-la-agenda"><strong>2.  Claves del Congreso: Feriado de septiembre y alzamiento de secreto bancario se tomarán la agenda</strong></h2><p>Sin embargo, como telón de fondo seguirá el debate sobre la reforma constitucional en materia de seguridad, que sigue sin concitar un respaldo mayoritario y el proyecto de sala cuna que se votaría en la Sala del Senado este martes. Esta  semana que el Congreso Nacional retoma el trabajo legislativo, el Senado estará marcado por las negociaciones en torno a la reforma constitucional en materia de seguridad. Aunque es improbable que la Comisión de Constitución del Senado inicie esta semana la tramitación de la reforma constitucional del gobierno en materia de seguridad, lo que sí continuará son las negociaciones en torno a la iniciativa, ya que pese a sus muchos intentos, el Ejecutivo aún no logra alinear a sus filas; y, menos llegar a acuerdos con la oposición. Por otro lado,en la Cámara el foco estará en los proyectos de parlamentarios que buscan declarar feriado el 17 de septiembre de este año. LaComisión de Gobierno de la Cámara Baja programó para este lunes, desde las 19:30 horas, el inicio de la tramitación de una de las mociones parlamentarias que proponen declarar feriado el 17 de septiembre de 2026, sería la patrocinada por la bancada del Partido Comunista. Esto, aunque resulta improbable que la iniciativa sortee las barreras impuestas por gran parte del oficialismo, con tiempo suficiente para ser promulgada y cumpla su objetivo de regalar a los chilenos una feriado de Fiestas Patrias XL.</p><h2 id="3-se-confirma-un-julio-flojo-para-la-economia-chilena-produccion-minera-manufactura-y-comercio-cayeron-en-el-mes"><strong>3.  ¿Se confirma un julio flojo para la economía chilena? Producción minera, manufactura y comercio cayeron en el mes</strong></h2><p>El Índice de Producción Industrial (IPI) volvió a retroceder en julio y se contrajo 5,1% en 12 meses, debido a la incidencia negativa de dos de los tres sectores que lo componen Las cifras de sectores económicos parecieran ratificar que julio fue un mes flojo para la actividad en Chile. Por una parte,el Índice de Producción Industrial (IPI) volvió a retroceder en julio y se contrajo 5,1% en 12 meses, debido a la incidencia negativa de dos de los tres sectores que lo componen, según informó esta mañana el Instituto Nacional de Estadísticas (INE).</p><h2 id="4-claro-rechazo-de-expertos-del-panel-uc-a-la-creacion-de-un-nuevo-estado-de-excepcion-por-seguridad-publica"><strong>4.  Claro rechazo de expertos del Panel UC a la creación de un nuevo estado de excepción por seguridad pública</strong></h2><p>El académico de la Escuela de Gobierno UC, Mauricio Duce, cree que los panelistas ven probablemente más costos que beneficios, sobre todo en restricción de derechos. El ministro de Seguridad Pública, Martín Arrau, busca apoyos para la reforma que impulsa el gobierno. Foto: Aton Chile. La reforma constitucional que ingresó el gobierno al Senado para crear una quinta categoría de estado de excepción en Chile se ha tomado el debate en las últimas semanas y, de hecho, fue el tema que puso en consulta el Panel de Políticas Públicas de la Universidad Católica durante agosto.</p><h2 id="5-confianza-de-los-consumidores-sufre-fuerte-caida-en-agosto-y-chile-acusa-el-peor-resultado-de-america-latina"><strong>5.  Confianza de los consumidores sufre fuerte caída en agosto y Chile acusa el peor resultado de América Latina</strong></h2><p>El índice CCI elaborado por Ipsos retrocedió cuatro puntos hasta un nivel visto en febrero de 2023. El sistema frontal golpeó el ánimo de los chilenos en el octavo mes del año. El ánimo de los consumidores chilenos no fue el de los mejores durante agosto. El Índice de Confianza del Consumidor (CCI, su sigla en inglés) del país elaborado por Ipsos acusó un retroceso de cuatro puntos hasta ubicarse en 38,1 puntos en agosto, el menor registro desde febrero de 2023. Con esto, se interrumpen las alzas de junio y julio que había tenido el indicador y deja al país como último dentro de América Latina y 6,3 puntos por debajo de su lectura de hace un año, siendo la mayor caída anual entre los países medidos.</p><h2 id="6-de-25-a-nueve-gobierno-fusiona-programas-sociales-tras-comprobar-disenos-similares"><strong>6.  De 25 a nueve: gobierno fusiona programas sociales tras comprobar diseños similares</strong></h2><p>El subsecretario de Evaluación Social, Gabriel Ugarte, destacó los avances en los tiempos que toma el análisis ex ante y en la cantidad de preguntas. Subsecretario de Evaluación Social, Gabriel Ugarte. Como parte de un proceso de optimización de la oferta pública de servicios, la Subsecretaría de Evaluación Social (SES) y la Dirección de Presupuestos (Dipres) informaron de la fusión de 25 programas sociales en nueve tras comprobar que presentaban diseños similares.</p><h2 id="7-lorena-flores-directora-del-centro-de-microdatos-de-la-u-de-chilepuede-que-veamos-que-la-gente-esta-perdiendo-empleo-pero-que-no-se-vea-tan-afectada-la-pobreza"><strong>7.  Lorena Flores, directora del Centro de Microdatos de la U. de Chile:“Puede que veamos que la gente está perdiendo empleo, pero que no se vea tan afectada la pobreza”</strong></h2><p>Finalizado el piloto para la Casen 2026, la entidad se prepara para seguir enfrentando la dificultad de apertura de las viviendas y la nueva exigencia que plantea la Ley de Datos Personales. El piloto que realizó el Centro de Microdatos de la Universidad de Chile, a modo de preparación para la próxima Encuesta de Caracterización Socioeconómica (Casen 2026), coincidió con el sistema frontal que golpeó al país a principios de mes. Entre el 13 de julio y el 9 de agosto, 75 encuestadores salieron a terreno para probar el cuestionario que busca medir la pobreza en el país. Este grupo abarcó 1.870 hogares de las regiones Metropolitana, O’Higgins y Biobío.</p><h2 id="8-a-un-mes-del-debut-de-nueva-ley-la-mayoria-de-las-empresas-esta-en-deuda-con-medir-la-brecha-salarial"><strong>8.  A un mes del debut de nueva ley, la mayoría de las empresas está en deuda con medir la brecha salarial</strong></h2><p>Un levantamiento de Buk muestra que incluso entre las compañías de 200 o más trabajadores, que estarán obligadas a reportar indicadores, prácticamente la mitad nunca ha realizado el ejercicio. A más de un mes de la entrada en vigencia de la nueva Ley de Equidad de Género, las compañías que operan en el país parecieran estar al debe con uno de los ejercicios que están en el centro de la normativa que busca promover la transparencia y medidas para la inclusión laboral femenina: medir las diferencias salariales entre hombres y mujeres. La nueva legislación establece que las empresas con 200 o más trabajadores deberán elaborar anualmente un informe sobre la equidad de género al interior de la organización. Esta obligación también se aplicará a aquellas firmas con más de 50 trabajadores en sectores como minería, finanzas, energía, transporte, construcción e investigación y desarrollo.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-el-estancamiento-de-la-actividad-y-el-debil-mercado-laboral-ponen-a-prueba-la-gestion-economica-de-milei"><strong>1.  El estancamiento de la actividad y el débil mercado laboral ponen a prueba la gestión económica de Milei</strong></h2><p>A pesar de la desaceleración de la inflación, la heterogeneidad de la actividad económica y una alta destrucción de empleo se presentan como los mayores obstáculos para impulsar el crecimiento de Argentina. A poco más de un año para las próximas elecciones presidenciales, el gobierno de Javier Milei se enfrenta a un estancamiento en la actividad económica y un mercado laboral en crisis. Aunque el ajuste fiscal y el freno a la emisión monetaria permitieron reducir la inflación de tres a dos dígitos anuales, la desaceleración del crecimiento se ha convertido en uno de los principales desafíos de la Casa Rosada. Según el Estimador Mensual de Actividad Económica (EMAE) del Instituto Nacional de Estadística y Censos (Indec), la actividad económica avanzó 0,8% mensual y 2,7% interanual en junio, último dato disponible. En el primer semestre, en tanto, creció 1,9% frente al mismo período de 2025.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-df-lab-opinion-donde-esta-el-mayor-riesgo-de-la-ia-en-la-empresa"><strong>1.  DF Lab Opinión/ ¿Dónde está el mayor riesgo de la IA en la empresa?</strong></h2><p>"No sorprende, entonces, que la IA y la ciberseguridad se hayan convertido en el nuevo centro de gravedad de las áreas de cumplimiento y las empresas de auditoría de riesgo". Por Alan García Clydesdale, fundador de Simply Human Ventures Nadie discute ya la necesidad de un modelo de gobernanza corporativa para la inteligencia artificial. Lo que sí genera debate, y no poca ansiedad en los directorios, es cómo diseñarlo, a qué velocidad y con qué prioridades, en medio de un cambio tecnológico que no da tregua.</p><h2 id="2-startup-oddness-llevara-sus-robots-de-logistica-a-europa-tras-levantar-capital"><strong>2.  Startup Oddness llevará sus robots de logística a Europa, tras levantar capital</strong></h2><p>La firma chilena de robótica e IA física, cofundada por uno de los creadores de Zippedi, cerró una ronda para instalar sus primeros robots en centros de distribución en el viejo continente. Antes de fundar la startup de robótica Oddness y expandirse a Europa, Vicente Viñuela ayudó a traer Virgin Mobile a Chile, trabajó con Richard Branson y participó en la irrupción de WOM en el mercado de telecomunicaciones. Después pasó cuatro años en el Metro de Santiago liderando proyectos de experiencia al cliente y líneas automáticas. Fue ahí donde conoció a sus actuales socios: Ariel Schilkrut, quien le presentó a Álvaro Soto, director del Centro Nacional de Inteligencia Artificial (Cenia) y cofundador de Zippedi. Fue este último quien lo invitó a sumarse “al mundo startup”, contó Viñuela.</p><h2 id="3-df-lab-opinion-ninguna-reforma-tributaria-descubrio-jamas-un-continente"><strong>3.  DF Lab Opinión / Ninguna reforma tributaria descubrió jamás un continente</strong></h2><p>"La diferencia entre un ecosistema que despega y uno estancado es la cantidad de gente dispuesta a apostar por ellas". En 1492 la reina Isabel financió un viaje para encontrar una ruta más corta a las Indias. El marino a cargo ni siquiera había hecho bien los cálculos y terminó topándose con un continente que nadie en Europa sabía que existía. No lo descubrió una ley, ni un buen presupuesto, ni un ministerio: lo descubrió alguien que puso dinero detrás de una apuesta que tenía muchas posibilidades que saliera mal. Llevo años conectando capital con emprendedores y he visto que esa situación se repite en cada país que ha logrado despegar. La mayoría no se desarrollaron administrando bien lo que tenían, ni vendiendo materias primas, lo hicieron con visión, apostando por nuevas tecnologías y por gente dispuesta a jugársela sin garantía de resultado.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-limites-impracticables-en-servicios-basicos"><strong>1.  Límites impracticables en servicios básicos</strong></h2><p><em>(Sin detalle disponible.)</em></p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

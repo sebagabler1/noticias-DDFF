@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-01.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">1 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-modera-alzas-a-media-manana-tras-datos-de-manufactura-y-empleo-que-fueron-mas-debiles-de-lo-esperado-en-eeuu">1.  Dólar modera alzas a media mañana tras datos de manufactura y empleo que fueron más débiles de lo esperado en EEUU</a></li><li class="toc-l2"><a href="#2-ipsa-abre-a-la-baja-y-pierde-los-11300-puntos-mientras-las-disrupciones-energeticas-sacuden-a-los-mercados-globales">2.  IPSA abre a la baja y pierde los 11.300 puntos mientras las disrupciones energéticas sacuden a los mercados globales</a></li><li class="toc-l2"><a href="#3-tasas-largas-de-reino-unido-y-japon-escalan-a-maximos-de-casi-tres-decadas-ante-temores-inflacionarios">3.  Tasas largas de Reino Unido y Japón escalan a máximos de casi tres décadas ante temores inflacionarios</a></li><li class="toc-l2"><a href="#4-sello-ciudadano-y-familias-jovenes-el-relato-que-prepara-hacienda-para-apuntalar-la-iniciativa">4.  Sello ciudadano y familias jóvenes: el relato que prepara Hacienda para apuntalar la iniciativa</a></li><li class="toc-l2"><a href="#5-reforma-al-mercado-de-capitales-creara-fondo-de-recompra-de-carteras-hipotecarias-para-reducir-las-tasas">5.  Reforma al mercado de capitales creará fondo de recompra de carteras hipotecarias para reducir las tasas</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-uber-elimina-mas-de-500-puestos-en-chile-mientras-acelera-el-uso-de-inteligencia-artificial">1.  Uber elimina más de 500 puestos en Chile mientras acelera el uso de inteligencia artificial</a></li><li class="toc-l2"><a href="#2-emblematica-heladeria-ariquena-di-mango-prepara-su-llegada-a-santiago-y-apunta-a-abrir-un-local-en-vitacura">2.  Emblemática heladería ariqueña Di Mango prepara su llegada a Santiago y apunta a abrir un local en Vitacura</a></li><li class="toc-l2"><a href="#3-subtel-ordena-bloqueo-de-42-sitios-de-apuestas-online-a-entel-movistar-claro-gtd-wom-y-vtr-en-la-lista-estan-betano-coolbet-y-betsson">3.  Subtel ordena bloqueo de 42 sitios de apuestas online a Entel, Movistar, Claro, GTD, WOM y VTR: en la lista están Betano, Coolbet y Betsson</a></li><li class="toc-l2"><a href="#4-gobierno-sale-a-vender-propiedades-y-partira-por-las-que-llegaron-al-fisco-por-herencias-vacantes">4.  Gobierno sale a vender propiedades y partirá por las que llegaron al Fisco por herencias vacantes</a></li><li class="toc-l2"><a href="#5-wom-apura-el-paso-para-cumplir-con-despliegue-de-red-5g-y-en-julio-ingreso-el-63-de-sus-solicitudes-de-recepcion-de-obras">5.  WOM apura el paso para cumplir con despliegue de red 5G y en julio ingresó el 63% de sus solicitudes de recepción de obras</a></li><li class="toc-l2"><a href="#6-abra-y-sky-concretan-intercambio-de-acciones-y-crean-nueva-sociedad-sky-holding-chile">6.  Abra y SKY concretan intercambio de acciones y crean nueva sociedad: SKY Holding Chile</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-ministro-rabat-defiende-concursos-declarados-desiertos-para-ser-notarios-demuestra-que-estamos-en-un-proceso-serio-y-exigente">1.  Ministro Rabat defiende concursos declarados desiertos para ser notarios: “Demuestra que estamos en un proceso serio y exigente”</a></li><li class="toc-l2"><a href="#2-imacec-sufre-en-julio-su-mayor-descenso-en-mas-de-tres-anos-tras-fuerte-caida-de-la-mineria">2.  Imacec sufre en julio su mayor descenso en más de tres años tras fuerte caída de la minería</a></li><li class="toc-l2"><a href="#3-gobierno-ultima-detalles-para-enviar-al-congreso-un-presupuesto-2027-con-un-alza-del-gasto-de-hasta-1">3.  Gobierno ultima detalles para enviar al Congreso un Presupuesto 2027 con un alza del gasto de hasta 1%</a></li><li class="toc-l2"><a href="#4-eduardo-vargas-socio-de-tax-legal-de-deloitte-y-las-ventanas-para-retirar-utilidades-acumuladas-puede-haber-propietarios-que-les-convenga">4.  Eduardo Vargas, socio de Tax &amp; Legal de Deloitte y las ventanas para retirar utilidades acumuladas: &quot;Puede haber propietarios que les convenga&quot;</a></li><li class="toc-l2"><a href="#5-gasto-fiscal-acusa-el-primer-descenso-del-ano-y-el-estado-registra-un-superavit-en-su-operacion-mensual">5.  Gasto fiscal acusa el primer descenso del año y el Estado registra un superávit en su operación mensual</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-inflacion-de-la-zona-euro-llega-a-33-y-refuerza-expectativa-de-alza-de-tasas-del-bce">1.  Inflación de la zona euro llega a 3,3% y refuerza expectativa de alza de tasas del BCE</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-daniel-strode-consultor-y-escritor-britanicohay-menos-perfiles-juniors-contratados-y-vamos-a-tener-un-problema-de-talento-en-pocos-anos">1.  Daniel Strode, consultor y escritor británico:“Hay menos perfiles juniors contratados y vamos a tener un problema de talento en pocos años”</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-el-desafio-de-implementar-los-cambios-ambientales">1.  El desafío de implementar los cambios ambientales</a></li><li class="toc-l2"><a href="#2-resiliencia-hidrica">2.  Resiliencia hídrica</a></li><li class="toc-l2"><a href="#3-detras-de-la-garantia-de-dialisis">3.  Detrás de la garantía de diálisis</a></li><li class="toc-l2"><a href="#4-oficial-pero-no-obligatoria">4.  Oficial, pero no obligatoria</a></li><li class="toc-l2"><a href="#5-un-ipsa-mas-dinamico">5.  Un IPSA más dinámico</a></li><li class="toc-l2"><a href="#6-converger-disciplinas-en-la-mineria">6.  Converger disciplinas en la minería</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>1 De Septiembre De 2026</p><p>6 secciones  ·  24 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-modera-alzas-a-media-manana-tras-datos-de-manufactura-y-empleo-que-fueron-mas-debiles-de-lo-esperado-en-eeuu"><strong>1.  Dólar modera alzas a media mañana tras datos de manufactura y empleo que fueron más débiles de lo esperado en EEUU</strong></h2><p>El dólar inició septiembre al alza impulsado por las disrupciones en el estrecho de Ormuz, llegando a $940, pero moderó su avance hasta $936,8 tras datos económicos estadounidenses más débiles de lo esperado: el ISM manufacturero decepcionó por caída en nuevas órdenes y las ofertas de empleo de julio sumaron 7,27 millones, por debajo de lo previsto. En Chile, las tasas swap retrocedieron luego de que el Imacec de julio anotara una contracción de 1,5% interanual, su peor desempeño en más de tres años. El mercado sigue calibrando la probabilidad de un alza de tasas de la Fed en septiembre, actualmente en cerca de dos tercios, a la espera de más datos como nóminas ADP, ISM de servicios y nóminas no agrícolas de agosto.</p><h2 id="2-ipsa-abre-a-la-baja-y-pierde-los-11300-puntos-mientras-las-disrupciones-energeticas-sacuden-a-los-mercados-globales"><strong>2.  IPSA abre a la baja y pierde los 11.300 puntos mientras las disrupciones energéticas sacuden a los mercados globales</strong></h2><p>El MSCI IPSA retrocedió 0,4% hasta los 11.271,90 puntos al inicio de septiembre, presionado principalmente por las caídas de Latam (-3,1%) y SQM-B (-2,8%), en un contexto de ventas globales de acciones y bonos motivadas por el bloqueo del estrecho de Ormuz. El petróleo Brent subía 1,7% hasta US$92 por barril tras el impacto de proyectiles sobre dos petroleros que intentaban salir del golfo Pérsico. A partir de hoy el índice pasó a ser administrado por MSCI, reemplazando a S&amp;P Dow Jones Indices, y se incorporó Pampa Investments como nuevo miembro, llevando el total a 31 componentes.</p><h2 id="3-tasas-largas-de-reino-unido-y-japon-escalan-a-maximos-de-casi-tres-decadas-ante-temores-inflacionarios"><strong>3.  Tasas largas de Reino Unido y Japón escalan a máximos de casi tres décadas ante temores inflacionarios</strong></h2><p>Los rendimientos de los bonos soberanos de largo plazo alcanzaron niveles históricos: el bono británico a 30 años llegó a 5,87%, máximo desde fines de los años 90, mientras que el japonés a 10 años tocó 3%, cifra no registrada desde 1996. El movimiento responde a la persistencia del conflicto en Medio Oriente, que mantiene el precio del Brent sobre US$92 y elevó la inflación de la eurozona a 3,3% en agosto, con el componente energético escalando a 14,3%. Los mercados descuentan cerca de dos tercios de probabilidad de un alza de tasas de la Fed en septiembre, y el BCE prácticamente tiene descontado un incremento de 25 puntos base en su reunión del 10 de septiembre.</p><h2 id="4-sello-ciudadano-y-familias-jovenes-el-relato-que-prepara-hacienda-para-apuntalar-la-iniciativa"><strong>4.  Sello ciudadano y familias jóvenes: el relato que prepara Hacienda para apuntalar la iniciativa</strong></h2><p>La reforma al mercado de capitales que Hacienda presentará el 7 de septiembre tendrá un foco ciudadano orientado a mejorar el acceso al crédito y proteger a los usuarios financieros, especialmente jóvenes y emprendedores. Entre las medidas contempladas figura una revisión de la Tasa Máxima Convencional (TMC), retomando como base el esquema de 2013 que fijaba el límite en 1,5 veces la tasa de interés corriente, con el objetivo de ampliar el acceso al sistema financiero para segmentos no bancarizados. La CMF también propuso separar la administración de inversiones de las funciones de backoffice en la industria de fondos, y la reforma incluiría cambios a la Ley de Fraudes para habilitar seguros que cubran pérdidas por engaño sin responsabilidad del usuario.</p><h2 id="5-reforma-al-mercado-de-capitales-creara-fondo-de-recompra-de-carteras-hipotecarias-para-reducir-las-tasas"><strong>5.  Reforma al mercado de capitales creará fondo de recompra de carteras hipotecarias para reducir las tasas</strong></h2><p>El Ministerio de Hacienda presentará la semana del 7 de septiembre una amplia reforma al mercado de capitales cuya pieza central será un fondo especial de recompra de carteras hipotecarias con participación del Estado y la banca, destinado a permitir que los clientes refinancien sus créditos a tasas más bajas y así mejorar el acceso a la vivienda para la clase media y los jóvenes. El proyecto incluye además cambios tributarios como modificaciones a exenciones en ganancias de capital y al impuesto de timbres y estampillas. Se suma a medidas ya aprobadas en la Ley de Reconstrucción, como la suspensión del IVA a la vivienda por un año, la ampliación del DFL-2 y la extensión del programa Fogaes desde 50.000 a 80.000 subsidios para viviendas de hasta UF 6.000.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-uber-elimina-mas-de-500-puestos-en-chile-mientras-acelera-el-uso-de-inteligencia-artificial"><strong>1.  Uber elimina más de 500 puestos en Chile mientras acelera el uso de inteligencia artificial</strong></h2><p>Uber ha eliminado más de 500 empleos en Chile desde mayo de 2023 en sucesivos procesos de reestructuración ligados a la automatización, externalización y traslado de funciones hacia roles regionales, según consta en documentos incorporados a una demanda laboral ante el Primer Juzgado de Letras del Trabajo de Santiago. Paradójicamente, esta reducción ocurre en un período de fuerte crecimiento: las reservas brutas del segundo trimestre superaron los US$58.000 millones (+22%) y el flujo de caja libre acumulado en 12 meses superó por primera vez los US$10.000 millones. El CFO Balaji Krishnamurthy atribuyó la política a una gestión disciplinada de la dotación facilitada por la IA, que ha duplicado la producción de código por ingeniero y se está aplicando también en atención al cliente y marketing.</p><h2 id="2-emblematica-heladeria-ariquena-di-mango-prepara-su-llegada-a-santiago-y-apunta-a-abrir-un-local-en-vitacura"><strong>2.  Emblemática heladería ariqueña Di Mango prepara su llegada a Santiago y apunta a abrir un local en Vitacura</strong></h2><p>Di Mango, heladería familiar de Arica con dos locales y una facturación mensual superior a $200 millones, busca instalar su primera sucursal en Santiago, con Vitacura como primera opción tras perder un local que tenía en vista, y la expansión se financiará íntegramente con recursos propios sin inversionistas externos. El gerente general Ricardo Vinet destacó las dificultades de competir en condiciones desiguales frente a food trucks y puestos informales que operan sin los permisos y fiscalizaciones que enfrenta el comercio formal, lo que a su juicio desincentiva la formalización. Vinet también planteó que Arica carece de condiciones para retener turistas más allá de dos o tres días y que un puerto libre podría ser la transformación que necesita la región para atraer inversión y consumidores.</p><h2 id="3-subtel-ordena-bloqueo-de-42-sitios-de-apuestas-online-a-entel-movistar-claro-gtd-wom-y-vtr-en-la-lista-estan-betano-coolbet-y-betsson"><strong>3.  Subtel ordena bloqueo de 42 sitios de apuestas online a Entel, Movistar, Claro, GTD, WOM y VTR: en la lista están Betano, Coolbet y Betsson</strong></h2><p>La Subsecretaría de Telecomunicaciones (Subtel) instruyó a los principales ISP del país bloquear 42 URLs de plataformas de apuestas online en un plazo máximo de 48 horas, dando cumplimiento a fallos de la Corte Suprema y la Corte de Apelaciones de Santiago que prohíben la transmisión de juegos de azar ilegales. La acción deriva de un recurso de protección interpuesto por la Lotería de Concepción, y los dominios fueron verificados por la Superintendencia de Casinos de Juego para confirmar que operan al margen de la regulación vigente. El bloqueo se realizará mediante el mecanismo DNS por ser proporcional y resguardar la neutralidad de la red, y el procedimiento se aplicará sucesivamente a nuevos dominios o sitios espejo que sean identificados y validados.</p><h2 id="4-gobierno-sale-a-vender-propiedades-y-partira-por-las-que-llegaron-al-fisco-por-herencias-vacantes"><strong>4.  Gobierno sale a vender propiedades y partirá por las que llegaron al Fisco por herencias vacantes</strong></h2><p>El Ministerio de Bienes Nacionales lanzó el plan 'Se busca dueño' para enajenar 234 inmuebles fiscales subutilizados o abandonados durante 2026, con una recaudación estimada de US$73,3 millones: 159 propiedades irán a licitación pública (US$48,8 millones) y 75 están en procesos de venta ya iniciados (US$24,5 millones). Las primeras 37 licitaciones se publicaron este martes e incluyen casas en La Reina, departamentos en Puente Alto, un terreno de $25.000 millones en Vitacura, propiedades industriales en Calama y Antofagasta, y una propiedad en La Parva. La ministra Catalina Parot adelantó que el proceso se ampliará en los próximos años e incluirá la licitación de 14 polígonos para energía y 12 terrenos para data centers.</p><h2 id="5-wom-apura-el-paso-para-cumplir-con-despliegue-de-red-5g-y-en-julio-ingreso-el-63-de-sus-solicitudes-de-recepcion-de-obras"><strong>5.  WOM apura el paso para cumplir con despliegue de red 5G y en julio ingresó el 63% de sus solicitudes de recepción de obras</strong></h2><p>WOM tiene hasta el 30 de septiembre para acreditar el despliegue del 90% de su proyecto técnico 5G pendiente, plazo acordado con el Consejo de Defensa del Estado tras haber completado el 100% de las localidades obligatorias en marzo pasado, y deberá tener el 100% recepcionado al 31 de diciembre. Al cierre de agosto registraba 984 solicitudes de recepción ingresadas, de las cuales 769 (78%) seguían pendientes de aprobación, con el 63% de las solicitudes del año concentradas en el mes de julio. Las garantías vigentes suman UF 211.123 (aproximadamente $8.629 millones), y si no cumple el plazo, Subtel queda facultada para iniciar el procedimiento de caducidad de sus concesiones 5G.</p><h2 id="6-abra-y-sky-concretan-intercambio-de-acciones-y-crean-nueva-sociedad-sky-holding-chile"><strong>6.  Abra y SKY concretan intercambio de acciones y crean nueva sociedad: SKY Holding Chile</strong></h2><p>El 31 de agosto quedó materializada la integración de SKY Airline al conglomerado aéreo Abra Group, que ya opera las aerolíneas Avianca y Gol, mediante un intercambio de acciones que transfirió la propiedad de SKY a una nueva sociedad denominada SKY Holding Chile. El directorio de la nueva sociedad quedó presidido por Holger Paulmann, con la participación del CEO y CFO de Abra (Adrián Neuhauser y Manuel Irarrázaval) y dos abogados de los estudios asesores de la transacción. La operación tiene origen en una deuda convertible tomada por SKY en septiembre de 2021 durante la pandemia; en su modelo, Abra no fusiona las aerolíneas sino que mantiene sus marcas independientes bajo dirección común, y hoy opera una flota de 300 aeronaves hacia más de 145 destinos en 25 países.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-ministro-rabat-defiende-concursos-declarados-desiertos-para-ser-notarios-demuestra-que-estamos-en-un-proceso-serio-y-exigente"><strong>1.  Ministro Rabat defiende concursos declarados desiertos para ser notarios: “Demuestra que estamos en un proceso serio y exigente”</strong></h2><p>El titular de Justicia defendió el nuevo sistema de provisión de cargos, detallando que “las pruebas cubren dos materias: la materia legal propiamente tal, pero también tiene preguntas de gestión y que el postulante debe ser capaz de satisfacer”. En medio del debate generado por los dos concursos declarados desiertos para nombramientos de notarios en Temuco y Santiago mediante el nuevo sistema que administra el Servicio Civil,el ministro de Justicia, Fernando Rabat, defendió la nueva modalidad de provisión de cargos por mayor meritocracia, afirmando que lo que se busca es elevar el estándar para la elección de notarios y conservadores. "No resulta válido analizar o evaluar el nuevo proceso a partir de la declaración (desierta) de los concursos en Temuco y Santiago. Lo que se busca es elevar el estándar con el cual vamos a designar a los notarios, conservadores y archiveros”, señaló el secretario de Estado.</p><h2 id="2-imacec-sufre-en-julio-su-mayor-descenso-en-mas-de-tres-anos-tras-fuerte-caida-de-la-mineria"><strong>2.  Imacec sufre en julio su mayor descenso en más de tres años tras fuerte caída de la minería</strong></h2><p>El Imacec de julio de 2026 cayó 1,5% interanual, su peor resultado desde marzo de 2023 y una reversión del crecimiento de 2,4% registrado en junio, impulsado principalmente por la minería del cobre afectada por menores leyes del mineral, mantenciones y condiciones climáticas adversas. El Imacec no minero también retrocedió 0,3% anual, con caídas en servicios y la industria, esta última afectada por menor elaboración de combustibles y productos químicos. El comercio creció 0,7% gracias al minorista, pero el dato global confirma la fragilidad de la actividad económica chilena en un contexto de alta presión externa.</p><h2 id="3-gobierno-ultima-detalles-para-enviar-al-congreso-un-presupuesto-2027-con-un-alza-del-gasto-de-hasta-1"><strong>3.  Gobierno ultima detalles para enviar al Congreso un Presupuesto 2027 con un alza del gasto de hasta 1%</strong></h2><p>El gobierno de Kast definió que el Presupuesto 2027 contemplará una expansión del gasto público de hasta 1% real, por debajo del 1,7% aprobado para 2026, en un contexto de recursos fiscales escasos y una tasa de desempleo de 9,5% en el trimestre móvil hasta julio. Los ejes prioritarios serán seguridad, salud, combate al crimen organizado, crecimiento económico y generación de empleo, con el Presidente Kast reconociendo que la reactivación laboral será lenta y que 'hay que hablar con la verdad'. En paralelo, Kast abordó la disputa arancelaria con Estados Unidos —Chile enfrenta un arancel adicional de 12,5%— y el debate sobre la relación entre medios de comunicación e inteligencia artificial, llamando a buscar acuerdos con las grandes tecnológicas.</p><h2 id="4-eduardo-vargas-socio-de-tax-legal-de-deloitte-y-las-ventanas-para-retirar-utilidades-acumuladas-puede-haber-propietarios-que-les-convenga"><strong>4.  Eduardo Vargas, socio de Tax &amp; Legal de Deloitte y las ventanas para retirar utilidades acumuladas: "Puede haber propietarios que les convenga"</strong></h2><p>La ley miscelánea creará un nuevo impuesto sustitutivo voluntario de 10% sobre las utilidades acumuladas en los registros STUT y FUR —continuadores del histórico FUT que estuvo vigente entre 1984 y 2014—, permitiendo regularizar esos saldos en lugar de tributar con el Global Complementario o el Impuesto Adicional. La ventana estará abierta por ocho meses desde la publicación de la ley en el Diario Oficial y sigue la lógica de iniciativas anteriores: en 2014 la tasa fue 32% y recaudó US$685 millones, mientras que en 2025 la tasa de 12% para la reconstrucción de Valparaíso permitió recaudar más de US$1.600 millones. Según Eduardo Vargas de Deloitte, la conveniencia de acogerse depende del caso particular de cada contribuyente, sus planes de distribución futura y el beneficio económico real frente a la tributación normal.</p><h2 id="5-gasto-fiscal-acusa-el-primer-descenso-del-ano-y-el-estado-registra-un-superavit-en-su-operacion-mensual"><strong>5.  Gasto fiscal acusa el primer descenso del año y el Estado registra un superávit en su operación mensual</strong></h2><p>En julio el gasto público se contrajo 0,7% respecto al mes anterior, el primer descenso mensual del año, acumulando en 2026 un alza de solo 0,7% frente al 1,7% aprobado por el Congreso, con las principales bajas en transferencias de capital (-21,6%) y subsidios y donaciones (-3,4%). Los ingresos fiscales crecieron 15,8% real anual en el mes, impulsados por la tributación de la gran minería privada (+79%) y el resto de contribuyentes (+8,1%), lo que permitió que el balance mensual registrara un superávit de 0,03% del PIB. El déficit en 12 meses móviles se redujo a 2% del PIB, 0,3 puntos menos que el mes anterior y por debajo del 2,8% con que cerró 2025.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-inflacion-de-la-zona-euro-llega-a-33-y-refuerza-expectativa-de-alza-de-tasas-del-bce"><strong>1.  Inflación de la zona euro llega a 3,3% y refuerza expectativa de alza de tasas del BCE</strong></h2><p>La inflación de la eurozona aceleró a 3,3% interanual en agosto, el nivel más alto en casi tres años y el sexto mes consecutivo sobre la meta del 2%, impulsada por el componente energético que saltó de 10,3% a 14,3% ante el alza del petróleo derivada de las disrupciones en el estrecho de Ormuz. La inflación subyacente, en cambio, se moderó levemente a 2,4% y la de servicios bajó a 3%, lo que sugiere que el problema es esencialmente externo. Los mercados descuentan prácticamente con certeza un alza de 25 puntos base del BCE en su reunión del 10 de septiembre, que llevaría la tasa de depósito a 2,5%, siendo el segundo incremento del año y consolidando al BCE como el banco central más restrictivo del G7.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-daniel-strode-consultor-y-escritor-britanicohay-menos-perfiles-juniors-contratados-y-vamos-a-tener-un-problema-de-talento-en-pocos-anos"><strong>1.  Daniel Strode, consultor y escritor británico:“Hay menos perfiles juniors contratados y vamos a tener un problema de talento en pocos años”</strong></h2><p>El autor de The Quiet Reckoning, quien lideró la transformación cultural de Santander en 32 países, advirtió que la IA está eliminando los puestos donde se forma el criterio de los futuros líderes. Daniel Strode pasó ocho años como director global de cultura y estrategia de Banco Santander, donde condujo la transformación cultural de la firma para 32 países y más de 200 mil empleados, acompañando el paso de una banca tradicional a un modelo digital. Hoy, asesora a empresas en todo el mundo y recientemente publicó su cuarto libro, The Quiet Reckoning, donde plantea que la inteligencia artificial (IA) no elimina la necesidad del liderazgo humano, sino que pone en entredicho si de verdad se estaba liderando. El próximo 2 de septiembre participará en ImpactaIA, evento para líderes que están definiendo el futuro de sus organizaciones con IA, organizado por Brinca y ChileGlobal Ventures (Fundación Chile) con el apoyo de Corfo.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-el-desafio-de-implementar-los-cambios-ambientales"><strong>1.  El desafío de implementar los cambios ambientales</strong></h2><p>Chile enfrenta simultáneamente cuatro procesos regulatorios en materia ambiental: la reforma al SEIA, modificaciones a la Ley 19.300 incorporadas en la Ley de Reconstrucción, la modernización de la SMA y una futura reforma a los Tribunales Ambientales, todos orientados a reducir la 'permisología' que ha frenado la inversión. Sin embargo, el sector privado mantiene inquietudes fundadas: el 74% de los proyectos en calificación ambiental estaban suspendidos a inicios de 2026 y cerca del 30% de los humedales urbanos declarados ha sido judicializado. Un caso emblemático de incertidumbre jurídica fue la revocación de la RCA del proyecto de expansión de Collahuasi por parte del Segundo Tribunal Ambiental, evidenciando que la vulnerabilidad posterior a la obtención de permisos sigue siendo un factor de desincentivo relevante.</p><h2 id="2-resiliencia-hidrica"><strong>2.  Resiliencia hídrica</strong></h2><p>El Plan Nacional de Infraestructura Pública 2025-2055 contempla una inversión de US$45.000 millones en infraestructura hídrica, la mitad de origen privado, incluyendo 64 proyectos de desalación —38 privados— para abastecer de agua potable a 800.000 personas. Chile lidera mundialmente en tratamiento de aguas residuales, pero carece de un marco normativo que permita integrar el reúso de aguas como fuente formal dentro de la infraestructura hídrica no convencional. La carta plantea que resolver ese vacío regulatorio es la pieza faltante para que la cartera de proyectos alcance su pleno potencial.</p><h2 id="3-detras-de-la-garantia-de-dialisis"><strong>3.  Detrás de la garantía de diálisis</strong></h2><p>Nueve de cada diez pacientes de Fonasa se dializan en centros privados, lo que convierte a la red público-privada en la columna vertebral de la atención de más de 27.000 pacientes que dependen de este tratamiento en Chile, cifra que superará los 35.000 hacia 2040. Sin embargo, el peso de la diálisis en el presupuesto de Salud cayó de 2,2% a 1,4% en una década pese a un número creciente de pacientes, y un reajuste sistemáticamente bajo el IPC erosiona la viabilidad de largo plazo de esta prestación vital. La columna llama a que Hacienda y Salud construyan en el Presupuesto 2027 reglas que hagan sostenible la promesa de cobertura universal en diálisis.</p><h2 id="4-oficial-pero-no-obligatoria"><strong>4.  Oficial, pero no obligatoria</strong></h2><p>El Ministerio de Vivienda oficializó una nueva norma chilena de diseño sísmico que comenzará a regir en febrero de 2027, pero su carácter oficial no la hace automáticamente exigible ni fiscalizable, ya que para ello debe ser incorporada expresamente a la Ordenanza General de Urbanismo y Construcciones (OUGC), distinción respaldada por la Contraloría General de la República. Lo mismo ocurre con las normas que regulan la calidad de materiales de construcción, cuya actualización fue sometida a consulta pública pero no culminó en el decreto correspondiente. La columna exige que el Minvu incorpore cuanto antes ambos cuerpos normativos a la OUGC, dado que la reconstrucción del país y la reactivación inmobiliaria requieren estándares obligatorios y fiscalizables.</p><h2 id="5-un-ipsa-mas-dinamico"><strong>5.  Un IPSA más dinámico</strong></h2><p>El 1 de septiembre el IPSA pasó a ser administrado por MSCI, reemplazando a S&amp;P Dow Jones Indices tras casi ocho años, con cambios metodológicos relevantes como el aumento del requisito de free float a 15%, una nueva fórmula de ponderación que combina capitalización bursátil y free float, y rebalanceos trimestrales en lugar de semestrales. El mayor free float mínimo no debiera afectar significativamente a las empresas actuales del índice, pero sí determinará qué compañías podrán incorporarse en el futuro. Los rebalanceos más frecuentes generarán mayores ajustes en los fondos y portafolios que replican el IPSA, lo que puede imprimir más dinamismo al índice y crear nuevas oportunidades y desafíos para los inversionistas.</p><h2 id="6-converger-disciplinas-en-la-mineria"><strong>6.  Converger disciplinas en la minería</strong></h2><p>Chile produjo más de 5,4 millones de toneladas de cobre en 2025, representando casi el 23% de la producción mundial, liderazgo construido no solo por riqueza geológica sino por generaciones de profesionales con dominio técnico en sistemas mineros complejos. La integración de disciplinas como la geometalurgia —que articula geología, minería y metalurgia— es una fortaleza del ecosistema local que permite decisiones más integrales desde el yacimiento hasta la planta de procesamiento. La columna argumenta que la próxima generación de minas requerirá profesionales capaces de combinar esa experiencia acumulada con tecnologías disruptivas, y que esa convergencia será clave para mantener el liderazgo minero del país.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

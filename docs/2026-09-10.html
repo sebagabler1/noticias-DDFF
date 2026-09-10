@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-10.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">10 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-se-dispara-mas-de-10-tras-fuerte-caida-del-cobre-y-la-creciente-inquietud-por-la-guerra-en-medio-oriente">1.  Dólar se dispara más de $ 10 tras fuerte caída del cobre y la creciente inquietud por la guerra en Medio Oriente</a></li><li class="toc-l2"><a href="#2-bolsa-chilena-sigue-a-la-baja-y-wall-street-abre-en-rojo-a-medida-que-el-brent-gana-mas-terreno-sobre-us-100-por-barril">2.  Bolsa chilena sigue a la baja y Wall Street abre en rojo a medida que el Brent gana más terreno sobre US$ 100 por barril</a></li><li class="toc-l2"><a href="#3-inicia-tramitacion-legislativa-del-proyecto-mk4-y-quiroz-designa-a-eugenio-symon-como-contraparte-tecnica">3.  Inicia tramitación legislativa del proyecto MK4 y Quiroz designa a Eugenio Symon como contraparte técnica</a></li><li class="toc-l2"><a href="#4-las-30-medidas-que-trae-la-mk4-desde-un-fondo-estatal-que-comprara-hipotecarios-a-un-nuevo-segmento-bursatil-para-empresas-emergentes">4.  Las 30 medidas que trae la MK4: desde un fondo estatal que comprará hipotecarios a un nuevo segmento bursátil para empresas emergentes</a></li><li class="toc-l2"><a href="#5-juan-andres-camus-presidente-de-la-bolsa-de-santiago-es-positivo-tener-menos-exigencias-para-los-inversionistas-extranjeros">5.  Juan Andrés Camus, presidente de la Bolsa de Santiago: “Es positivo tener menos exigencias para los inversionistas extranjeros”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-los-plazos-para-iniciar-obras-concesionadas-se-duplican-desde-2011-informe-apunta-a-cambio-de-modelo-del-mop">1.  Los plazos para iniciar obras concesionadas se duplican desde 2011: informe apunta a cambio de modelo del MOP</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-anibal-alarcon-economista-senior-de-scotiabank-el-banco-central-esta-senalizando-que-la-recesion-continua">1.  Aníbal Alarcón, economista senior de Scotiabank: “El Banco Central está señalizando que la recesión continúa”</a></li><li class="toc-l2"><a href="#2-priscila-robledo-economista-jefe-de-fintual-el-riesgo-de-la-inversion-es-que-no-se-materialice-como-lo-vimos-en-todo-este-ano">2.  Priscila Robledo, economista jefe de Fintual: “El riesgo de la inversión es que no se materialice, como lo vimos en todo este año”</a></li><li class="toc-l2"><a href="#3-claudia-martinez-directora-del-instituto-economia-uc-el-ipom-da-cuenta-de-las-debilidades-relacionadas-con-la-demanda-interna">3.  Claudia Martínez, directora del Instituto Economía UC: “El IPoM da cuenta de las debilidades relacionadas con la demanda interna”</a></li><li class="toc-l2"><a href="#4-los-combustibles-extienden-alzas-en-chile-en-medio-de-un-petroleo-brent-sobre-los-us-100-en-el-exterior">4.  Los combustibles extienden alzas en Chile en medio de un petróleo Brent sobre los US$ 100 en el exterior</a></li><li class="toc-l2"><a href="#5-alerta-para-chile-freno-al-auge-de-la-ia-podria-impactar-crecimiento-global">5.  ¿Alerta para Chile? Freno al auge de la IA podría impactar crecimiento global</a></li><li class="toc-l2"><a href="#6-costa-reconoce-una-economia-debil-pero-con-tinte-positivo-para-los-dos-anos-venideros">6.  Costa reconoce una economía débil, pero con “tinte positivo” para los dos años venideros</a></li><li class="toc-l2"><a href="#7-continua-la-busqueda-hacienda-desecha-la-llegada-de-juan-pablo-pincheira-como-coordinador-de-politica-tributaria">7.  Continúa la búsqueda: Hacienda desecha la llegada de Juan Pablo Pincheira como coordinador de Política Tributaria</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-trump-promete-un-dividendo-de-us-5-mil-a-los-votantes-de-eeuu-si-los-republicanos-ganan-la-eleccion-de-medio-termino">1.  Trump promete un “dividendo” de US$ 5 mil a los votantes de EEUU si los republicanos ganan la elección de medio término</a></li><li class="toc-l2"><a href="#2-la-prima-del-precio-del-cobre-en-eeuu-se-hunde-tras-conocerse-que-plan-arancelario-se-estanco">2.  La prima del precio del cobre en EEUU se hunde tras conocerse que plan arancelario se estancó</a></li><li class="toc-l2"><a href="#3-el-fmi-descarto-al-principal-candidato-a-economista-jefe-por-comentarios-sobre-los-aranceles-de-trump">3.  El FMI descartó al principal candidato a economista jefe por comentarios sobre los aranceles de Trump</a></li><li class="toc-l2"><a href="#4-bce-sube-las-tasas-a-25-debido-a-las-presiones-inflacionarias-derivadas-del-conflicto-en-medio-oriente">4.  BCE sube las tasas a 2,5% debido a las presiones inflacionarias derivadas del conflicto en Medio Oriente</a></li><li class="toc-l2"><a href="#5-silicon-valley-vuelve-a-apostar-por-lo-imposible-gracias-a-la-inteligencia-artificial">5.  Silicon Valley vuelve a apostar por lo imposible gracias a la inteligencia artificial</a></li><li class="toc-l2"><a href="#6-el-petroleo-no-da-tregua-y-el-brent-se-mantiene-sobre-los-us-100-mientras-ataques-empanan-esperanzas-sobre-el-trafico-por-el-estrecho-de-ormuz">6.  El petróleo no da tregua y el Brent se mantiene sobre los US$ 100, mientras ataques empañan esperanzas sobre el tráfico por el estrecho de Ormuz</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-el-dilema-de-la-politica-fiscal">1.  El dilema de la política fiscal</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>10 De Septiembre De 2026</p><p>5 secciones  ·  20 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-se-dispara-mas-de-10-tras-fuerte-caida-del-cobre-y-la-creciente-inquietud-por-la-guerra-en-medio-oriente"><strong>1.  Dólar se dispara más de $ 10 tras fuerte caída del cobre y la creciente inquietud por la guerra en Medio Oriente</strong></h2><p>El cobre transado en Londres bajaba 3,1%, y más retrocedía el contrato de las bolsas estadounidenses. El crudo Brent ganaba más terreno sobre los US$ 100 y los rendimientos del Tesoro se disparaban alrededor de 8 puntos. El dólar recibía una fuerte demanda este jueves, mientraslos precios del cobre se repliegan desde sus máximos históricospor reportes de que Estados Unidos duda sobre un arancel al metal, y también viendo quela situación en Medio Oriente no hace más que empeorar. La divisa se disparaba $ 11,1 hasta los $ 938,9 a media mañana en Chile, según los datos de Bloomberg, con lo que se encuentra en sus mayores niveles de la jornada. Esto hace que el tipo de cambio esté muy cerca de borrar todas las caídas que siguieron a supeakdel 2 de septiembre.</p><h2 id="2-bolsa-chilena-sigue-a-la-baja-y-wall-street-abre-en-rojo-a-medida-que-el-brent-gana-mas-terreno-sobre-us-100-por-barril"><strong>2.  Bolsa chilena sigue a la baja y Wall Street abre en rojo a medida que el Brent gana más terreno sobre US$ 100 por barril</strong></h2><p>En este contexto, y viendo que los precios al productor de agosto en EEUU no trajeron un alivio, los operadores consideran seriamente posibilidad de que la Fed suba las tasas dos veces antes de que termine el año. Los mercados bursátiles globales seguían perdiendo terreno este jueves, a medida que los inversionistas ven cada vez más largala batalla entre Estados Unidos e Irán por el control del estrecho de Ormuz, con el consecuente efecto al alza sobre los costos energéticos. El S&amp;P IPSA caía 0,5% a 11.315,74 puntos, y esto hace que arriesgue una sexta jornada consecutiva a la baja desde elpeakde 11.556,21 puntos alcanzado el pasado miércoles.Pampa (-2,1%), Itaú (-1,6%) y Banco de Chile (-1,3%)eran las acciones con peor desempeño del índice, yLatam (-1,1%)contribuía de forma no menor.</p><h2 id="3-inicia-tramitacion-legislativa-del-proyecto-mk4-y-quiroz-designa-a-eugenio-symon-como-contraparte-tecnica"><strong>3.  Inicia tramitación legislativa del proyecto MK4 y Quiroz designa a Eugenio Symon como contraparte técnica</strong></h2><p>La comisión de Hacienda de la Cámara de Diputados recibió al ministro, quien expuso acerca de la iniciativa y respondió dudas sobre el impacto fiscal. El ministro de Hacienda, Jorge Quiroz, arribó poco después de las 15.00 horas a la comisión de Hacienda de la Cámara de Diputados para dar el puntapié inicial a la tramitación legislativa de la reforma al mercado de capitales, que ingresó al Congreso con suma urgencia. El secretario de Estado fijó ante los integrantes de la instancia que el coordinador del mercado de capitales de la cartera, Eugenio Symon, fuese la contraparte técnica para las reuniones con los asesores de los parlamentarios. El economista de la Universidad de Chile fue clave a la hora de diseñar el proyecto de ley y estuvo presente en la comisión.</p><h2 id="4-las-30-medidas-que-trae-la-mk4-desde-un-fondo-estatal-que-comprara-hipotecarios-a-un-nuevo-segmento-bursatil-para-empresas-emergentes"><strong>4.  Las 30 medidas que trae la MK4: desde un fondo estatal que comprará hipotecarios a un nuevo segmento bursátil para empresas emergentes</strong></h2><p>La esperada reforma al mercado de capitales que presentó el Presidente José Antonio Kast junto al ministro de Hacienda, Jorge Quiroz, se estructuró en cuatro ejes: acceso a la vivienda y fomento del ahorro; posicionamiento de Chile como centro financiero regional; simplificación regulatoria; y nuevas fuentes de financiamiento para las empresas. La esperadareforma al mercado de capitales MK4,que presentó el Presidente José Antonio Kast junto al ministro de Hacienda, Jorge Quiroz, ayer miércoles en Cerro Castillo se estructuró en cuatro ejes:acceso a la vivienda y fomento del ahorro; posicionamiento de Chile como centro financiero regional; simplificación regulatoria; y nuevas fuentes de financiamiento para las empresas. Sus 30 medidas se despliegan mediante artículos permanentes, que crean nuevos regímenes y modifican distintas leyes, además de disposiciones transitorias que fijan los plazos y condiciones para su implementación. El paquete incluyecambios a la Ley de Fraudes y al Ahorro Previsional Voluntario (APV), incentivos para atraer inversionistas extranjeros, nuevas operaciones para los fondos de pensiones y ajustes a las reglas bursátiles, tributarias, entre otras.</p><h2 id="5-juan-andres-camus-presidente-de-la-bolsa-de-santiago-es-positivo-tener-menos-exigencias-para-los-inversionistas-extranjeros"><strong>5.  Juan Andrés Camus, presidente de la Bolsa de Santiago: “Es positivo tener menos exigencias para los inversionistas extranjeros”</strong></h2><p>Para el timonel de la plaza, los incentivos a la exportación de servicios financieros, los REPO y la reducción de exigencias para los inversionistas extranjeros son los puntos clave. Desde distintas posiciones en el directorio de la Bolsa de Santiago y a lo largo de una carrera ligada al mercado de capitales,el presidente de la plaza bursátil local, Juan Andrés Camus, ha sido testigo directo de tres reformas al mercado de capitales local, tanto en su tramitación como en su implementación. Este miércoles, el directivovaloró el documento ingresado por el gobierno al Congreso.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-los-plazos-para-iniciar-obras-concesionadas-se-duplican-desde-2011-informe-apunta-a-cambio-de-modelo-del-mop"><strong>1.  Los plazos para iniciar obras concesionadas se duplican desde 2011: informe apunta a cambio de modelo del MOP</strong></h2><p>Carlos Cruz, director ejecutivo del CPI, advirtió que a los mayores tiempos de diseño y tramitación se suma la incertidumbre sobre las adjudicaciones. A su juicio, las obras que requieren subsidios estatales, como hospitales, cárceles y transporte público, serán las más perjudicadas. Un cambio gradual en la manera en que el Ministerio de Obras Públicas (MOP)entrega los proyectos a las concesionarias estaría detrás del fuerte aumento de los plazosentre la adjudicación de un contrato y el inicio de su construcción. El tiempo promedio entre ambos hitos se duplicó, pasando desde un año y dos meses entre 1992 y 2010 a dos años y siete meses a partir de 2011,según el último Reporte de Infraestructura del Consejo de Políticas de Infraestructura (CPI), elaborado con datos de la Dirección General de Concesiones (DGC).</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-anibal-alarcon-economista-senior-de-scotiabank-el-banco-central-esta-senalizando-que-la-recesion-continua"><strong>1.  Aníbal Alarcón, economista senior de Scotiabank: “El Banco Central está señalizando que la recesión continúa”</strong></h2><p>Para el experto, la reforma al mercado de capitales “podría agregar un impulso al sector inmobiliario y de la construcción”. Parael economista senior de Scotiabank, Aníbal Alarcón,el nuevo Informe de Política Monetaria (IPoM)dejó una señal especialmente relevante sobre el momento que atraviesa la economía chilena: de cumplirse el escenario trazado por el Banco Central,el tercer trimestre volvería a registrar una contracción en términos desestacionalizados, completando tres períodos consecutivos de caídas, algo que no se observaba desde la crisis financiera de 2008-2009. “Por lo tanto, el Banco Central está señalizando que la recesión continúa”, afirmó el experto en DF al Cierre.</p><h2 id="2-priscila-robledo-economista-jefe-de-fintual-el-riesgo-de-la-inversion-es-que-no-se-materialice-como-lo-vimos-en-todo-este-ano"><strong>2.  Priscila Robledo, economista jefe de Fintual: “El riesgo de la inversión es que no se materialice, como lo vimos en todo este año”</strong></h2><p>La economista también consideró que el 4,3% proyectado de inflación podría quedarse “un poquito corto” a final de año. Parala economista jefe de Fintual, Priscila Robledo,el Informe de Política Monetaria (IPoM) correspondiente a septiembre del Banco Centralestuvo “bastante en línea” con el escenario que había anticipado, incluida sus propias sus proyecciones. No obstante, la analista indicó que “sorprende un poco que no movieron el crecimiento de 2027, se lo llevaron hasta 2028”.</p><h2 id="3-claudia-martinez-directora-del-instituto-economia-uc-el-ipom-da-cuenta-de-las-debilidades-relacionadas-con-la-demanda-interna"><strong>3.  Claudia Martínez, directora del Instituto Economía UC: “El IPoM da cuenta de las debilidades relacionadas con la demanda interna”</strong></h2><p>La académica da cuenta que la evidencia del Banco Central podría demostrar el desacople entre crecimiento y empleo. Como una “muestra la falta de dinamismo que estábamos viendo en la economía durante el primer trimestre y que se estaban ya acumulando a los datos más nuevos”, recibióla directora del Instituto de Economía de la Universidad Católica, Claudia Martínez, la corrección a la baja de las proyeccionesen el Informe de Política Monetaria (IPoM) para este año desde el rango de 1,0%-1,75% previsto en junio a 0,25%-0,75%. “Da cuenta de las dificultades que estamos teniendo, tanto por el entorno externo como por la demanda interna”, señaló la académica.</p><h2 id="4-los-combustibles-extienden-alzas-en-chile-en-medio-de-un-petroleo-brent-sobre-los-us-100-en-el-exterior"><strong>4.  Los combustibles extienden alzas en Chile en medio de un petróleo Brent sobre los US$ 100 en el exterior</strong></h2><p>Mientras se acentúan las hostilidades en Medio Oriente, las bencinas subirán $ 35 en el país y el diésel se llevará la peor parte. Luego de que Estados Unidos destruyera cinco petroleros iraníes como respuesta a los ataques de la Guardia Revolucionaria de Irán con misiles balísticos contra un buque de guerra norteamericano, el petróleo Brent –referencia internacional– subió 3,4% hasta los US$ 101,21 por barril, el precio de cierre más alto desde el 22 de mayo. En tanto, el WTI avanzó 3,3% a US$ 96,05. De esta forma, el crudo Brent estaría acumulando un aumento superior al 8% durante septiembre, con la intensificación de los enfrentamientos entre EEUU e Irán.</p><h2 id="5-alerta-para-chile-freno-al-auge-de-la-ia-podria-impactar-crecimiento-global"><strong>5.  ¿Alerta para Chile? Freno al auge de la IA podría impactar crecimiento global</strong></h2><p>Esto podría derivar en una detención del alza del cobre y en condiciones financieras globales más estrechas, advirtió el reporte. El auge de la inteligencia artificial (IA) ha tenido un efecto dinamizador en la economía global, sosteniendo el rally de mercados financieros, empujando la inversión y llevando al cobre a niveles históricos de US$ 6 la libra. Pero aquello tiene sus riesgos, según advirtió el Banco Central en uno de los recuadros del IPoM.</p><h2 id="6-costa-reconoce-una-economia-debil-pero-con-tinte-positivo-para-los-dos-anos-venideros"><strong>6.  Costa reconoce una economía débil, pero con “tinte positivo” para los dos años venideros</strong></h2><p>La presidenta del Banco Central reflexionó sobre la necesidad de adaptabilidad que enfrenta el país en el contexto de un mundo cambiante. Como “relevantes” calificóla presidenta del Banco Central, Rosanna Costa, los desafíos que enfrenta la economía local al presentarel Informe de Política Monetaria (IPoM) de septiembre ante el Senado. La economista destacó que “la actividad y la demanda se han debilitado en los últimos meses, se han perdido empleos, la confianza de empresas y hogares se ha deteriorado y el alza de los precios de los combustibles ha afectado el poder adquisitivo de los hogares”.</p><h2 id="7-continua-la-busqueda-hacienda-desecha-la-llegada-de-juan-pablo-pincheira-como-coordinador-de-politica-tributaria"><strong>7.  Continúa la búsqueda: Hacienda desecha la llegada de Juan Pablo Pincheira como coordinador de Política Tributaria</strong></h2><p>El Ministerio de Hacienda desistió de la llegada del abogado Juan Pablo Pincheira como nuevo coordinador de Política Tributaria de la cartera, cargo al que arribaría el próximo 21 de septiembre en reemplazo del actual subsecretario de la cartera, Sebastián Vallebona. Si bien el fichaje se había acordado a mediados de la semana pasada, Pincheira tomó contacto este lunes con Vallebona para comunicarle que declinaría del cargo. ¿La razón? El abogado -socio del estudio Laport Justiniano Asesores Tributarios- estaría representando a contribuyentes en procesos abiertos con el Servicio de Impuestos Internos (SII) por la aplicación de la Norma General Antielusión.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-trump-promete-un-dividendo-de-us-5-mil-a-los-votantes-de-eeuu-si-los-republicanos-ganan-la-eleccion-de-medio-termino"><strong>1.  Trump promete un “dividendo” de US$ 5 mil a los votantes de EEUU si los republicanos ganan la elección de medio término</strong></h2><p>El mandatario se pone en el centro de la campaña electoral por el Congreso pese al desplome de sus índices de aprobación. Donald Trumpprometió entregar un“dividendo” de US$ 5 mil a cada ciudadano adulto de Estados Unidossi los republicanos mantienen el control del Congreso en las elecciones de mitad de período, en un intento por rescatar las perspectivas de su partido con una gran dosis deeconomía populista. El Presidente hizo el anuncio el miércoles, durante la noche inaugural de laprimera convención de mitad de período del Partido Republicano, realizada en Dallas. Instó a los votantes a “fingir que estoy en la papeleta solo una vez más”, pese al desplome de sus índices de aprobación.</p><h2 id="2-la-prima-del-precio-del-cobre-en-eeuu-se-hunde-tras-conocerse-que-plan-arancelario-se-estanco"><strong>2.  La prima del precio del cobre en EEUU se hunde tras conocerse que plan arancelario se estancó</strong></h2><p>El cobre de referencia en la Bolsa de Metales de Londres (LME) bajaba un 3% a US$ 6,499 por libra, tras haber alcanzado un máximo histórico de US$ 6,74 por libra, mientras que los precios en la bolsa estadounidense Comex cedían un 4,7% a US$ 6,49 por libra. El retraso en la decisión de aranceles se produce mientras las autoridades evalúan el riesgo de que un mayor precio del "metal rojo" eleve los costos de fabricación. (Foto: Reuters) La prima que se paga por el transporte de cobre a Estados Unidos se redujo drásticamente el jueves, después de que Reuters informó quelos planes de Washington de imponer un arancel a las importaciones de este metal se habían estancado.</p><h2 id="3-el-fmi-descarto-al-principal-candidato-a-economista-jefe-por-comentarios-sobre-los-aranceles-de-trump"><strong>3.  El FMI descartó al principal candidato a economista jefe por comentarios sobre los aranceles de Trump</strong></h2><p>El profesor de la London School of Economics, Ricardo Reis, había señalado que la guerra comercial del Presidente de Estados Unidos perjudicaría a los consumidores estadounidenses. ElFondo Monetario Internacional (FMI)descartó a último minuto al principal candidato para convertirse en su nuevoeconomista jefe, después de que tomaran conocimiento sobre comentarios críticos que realizó previamente acerca de las políticas económicas de la administración Trump, según personas informadas sobre el proceso. El organismo con sede en Washington se preparaba para anunciar a comienzos de este verano queRicardo Reis, profesor de laLondon School of Economics (LSE), asumiría comodirector de investigación y consejero económico, cuando repentinamente dio marcha atrás.El cambio de último minuto fue motivado por comentarios previos de Reiscríticos de los aranceles comerciales de Donald Trump, dijeron alFinancial Timestres personas familiarizadas con el asunto.</p><h2 id="4-bce-sube-las-tasas-a-25-debido-a-las-presiones-inflacionarias-derivadas-del-conflicto-en-medio-oriente"><strong>4.  BCE sube las tasas a 2,5% debido a las presiones inflacionarias derivadas del conflicto en Medio Oriente</strong></h2><p>El organismo liderado por Christine Lagarde determinó un incremento de un cuarto de punto, el segundo desde que comenzó la guerra. ElBanco Central Europeo (BCE) optó por subir las tasas de interés en un cuarto de punto a 2,50%, en una determinación que atribuyó directamente al conflicto bélico que mantiene cerrado el estrecho de Ormuz, impulsando al alza los precios de la energía. “El conflicto en Medio Orientecontinúa generando presiones inflacionarias y se prevé que la inflación se mantendrá muy por encima del objetivodurante un período prolongado”, señaló el comunicado.</p><h2 id="5-silicon-valley-vuelve-a-apostar-por-lo-imposible-gracias-a-la-inteligencia-artificial"><strong>5.  Silicon Valley vuelve a apostar por lo imposible gracias a la inteligencia artificial</strong></h2><p>Los inversionistas tecnológicos están volviendo a apostar por proyectos de ciencia ficción de alto riesgo, del tipo de apuestas que ayudaron a construir Silicon Valley. El auge de la inteligencia artificial (IA) está impulsando un resurgimiento de las ambiciosas apuestas“moonshot”, a medida que los enormes retornos obtenidos por los primeros inversionistas de SpaceX y las menores valorizaciones de las empresas tradicionales de software obligan a los inversionistas tecnológicos a asumir riesgos y apostar por negocios que requieren mayores cantidades de capital. Ideas que alguna vez fueron consideradas descabelladas, desde lafusión nuclear hasta la integración entre humanos y máquinas, están captando la atención de firmas de capital de riesgo que, hasta hace pocos años, jamás habrían invertido en startups de estos sectores.</p><h2 id="6-el-petroleo-no-da-tregua-y-el-brent-se-mantiene-sobre-los-us-100-mientras-ataques-empanan-esperanzas-sobre-el-trafico-por-el-estrecho-de-ormuz"><strong>6.  El petróleo no da tregua y el Brent se mantiene sobre los US$ 100, mientras ataques empañan esperanzas sobre el tráfico por el estrecho de Ormuz</strong></h2><p>Los precios del Brent se han disparado casi un 30% desde los mínimos alcanzados a principios de agosto, ya que nunca se materializó un acuerdo permanente entre Estados Unidos e Irán para poner fin a los ataques y los combates se reanudaron a finales de mes. Los flujos de petróleo a través del estrecho de Ormuz siguen estando muy por debajo de los niveles previos a la guerra. (Foto: Reuters) Los precios del petróleo subían el jueves, prolongando las alzas que llevaron al Brenta superar los US$ 100 por barril en la sesión anterior, mientras los operadores se preparaban para nuevas interrupciones en el suministro tras los ataques más graves contra el transporte marítimo lanzados por Irán y Estados Unidos desde que comenzó su conflicto.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-el-dilema-de-la-politica-fiscal"><strong>1.  El dilema de la política fiscal</strong></h2><p><em>(Sin detalle disponible.)</em></p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

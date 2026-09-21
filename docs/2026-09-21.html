@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-21.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">21 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-ipsa-baja-tras-fin-de-semana-largo-y-wall-street-abre-al-alza-mientras-inversionistas-evaluan-posible-dialogo-sobre-medio-oriente">1.  IPSA baja tras fin de semana largo y Wall Street abre al alza mientras inversionistas evalúan posible diálogo sobre Medio Oriente</a></li><li class="toc-l2"><a href="#2-chile-recibe-un-fuerte-flujo-de-capital-extranjero-a-medida-que-la-postura-fiscal-tranquiliza-a-los-inversionistas">2.  Chile recibe un fuerte flujo de capital extranjero a medida que la postura fiscal tranquiliza a los inversionistas</a></li><li class="toc-l2"><a href="#3-dolar-baja-tras-el-descanso-de-fiestas-patrias-a-medida-que-el-petroleo-cae-por-esperanzas-de-diplomacia-en-medio-oriente">3.  Dólar baja tras el descanso de Fiestas Patrias a medida que el petróleo cae por esperanzas de diplomacia en Medio Oriente</a></li><li class="toc-l2"><a href="#4-fonavi-bajo-la-lupa-de-la-banca-las-dudas-por-la-primera-perdida-bancoestado-y-su-duracion">4.  Fonavi bajo la lupa de la banca: las dudas por la primera pérdida, BancoEstado y su duración</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-comite-de-ministros-en-picada-contra-inmobiliaria-de-jorge-galmez-por-millonario-proyecto-en-litueche-y-pide-rechazar-recurso-de-reclamacion">1.  Comité de Ministros en picada contra inmobiliaria de Jorge Gálmez por millonario proyecto en Litueche y pide rechazar recurso de reclamación</a></li><li class="toc-l2"><a href="#2-la-negativa-de-tvn-a-transmitir-comerciales-de-las-plataformas-de-apuestas-online-responde-a-la-necesidad-de-resguardar-nuestra-mision-publica">2.  La negativa de TVN a transmitir comerciales de las plataformas de apuestas online: “Responde a la necesidad de resguardar nuestra misión pública”</a></li><li class="toc-l2"><a href="#3-demanda-electrica-se-estanca-en-ultimos-cinco-anos-con-su-menor-crecimiento-en-dos-decadas">3.  Demanda eléctrica se estanca en últimos cinco años con su menor crecimiento en dos décadas</a></li><li class="toc-l2"><a href="#4-cntv-amplia-ofensiva-contra-publicidad-de-apuestas-online-y-formula-cargos-por-inhabilidad-legal-de-las-plataformas">4.  CNTV amplía ofensiva contra publicidad de apuestas online y formula cargos por inhabilidad legal de las plataformas</a></li><li class="toc-l2"><a href="#5-la-querella-del-senor-campos-carece-de-todo-fundamento-abogado-jorge-galvez-rebate-acusacion-por-venta-de-construmart">5.  “La querella del señor Campos carece de todo fundamento”: abogado Jorge Gálvez rebate acusación por venta de Construmart</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-claves-del-congreso-reforma-politica-que-endurece-formacion-de-partidos-podria-ser-despachada-a-ley-esta-semana">1.  Claves del Congreso: reforma política que endurece formación de partidos podría ser despachada a ley esta semana</a></li><li class="toc-l2"><a href="#2-reforma-politica-sube-la-vara-a-los-partidos-estudio-muestra-que-solo-cinco-cumplen-hoy-nuevos-requisitos">2.  Reforma política sube la vara a los partidos: estudio muestra que solo cinco cumplen hoy nuevos requisitos</a></li><li class="toc-l2"><a href="#3-sofofa-refuerza-con-viaje-a-lima-su-apuesta-por-una-mayor-integracion-y-gestiona-reunion-con-keiko-fujimori">3.  Sofofa refuerza con viaje a Lima su apuesta por una mayor integración y gestiona reunión con Keiko Fujimori</a></li><li class="toc-l2"><a href="#4-fruta-chilena-sortea-los-aranceles-cierra-temporada-al-alza-y-eeuu-se-afianza-como-su-principal-mercado">4.  Fruta chilena sortea los aranceles, cierra temporada al alza y EEUU se afianza como su principal mercado</a></li><li class="toc-l2"><a href="#5-gobierno-afina-cambios-al-regimen-pyme-con-foco-en-formalizacion-y-tramos-para-pago-de-impuestos">5.  Gobierno afina cambios al régimen PYME con foco en formalización y tramos para pago de impuestos</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-medios-estadounidenses-demandaran-a-la-administracion-trump-por-vetar-su-ingreso-a-la-casa-blanca">1.  Medios estadounidenses demandarán a la administración Trump por vetar su ingreso a la Casa Blanca</a></li><li class="toc-l2"><a href="#2-scott-bessent-celebra-dialogo-sobre-ia-entre-eeuu-y-china-antes-de-la-cumbre-de-trump-y-xi-en-washington">2.  Scott Bessent celebra diálogo sobre IA entre EEUU y China antes de la cumbre de Trump y Xi en Washington</a></li><li class="toc-l2"><a href="#3-china-confirma-que-xi-visitara-eeuu-del-23-al-25-de-septiembre-y-tendra-un-profundo-intercambio-de-opiniones-con-trump-sobre-relaciones-bilaterales">3.  China confirma que Xi visitará EEUU del 23 al 25 de septiembre y tendrá un &quot;profundo intercambio de opiniones&quot; con Trump sobre relaciones bilaterales</a></li><li class="toc-l2"><a href="#4-dirigente-empresarial-argentino-defiende-la-gestion-del-gobierno-de-javier-milei-ha-sido-un-exito-en-terminos-de-estabilizacion">4.  Dirigente empresarial argentino defiende la gestión del gobierno de Javier Milei: “Ha sido un éxito en términos de estabilización”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-df-lab-opinion-desafios-y-oportunidades-en-las-organizaciones-declaradas-oiv">1.  DF Lab Opinión/ Desafíos y oportunidades en las organizaciones declaradas OIV</a></li><li class="toc-l2"><a href="#2-expertos-advierten-que-chile-tiene-capacidades-aun-incipientes-para-enfrentar-riesgos-de-ciberseguridad-derivados-de-la-ia">2.  Expertos advierten que Chile tiene capacidades aún “incipientes” para enfrentar riesgos de ciberseguridad derivados de la IA</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-el-peso-de-la-fed-en-chile">1.  El peso de la Fed en Chile</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>21 De Septiembre De 2026</p><p>6 secciones  ·  21 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-ipsa-baja-tras-fin-de-semana-largo-y-wall-street-abre-al-alza-mientras-inversionistas-evaluan-posible-dialogo-sobre-medio-oriente"><strong>1.  IPSA baja tras fin de semana largo y Wall Street abre al alza mientras inversionistas evalúan posible diálogo sobre Medio Oriente</strong></h2><p>El MSCI IPSA retrocedía 0,5% hasta 11.319,80 puntos en su retorno tras el feriado del 18 de septiembre, arrastrado por SQM-B (-3,2%), Enel Américas (-2,8%) y Falabella (-1,3%), y poniéndose al día con las bajas regionales del viernes en Perú, Argentina, Brasil y México. En contraste, los mercados desarrollados operaban al alza: Nasdaq +0,8%, S&amp;P 500 +0,6%, Dow Jones +0,5%, Euro Stoxx 50 +1,4% y FTSE 100 +1%. El Brent caía 3,3% a US$ 100,5 el barril y relajaba las tasas soberanas, ante la posibilidad de que Trump se reúna con el mandatario iraní Masoud Pezeshkian durante la Asamblea General de la ONU. A ello se suma la expectativa por la visita de Estado de Xi Jinping a EEUU entre miércoles y viernes —la primera desde 2015— mientras los futuros siguen descontando tres alzas de 25 puntos base de la Fed en los próximos 12 meses.</p><h2 id="2-chile-recibe-un-fuerte-flujo-de-capital-extranjero-a-medida-que-la-postura-fiscal-tranquiliza-a-los-inversionistas"><strong>2.  Chile recibe un fuerte flujo de capital extranjero a medida que la postura fiscal tranquiliza a los inversionistas</strong></h2><p>Las tenencias de bonos soberanos en pesos en manos de no residentes subieron US$ 700 millones en agosto hasta un récord de US$ 21.040 millones, con un alza acumulada de 42% en lo que va del año, muy por encima del resto de América Latina. El atractivo se explica por el resurgimiento del sentimiento 'Sell America', la contención del gasto del gobierno de José Antonio Kast y las reformas para profundizar el mercado local de deuda. Chile anotó un superávit fiscal de $ 95.000 millones en julio tras un salto de 79% en ingresos de la minería privada, y Hacienda proyecta limitar el crecimiento del gasto a entre 0% y 1% el próximo año, un contraste con Brasil y con Colombia, que aprobó un alza de 16% del gasto. La participación extranjera en la deuda soberana local llegó a 15,6% en marzo, casi el doble del 8% de fines de 2024, y el gobierno impulsa un mercado de repos para las AFP y un programa de market-makers para sostener el impulso.</p><h2 id="3-dolar-baja-tras-el-descanso-de-fiestas-patrias-a-medida-que-el-petroleo-cae-por-esperanzas-de-diplomacia-en-medio-oriente"><strong>3.  Dólar baja tras el descanso de Fiestas Patrias a medida que el petróleo cae por esperanzas de diplomacia en Medio Oriente</strong></h2><p>El tipo de cambio abrió la semana con una baja de $ 4,2 hasta $ 955,8, tras el fin de semana largo por Fiestas Patrias y en medio de un alivio de las tensiones geopolíticas en Medio Oriente. El Brent caía 2,5% a US$ 101,3 el barril mientras el cobre en Londres avanzaba 1% a US$ 6,65 la libra, dando soporte al peso. Pesan las señales diplomáticas —una eventual reunión Trump-Pezeshkian en la ONU y la visita de Xi Jinping a EEUU— junto con la primera subida de tasas de la Fed desde 2023, que apuntó a otro ajuste antes de fin de año. Los operadores descuentan tres alzas que llevarían el techo de los fondos federales de 4% a 4,75%, un escenario adverso para el peso por el estrecho diferencial de tasas que ya empujó al dólar a su mayor nivel desde octubre de 2025.</p><h2 id="4-fonavi-bajo-la-lupa-de-la-banca-las-dudas-por-la-primera-perdida-bancoestado-y-su-duracion"><strong>4.  Fonavi bajo la lupa de la banca: las dudas por la primera pérdida, BancoEstado y su duración</strong></h2><p>El Fondo Nacional de Vivienda, pieza central de la reforma al mercado de capitales, será administrado por BancoEstado y podrá recibir aportes fiscales por hasta US$ 2 mil millones para comprar carteras hipotecarias y liberar espacio para nuevas colocaciones, pero la banca cuestiona aspectos clave de su diseño. El principal reparo es el umbral de primera pérdida de 3,5% planteado por el ministro Jorge Quiroz: como la pérdida efectiva no recuperada ronda 0,5% de la cartera —frente a una mora hipotecaria cercana a 2%—, los bancos seguirían asumiendo casi todo el riesgo, lo que anula el objetivo de liberar capital y provisiones. También preocupa que la primera pérdida se aplique crédito a crédito, incentivando la selección de clientes de menor riesgo, y que el fondo sea permanente en lugar de acotado a unos cinco años. Un tercer flanco es el doble rol de BancoEstado como administrador y originador, en un contexto en que su mora hipotecaria a 90 días llegó a 4,75% al cierre de 2025 frente a 2,59% del sistema.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-comite-de-ministros-en-picada-contra-inmobiliaria-de-jorge-galmez-por-millonario-proyecto-en-litueche-y-pide-rechazar-recurso-de-reclamacion"><strong>1.  Comité de Ministros en picada contra inmobiliaria de Jorge Gálmez por millonario proyecto en Litueche y pide rechazar recurso de reclamación</strong></h2><p>La Dirección Ejecutiva del Servicio de Evaluación Ambiental, en representación del Comité de Ministros, pidió rechazar el reclamo de Inmobiliaria e Inversiones Ayelén, ligada a Jorge Gálmez, y mantener la calificación desfavorable del proyecto de parcelaciones Punta Puertecillo en Litueche, una inversión de US$ 20 millones. La Corte Suprema ya había multado a la empresa y prohibido nuevas ventas de terrenos —de 307 lotes, 197 ya enajenados— hasta obtener una RCA favorable. El Comité rechazó la reclamación en mayo argumentando que el proyecto requiere el Permiso Ambiental Sectorial 160 conforme al artículo 55 de la Ley General de Urbanismo y Construcciones, y la inmobiliaria llevó el caso al Segundo Tribunal Ambiental en julio. El SEA sostiene que no hay contradicción con el fallo judicial y que el rechazo del PAS 160 se sustenta en antecedentes técnicos que acreditan la generación de un nuevo núcleo urbano y el riesgo de degradación del suelo rural.</p><h2 id="2-la-negativa-de-tvn-a-transmitir-comerciales-de-las-plataformas-de-apuestas-online-responde-a-la-necesidad-de-resguardar-nuestra-mision-publica"><strong>2.  La negativa de TVN a transmitir comerciales de las plataformas de apuestas online: “Responde a la necesidad de resguardar nuestra misión pública”</strong></h2><p>TVN decidió no emitir publicidad de plataformas de apuestas online pese a que en el primer semestre sus ingresos por publicidad abierta cayeron 10,6% y sus pérdidas sumaron cerca de $ 8 mil millones. El canal estatal explicó que la definición fue adoptada por su directorio considerando la situación regulatoria de la actividad y su responsabilidad como medio público, con foco en proteger a niños y adolescentes frente a los riesgos del juego. La decisión implica renunciar a un negocio relevante: según fuentes de la industria, un paquete de cinco a seis spots diarios durante una semana en horario prime puede costar entre $ 20 y $ 40 millones. La señal pública afirmó que su responsabilidad va más allá de los criterios estrictamente comerciales.</p><h2 id="3-demanda-electrica-se-estanca-en-ultimos-cinco-anos-con-su-menor-crecimiento-en-dos-decadas"><strong>3.  Demanda eléctrica se estanca en últimos cinco años con su menor crecimiento en dos décadas</strong></h2><p>La demanda eléctrica chilena creció en promedio apenas 2,1% entre 2021 y 2025, el peor desempeño quinquenal en veinte años, muy por debajo del 3,9% de 2011-2015 y del 5,7% de 2001-2005, según la consultora energiE con datos del Coordinador Eléctrico. En 2025 la expansión anual fue de -0,2%, el único registro negativo del siglo, y para 2026 se proyecta un alza de solo 0,9%, que sería el quinto peor año del siglo. La consultora atribuye el fenómeno principalmente al estancamiento económico, mientras el Ministerio de Energía suma factores estructurales como eficiencia energética y autoconsumo; la demanda regulada cayó de 53% del sistema en 2000 a 38% en 2025 y, con 30.465 GWh, sigue 16% bajo el peak de 2016. Energía trabaja en tres frentes: atraer data centers, una nueva Ley de Redes Eléctricas cuyas mesas prelegislativas parten este 21 de septiembre con ingreso al Congreso previsto para el primer trimestre de 2027, y aprovechar la energía vertida con 2.655 MW de baterías en operación y 5.040 MW en construcción.</p><h2 id="4-cntv-amplia-ofensiva-contra-publicidad-de-apuestas-online-y-formula-cargos-por-inhabilidad-legal-de-las-plataformas"><strong>4.  CNTV amplía ofensiva contra publicidad de apuestas online y formula cargos por inhabilidad legal de las plataformas</strong></h2><p>El Consejo Nacional de Televisión formuló cargos contra Chilevisión el 10 de agosto por un comercial de Betano emitido el 5 de enero en horario prime, bajo la tesis de que promover una actividad sin habilitación legal puede comprometer el correcto funcionamiento de los servicios de televisión. El caso marca un giro respecto de la fiscalización previa, ya que la emisión ocurrió pasadas las 21:00 horas, fuera del horario de protección de menores, criterio que sustentó los 24 acuerdos sancionatorios vigentes —13 en TV abierta y 11 en TV de pago— con multas de entre 20 y 81 UTM. El presidente de Anatel, Pablo Vidal, replicó que el propio CNTV declaró ante el Senado en julio que calificar la legalidad de estas plataformas excede sus atribuciones, mientras CHV ya presentó descargos y espera resolución. Tanto los canales como la agrupación iGaming Responsable piden acelerar la tramitación de la ley de juego en línea para fijar un estándar único de publicidad responsable en lugar de resolver caso a caso.</p><h2 id="5-la-querella-del-senor-campos-carece-de-todo-fundamento-abogado-jorge-galvez-rebate-acusacion-por-venta-de-construmart"><strong>5.  “La querella del señor Campos carece de todo fundamento”: abogado Jorge Gálvez rebate acusación por venta de Construmart</strong></h2><p>El abogado Jorge Gálvez, en representación de Inversiones RTB —holding de la familia de Gabriel Ruiz-Tagle—, rechazó la querella por estafa presentada por Julio Campos, aportante del FIP Hammer, en torno a la venta de la cadena ferretera Construmart al grupo chino Oriental Yuhong. La acción legal sostiene que Ruiz-Tagle compró el 100% de la compañía a una valorización menor y que 79 días después revendió a la firma asiática, capturando la diferencia de valor solo para las sociedades ligadas a él y a Felipe Baraona. Gálvez afirmó que el relato contiene omisiones y tergiversaciones, que LarrainVial condujo el proceso de forma profesional y transparente y que todos los miembros del comité de inversiones tuvieron la misma información. Agregó que Finasset, administradora del FIP, ya realizó a solicitud del propio Campos una investigación que descartó irregularidades, y anticipó eventuales acciones legales futuras.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-claves-del-congreso-reforma-politica-que-endurece-formacion-de-partidos-podria-ser-despachada-a-ley-esta-semana"><strong>1.  Claves del Congreso: reforma política que endurece formación de partidos podría ser despachada a ley esta semana</strong></h2><p>El Congreso retoma su labor legislativa con una agenda cargada, mientras el Presidente José Antonio Kast debuta en la 81ª Asamblea General de la ONU. El miércoles 23 la Sala de la Cámara votará la reforma política que endurece los requisitos para formar partidos, y el martes 22 la Comisión de Hacienda continúa el estudio de la reforma al mercado de capitales con la asistencia del ministro Jorge Quiroz, la presidenta del Banco Central Rosanna Costa, la titular de la CMF Catherine Tornel y el presidente de BancoEstado Mario Farren. También destacan la citación al biministro Daniel Mas por la capitalización del 100% de las utilidades de Codelco de 2025, la exposición del ministro del Trabajo Tomás Rau sobre la agenda pro empleo, el inicio del segundo trámite del proyecto de sala cuna y la comparecencia de la contralora Dorothy Pérez por cerca de 760 mil vacunas de influenza vencidas. En paralelo avanzan la comisión mixta sobre el Subsistema de Inteligencia Económica y el secreto bancario, la designación de Cecilia Cifuentes en el Consejo Fiscal Autónomo y las subcomisiones de cara al Presupuesto 2027.</p><h2 id="2-reforma-politica-sube-la-vara-a-los-partidos-estudio-muestra-que-solo-cinco-cumplen-hoy-nuevos-requisitos"><strong>2.  Reforma política sube la vara a los partidos: estudio muestra que solo cinco cumplen hoy nuevos requisitos</strong></h2><p>Un estudio del Instituto Libertad concluyó que, si la reforma política entrara en vigor de inmediato, solo cinco partidos cumplirían los nuevos requisitos de afiliación: el Frente Amplio (55.942 militantes), el Partido Nacional Libertario (50.099), el Partido Socialista (43.273), el Partido de la Gente (42.628) y Renovación Nacional (41.427). La iniciativa, impulsada por la administración de Gabriel Boric y en su última etapa de tramitación, eleva el umbral de afiliados, elimina la opción de constituirse en solo tres regiones contiguas y exige representación parlamentaria para acceder a aportes estatales, con un plazo de 18 meses para que las colectividades ya constituidas reúnan el 50% del nuevo mínimo regional. Los mayores déficits los registran la Federación Regionalista Verde Social (brecha de 9.292 militantes), Evópoli (9.759) y el Partido Liberal (cerca de 9.647), mientras el PC necesita apenas 17 afiliados en Ñuble. El investigador Lucas González sostuvo que la reforma busca partidos con presencia nacional real y que un sistema con menos colectividades puede facilitar la gobernabilidad y los acuerdos.</p><h2 id="3-sofofa-refuerza-con-viaje-a-lima-su-apuesta-por-una-mayor-integracion-y-gestiona-reunion-con-keiko-fujimori"><strong>3.  Sofofa refuerza con viaje a Lima su apuesta por una mayor integración y gestiona reunión con Keiko Fujimori</strong></h2><p>Una delegación de la Sofofa viajará a Lima el 9 de octubre para la XXI Reunión del Consejo Empresarial Chile-Perú y gestiona un encuentro con la nueva mandataria peruana, Keiko Fujimori. La comitiva será encabezada por la presidenta del gremio, Rosario Navarro, y el presidente del capítulo chileno, Luis Felipe Gazitúa, e incluirá a ejecutivos de Alxar, Latam Airlines, Sky Airline, Sonda, Mercado Libre, SQM, Cencosud, Inarco, Puerto Ventanas y Prize, además de los ministros peruanos de Relaciones Exteriores, Carlos Espá, y de Economía y Finanzas, Elmer Cuba. El mensaje central será el compromiso del sector privado como factor de continuidad ante los cambios de gobierno y el aprovechamiento de la sintonía política entre ambas administraciones, en el marco de los 20 años del Tratado de Libre Comercio bilateral. La agenda dará seguimiento a los ejes definidos en junio en Santiago: integración productiva en minería y energía, desarrollo fronterizo, inversiones recíprocas y articulación en APEC, CPTPP y la Alianza del Pacífico.</p><h2 id="4-fruta-chilena-sortea-los-aranceles-cierra-temporada-al-alza-y-eeuu-se-afianza-como-su-principal-mercado"><strong>4.  Fruta chilena sortea los aranceles, cierra temporada al alza y EEUU se afianza como su principal mercado</strong></h2><p>Las exportaciones de fruta chilena sumaron US$ 8.198,8 millones entre septiembre de 2025 y agosto de 2026, un alza de 6,8% anual, con un volumen de 3.021.216 toneladas que superó por segunda vez en la historia la barrera de los 3 millones. El desempeño fue dispar: las paltas crecieron 22,4% a US$ 464,3 millones, los kiwis 15,8%, las ciruelas 11,7% y los arándanos 8,1%, mientras uvas, cerezas y peras cayeron 7,1%, 2,2% y 2,4% respectivamente. Estados Unidos se consolidó como principal destino con 30% de los volúmenes y un alza de 4%, superando a Asia (29%, con una baja cercana a 10%), y ello pese al arancel de 12,5%: mandarinas, limones y manzanas crecieron 41%, 31% y 20%. India fue la sorpresa con un salto de 36% que la llevó del quinto al segundo lugar en Asia, liderado por manzanas (+73%) pese a un arancel de 50%, y el presidente de Frutas de Chile, Iván Marambio, espera cerrar el acuerdo CEPA con ese país y alcanzar unas 3.100.000 toneladas la próxima temporada.</p><h2 id="5-gobierno-afina-cambios-al-regimen-pyme-con-foco-en-formalizacion-y-tramos-para-pago-de-impuestos"><strong>5.  Gobierno afina cambios al régimen PYME con foco en formalización y tramos para pago de impuestos</strong></h2><p>Los ministerios de Hacienda y Economía preparan un nuevo estatuto tributario para las pymes, liderado por los subsecretarios Sebastián Vallebona y Karlfranz Koehler, que apunta a ingresar al Congreso en diciembre tras concluida la tramitación del Presupuesto. El diagnóstico es que hoy el salto desde el régimen pyme al general implica pasar de una tasa de 12,5% a 27% sin puntos intermedios, un desincentivo al crecimiento; el gobierno buscará mantener la tasa en 12,5% en lugar del alza a 15% prevista para 2028, mientras la tasa de las grandes empresas bajará a 23% en 2029. La propuesta regula tres momentos: la instalación, reemplazando los nueve regímenes actuales por uno solo con registro único, períodos de gracia y alertas para fomentar la formalización; el crecimiento, simplificando el Propyme General y Propyme Transparente y evaluando cambiar la base imponible desde ventas a utilidades con ajuste del corte de UF 75 mil; y el tránsito al régimen general, mediante tramos marginales similares a los del Global Complementario. La idea es que la carga tributaria suba gradualmente desde 12,5% hasta 23%, partiendo con un tope exento, para que los socios no opten por mantener sus empresas pequeñas.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-medios-estadounidenses-demandaran-a-la-administracion-trump-por-vetar-su-ingreso-a-la-casa-blanca"><strong>1.  Medios estadounidenses demandarán a la administración Trump por vetar su ingreso a la Casa Blanca</strong></h2><p>CNN, MS Now y Politico presentaron una acción legal contra la administración Trump después de que el Presidente prohibiera a esos medios cubrir su gobierno desde el interior de la Casa Blanca y revocara de inmediato las credenciales de sus periodistas. Los grupos invocan la Primera Enmienda y solicitan una orden temporal que impida nuevas medidas y obligue a restituir las acreditaciones, alegando un daño grave e irreparable y sosteniendo que el veto buscó excluir a organizaciones con líneas editoriales desfavorecidas. Trump acusó el viernes a los tres medios de producir 'ficción o mentiras', sin señalar artículos específicos, y amenazó con extender el veto a otros; CNN además fue retirada del pool televisivo para su visita a Nueva York. El caso se suma a los litigios del Presidente con la BBC, The New York Times y The Wall Street Journal, y a la demanda de Disney contra la FCC por una supuesta campaña de represalias contra ABC, mientras la sala de prensa se abre a blogueros e influencers afines.</p><h2 id="2-scott-bessent-celebra-dialogo-sobre-ia-entre-eeuu-y-china-antes-de-la-cumbre-de-trump-y-xi-en-washington"><strong>2.  Scott Bessent celebra diálogo sobre IA entre EEUU y China antes de la cumbre de Trump y Xi en Washington</strong></h2><p>Estados Unidos y China acordaron crear un mecanismo formal de diálogo sobre inteligencia artificial, anunciado por el secretario del Tesoro Scott Bessent tras reunirse el domingo en Nueva York con el viceprimer ministro chino He Lifeng, días antes de la cumbre Trump-Xi del jueves en Washington. Bessent señaló que ambas partes volverían a reunirse en unos dos meses y que EEUU busca abordar riesgos de agentes de IA fuera de control, amenazas cibernéticas potenciadas por IA y armas biológicas, además de proponer un 'mecanismo de notificación' para incidentes con implicancias de seguridad nacional. En paralelo, no hubo acuerdo para extender la tregua comercial que vence el 10 de noviembre: Washington propuso seis meses y Beijing pidió cubrir el resto del mandato de Trump, en medio de reclamos de que China cumple solo dos tercios de sus compromisos sobre tierras raras. También se formalizó un 'consejo de comercio' para identificar productos no sensibles con aranceles más bajos, mientras EEUU presionó por el apoyo chino a Irán, incluida la compra de petróleo y presuntas imágenes satelitales que Beijing niega.</p><h2 id="3-china-confirma-que-xi-visitara-eeuu-del-23-al-25-de-septiembre-y-tendra-un-profundo-intercambio-de-opiniones-con-trump-sobre-relaciones-bilaterales"><strong>3.  China confirma que Xi visitará EEUU del 23 al 25 de septiembre y tendrá un "profundo intercambio de opiniones" con Trump sobre relaciones bilaterales</strong></h2><p>El Ministerio de Asuntos Exteriores de China confirmó que el presidente Xi Jinping realizará una visita de Estado a Estados Unidos entre el 23 y el 25 de septiembre, por invitación de Donald Trump. Durante la estadía, Xi sostendrá un profundo intercambio de opiniones con su par estadounidense sobre asuntos fundamentales de la relación bilateral y sobre la paz y el desarrollo mundiales. El portavoz Guo Jiakun calificó de histórico e hito el hecho de que ambos jefes de Estado se visiten recíprocamente en un plazo de seis meses, tras el encuentro sostenido en Beijing en mayo. Beijing manifestó su disposición a reforzar el diálogo y la cooperación con Washington y a gestionar adecuadamente las diferencias entre ambas potencias.</p><h2 id="4-dirigente-empresarial-argentino-defiende-la-gestion-del-gobierno-de-javier-milei-ha-sido-un-exito-en-terminos-de-estabilizacion"><strong>4.  Dirigente empresarial argentino defiende la gestión del gobierno de Javier Milei: “Ha sido un éxito en términos de estabilización”</strong></h2><p>El presidente del Instituto de Desarrollo Empresarial de la Argentina (IDEA), Santiago Mignone, evaluó positivamente el manejo económico de Javier Milei, al que calificó como un éxito en términos de estabilización macroeconómica, aunque advirtió que el proceso está a mitad de camino. Sostuvo que la prioridad pendiente es una reforma impositiva que elimine los tributos distorsivos que gravan cada etapa de la cadena productiva y encarecen los costos, tanto a nivel nacional como provincial. Rechazó que el gobierno haya sacrificado la actividad: Argentina completará su tercer año de crecimiento y superará por primera vez los US$ 100 mil millones en exportaciones, impulsada por la apertura y por el RIGI, aunque el consumo aún no encuentra piso y los sectores menos competitivos sufren más. Identificó la reconstrucción de la confianza como el principal obstáculo para invertir —reflejada en un riesgo país superior al de la región— y la formalización del empleo como la gran reforma faltante, valorando la Ley de Modernización Laboral aprobada este año, todo ello en un contexto de inflación que bajó de 33,8% a 33,5% interanual y debilitamiento de la construcción y la industria en julio.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-df-lab-opinion-desafios-y-oportunidades-en-las-organizaciones-declaradas-oiv"><strong>1.  DF Lab Opinión/ Desafíos y oportunidades en las organizaciones declaradas OIV</strong></h2><p>El vicepresidente ejecutivo para la Región Andina de Logicalis, Jorge Yaqui, plantea que la Ley Marco de Ciberseguridad ha forzado a las organizaciones calificadas como Operadores de Importancia Vital a migrar desde una mirada tecnológica hacia una gestión corporativa del riesgo, con sistemas de gestión periódica, revisión permanente de riesgos y respuesta ante incidentes. Los mayores desafíos se concentran en salud —continuidad clínica y protección de datos—, en utilities e infraestructura crítica —ambientes OT, segmentación de redes y dependencia de proveedores— y en telecomunicaciones y servicios digitales, donde priman la disponibilidad, la trazabilidad y el monitoreo continuo. La banca, los servicios financieros y los medios de pago muestran el mayor avance por exigencias regulatorias previas, aunque deben integrar los nuevos requerimientos evitando duplicidades. El autor advierte que las empresas sin un CISO independiente de TI enfrentan conflictos de prioridad, y enumera como brechas transversales la falta de gobierno formal, inventarios incompletos de activos y proveedores, incertidumbre sobre el reporte de incidentes y la dificultad para justificar presupuesto ante los directorios.</p><h2 id="2-expertos-advierten-que-chile-tiene-capacidades-aun-incipientes-para-enfrentar-riesgos-de-ciberseguridad-derivados-de-la-ia"><strong>2.  Expertos advierten que Chile tiene capacidades aún “incipientes” para enfrentar riesgos de ciberseguridad derivados de la IA</strong></h2><p>En el tercer capítulo de la temporada de IA Lab de DF, el exdirector de la Agencia Nacional de Ciberseguridad, Daniel Álvarez, y el director ejecutivo de Kepler, Hugo Galilea, coincidieron en que la preparación de las organizaciones chilenas frente a los riesgos de ciberseguridad derivados de la IA es todavía incipiente, con brechas en gestión de riesgos, talento especializado y sistemas legacy. Álvarez valoró el ecosistema regulatorio local —la Ley Marco de Ciberseguridad y la futura Ley de Protección de Datos Personales— pero advirtió que tanto el sector público como el privado están incorporando IA de forma irreflexiva desde el punto de vista de la seguridad y que muchos directorios no traducen su compromiso en acciones ejecutables. Galilea sostuvo que la principal brecha está en las personas, ya que 90% de los ataques exitosos se originan en una falla humana, y que importa más cómo se invierte en ciberseguridad que cuánto, priorizando capacitación y cambio cultural ante el déficit de profesionales en la intersección entre IA y seguridad. Ambos alertaron además sobre los riesgos de la biometría y el reconocimiento facial, dado que una filtración de huellas dactilares o patrones faciales es irreversible, y sobre el futuro uso de cámaras callejeras capaces de capturar datos biométricos sin consentimiento.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-el-peso-de-la-fed-en-chile"><strong>1.  El peso de la Fed en Chile</strong></h2><p>La Reserva Federal subió su tasa 25 puntos base hasta el rango de 3,75%-4%, su primera alza en tres años, pese a que Trump reconoció haber presionado a su presidente Kevin Warsh para evitarla, lo que el mercado leyó como una señal de tensión con la Casa Blanca. Para el Banco Central de Chile la decisión abre una encrucijada: el endurecimiento externo limita su margen justo cuando la economía local necesita tasas más bajas para reactivarse, tras recortar con fuerza su proyección de crecimiento para 2026 en el IPoM de septiembre y mantener la TPM en 4,5% por sexta vez consecutiva. El primer frente es cambiario, con el dólar rondando los $ 955 y menores ingresos por exportaciones de cobre, lo que traspasa presiones inflacionarias vía combustibles y bienes importados; el segundo son las tasas largas, ya que mayores rendimientos del Tesoro contaminan las tasas hipotecarias locales y el costo del crédito corporativo, poniendo a prueba la efectividad de la reforma MK4 y del Fonavi. La última Encuesta de Operadores Financieros proyecta estabilidad de la TPM hasta diciembre con clara dispersión hacia enero de 2027, reflejo del difícil arbitraje entre control inflacionario y reactivación.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

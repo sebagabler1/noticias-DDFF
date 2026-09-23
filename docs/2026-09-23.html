@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-23.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">23 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-se-desvanece-optimismo-por-reanudacion-del-dialogo-entre-eeuu-e-iran-y-el-petroleo-retoma-las-alzas">1.  Se desvanece optimismo por reanudación del diálogo entre EEUU e Irán y el petróleo retoma las alzas</a></li><li class="toc-l2"><a href="#2-planvital-lidera-traspasos-de-afiliados-de-las-afp-en-lo-que-va-del-ano-y-provida-encabeza-las-salidas">2.  PlanVital lidera traspasos de afiliados de las AFP en lo que va del año y ProVida encabeza las salidas</a></li><li class="toc-l2"><a href="#3-dolar-abre-al-alza-sobre-950-a-medida-que-el-dialogo-entre-eeuu-e-iran-no-disipa-las-preocupaciones-sobre-la-inflacion">3.  Dólar abre al alza sobre $ 950 a medida que el diálogo entre EEUU e Irán no disipa las preocupaciones sobre la inflación</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-como-chile-busca-atenuar-dependencia-de-china-en-envios-de-cerezas-no-siempre-es-mejor-mandarle-al-que-paga-mas">1.  Cómo Chile busca atenuar dependencia de China en envíos de cerezas: “No siempre es mejor mandarle al que paga más”</a></li><li class="toc-l2"><a href="#2-evasion-en-el-transporte-publico-sube-luego-de-tres-anos-a-la-baja-pero-la-industria-descarta-por-ahora-riesgo-financiero">2.  Evasión en el transporte público sube luego de tres años a la baja, pero la industria descarta por ahora riesgo financiero</a></li><li class="toc-l2"><a href="#3-fonavi-y-ley-de-fraudes-marcan-el-debate-en-el-retorno-de-la-tramitacion-de-la-reforma-mk4-en-la-camara-de-diputados">3.  Fonavi y Ley de Fraudes marcan el debate en el retorno de la tramitación de la reforma MK4 en la Cámara de Diputados</a></li><li class="toc-l2"><a href="#4-huawei-admite-una-dura-batalla-por-la-nube-en-chile-y-prepara-su-siguiente-ofensiva-con-chips-de-ia">4.  Huawei admite una dura batalla por la nube en Chile y prepara su siguiente ofensiva con chips de IA</a></li><li class="toc-l2"><a href="#5-sp-sube-calificacion-de-latam-a-su-nivel-mas-alto-desde-su-existencia-como-grupo">5.  S&amp;P sube calificación de Latam a su nivel más alto desde su existencia como grupo</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-el-pib-cayo-en-siete-regiones-del-pais-durante-el-segundo-trimestre-y-antofagasta-registra-la-mayor-contraccion-por-baja-en-la-actividad-minera">1.  El PIB cayó en siete regiones del país durante el segundo trimestre y Antofagasta registra la mayor contracción por baja en la actividad minera</a></li><li class="toc-l2"><a href="#2-cambio-de-tono-el-cfa-anticipa-una-mayor-probabilidad-que-se-cumpla-la-meta-fiscal-este-ano">2.  ¿Cambio de tono? El CFA anticipa una mayor probabilidad que se cumpla la meta fiscal este año</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-la-ocde-destaca-la-resistencia-de-la-economia-mundial-ante-la-guerra-y-subraya-el-rol-de-la-ia">1.  La OCDE destaca la resistencia de la economía mundial ante la guerra y subraya el rol de la IA</a></li><li class="toc-l2"><a href="#2-el-servicio-de-streaming-gratuito-pluto-tv-relanza-su-marca-con-campana-publicitaria-programacion-nostalgica-y-mejoras-tecnologicas">2.  El servicio de streaming gratuito Pluto TV relanza su marca con campaña publicitaria, programación nostálgica y mejoras tecnológicas</a></li><li class="toc-l2"><a href="#3-una-valoracion-de-anthropic-de-us-2-billones-no-es-descabellada">3.  Una valoración de Anthropic de US$ 2 billones no es descabellada</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-sam-altman-de-openai-planteara-crear-estandares-globales-para-la-inteligencia-artificial-en-su-discurso-ante-la-onu">1.  Sam Altman de OpenAI planteará crear estándares globales para la inteligencia artificial en su discurso ante la ONU</a></li><li class="toc-l2"><a href="#2-representantes-del-ecosistema-de-innovacion-valoran-la-ley-de-transferencia-tecnologica-pero-advierten-definiciones-pendientes">2.  Representantes del ecosistema de innovación valoran la Ley de Transferencia Tecnológica, pero advierten definiciones pendientes</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-gira-empresarial-a-peru">1.  GIRA EMPRESARIAL A PERÚ</a></li><li class="toc-l2"><a href="#2-ley-chilena-robusta-y-actualizada">2.  Ley chilena robusta y actualizada</a></li><li class="toc-l2"><a href="#3-adaptabilidad-y-proteccion-al-empleo">3.  Adaptabilidad y protección al empleo</a></li><li class="toc-l2"><a href="#4-desaladora-de-coquimbo">4.  Desaladora de Coquimbo</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>23 De Septiembre De 2026</p><p>6 secciones  ·  19 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-se-desvanece-optimismo-por-reanudacion-del-dialogo-entre-eeuu-e-iran-y-el-petroleo-retoma-las-alzas"><strong>1.  Se desvanece optimismo por reanudación del diálogo entre EEUU e Irán y el petróleo retoma las alzas</strong></h2><p>El petróleo volvió a subir este miércoles pese a los indicios de acercamiento entre Washington y Teherán: el Brent superó nuevamente los US$100 por barril (+1,5%) y el WTI llegó a US$91,4 (+0,9%), tras cinco jornadas de caídas. Trump calificó de "muy productiva" una reunión con enviados iraníes en Nueva York, pero el ejército de Irán respondió con dureza a sus amenazas y fijó condiciones para reabrir el estrecho de Ormuz, cuyo tránsito sigue en apenas 38% de los niveles previos al conflicto según datos de Kpler. La incertidumbre se agravó con el anuncio de una eventual prohibición de exportaciones de diésel estadounidense, lo que disparó los futuros del combustible en Europa en un contexto de menor oferta desde Medio Oriente y Rusia. Arabia Saudita espera reactivar antes del sábado su oleoducto Este-Oeste como vía alternativa a Ormuz, aunque ese alivio quedó opacado por los ataques a buques y el escepticismo del mercado sobre un acuerdo definitivo.</p><h2 id="2-planvital-lidera-traspasos-de-afiliados-de-las-afp-en-lo-que-va-del-ano-y-provida-encabeza-las-salidas"><strong>2.  PlanVital lidera traspasos de afiliados de las AFP en lo que va del año y ProVida encabeza las salidas</strong></h2><p>Un informe de MMDV Consultores mostró que PlanVital lideró la captación neta de afiliados entre las AFP entre enero y julio, con 11.104 traspasos netos, seguida por Capital (7.554) y Cuprum (3.877), mientras ProVida concentró las mayores salidas netas con 16.399. Solo en julio, PlanVital sumó 1.690 traspasos netos y ProVida registró 2.106 salidas. Los traspasos totales entre AFP crecieron 15,5% respecto al año anterior, hasta 385.689 movimientos, el segundo mayor registro histórico para un período enero-julio. Según la consultora, lo relevante no es el volumen total, que se mantiene estable, sino el cambio en su composición, con los traspasos hacia otra AFP ganando ocho puntos porcentuales de participación.</p><h2 id="3-dolar-abre-al-alza-sobre-950-a-medida-que-el-dialogo-entre-eeuu-e-iran-no-disipa-las-preocupaciones-sobre-la-inflacion"><strong>3.  Dólar abre al alza sobre $ 950 a medida que el diálogo entre EEUU e Irán no disipa las preocupaciones sobre la inflación</strong></h2><p>El dólar abrió al alza este miércoles en Chile, subiendo $6,3 hasta los $954, recuperando parte de lo perdido en los primeros días de la semana, en momentos en que el acercamiento entre EEUU e Irán no logró bajar los precios del petróleo ni las tasas de mercado. El dollar index escaló 0,3% a 100,9 puntos, un máximo desde julio, mientras el Brent se mantuvo cerca de US$100 y el cobre cayó 0,4% en Londres presionado por el dólar global. Analistas como Derek Halpenny (MUFG) atribuyeron el movimiento al escepticismo sobre un acuerdo definitivo y a declaraciones restrictivas de varios presidentes regionales de la Fed (Goolsbee, Musalem, Barkin), que advirtieron sobre el riesgo de que la inflación se mantenga elevada. Irán, por su parte, exigió el fin del bloqueo naval, el descongelamiento de activos y el término de la guerra como condiciones para reabrir el estrecho de Ormuz.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-como-chile-busca-atenuar-dependencia-de-china-en-envios-de-cerezas-no-siempre-es-mejor-mandarle-al-que-paga-mas"><strong>1.  Cómo Chile busca atenuar dependencia de China en envíos de cerezas: “No siempre es mejor mandarle al que paga más”</strong></h2><p>El subsecretario de Agricultura, Francesco Venezian, reconoció tras una gira por Asia que Chile perdió entre tres y cinco años para diversificar sus mercados de exportación de cerezas, hoy concentrados en un 87% en China, país que llegó a pagar hasta US$7 por kilo pero que actualmente ofrece entre US$2,40 y US$2,80. La temporada 2025-2026 cerró con caídas de 8,9% en volumen (569 mil toneladas) y 8,8% en valor (US$2.590 millones) según Odepa, afectada por sobreoferta y mayores tiempos de almacenamiento. La gira por China, Vietnam e Indonesia logró facilidades logísticas y sanitarias —mayor tolerancia térmica en el transporte marítimo, envío en buques refrigerados con ahorros de hasta US$2.100 por contenedor, apertura aérea en Vietnam— y acercamientos con el fondo soberano indonesio Danantara, que evalúa inversiones en agro, minería y tierras raras en Chile. Venezian llamó al sector privado a diversificar destinos y a evitar sobreoferta por plantaciones excesivas ante ciclos de precios altos.</p><h2 id="2-evasion-en-el-transporte-publico-sube-luego-de-tres-anos-a-la-baja-pero-la-industria-descarta-por-ahora-riesgo-financiero"><strong>2.  Evasión en el transporte público sube luego de tres años a la baja, pero la industria descarta por ahora riesgo financiero</strong></h2><p>El índice de evasión del transporte público en Santiago llegó a 37,4% en el primer semestre de 2026, interrumpiendo la baja registrada desde 2023, según el DTPM, que por primera vez incluyó a los operadores Voy, Gran América y Conecta, algunos con tasas superiores al 50% (Voy 61,2%, Conecta 54,8%). Pese al repunte, la industria descarta un riesgo financiero relevante porque entre 70% y 80% de los ingresos de los operadores depende de los kilómetros recorridos y no de la demanda de pasajeros, según el académico Hugo Silva (Catlec-UC). Operadores como Subus, que redujo su evasión de 44,5% a 39,9%, destacaron medidas como el plan piloto anunciado por el biministro Louis De Grange, fiscalizaciones y torniquetes, aunque reconocen que no existe una solución única. Fuentes de la industria señalan además que los contratos más nuevos reducen la exposición financiera a la evasión respecto a los antiguos.</p><h2 id="3-fonavi-y-ley-de-fraudes-marcan-el-debate-en-el-retorno-de-la-tramitacion-de-la-reforma-mk4-en-la-camara-de-diputados"><strong>3.  Fonavi y Ley de Fraudes marcan el debate en el retorno de la tramitación de la reforma MK4 en la Cámara de Diputados</strong></h2><p>En la Comisión de Hacienda de la Cámara se retomó la tramitación de la reforma al mercado de capitales (MK4), donde el presidente de BancoEstado, Mario Farren, detalló el Fondo Nacional para la Vivienda (Fonavi): tendrá patrimonio propio, supervisión de la CMF, aportes estatales de hasta US$2.000 millones y podrá endeudarse hasta 10 veces su capital, reuniendo US$20.000 millones para financiar cerca de 200 mil viviendas. El fondo comprará hipotecas para primera vivienda originadas por bancos, cajas y cooperativas, que retendrán una primera pérdida (Hacienda propone 3,5%) antes de activar la garantía estatal; Farren estimó una capitalización de 18,2%, comparable a estándares de Basilea III, y proyectó una rebaja inicial de 50 puntos básicos en tasas hipotecarias. Sobre la Ley de Fraudes, Farren reveló que BancoEstado acumula US$400 millones en fraudes en cinco años, mientras la presidenta de la CMF, Catherine Tornel, respaldó bajar el estándar de responsabilidad del usuario de culpa grave a leve, advirtiendo que las pérdidas terminan trasladándose a los clientes pero que las instituciones deberán responder por fallas en sus resguardos.</p><h2 id="4-huawei-admite-una-dura-batalla-por-la-nube-en-chile-y-prepara-su-siguiente-ofensiva-con-chips-de-ia"><strong>4.  Huawei admite una dura batalla por la nube en Chile y prepara su siguiente ofensiva con chips de IA</strong></h2><p>El country manager de Huawei Cloud Chile, Ricky You, reconoció que la compañía enfrenta un techo de crecimiento frente a AWS, Microsoft y Google, dado que los grandes clientes locales ya mantienen relaciones consolidadas con otros proveedores. La estrategia de Huawei pasa por posicionarse como la opción preferida del multicloud, aprovechando que la demanda de IA está duplicando el tamaño del mercado cloud, que crece cerca de 30% anual a nivel global y entre 33% y 35% en Chile y la región, según el vicepresidente para Latinoamérica, Ángel Izurieta. La compañía apuesta por desarrollar infraestructura propia de IA, incluyendo procesadores Ascend como alternativa a Nvidia, buscando independencia tecnológica de EEUU, aunque aún no hay fecha concreta para su llegada a Chile. Huawei estima que hoy la participación de mercado cloud está en 50%-50% con los rivales occidentales y proyecta llegar a 75% en tres años.</p><h2 id="5-sp-sube-calificacion-de-latam-a-su-nivel-mas-alto-desde-su-existencia-como-grupo"><strong>5.  S&amp;P sube calificación de Latam a su nivel más alto desde su existencia como grupo</strong></h2><p>S&amp;P Global Ratings elevó la calificación crediticia de Latam Airlines de "BB" a "BB+", la más alta desde la fusión de LAN y TAM en 2013, destacando su desempeño pese a un alza interanual de 80% en los precios del combustible. La aerolínea reportó ganancias de US$701 millones en el primer semestre de 2026, un 17,5% más que en 2025, resultado que S&amp;P atribuyó a un modelo de negocio sólido y una estructura de costos competitiva. La agencia anticipa que Latam mantendrá un Ebitda y flujo de caja robustos, aunque prevé una expansión más moderada en 2027 por la normalización de tarifas y combustibles. El mismo día, Latam fue nombrada "Aerolínea del año" en los premios ATW, la primera latinoamericana en recibir esta distinción histórica.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-el-pib-cayo-en-siete-regiones-del-pais-durante-el-segundo-trimestre-y-antofagasta-registra-la-mayor-contraccion-por-baja-en-la-actividad-minera"><strong>1.  El PIB cayó en siete regiones del país durante el segundo trimestre y Antofagasta registra la mayor contracción por baja en la actividad minera</strong></h2><p>El PIB cayó en siete de las 16 regiones de Chile durante el segundo trimestre de 2026, lo que implicó una contracción nacional de 0,2%, explicada principalmente por la menor extracción de cobre y, en menor medida, por la construcción, según el Banco Central. Antofagasta registró la mayor caída del país (-6,3%) por la minería del cobre, con exportaciones retrocediendo 8,3%, seguida por Arica y Parinacota (-4,9%) y Tarapacá (-4,5%); en contraste, Atacama lideró el crecimiento regional con 8,3% impulsado por mayor extracción de oro y plata. La Región Metropolitana creció 1,6% gracias a servicios y comercio, compensando parcialmente la contracción del norte minero. A nivel nacional, los servicios personales y el comercio registraron aumentos que amortiguaron la caída generada por la macrozona Norte.</p><h2 id="2-cambio-de-tono-el-cfa-anticipa-una-mayor-probabilidad-que-se-cumpla-la-meta-fiscal-este-ano"><strong>2.  ¿Cambio de tono? El CFA anticipa una mayor probabilidad que se cumpla la meta fiscal este año</strong></h2><p>El acta de la reunión del Consejo Fiscal Autónomo (CFA) del 4 de septiembre mostró un tono más positivo sobre el cumplimiento de la meta de déficit estructural de 2,6% del PIB para este año, tras tres años de incumplimiento, gracias a un crecimiento del gasto de 0,7% en julio (por debajo del 1,7% legislado) y un alza de 7% en los ingresos fiscales. Economistas de Bci, Itaú, LyD y Scotiabank coincidieron en que las cifras apuntan a un mejor desempeño fiscal, aunque advirtieron riesgos como el bajo dinamismo económico (Bci proyecta 0,7% de crecimiento del PIB versus el 1,8% de Hacienda) y la caída de 14,2% real en el gasto de capital, con apenas 43,5% de ejecución respecto a lo presupuestado. El ministro de Hacienda, Jorge Quiroz, anticipó posibles noticias positivas de clasificadoras de riesgo tras la mantención del rating soberano por Fitch el 18 de septiembre. El OCEC UDP advirtió que el anuncio del Ejecutivo de reimpulsar la inversión pública para el empleo podría tensionar el cumplimiento de la meta.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-la-ocde-destaca-la-resistencia-de-la-economia-mundial-ante-la-guerra-y-subraya-el-rol-de-la-ia"><strong>1.  La OCDE destaca la resistencia de la economía mundial ante la guerra y subraya el rol de la IA</strong></h2><p>La OCDE elevó su proyección de crecimiento mundial para 2026 de 2,8% a 2,9%, destacando que la economía global resistió mejor de lo esperado el impacto de la guerra en Medio Oriente gracias al uso de reservas petroleras, mayor oferta energética fuera del Golfo y, especialmente, a la inversión en infraestructura de inteligencia artificial. El organismo mejoró las proyecciones para Estados Unidos (2,0% a 2,2%) y la zona euro (0,8% a 1,0%), mantuvo la de China en 4,5%, pero redujo en cinco puntos la de Arabia Saudita (-1,8%), y elevó su pronóstico de inflación del G20 para 2027 de 3,1% a 3,6%. Entre los riesgos identificados están El Niño, que amenaza la producción agrícola y los precios de alimentos, y los rendimientos de bonos gubernamentales de largo plazo en sus niveles más altos en 15 años, que podrían encarecer el financiamiento fiscal y empresarial. En un escenario de shocks combinados (energético, alimentario y financiero), la OCDE calcula que el crecimiento mundial de 2027 podría ser 0,7 puntos menor y la inflación 1,1 puntos mayor que en su escenario central.</p><h2 id="2-el-servicio-de-streaming-gratuito-pluto-tv-relanza-su-marca-con-campana-publicitaria-programacion-nostalgica-y-mejoras-tecnologicas"><strong>2.  El servicio de streaming gratuito Pluto TV relanza su marca con campaña publicitaria, programación nostálgica y mejoras tecnológicas</strong></h2><p>Paramount Skydance lanzó una campaña publicitaria para relanzar Pluto TV, su servicio de streaming gratuito financiado con publicidad (FAST), que según sus ejecutivos había sido subinvertido por administraciones anteriores pese a ser rentable. La renovación incluye una pantalla de inicio rediseñada, mayor acceso a contenido on demand y la unificación tecnológica con Paramount+, en un contexto de auge de los canales FAST, competencia intensificada por adquisiciones como la de Roku por Fox (US$22.000 millones) y el crecimiento del segmento de 18 a 34 años, cuyo consumo de video on demand casi se duplicó en la primera mitad de 2026 según Paramount. La estrategia apunta a la nostalgia por contenidos de los 2000 y 2010 para atraer audiencias jóvenes, con eMarketer proyectando que Pluto TV alcanzará 80,4 millones de espectadores hacia 2030, un alza de 17% respecto a 2026. Analistas advierten que, con múltiples plataformas gratuitas compitiendo, la fidelización a largo plazo dependerá de la innovación y no solo del precio.</p><h2 id="3-una-valoracion-de-anthropic-de-us-2-billones-no-es-descabellada"><strong>3.  Una valoración de Anthropic de US$ 2 billones no es descabellada</strong></h2><p>El artículo analiza si una valoración de US$2 billones para Anthropic en su eventual OPI es razonable, considerando que la empresa pasó de no tener ingresos en 2023 a una tasa anualizada de unos US$65 mil millones en agosto de 2026, con proyecciones de algunos inversionistas de hasta US$320 mil millones para fines de 2028, lo que implicaría un múltiplo de solo siete veces ingresos. Usando el enfoque de mercado total direccionable (TAM), distintos escenarios —basados en estimaciones de SpaceX, Morgan Stanley y la propia Anthropic sobre mercados de entre US$22,7 y US$60 billones— arrojan valoraciones que van desde US$4,5 billones hasta US$10 billones, e incluso US$100 billones si se considera el potencial impacto en el PIB de EEUU que Anthropic estima en más de US$10 billones hacia 2030. El principal riesgo señalado es que los modelos de IA se vuelvan "commodities" fungibles —como sostiene Alex Karp de Palantir— ante la competencia de precios de China (DeepSeek, Kimi), Meta y Alphabet, lo que reduciría los márgenes de los laboratorios frente a quienes posean los datos o las aplicaciones. El texto concluye que Anthropic y OpenAI están especialmente expuestas por depender de un solo negocio, a diferencia de competidores más diversificados como SpaceX.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-sam-altman-de-openai-planteara-crear-estandares-globales-para-la-inteligencia-artificial-en-su-discurso-ante-la-onu"><strong>1.  Sam Altman de OpenAI planteará crear estándares globales para la inteligencia artificial en su discurso ante la ONU</strong></h2><p>Sam Altman planteará ante el Consejo de Seguridad de la ONU la creación de estándares globales de seguridad para la inteligencia artificial, posicionándose como un "centrista pragmático" que busca evitar tanto frenar la innovación como concentrar poder en pocas empresas, mientras Dario Amodei de Anthropic participará por videoconferencia en la misma instancia. La discusión se da en medio de crecientes temores sobre una IA fuera de control, tras la renuncia en protesta de un investigador de Anthropic este mes, y después de que el secretario general Guterres advirtiera sobre los riesgos de la IA y Trump calificara la cooperación internacional de "plan globalista". OpenAI señaló que no respalda a un organismo regulador internacional específico, sino que promueve estándares básicos de seguridad con control democrático por país, dejando abierta la participación de la ONU y de institutos nacionales de seguridad en IA. Altman ya había planteado en julio la idea de un organismo global liderado por Estados Unidos, detallando la propuesta en su blog esta semana.</p><h2 id="2-representantes-del-ecosistema-de-innovacion-valoran-la-ley-de-transferencia-tecnologica-pero-advierten-definiciones-pendientes"><strong>2.  Representantes del ecosistema de innovación valoran la Ley de Transferencia Tecnológica, pero advierten definiciones pendientes</strong></h2><p>Tras casi 30 meses de tramitación, se publicó la Ley de Transferencia de Tecnología y Conocimiento, que entrará en vigencia el 1 de marzo de 2027 y facilita que universidades e investigadores creen o participen en empresas de base científico-tecnológica (EBCT), además de crear un Repositorio Nacional de Conocimiento. Actores del ecosistema como Álvaro Ossa (UC/RedGT) valoraron que la ley empareja la cancha entre universidades estatales y privadas, aunque lamentaron la falta de incentivos tributarios y advirtieron que cuatro reglamentos pendientes —a dictarse en seis meses desde marzo de 2027— definirán aspectos clave como el licenciamiento socialmente responsable y la protección de resultados de investigación financiada por ANID. Varinka Farren (Hub APTA) destacó que la ley cierra más de 15 años de incertidumbre administrativa, pero advirtió que el reglamento de licenciamiento podría desincentivar a licenciatarios si impone restricciones excesivas. Anil Sadarangani (Uandes) señaló que falta financiamiento para las oficinas de transferencia universitarias y alertó sobre el riesgo de que la revisión de Contraloría a los contratos entre universidades estatales y sus spinoffs reste velocidad al proceso.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-gira-empresarial-a-peru"><strong>1.  GIRA EMPRESARIAL A PERÚ</strong></h2><p>La columna destaca el viaje que Sofofa realizará a Lima el 9 de octubre, liderado por Luis Felipe Gazitúa, junto a una delegación de empresas chilenas (Latam, Sky, Sonda, SQM, Cencosud, Puerto Ventanas, entre otras) para participar en la XXI Reunión del Consejo Empresarial Chile-Perú, en momentos en que la nueva administración pro-mercado peruana busca recuperar certidumbre regulatoria. Las inversiones combinadas de Cencosud, Falabella y Entel en Perú superan los US$20.000 millones según la Subrei, concentradas en retail, telecomunicaciones, energía y minería, en el marco de los 20 años del Tratado de Libre Comercio bilateral vigente desde 2009. La presidenta de la Sofofa, Rosario Navarro, gestiona la presencia de la presidenta peruana Keiko Fujimori, quien prometió "estabilidad jurídica y reglas claras" al asumir. El texto plantea que el liderazgo empresarial en este acercamiento debe ir acompañado de una agenda de Estado, incluyendo la fijación de una fecha para el primer gabinete binacional.</p><h2 id="2-ley-chilena-robusta-y-actualizada"><strong>2.  Ley chilena robusta y actualizada</strong></h2><p>La Asociación de Profesionales en Protección de Datos (AGPD) responde a una entrevista al senador Pedro Araya que calificó la ley chilena de protección de datos como desactualizada, precisando que la directiva europea que la inspiró fue reemplazada hace ocho años por el Reglamento General de Protección de Datos (GDPR), cuya reforma aún está en discusión y no ha sido aprobada. Argumentan que Chile ya cuenta con un estatuto diferenciado para pymes (artículo 14 septies), reglas robustas para transferencias internacionales de datos (artículos 27 a 29) y regulación de decisiones automatizadas (artículo 8° bis), que ya aborda aspectos relevantes de la IA. Señalan que la regulación general de IA es materia de un proyecto de ley distinto, actualmente en segundo trámite constitucional ante la Comisión de Desafíos del Futuro del Senado. Concluyen que el debate público requiere mayor precisión jurídica para dar certeza a personas y organizaciones.</p><h2 id="3-adaptabilidad-y-proteccion-al-empleo"><strong>3.  Adaptabilidad y protección al empleo</strong></h2><p>La columna sostiene que, con un desempleo de 9,5% y 43 meses sobre el 8%, el mercado laboral chileno no debe limitarse a proteger a quienes ya trabajan sino también facilitar el acceso a quienes buscan empleo, en referencia a las cinco iniciativas que prepara el gobierno: contrato a prueba, bandas horarias, polifuncionalidad, contrato de aprendizaje y teletrabajo híbrido. Argumenta que estas modalidades podrían ampliar oportunidades para madres cuidadoras, estudiantes y adultos mayores, además de responder a las fluctuaciones del turismo, comercio y servicios, lo que justificaría promediar la jornada laboral en dieciséis semanas en vez de cuatro, manteniendo límites y compensaciones. Plantea que adaptabilidad y protección pueden coexistir, pero advierte que el debate suele priorizar las voces de empleadores y trabajadores ya contratados por sobre las de los desempleados. Concluye que el éxito de las reformas dependerá de ampliar el empleo formal sin transformar la flexibilidad en precariedad ni la protección en una barrera de entrada.</p><h2 id="4-desaladora-de-coquimbo"><strong>4.  Desaladora de Coquimbo</strong></h2><p>El MOP solicitó extender hasta el 30 de junio de 2027 el plazo para responder observaciones ambientales al proyecto de la desaladora de Coquimbo, cuyo plazo original vencía en agosto pasado, en una prórroga que responde al diseño contractual heredado de la administración anterior. La columna señala que el caso, en tramitación desde 2024, evidencia que el nuevo marco normativo de inversiones (LMAS) no es suficiente si la evaluación ambiental sigue extendiéndose por años, lo que ya generó una postergación en el inicio de las obras. Destaca que el MOP mantuvo bajo su propia responsabilidad la tramitación ambiental al estructurar la licitación, distribuyendo riesgos con el concesionario, sin que ello se haya traducido en mayor velocidad del proceso. Concluye que enfrentar la escasez hídrica requiere no solo nuevas reglas y proyectos, sino un Estado capaz de tramitarlos y ejecutarlos oportunamente.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

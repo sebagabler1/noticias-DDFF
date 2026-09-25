@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>25 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-25.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">25 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-petroleo-cae-en-medio-de-persistentes-esfuerzos-diplomaticos-para-reabrir-el-estrecho-de-ormuz">1.  Petróleo cae en medio de persistentes esfuerzos diplomáticos para reabrir el estrecho de Ormuz</a></li><li class="toc-l2"><a href="#2-dolar-abre-a-la-baja-en-960-con-mercados-mas-calmados-ante-un-posible-acuerdo-sobre-el-estrecho-de-ormuz">2.  Dólar abre a la baja en $ 960 con mercados más calmados ante un posible acuerdo sobre el estrecho de Ormuz</a></li><li class="toc-l2"><a href="#3-regimen-de-inversion-de-afp-mercado-en-alerta-por-menor-apetito-por-bonos-en-pesos-de-hacienda">3.  Régimen de inversión de AFP: mercado en alerta por menor apetito por bonos en pesos de Hacienda</a></li><li class="toc-l2"><a href="#4-chris-gardner-y-su-inversion-en-ticketplus-es-una-oportunidad-emocionante-estoy-para-el-largo-plazo">4.  Chris Gardner y su inversión en Ticketplus: “Es una oportunidad emocionante, estoy para el largo plazo”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-el-desafiante-escenario-de-efe-salida-de-gerente-y-licitacion-desierta-tensionan-sus-proyectos-ferroviarios">1.  El desafiante escenario de EFE: salida de gerente y licitación desierta tensionan sus proyectos ferroviarios</a></li><li class="toc-l2"><a href="#2-como-cmpc-tejio-la-venta-de-una-filial-para-avanzar-en-el-financiamiento-de-su-proyecto-en-brasil">2.  Cómo CMPC tejió la venta de una filial para avanzar en el financiamiento de su proyecto en Brasil</a></li><li class="toc-l2"><a href="#3-tribunal-de-la-union-frena-exclusion-de-productora-lechera-de-colun-a-dias-de-junta-clave">3.  Tribunal de La Unión frena exclusión de productora lechera de Colun a días de junta clave</a></li><li class="toc-l2"><a href="#4-maria-de-los-angeles-romo-se-suma-al-equipo-de-martin-borda-para-impulsar-norquim-y-oenergy">4.  María de los Ángeles Romo se suma al equipo de Martín Borda para impulsar NorQuim y oEnergy</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-sp-reafirma-clasificacion-de-chile-en-a-con-perspectiva-estable-y-destaca-el-compromiso-con-la-consolidacion-fiscal-y-el-crecimiento-economico">1.  S&amp;P reafirma clasificación de Chile en “A” con perspectiva estable y destaca el compromiso con la consolidación fiscal y el crecimiento económico</a></li><li class="toc-l2"><a href="#2-mala-combinacion-alzas-del-petroleo-y-dolar-reviven-en-el-mercado-la-inquietud-por-el-curso-de-la-inflacion">2.  Mala combinación: alzas del petróleo y dólar reviven en el mercado la inquietud por el curso de la inflación</a></li><li class="toc-l2"><a href="#3-de-neutral-a-restrictiva-scotiabank-pone-en-la-mesa-opcion-de-cambio-de-tono-para-la-tasa">3.  ¿De neutral a restrictiva? Scotiabank pone en la mesa opción de cambio de tono para la tasa</a></li><li class="toc-l2"><a href="#4-la-dc-le-raya-la-cancha-al-gobierno-en-sala-cuna-no-respaldara-el-financiamiento-propuesto">4.  La DC le raya la cancha al gobierno en sala cuna: no respaldará el financiamiento propuesto</a></li><li class="toc-l2"><a href="#5-mas-de-us-50-millones-contribuyentes-se-ponen-al-dia-con-la-devolucion-del-prestamo-estatal-dado-en-pandemia">5.  Más de US$ 50 millones: contribuyentes se ponen al día con la devolución del préstamo estatal dado en pandemia</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-david-beckham-recibe-una-fortuna-en-dividendos-mientras-los-acuerdos-por-el-mundial-impulsan-sus-ganancias">1.  David Beckham recibe una fortuna en dividendos mientras los acuerdos por el Mundial impulsan sus ganancias</a></li><li class="toc-l2"><a href="#2-la-union-europea-presiona-a-donald-trump-para-mantener-el-libre-flujo-de-diesel">2.  La Unión Europea presiona a Donald Trump para mantener el “libre flujo” de diésel</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-tras-declaraciones-de-kast-en-la-onu-expertos-llaman-a-equilibrar-regulacion-y-adopcion-de-la-ia-en-chile">1.  Tras declaraciones de Kast en la ONU: expertos llaman a equilibrar regulación y adopción de la IA en Chile</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-la-sostenibilidad-de-la-sala-cuna-universal">1.  La sostenibilidad de la sala cuna universal</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>25 De Septiembre De 2026</p><p>6 secciones  ·  17 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-petroleo-cae-en-medio-de-persistentes-esfuerzos-diplomaticos-para-reabrir-el-estrecho-de-ormuz"><strong>1.  Petróleo cae en medio de persistentes esfuerzos diplomáticos para reabrir el estrecho de Ormuz</strong></h2><p>El precio del petróleo retrocedió este viernes, con el Brent cayendo bajo los US$106 y el WTI en torno a US$93, luego de que negociadores de EEUU e Irán exploraran un acuerdo por etapas que permitiría reabrir el estrecho de Ormuz en siete días si se cumplen ciertas condiciones, según confirmó el canciller iraní Abbas Araghchi. El conflicto entre Washington y Teherán se acerca a su séptimo mes y ha generado una semana de alta volatilidad, con el Brent acumulando en el año un alza superior al 70% pese a la corrección reciente. A pesar de la baja puntual, persisten señales de escasez —primas récord por crudo en Cushing, fuerte prima del Dated Brent en Europa y un backwardation cercano a máximos desde abril— que reflejan preocupación por el suministro de corto plazo. Analistas como Haris Khurshid, de Karobaar Capital, estiman que el Brent se mantendrá entre US$100 y US$110 salvo un cambio sustancial, con un acuerdo creíble empujándolo bajo los US$100 o un nuevo problema logístico devolviéndolo a los US$120.</p><h2 id="2-dolar-abre-a-la-baja-en-960-con-mercados-mas-calmados-ante-un-posible-acuerdo-sobre-el-estrecho-de-ormuz"><strong>2.  Dólar abre a la baja en $ 960 con mercados más calmados ante un posible acuerdo sobre el estrecho de Ormuz</strong></h2><p>El dólar en Chile abrió este viernes con una caída de $3,7 hasta los $960, revirtiendo parte de las fuertes alzas acumuladas durante la semana ante expectativas de una señal diplomática entre EEUU e Irán sobre la reapertura del estrecho de Ormuz. La mayor calma se reflejó también en el dollar index, que retrocedía 0,3% a 101 puntos, mientras el Brent caía 1,1% a US$105,4 y el cobre subía 0,4% a US$6,65 la libra, en tanto los rendimientos del Tesoro estadounidense a dos años bajaban tras tocar máximos desde 2007. El canciller iraní Abbas Araghchi reiteró que el estrecho podría reabrirse en siete días si se cumplen ciertas condiciones planteadas a Washington, lo que alimentó el optimismo de corto plazo, aunque analistas advierten que persisten factores alcistas para el dólar global asociados al repunte de las tasas del Tesoro. La cumbre entre Trump y Xi Jinping solo produjo la extensión de la tregua comercial hasta el 10 de enero, sin anuncios adicionales relevantes para los mercados.</p><h2 id="3-regimen-de-inversion-de-afp-mercado-en-alerta-por-menor-apetito-por-bonos-en-pesos-de-hacienda"><strong>3.  Régimen de inversión de AFP: mercado en alerta por menor apetito por bonos en pesos de Hacienda</strong></h2><p>La Superintendencia de Pensiones definió que el benchmark de renta fija soberana para las carteras de los fondos generacionales de las AFP se indexará exclusivamente a bonos de Tesorería en UF (BTU), excluyendo los instrumentos en pesos (BTP), una decisión que sorprendió al mercado por no haber figurado en el borrador sometido a consulta pública. Los bonos en pesos representan cerca de 8% de la cartera del sistema de pensiones (unos US$20.000 millones) y 22% del mercado total, por lo que ejecutivos de AFP anticipan una menor demanda y un desincentivo a nuevas emisiones de BTP, pese a que existen derivados para cubrir el riesgo inflacionario. Economistas como Michelle Labbé y otros actores de mercado advierten que la menor demanda podría elevar el costo de financiamiento del Estado, obligándolo a pagar tasas más altas para colocar deuda en pesos, además de ir en contra del objetivo del Banco Central de internacionalizar el peso. Se plantea que la medida podría estar vinculada a que las pensiones se pagan en UF, aunque la Superintendencia declinó comentar al respecto.</p><h2 id="4-chris-gardner-y-su-inversion-en-ticketplus-es-una-oportunidad-emocionante-estoy-para-el-largo-plazo"><strong>4.  Chris Gardner y su inversión en Ticketplus: “Es una oportunidad emocionante, estoy para el largo plazo”</strong></h2><p>El inversionista Chris Gardner, cuya historia inspiró la película “En busca de la felicidad”, reveló en el Investor Conference 2026 de Credicorp Capital en Bogotá que se incorporó como director independiente de Ticketplus, empresa ticketera chilena que debutó en NYSE American el 7 de agosto tras levantar US$15 millones con una valorización de US$97 millones. La compañía, con ingresos de US$22,8 millones en el primer semestre (alza de 68%) y utilidades de US$4,1 millones, mantiene la venta directa de entradas en Chile y licencia su tecnología a terceros en otros mercados. Gardner señaló que su primer desafío como director es dar a conocer la empresa y se declaró comprometido con la inversión por un horizonte de tres a cinco años, llegando incluso a recomendar públicamente la compra de la acción ante el auditorio. Enmarcó su participación en una etapa de su vida enfocada en ayudar a otros a acceder a oportunidades, destacando que las relaciones personales pueden abrir puertas que la inteligencia artificial no puede.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-el-desafiante-escenario-de-efe-salida-de-gerente-y-licitacion-desierta-tensionan-sus-proyectos-ferroviarios"><strong>1.  El desafiante escenario de EFE: salida de gerente y licitación desierta tensionan sus proyectos ferroviarios</strong></h2><p>La Empresa de los Ferrocarriles del Estado (EFE) enfrenta un escenario complejo tras la salida de su gerente general, José Solorza, el 15 de septiembre después de cuatro años en el cargo, y la declaración desierta dos días después de la licitación del tramo Lo Errázuriz-Alameda del tren Santiago-Melipilla, por disputas con municipios sobre el pago de derechos por uso de bienes públicos. EFE sostiene que debería contar con una exención similar a la de Metro —cobro que según fuentes internas alcanza montos millonarios y presiona su caja—, mientras el municipio de Estación Central exige cerca de $489 millones por permisos que la estatal no ha pagado; el tema ya está en el Congreso mediante un proyecto que busca eximirla de estos pagos. Contratistas y fuentes vinculadas a las obras advierten dificultades similares en el tren Santiago-Batuco, con riesgo de no cumplir los plazos de entrada en operación previstos para 2029 y 2031, en un contexto en que EFE registró pérdidas de $104 mil millones al primer semestre, muy por sobre los $7 mil millones de 2025, aunque gran parte se explica por efectos contables del tipo de cambio. Analistas como Guillermo Araya, de Renta4, destacan que los ingresos operacionales de la estatal crecieron (16,3% en pasajeros, 5,4% en carga, 17,6% en no tarifarios) y plantean que el problema de fondo es el endeudamiento en dólares, cuya solución depende de una decisión política sobre el respaldo estatal a la empresa.</p><h2 id="2-como-cmpc-tejio-la-venta-de-una-filial-para-avanzar-en-el-financiamiento-de-su-proyecto-en-brasil"><strong>2.  Cómo CMPC tejió la venta de una filial para avanzar en el financiamiento de su proyecto en Brasil</strong></h2><p>CMPC acordó vender a Smurfit Westrock sus filiales Envases Impresos Cordillera y Chilena de Moldeados (Chimolsa), del negocio de Corrugados en Chile, por US$420 millones, equivalentes a 7,6 veces el Ebitda de los últimos 12 meses, en una operación gestionada con JPMorgan desde mayo y con cierre sujeto a la aprobación de la Fiscalía Nacional Económica. El acuerdo fue bien recibido por el mercado —la acción de CMPC subió 2,4% el jueves, el segundo mayor avance del IPSA— aunque no resuelve por completo el financiamiento de su proyecto de celulosa Natureza en Brasil, cuya inversión estimada asciende a US$4.700 millones y sigue sin decisión definitiva. Analistas de Bci estiman que la compañía podría sumar entre US$1.000 y US$1.100 millones adicionales mediante la monetización de activos forestales, con lo que el total levantado por desinversiones bordearía los US$1.500 millones, combinándose con caja operacional y deuda, y dejando un eventual aumento de capital como última alternativa. MBI Corredores de Bolsa advirtió que podrían requerirse entre US$600 y US$700 millones adicionales si las desinversiones generan menos recursos de los necesarios para completar el financiamiento de Natureza.</p><h2 id="3-tribunal-de-la-union-frena-exclusion-de-productora-lechera-de-colun-a-dias-de-junta-clave"><strong>3.  Tribunal de La Unión frena exclusión de productora lechera de Colun a días de junta clave</strong></h2><p>El Juzgado de Letras y Garantía de La Unión ordenó suspender el procedimiento de exclusión que Colun inició contra su proveedora Agrícola Las Mercedes, que entrega toda su producción de leche (cerca de 60 mil litros diarios) a la cooperativa desde hace 36 años, justo días antes de la junta de delegados convocada para resolver la apelación de la agrícola. La resolución, dictada el 22 de septiembre por la jueza Pilar Ulriksen, también suspende los efectos de las decisiones que los órganos de Colun hayan adoptado en el proceso, luego de que el Tribunal de Defensa de la Libre Competencia rechazara previamente una medida cautelar similar solicitada por la productora. El conflicto se originó cuando, en marzo, los antiguos dueños de Las Mercedes vendieron el 100% de sus derechos sociales a un grupo liderado por los hermanos Bertens y otros inversionistas, traspaso que Colun consideró no autorizado por su consejo, el cual acordó la expulsión a fines de julio; la agrícola cuestiona además que se le devuelva solo el 80% del valor de sus cuotas de participación. El caso seguirá tramitándose en paralelo ante el TDLC, con una audiencia fijada para el 14 de octubre, y ante el tribunal de La Unión.</p><h2 id="4-maria-de-los-angeles-romo-se-suma-al-equipo-de-martin-borda-para-impulsar-norquim-y-oenergy"><strong>4.  María de los Ángeles Romo se suma al equipo de Martín Borda para impulsar NorQuim y oEnergy</strong></h2><p>María de los Ángeles Romo, exgerenta de Start-Up Chile y exdirectora de SQM Lithium Ventures, se incorporó como managing director al equipo de asesores de las empresas del empresario Martín Borda, para apoyar a NorQuim y oEnergy. NorQuim desarrolla en Mejillones un complejo tecnológico de sostenibilidad y economía circular, mientras oEnergy es un productor independiente de energía enfocado en desarrollo, generación y almacenamiento a gran escala. Según Francisco Bartucevic, director de NorQuim, ambas compañías enfrentan desafíos distintos que requieren visión estratégica, capacidad de articular alianzas y foco en la ejecución, atributos que Romo aporta junto con experiencia en innovación e inversión.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-sp-reafirma-clasificacion-de-chile-en-a-con-perspectiva-estable-y-destaca-el-compromiso-con-la-consolidacion-fiscal-y-el-crecimiento-economico"><strong>1.  S&amp;P reafirma clasificación de Chile en “A” con perspectiva estable y destaca el compromiso con la consolidación fiscal y el crecimiento económico</strong></h2><p>La clasificadora S&amp;P Global Ratings reafirmó la calificación soberana de Chile en “A” en moneda extranjera y “A+” en moneda local, con perspectiva estable, en línea con la reciente ratificación de Fitch en “A-” también con perspectiva estable. Según el Ministerio de Hacienda, S&amp;P destacó el compromiso de las autoridades chilenas con la moderación fiscal y proyecta que el déficit del gobierno general caerá de 2,6% del PIB en 2025 a 1,4% en 2029, apoyado en la consolidación fiscal, el mayor crecimiento esperado para 2027 y los favorables precios del cobre. La agencia también valoró la aprobación de la Ley de Reconstrucción Nacional —lograda pese a que el Gobierno no cuenta con mayoría en el Congreso—, que acelera la tramitación ambiental de grandes proyectos y contempla una reducción gradual del impuesto corporativo de 27% a 23%, medidas que podrían favorecer la actividad a mediano plazo. Hacienda añadió que S&amp;P anticipa un repunte del crecimiento en 2027 y un fortalecimiento de la inversión asociado a grandes proyectos de minería y energía.</p><h2 id="2-mala-combinacion-alzas-del-petroleo-y-dolar-reviven-en-el-mercado-la-inquietud-por-el-curso-de-la-inflacion"><strong>2.  Mala combinación: alzas del petróleo y dólar reviven en el mercado la inquietud por el curso de la inflación</strong></h2><p>El alza simultánea del petróleo (sobre US$100 el barril) y del dólar (que llegó a bordear los $970) reavivó la preocupación por el curso de la inflación en Chile, en un contexto que el economista Juan Ortiz (OCEC-UDP) describió como una virtual estanflación, proyectando que la inflación a diciembre superará el 4%. La presidenta del Banco Central, Rosanna Costa, descartó ese escenario al señalar que “son elementos distintos los que se están conjugando” y que la estanflación requiere persistencia en el tiempo, aunque reconoció riesgos de mayores costos y de una recuperación más lenta de la actividad. La Encuesta de Operadores Financieros del Banco Central proyectó un IPC de septiembre de 0,5% (0,4% en octubre y 0,3% en noviembre), con una inflación a 12 meses de 3,5%, dos décimas por sobre lo anticipado previamente, mientras el Banco Santander estima que el año cerrará en torno a 5,0%. El IPoM de septiembre mantiene como escenario central que las presiones de costos serán mitigadas por una demanda más débil, con retorno de la inflación a la meta de 3% recién en el segundo trimestre de 2027.</p><h2 id="3-de-neutral-a-restrictiva-scotiabank-pone-en-la-mesa-opcion-de-cambio-de-tono-para-la-tasa"><strong>3.  ¿De neutral a restrictiva? Scotiabank pone en la mesa opción de cambio de tono para la tasa</strong></h2><p>Scotiabank planteó en un informe que la Tasa de Política Monetaria podría pasar de una postura neutral a un tono más restrictivo u hawkish, convirtiéndose rápidamente en el escenario base del Banco Central. El banco argumenta que la TPM real está entre las más bajas del mundo —con la tasa nominal en 4,5% frente a una inflación proyectada de entre 4,8% y 5,0% a diciembre—, lo que la ubicaría en terreno negativo hacia fin de año, situación que se acentuaría hacia el primer trimestre de 2027 cuando la inflación superaría el 5%. Otros factores citados son la depreciación real del peso, con el tipo de cambio real en torno a 110 puntos frente a un rango de equilibrio de 94-106, de carácter “idiosincrático”, la persistencia del shock de precios del petróleo y un mayor gasto público, que podría crecer hasta 2,5% en 2027 frente al supuesto de 1,0% del IPoM. Scotiabank advierte que estos elementos aumentan el riesgo de traspaso de costos a precios finales en un contexto de márgenes ya estrechos.</p><h2 id="4-la-dc-le-raya-la-cancha-al-gobierno-en-sala-cuna-no-respaldara-el-financiamiento-propuesto"><strong>4.  La DC le raya la cancha al gobierno en sala cuna: no respaldará el financiamiento propuesto</strong></h2><p>La Democracia Cristiana (DC) marcó su rechazo al mecanismo de financiamiento del proyecto de sala cuna propuesto por el gobierno, tras la aprobación en la Cámara de Diputados de un proyecto de resolución (61 votos a favor, 44 en contra, tres abstenciones) que declara intangible al Seguro de Cesantía, con apoyo de la DC, el PDG y un diputado RN. El diputado Patricio Pinilla, representante de la DC en la Comisión de Trabajo, sostuvo que el Seguro de Cesantía no puede ser la herramienta para financiar la sala cuna, citando el reclamo de la Administradora de Fondos de Cesantía por la compensación de recursos que dejaría de percibir. Como alternativa, propuso una “fórmula mixta” con un monto menor al planteado y la creación de un Fondo de Sala Cuna financiado con 0,35% de cargo del empleador —descontado del Seguro de Cesantía— más un aporte estatal, argumentando que el gobierno de Kast debió prever el financiamiento antes de impulsar una reforma que reduce impuestos a las grandes empresas. De no cambiar la fórmula del Ejecutivo, la DC votará en contra, lo que junto a otros votos opositores podría impedir la aprobación del proyecto.</p><h2 id="5-mas-de-us-50-millones-contribuyentes-se-ponen-al-dia-con-la-devolucion-del-prestamo-estatal-dado-en-pandemia"><strong>5.  Más de US$ 50 millones: contribuyentes se ponen al día con la devolución del préstamo estatal dado en pandemia</strong></h2><p>Más de 156 mil personas regularizaron al 23 de septiembre sus cuotas impagas del Préstamo Solidario del Estado —entregado en 2020 y 2021 para paliar la caída de ingresos durante la pandemia—, totalizando más de US$50 millones ($48.864 millones) recuperados por el Fisco. Según el SII, 1.073.590 contribuyentes no cumplieron con declaraciones de impuestos requeridas para el reintegro entre 2022 y 2026, por lo que el organismo, junto a la Tesorería, amplió hasta el 30 de noviembre de 2026 el plazo para que 900 mil contribuyentes de menores ingresos regularicen su situación. La regularización se ha canalizado mediante 359.326 declaraciones de renta presentadas y, desde el 14 de septiembre, a través de un cupón de pago inmediato que ya permitió a 15.276 personas pagar US$9,4 millones ($9.136 millones) en solo diez días, 69% de ellas por internet. La Región Metropolitana concentra los mayores montos regularizados ($25.483 millones), seguida de Valparaíso y Biobío, y el SII destacó el uso de automatización robótica de procesos para agilizar más de 3.500 solicitudes administrativas.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-david-beckham-recibe-una-fortuna-en-dividendos-mientras-los-acuerdos-por-el-mundial-impulsan-sus-ganancias"><strong>1.  David Beckham recibe una fortuna en dividendos mientras los acuerdos por el Mundial impulsan sus ganancias</strong></h2><p>David Beckham recibió US$51 millones en dividendos de sus operaciones comerciales durante el año en que se disputó el Mundial de la FIFA, luego de que su trabajo con múltiples marcas —Bank of America, McDonald's, Verizon y Lay's, entre otras— ayudara a impulsar las ganancias de DRJB Holdings, la empresa que gestiona su marca, a niveles récord. DRJB Holdings anunciará que sus ingresos crecieron una quinta parte hasta US$110,5 millones en 2025 (desde US$92,3 millones en 2024), con utilidades antes de impuestos de US$65,7 millones, un alza de 46%; durante 2025 se repartieron US$51,1 millones en dividendos regulares, más otros US$61,6 millones extraordinarios pagados este año por el Mundial. Beckham, que posee 45% del grupo tras vender el resto a Authentic Brands Group en 2022 por 200 millones de libras, ha diversificado su negocio con acuerdos en moda (Hugo Boss), anteojos (Safilo), un programa en Paramount+ y participación como inversionista en empresas como IM8 y BeeUp, además de mantener cerca de 25% del club Inter Miami. Authentic destacó que el desempeño confirma a Beckham como una de las marcas globales más poderosas del deporte y el entretenimiento.</p><h2 id="2-la-union-europea-presiona-a-donald-trump-para-mantener-el-libre-flujo-de-diesel"><strong>2.  La Unión Europea presiona a Donald Trump para mantener el “libre flujo” de diésel</strong></h2><p>El comisario de Energía de la Unión Europea, Dan Jørgensen, instó a Donald Trump a mantener el “libre flujo” de diésel hacia Europa, advirtiendo que el continente podría enfrentar su peor invierno energético desde 2022, después de que Trump amenazara con prohibir las exportaciones estadounidenses del combustible, medida que operadores calificaron de “catastrófica” para Europa dado que EEUU es su mayor proveedor. Los precios del gas natural europeo alcanzaron su nivel más alto desde la crisis de 2022 y el Brent se mantiene sobre US$100 el barril, mientras los consumidores europeos ya pagan más de 30 euros adicionales por llenado de estanque en diésel respecto a antes de la guerra entre EEUU e Irán. Jørgensen señaló que la Comisión Europea evalúa medidas de corto plazo para abaratar los combustibles fósiles, incluyendo mayor flexibilidad regulatoria solicitada por Francia, y llamó a los Estados miembros a reducir impuestos a la electricidad e invertir en energía verde, aunque solo Italia y Grecia lo han hecho hasta ahora. El funcionario reiteró que, pese a la presión de precios, no anticipa problemas de seguridad de suministro, e insistió en la necesidad de acelerar la electrificación —con una meta de duplicar la tasa al 46% para 2040— para evitar crisis futuras derivadas de la dependencia de combustibles fósiles.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-tras-declaraciones-de-kast-en-la-onu-expertos-llaman-a-equilibrar-regulacion-y-adopcion-de-la-ia-en-chile"><strong>1.  Tras declaraciones de Kast en la ONU: expertos llaman a equilibrar regulación y adopción de la IA en Chile</strong></h2><p>Tras las declaraciones del Presidente José Antonio Kast en la Asamblea General de la ONU, donde defendió una regulación de inteligencia artificial “habilitante, proporcional y tecnológicamente neutral” y rechazó el “falso dilema” entre innovación y responsabilidad, representantes de la industria y la academia coincidieron en la necesidad de una legislación que no frene el desarrollo de la IA en Chile. Francisco Guzmán, presidente de la ACTI, valoró que el tema esté en la agenda de gobierno y planteó que Chile tiene una oportunidad de crecimiento aprovechando sus capacidades en data centers, energía limpia y cables submarinos, aunque advirtió que el principal desafío es el talento; descartó que el discurso de Kast implique autorizar el uso de datos protegidos para entrenar modelos, señalando que la Ley de Protección de Datos ya resguarda ese aspecto. Loreto Bravo, directora del Instituto de Data Science de la UDD e integrante de un panel científico de la ONU sobre IA, diferenció la discusión regulatoria de la del ritmo de avance tecnológico, sosteniendo que no es viable frenar el desarrollo de la IA por razones geopolíticas y que lo más factible es ir adoptándola de forma responsable dentro de las organizaciones. Ambos coincidieron en rechazar una regulación tan estricta como la europea, calificándola de excesivamente restrictiva para las capacidades de adopción del país, en momentos en que el Ejecutivo prepara una indicación sustitutiva al proyecto de ley de usos de IA con enfoque ex post.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-la-sostenibilidad-de-la-sala-cuna-universal"><strong>1.  La sostenibilidad de la sala cuna universal</strong></h2><p>El proyecto de Sala Cuna Universal retoma su tramitación en la Cámara de Diputados tras su rechazo en el Senado, enfrentando nuevamente el dilema de financiar el nuevo beneficio con cargo al Seguro de Cesantía, mediante una cotización de 0,35% del empleador compensada con una rebaja equivalente en los aportes a las Cuentas Individuales de Cesantía y el Fondo de Cesantía Solidario. La columna sostiene que, si bien la reforma es urgente para corregir el desincentivo a la contratación femenina que genera el actual artículo 203 del Código del Trabajo, la premura legislativa podría ser contraproducente si no logra disipar los temores sobre la desprotección del fondo de desempleo, en un contexto de alto desempleo. Cita evidencia de la Superintendencia de Pensiones y de un estudio del ESE Business School de la Universidad de los Andes que descartan riesgos inminentes para la sustentabilidad del Seguro de Cesantía, así como estimaciones de Clapes UC sobre el beneficio circular de incorporar a más mujeres al mercado laboral, y el respaldo del exministro Mario Marcel al diseño del financiamiento. Concluye que, pese a que ninguna alternativa de financiamiento está libre de costos, el uso acotado y supervisado del Seguro de Cesantía es la opción más viable frente a elevar el costo laboral o recurrir a escasos recursos fiscales.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

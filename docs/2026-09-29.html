@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>29 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-29.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">29 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-bolsa-chilena-repunta-tras-racha-de-caidas-y-wall-street-abre-al-alza-en-medio-del-esfuerzo-diplomatico-en-torno-a-medio-oriente">1.  Bolsa chilena repunta tras racha de caídas y Wall Street abre al alza en medio del esfuerzo diplomático en torno a Medio Oriente</a></li><li class="toc-l2"><a href="#2-el-cobre-sube-ligeramente-en-londres-luego-que-el-sindicato-de-centinela-vota-a-favor-de-una-huelga">2.  El cobre sube ligeramente en Londres luego que el sindicato de Centinela vota a favor de una huelga</a></li><li class="toc-l2"><a href="#3-dolar-abre-a-la-baja-y-se-aleja-de-970-mientras-el-petroleo-se-estabiliza-en-medio-de-los-contactos-entre-eeuu-e-iran">3.  Dólar abre a la baja y se aleja de $ 970 mientras el petróleo se estabiliza en medio de los contactos entre EEUU e Irán</a></li><li class="toc-l2"><a href="#4-exministro-de-hacienda-mario-marcel-expondra-ante-diputados-en-semana-clave-para-mk4">4.  Exministro de Hacienda Mario Marcel expondrá ante diputados en semana clave para MK4</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-sernac-realiza-fiscalizacion-nacional-a-veterinarias-siete-de-cada-10-no-mantiene-lista-de-precios-visible">1.  Sernac realiza fiscalización nacional a veterinarias: Siete de cada 10 no mantiene lista de precios visible</a></li><li class="toc-l2"><a href="#2-sindicatos-de-minera-centinela-convocan-a-una-manifestacion-frente-a-las-oficinas-de-antofagasta-minerals-en-santiago">2.  Sindicatos de Minera Centinela convocan a una manifestación frente a las oficinas de Antofagasta Minerals en Santiago</a></li><li class="toc-l2"><a href="#3-ley-de-permisos-cumple-un-ano-y-gobierno-espera-que-este-en-plena-operacion-en-segundo-semestre-de-2027">3.  Ley de permisos cumple un año y gobierno espera que esté en plena operación en segundo semestre de 2027</a></li><li class="toc-l2"><a href="#4-efe-cifra-en-hasta-us-800-millones-los-pagos-municipales-asociados-a-sus-dos-proyectos-emblematicos-a-melipilla-y-batuco">4.  EFE cifra en hasta US$ 800 millones los pagos municipales asociados a sus dos proyectos emblemáticos a Melipilla y Batuco</a></li><li class="toc-l2"><a href="#5-metro-anota-victoria-en-la-suprema-corte-rechaza-recurso-por-saldos-bip-caducados">5.  Metro anota victoria en la Suprema: Corte rechaza recurso por saldos Bip! caducados</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-kast-aborda-el-complejo-momento-economico-sabemos-que-no-han-sido-meses-faciles-pero-cuando-un-pais-se-endeuda-en-algun-momento-tiene-que-pagar">1.  Kast aborda el complejo momento económico: “Sabemos que no han sido meses fáciles… pero cuando un país se endeuda en algún momento tiene que pagar”</a></li><li class="toc-l2"><a href="#2-gobierno-se-abre-a-la-posibilidad-de-retirar-del-congreso-su-reforma-constitucional-en-seguridad">2.  Gobierno se abre a la posibilidad de retirar del Congreso su reforma constitucional en seguridad</a></li><li class="toc-l2"><a href="#3-acelerar-inversion-publica-subsidio-a-la-contratacion-y-fogape-concentraron-aplauso-del-sector-empresarial-al-plan-para-enfrentar-alto-desempleo">3.  Acelerar inversión pública, subsidio a la contratación y Fogape concentraron aplauso del sector empresarial al plan para enfrentar alto desempleo</a></li><li class="toc-l2"><a href="#4-la-desocupacion-habria-seguido-sobre-9-en-trimestre-terminado-en-agosto">4.  La desocupación habría seguido sobre 9% en trimestre terminado en agosto</a></li><li class="toc-l2"><a href="#5-sala-cuna-cut-propone-crear-fondo-nacional-de-cuidados">5.  Sala cuna: CUT propone crear “Fondo Nacional de Cuidados”</a></li><li class="toc-l2"><a href="#6-economistas-calculan-en-hasta-un-punto-menos-de-desocupacion-efecto-en-regimen-de-paquete-de-medidas">6.  Economistas calculan en hasta un punto menos de desocupación efecto, en régimen, de paquete de medidas</a></li><li class="toc-l2"><a href="#7-la-moneda-ultima-detalles-del-presupuesto-2027-con-un-gasto-que-creceria-levemente-sobre-el-1">7.  La Moneda ultima detalles del Presupuesto 2027 con un gasto que crecería levemente sobre el 1%</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-australia-sube-la-tasa-de-interes-a-su-nivel-mas-alto-en-15-anos">1.  Australia sube la tasa de interés a su nivel más alto en 15 años</a></li><li class="toc-l2"><a href="#2-el-papa-leon-xiv-critica-a-huang-de-nvidia-sobre-la-seguridad-de-la-ia-las-preocupaciones-planteadas-deberian-tomarse-en-serio">2.  El Papa León XIV critica a Huang de Nvidia sobre la seguridad de la IA: &quot;Las preocupaciones planteadas deberían tomarse en serio&quot;</a></li><li class="toc-l2"><a href="#3-china-prepara-nuevos-estimulos-para-contrarrestar-el-deterioro-economico">3.  China prepara nuevos estímulos para contrarrestar el deterioro económico</a></li><li class="toc-l2"><a href="#4-anthropic-advierte-sobre-riesgos-existenciales-para-la-humanidad-en-el-prospecto-de-su-apertura-en-bolsa">4.  Anthropic advierte sobre &quot;riesgos existenciales para la humanidad&quot; en el prospecto de su apertura en bolsa</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-fintech-curicana-haulmer-lanza-andco-una-cuenta-digital-con-abono-instantaneo-para-pyme-en-otro-paso-en-su-camino-a-ser-neobanco">1.  Fintech curicana Haulmer lanza AndCo, una cuenta digital con abono instantáneo para PYME, en otro paso en su camino a ser neobanco</a></li><li class="toc-l2"><a href="#2-openai-cancela-el-debut-de-un-modelo-de-ia-y-fija-nuevas-salvaguardas">2.  OpenAI cancela el debut de un modelo de IA y fija nuevas salvaguardas</a></li><li class="toc-l2"><a href="#3-softserve-un-gran-riesgo-es-que-personas-configuren-el-comportamiento-de-enjambres-de-agentes-de-ia-para-causar-dano">3.  SoftServe: “Un gran riesgo es que personas configuren el comportamiento de enjambres de agentes de IA para causar daño”</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-mesas-regionales-la-hora-de-ejecutar">1.  Mesas Regionales: la hora de ejecutar</a></li><li class="toc-l2"><a href="#2-fonavi-diseno-antes-que-permanencia">2.  Fonavi: diseño antes que permanencia</a></li><li class="toc-l2"><a href="#3-menos-parcelaciones-no-significa-mas-planificacion">3.  Menos parcelaciones no significa más planificación</a></li><li class="toc-l2"><a href="#4-acompanamiento-a-las-futuras-programadoras">4.  Acompañamiento a las futuras programadoras</a></li><li class="toc-l2"><a href="#5-mas-agua-pero-con-mirada-de-cuenca">5.  Más agua, pero con mirada de cuenca</a></li><li class="toc-l2"><a href="#6-desafios-de-una-regla-tradicional">6.  Desafíos de una regla tradicional</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>29 De Septiembre De 2026</p><p>6 secciones  ·  29 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-bolsa-chilena-repunta-tras-racha-de-caidas-y-wall-street-abre-al-alza-en-medio-del-esfuerzo-diplomatico-en-torno-a-medio-oriente"><strong>1.  Bolsa chilena repunta tras racha de caídas y Wall Street abre al alza en medio del esfuerzo diplomático en torno a Medio Oriente</strong></h2><p>La plaza local viene de perder terreno por tercera sesión y cerrar en mínimos de seis semanas. Además, la última baja del IPSA medido en dólares lo hizo borrar por completo sus avances acumulados de 2026. La Bolsa de Santiago daba señales de recuperación este martes, ya que en general las plazas bursátiles parecían haber encontrado un piso, en medio de las esperanzas de un acuerdo que permita reabrir el estrecho de Ormuz. El MSCI IPSA subía 0,3% a 11.164,67 puntos, liderado porVapores (1,3%), Mallplaza (1,1%) y Enel Chile (1%). La bolsa chilena viene de caer por tercera sesión ycerrar en mínimos de seis semanas. Además, la última baja del IPSA medido en dólares lo hizo borrar por completo sus avances acumulados de 2026.</p><h2 id="2-el-cobre-sube-ligeramente-en-londres-luego-que-el-sindicato-de-centinela-vota-a-favor-de-una-huelga"><strong>2.  El cobre sube ligeramente en Londres luego que el sindicato de Centinela vota a favor de una huelga</strong></h2><p>Los contratos de futuros a tres meses subieron un 0,2%, situándose en US$ 14.446 por tonelada o US$ 6,55 por libra en la Bolsa de Metales de Londres. El cobre alcanzó un máximo histórico de US$ 14.875 a principios de septiembre y se encamina a un avance mensual de alrededor del 9%. (Foto: Bloomberg) El precio del cobre ganaba terreno levemente y se mantuvo por encima de los US$ 14.400 por tonelada pasado el mediodía de este martes en Londres, después de que los trabajadores de la operación mineraCentinela en Chile votaran a favor de la huelga tras fracasar las negociaciones salariales.</p><h2 id="3-dolar-abre-a-la-baja-y-se-aleja-de-970-mientras-el-petroleo-se-estabiliza-en-medio-de-los-contactos-entre-eeuu-e-iran"><strong>3.  Dólar abre a la baja y se aleja de $ 970 mientras el petróleo se estabiliza en medio de los contactos entre EEUU e Irán</strong></h2><p>La propuesta iraní para terminar con estos siete meses de guerra contempla un plazo de unos cuatro a cinco días para que EEUU descongele fondos iraníes, levante sanciones sobre el petróleo del país persa y termine con el bloqueo naval a sus puertos. Versiones sobre un diálogo indirecto entre Estados Unidos e Irán detuvo este martes elrallyde petróleo, ypropiciaba un fortalecimiento de divisas como el peso chileno. La paridad dólar-peso caía $ 5,2 a $ 964 en las primeras transacciones, después departir la semana en máximos desde septiembre de 2025, según los datos de Bloomberg.</p><h2 id="4-exministro-de-hacienda-mario-marcel-expondra-ante-diputados-en-semana-clave-para-mk4"><strong>4.  Exministro de Hacienda Mario Marcel expondrá ante diputados en semana clave para MK4</strong></h2><p>La reforma podría ser votada en general el 1 de octubre. El exministro de Hacienda, Mario Marcel. Foto: Aton. La reforma a mercado de capitales (MK4) entró en una semana clave en la Comisión de Hacienda de la Cámara de Diputados, que se prepara para votar la iniciativa en general y escuchar a nuevas voces del sector público y privado respecto de la iniciativa del Ejecutivo.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-sernac-realiza-fiscalizacion-nacional-a-veterinarias-siete-de-cada-10-no-mantiene-lista-de-precios-visible"><strong>1.  Sernac realiza fiscalización nacional a veterinarias: Siete de cada 10 no mantiene lista de precios visible</strong></h2><p>El trabajo preliminar mostró que un alto porcentaje de los establecimientos fiscalizados no mantiene disponible el título profesional del médico veterinario responsable de la supervisión clínica.</p><h2 id="2-sindicatos-de-minera-centinela-convocan-a-una-manifestacion-frente-a-las-oficinas-de-antofagasta-minerals-en-santiago"><strong>2.  Sindicatos de Minera Centinela convocan a una manifestación frente a las oficinas de Antofagasta Minerals en Santiago</strong></h2><p>La acción se desarrolla luego de que 98,73% de los socios votara a favor de la huelga, denunciando que los miembros de algunas agrupaciones han sufrido una sistemática discriminación "al recibir menores remuneraciones y beneficios que trabajadores que realizan las mismas funciones afiliados a otro sindicato”. Los directorios de lossindicatos Distrito Centinela y Minera Esperanza, de Minera Centinela,convocaron a unamanifestación frente al edificio corporativo de Antofagasta Minerals, ubicadas en Las Condes, en la Región Metropolitana, para exigirigualdad de trato entre trabajadores de una misma operación mineraque realizan las mismas funciones. La acción se desarrolla luego de que98,73% de los socios votara a favor de la huelga, denunciando que los miembros de algunas agrupaciones han sufrido una sistemática discriminación "al recibir menores remuneraciones y beneficios que trabajadores que realizan las mismas funciones afiliados a otro sindicato”, señalaron a través de un comunicado anterior.</p><h2 id="3-ley-de-permisos-cumple-un-ano-y-gobierno-espera-que-este-en-plena-operacion-en-segundo-semestre-de-2027"><strong>3.  Ley de permisos cumple un año y gobierno espera que esté en plena operación en segundo semestre de 2027</strong></h2><p>Expertos tienen una mirada positiva de la implementación, mientras advierten que falta trecho aún para ver frutos. Incluso, adelantan el cambio cultural que se introduciría en la gestión pública. Un año se cumple este martes desde la publicación en el Diario Oficial de la Ley Marco de Autorizaciones Sectoriales (LMAS), iniciativa que busca optimizar y reducir entre un 30% y un 70% los tiempos de tramitación de permisos sectoriales, simplificando y modernizando los procesos administrativos. La iniciativa, que fue impulsada por el gobierno anterior, ha sido valorada en el sector privado, pero aún no es posible ver la totalidad de sus frutos considerando que -como se esperaba- sigue en plena implementación. De ahí que no se aventuran cifras de su impacto.</p><h2 id="4-efe-cifra-en-hasta-us-800-millones-los-pagos-municipales-asociados-a-sus-dos-proyectos-emblematicos-a-melipilla-y-batuco"><strong>4.  EFE cifra en hasta US$ 800 millones los pagos municipales asociados a sus dos proyectos emblemáticos a Melipilla y Batuco</strong></h2><p>Expresidentes de la estatal cuestionaron los cobros de los municipios y coincidieron en la necesidad de destrabar el conflicto para retomar cuanto antes el tramo Lo Errázuriz-Alameda. Alcaldes, diputados, expertos y hasta la propia ciudadanía han salido al paso tras la decisión dela Empresa de los Ferrocarriles del Estado (EFE) de postergar la licitación del tramo soterrado Lo Errázuriz-Alameda del tren Santiago-Melipilla, realizando un llamado arevertir la medida. Sin embargo, el principal nudo que llevó a EFE a frenar el desarrollo sigue sin resolverse: la imposibilidad de dejar sin efecto el pago de derechos municipales por el uso de Bienes Nacionales de Uso Público.</p><h2 id="5-metro-anota-victoria-en-la-suprema-corte-rechaza-recurso-por-saldos-bip-caducados"><strong>5.  Metro anota victoria en la Suprema: Corte rechaza recurso por saldos Bip! caducados</strong></h2><p>El máximo tribunal rechazó recurso en el que Conadecus acusaba que la estatal se apropió de $18.700 millones en saldos no utilizados. La Corporación Nacional de Consumidores y Usuarios (Conadecus) sumó una tercera derrota judicial en su ofensiva contra Metro de Santiago por la caducidad de los saldos de la tarjeta Bip!. El viernes, la Corte Suprema rechazó su último recurso presentado por “manifiesta falta de fundamento”, con lo que el caso quedó cerrado.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-kast-aborda-el-complejo-momento-economico-sabemos-que-no-han-sido-meses-faciles-pero-cuando-un-pais-se-endeuda-en-algun-momento-tiene-que-pagar"><strong>1.  Kast aborda el complejo momento económico: “Sabemos que no han sido meses fáciles… pero cuando un país se endeuda en algún momento tiene que pagar”</strong></h2><p>"Pensábamos que la guerra iba a durar poco y lamentablemente eso no ha sido así, el precio del combustible ha sido subiendo”, indicó el mandatario al firmar un proyecto para la extensión de beneficios a pescadores y pequeños transportistas. El Presidente firmó este martes el proyecto de ley que extiende beneficios para pescadores artesanales y autoriza la capitalización del Fogape. (Foto: Aton Chile) El Presidente José Antonio Kast firmó este martes el proyecto de ley que extiende beneficios para pescadores artesanales y autoriza la capitalización del Fondo de Garantía para Pequeños Empresarios (Fogape),como parte de las medidas destinadas a enfrentar los efectos del aumento de los combustibles y contribuir a la reactivación económica.</p><h2 id="2-gobierno-se-abre-a-la-posibilidad-de-retirar-del-congreso-su-reforma-constitucional-en-seguridad"><strong>2.  Gobierno se abre a la posibilidad de retirar del Congreso su reforma constitucional en seguridad</strong></h2><p>El gobierno se abrió a la posibilidad de retirar de tramitación la reforma constitucional que crea un nuevo estado de excepción con foco en seguridad. Así lo señaló este lunes el presidente de la comisión de Constitución del Senado, Pedro Araya (PPD), quien agregó que el Ejecutivo analizará con el Legislativo una nueva iniciativa. La propuesta original del Ejecutivo creaba uno de Seguridad Pública que podía ser decretado por el Presidente de la República durante 120 días y renovado por otros 120 sin autorización previa del Congreso.</p><h2 id="3-acelerar-inversion-publica-subsidio-a-la-contratacion-y-fogape-concentraron-aplauso-del-sector-empresarial-al-plan-para-enfrentar-alto-desempleo"><strong>3.  Acelerar inversión pública, subsidio a la contratación y Fogape concentraron aplauso del sector empresarial al plan para enfrentar alto desempleo</strong></h2><p>Reformas más estructurales fueron otro de los focos expuestos por distintos gremios del mundo privado luego que el gobierno lanzó el “Plan Chile Despega”. La presidenta de la CPC, Susana Jiménez; la presidenta de Sofofa, Rosario Navarro, la presidenta de la CCS, María Teresa Vial; y el presidente de la CNC, José Pakomio. Respaldo en el mundo empresarial generó el“Plan Chile Despega” que lanzó el gobierno en la mañana de ayer lunes, orientado a intentar contenerel alto desempleo que analistas advierten seguiría subiendo en la siguiente medición.</p><h2 id="4-la-desocupacion-habria-seguido-sobre-9-en-trimestre-terminado-en-agosto"><strong>4.  La desocupación habría seguido sobre 9% en trimestre terminado en agosto</strong></h2><p>Analistas coincidieron en que la cifra que dará a conocer el INE este miércoles será nuevamente superior a la de hace un año. Una tasa de desempleo que se mantenga en su nivel actual es lo que estiman los economistas para la actualización del dato que se publicará este miércoles. Sin cambios -o muy ligeros- del actual 9,5% es lo que el mercado espera para lo que el Instituto Nacional de Estadísticas (INE) informe acerca del trimestre móvil junio-agosto. Una cifra que, además, estaría casi un punto por encima de la lectura del mismo periodo del año pasado, cuando fue de 8,6%.</p><h2 id="5-sala-cuna-cut-propone-crear-fondo-nacional-de-cuidados"><strong>5.  Sala cuna: CUT propone crear “Fondo Nacional de Cuidados”</strong></h2><p>Ante la comisión de Trabajo, la Central Unitaria de Trabajadores (CUT) propuso este lunes crear un Fondo Nacional de Cuidados Integrales como mecanismo para financiar la Sala Cuna, sin recurrir a los recursos del Seguro de Cesantía. Para ello, la multisindical sugirió crear una cotización adicional para dar acceso a dichos establecimientos, pero sin compensar con rebajas al seguro, correspondiente al 0,20% de las remuneraciones imponibles, y solo para las grandes empresas.</p><h2 id="6-economistas-calculan-en-hasta-un-punto-menos-de-desocupacion-efecto-en-regimen-de-paquete-de-medidas"><strong>6.  Economistas calculan en hasta un punto menos de desocupación efecto, en régimen, de paquete de medidas</strong></h2><p>Economistas valoraron que el gobierno avanzara con medidas de emergencia para enfrentar la crisis laboral, pero advirtieron que su efecto será limitado y dependerá de la capacidad para ejecutar rápidamente la inversión pública. Una señal positiva, aunque insuficiente, si lo que se busca es enfrentar el problema de base del mercado laboral y la débil creación de empleo. Esa fue una de las principales conclusiones que dejó entre los economistaslos anuncios realizados este lunes por el Presidente José Antonio Kast para enfrentar la alta desocupación. El mandatario presentó el planChile Despega, paquete que contempla movilizar unos US$ 1.300 millones y que combinasubsidios a la contratación, aceleración de inversión pública, obras de rápida ejecución y medidas de financiamiento y liquidez para las empresas. La apuesta del Ejecutivo es que las iniciativas permitan generarmás de 100 mil puestos de trabajo entre 2026 y 2027.</p><h2 id="7-la-moneda-ultima-detalles-del-presupuesto-2027-con-un-gasto-que-creceria-levemente-sobre-el-1"><strong>7.  La Moneda ultima detalles del Presupuesto 2027 con un gasto que crecería levemente sobre el 1%</strong></h2><p>Inicialmente, el ministro Quiroz anticipó una expansión de entre 0% y 1%, cifra que se recalculó en las últimas jornadas. El gobierno presentará ejes a los partidos oficialistas este martes y miércoles. “Estamos en las últimas definiciones”. Así explica un ministro del gabinete de José Antonio Kast el estado en que se encuentra el diseño del proyecto de Ley de Presupuestos 2027, el primero que elaborará la actual administración y que será presentado en cadena nacional por el mandatario este miércoles. Justamente, ese fue uno de los temas centrales que marcó el consejo de gabinete en La Moneda realizado este lunes y encabezado por el jefe de Estado.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-australia-sube-la-tasa-de-interes-a-su-nivel-mas-alto-en-15-anos"><strong>1.  Australia sube la tasa de interés a su nivel más alto en 15 años</strong></h2><p>La gobernadora del RBA dice que la guerra con Irán ha “empobrecido a la gente”, mientras el banco central busca hacer frente a una inflación persistente. Elbanco central de Australia elevó las tasas de interés a sunivel más alto en 15 años, mientras la guerra en Medio Oriente impulsa la inflación y aumenta la incertidumbre económica. El Banco de la Reserva de Australia (RBA, su sigla en inglés) aumentó el martes su principal tasa de interés en0,25 punto porcentual, hasta 4,6%, su cuarta alza de tasas este año, a medida que el aumento de los precios de los combustibles se trasladó a los costos de bienes y servicios.</p><h2 id="2-el-papa-leon-xiv-critica-a-huang-de-nvidia-sobre-la-seguridad-de-la-ia-las-preocupaciones-planteadas-deberian-tomarse-en-serio"><strong>2.  El Papa León XIV critica a Huang de Nvidia sobre la seguridad de la IA: "Las preocupaciones planteadas deberían tomarse en serio"</strong></h2><p>La inusual intervención del jefe de la Iglesia Católica se produce mientras altos ejecutivos se preparan para reunirse el martes en la Casa Blanca. "Este es un problema sobre el que creo que tenemos que sentarnos y conversar”, sostuvo el Pontífice. (Foto: Reuters) El Papa León XIV reprendió al CEO de Nvidia, Jensen Huang, por restar importancia a los riesgos que plantea la inteligencia artificial (IA),y afirmó que las preocupaciones sobre la amenaza que esta tecnología supone para la humanidad deben tomarse en serio.</p><h2 id="3-china-prepara-nuevos-estimulos-para-contrarrestar-el-deterioro-economico"><strong>3.  China prepara nuevos estímulos para contrarrestar el deterioro económico</strong></h2><p>China dio su señal más contundente hasta ahora de que actuará con mayor urgencia para contrarrestar una desaceleración cada vez más profunda , después de que el gobierno prometiera introducir nuevas medidas para apoyar la economía y estudiar políticas para estabilizar el debilitado mercado inmobiliario. Tras pasar meses insistiendo en que la prioridad era aplicar plenamente las medidas existentes, e</p><h2 id="4-anthropic-advierte-sobre-riesgos-existenciales-para-la-humanidad-en-el-prospecto-de-su-apertura-en-bolsa"><strong>4.  Anthropic advierte sobre "riesgos existenciales para la humanidad" en el prospecto de su apertura en bolsa</strong></h2><p>El esperado documento S-1 revela que el creador de Claude perdió US$ 8.000 millones el año pasado, mientras que sus ingresos llegaron a US$ 4.600 millones. Dario Amodei, CEO y cofundador de Anthropic. (Foto: Reuters) Anthropic advirtió formalmente a los inversionistas de que su tecnología podría plantear "riesgos existenciales para la humanidad", según se recoge en el esperado prospecto de su oferta pública inicial (OPI), distribuido recientemente entre un grupo reducido de socios.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-fintech-curicana-haulmer-lanza-andco-una-cuenta-digital-con-abono-instantaneo-para-pyme-en-otro-paso-en-su-camino-a-ser-neobanco"><strong>1.  Fintech curicana Haulmer lanza AndCo, una cuenta digital con abono instantáneo para PYME, en otro paso en su camino a ser neobanco</strong></h2><p>A un año de comprar la licencia de provisión de fondos de Fpay, la startup abre una nueva vertical de negocio con la que las PYME podrán recibir abono de sus ventas, administrar recursos y obtener rentabilidad sobre saldo. Haulmerda otro paso en su plan de convertirse en un banco digital para pequeñas empresas.La fintech curicana, conocida por sus terminales de pago Tuu, lanzará esta semana AndCo, una nueva vertical de negocio que consiste enuna cuenta digital prepago orientada a negociosque busca cerrar el ciclo del dinero de los comercios. La cuenta, que será gratuita, permitirá a los más de 60 mil negocios que operan con Tuurecibir el abono de sus ventas al instante, administrar sus recursos, realizar transferencias y pagos, y obtener una rentabilidad sobre su saldo, explicó aDF el cofundador y CEO de Haulmer, San Feng.</p><h2 id="2-openai-cancela-el-debut-de-un-modelo-de-ia-y-fija-nuevas-salvaguardas"><strong>2.  OpenAI cancela el debut de un modelo de IA y fija nuevas salvaguardas</strong></h2><p>La decisión ocurre tras una serie de incidentes en que sus sistemas accedieron a internet y sitios de terceros sin autorización, y mientras la compañía prepara un nuevo marco de seguridad para sus modelos. OpenAI está retrasando el lanzamiento de una versión de su modelo Astra mientras establece salvaguardas más sólidas para el desarrollo de inteligencia artificial (IA),ante el aumento de los riesgos tras una serie de incidentes recientes en los que sistemas de IA actuaron fuera de los límites previstos. Saachi Jain, responsable de sistemas de seguridad de OpenAI, dijo que el modeloGPT-6.1 Astra, aún en desarrollo, no funcionaba tan bien como la empresa esperaba a la hora de respetar los límites y las autorizaciones, y de comunicar al usuario el tipo de trabajo que había realizado.</p><h2 id="3-softserve-un-gran-riesgo-es-que-personas-configuren-el-comportamiento-de-enjambres-de-agentes-de-ia-para-causar-dano"><strong>3.  SoftServe: “Un gran riesgo es que personas configuren el comportamiento de enjambres de agentes de IA para causar daño”</strong></h2><p>El ejecutivo de la tecnológica global rechazó frenar el desarrollo de la inteligencia artificial porque “puede acelerar el descubriento científico” y de sus líneas de I+D destacó la aplicación de IA para nuevos fármacos. Volodymyr Karpiv, director global de I+D de SoftServe. Crédito: SoftServe En los últimos meses, las capacidades avanzadas de los modelos de inteligencia artificial (IA) han tensionado la seguridad informática mundial, hasta poner en discusión la necesidad de frenar el desarrollo de esta tecnología. Desde julio, agentes autónomos de los líderes de la industria, como OpenAI, han protagonizado incidentes de ciberseguridad. Entre ellos, el hackeo a Hugging Face; el acceso no autorizado a una base de datos de salud del gobierno australiano; y el “enjambre” de agentes que tomó el control de un sitio web alemán para desarrolladores de software.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-mesas-regionales-la-hora-de-ejecutar"><strong>1.  Mesas Regionales: la hora de ejecutar</strong></h2><p><em>(Sin detalle disponible.)</em></p><h2 id="2-fonavi-diseno-antes-que-permanencia"><strong>2.  Fonavi: diseño antes que permanencia</strong></h2><p>El debate sobre el Fondo de Garantías para la Vivienda (Fonavi) no debería centrarse en si será un mecanismo temporal o permanente, sino en cómo se diseñará para fortalecer el financiamiento habitacional sin generar distorsiones en el mercado. Desde la perspectiva financiera, las preguntas se relacionan con la asignación efectiva de riesgos entre los bancos y el fondo, los criterios para la compra de cartera hipotecaria y la forma en que se absorberán eventuales pérdidas. Asimismo, será fundamental asegurar la sostenibilidad financiera del mecanismo en el largo plazo. Si el objetivo es ampliar el acceso al crédito hipotecario y profundizar el mercado financiero, Fonavi puede transformarse en una herramienta valiosa. Sin embargo, debe operar como un complemento y no como un sustituto de la participación privada.</p><h2 id="3-menos-parcelaciones-no-significa-mas-planificacion"><strong>3.  Menos parcelaciones no significa más planificación</strong></h2><p>Las solicitudes de subdivisión rural han caído más de 80% desde su máximo registrado en 2022. Sin embargo, que ingresen menos solicitudes no significa necesariamente que estemos protegiendo mejor el territorio. La pregunta de fondo es otra: ¿cómo se utiliza realmente ese suelo y qué usos puede admitir? En Aysén conviven terrenos productivos que debemos resguardar con predios destinados a vivienda, turismo o conservación. Planificar exige conocer los usos efectivos del territorio y evaluar la aptitud del suelo, la disponibilidad de agua, los accesos, los riesgos naturales y el valor ambiental antes de definir dónde y bajo qué condiciones permitir nuevos desarrollos. El ministro tiene razón al defender el suelo productivo. Sin embargo, celebrar que ingresen menos expedientes al SAG no sustituye una política territorial. Necesitamos reglas que eviten los asentamientos mal ubicados y, al mismo tiempo, entreguen certeza a quienes cumplen con la normativa.</p><h2 id="4-acompanamiento-a-las-futuras-programadoras"><strong>4.  Acompañamiento a las futuras programadoras</strong></h2><p>¿Cuándo empieza una niña a imaginar que las matemáticas, la programación o la ingeniería son para ella? Mucho antes de elegir carrera. Ada Lovelace escribió el primer algoritmo un siglo antes del computador gracias a los referentes y tutores de su infancia. Las vocaciones se cultivan ahí, en los primeros años, pero hoy no todas encuentran esas condiciones. Los datos de PISA -brechas en matemática frente a un alto rendimiento en lectura- confirman que no es falta de capacidad. No basta con decirles que “pueden”, STEM no es un talento innato, sino una herramienta para habitar el mundo que se aprende creando, liderando y enseñando. En el aula de tecnología veo a diario cómo cambia su actitud al enfrentar proyectos prácticos. Al diseñar una solución concreta o superar la frustración de un error de código, pasan del temor al entusiasmo. Descubren que la lógica no es ajena y ese “¡lo logré!” transforma la teoría en un logro propio. Las resistencias no son de habilidad, sino miedo a equivocarse, que se disipa cuando se camina acompañado.</p><h2 id="5-mas-agua-pero-con-mirada-de-cuenca"><strong>5.  Más agua, pero con mirada de cuenca</strong></h2><p>Es una buena noticia que Chile esté acelerando el desarrollo de nuevas fuentes de agua. El reciente catastro que proyecta que 15 proyectos de desalación finalizarán sus obras de aquí a 2030 confirma que estamos avanzando hacia una matriz hídrica más diversificada y menos dependiente de las precipitaciones. La desalación es, sin duda, parte de la solución. Pero no debiera llevarnos a perder de vista la escala del desafío. Cuando observamos los déficits existentes desde la perspectiva de una cuenca, el aporte de una nueva fuente, por relevante que sea, difícilmente puede resolver por sí solo el problema de seguridad hídrica. Por eso, junto con incorporar agua nueva al sistema, necesitamos gestionar mejor el agua que ya tenemos. Y allí las aguas subterráneas deben ocupar un lugar central. Los acuíferos constituyen una reserva estratégica que, correctamente estudiada, monitoreada y gestionada, puede complementar las fuentes superficiales, la desalación y el reúso, entregando mayor resiliencia frente a períodos de escasez.</p><h2 id="6-desafios-de-una-regla-tradicional"><strong>6.  Desafíos de una regla tradicional</strong></h2><p>La incorporación de la Business Judgment Rule en el proyecto de Ley de Mercado de Capitales IV es un paso necesario para dar certeza a las decisiones de los directores. En simple, busca protegerlos de responder por los eventuales resultados negativos de una decisión de negocios. Como dice Enrique Alcalde, “el juez no está llamado a juzgar, con el beneficio de la mirada retrospectiva, si una decisión empresarial fue acertada o no”. Sin embargo, el debate legislativo corre el riesgo de nacer desactualizado. La doctrina ya estudia el AI Business Judgment, que plantea hasta qué punto delegar decisiones en algoritmos exime o agrava su responsabilidad. La literatura internacional analiza cómo inciden la aversión al riesgo y las dinámicas de gobernanza propias de las directoras. Introducir esta regla es un avance, pero el regulador y el mercado deben anticipar estas tensiones. Una gobernanza moderna no solo exige proteger la decisión humana de negocios, sino también considerar a las mujeres y su interacción con la tecnología.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

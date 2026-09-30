@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 de septiembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-09-30.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">30 de septiembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-cae-y-pierde-la-marca-de-970-tras-una-sorpresa-a-la-baja-en-el-dato-de-inflacion-favorito-de-la-fed">1.  Dólar cae y pierde la marca de $ 970 tras una sorpresa a la baja en el &quot;dato de inflación favorito de la Fed&quot;</a></li><li class="toc-l2"><a href="#2-bono-de-58-millones-brutos-y-nuevos-beneficios-el-detalle-del-cierre-de-la-negociacion-colectiva-de-banco-de-chile-con-sus-sindicatos">2.  Bono de $5,8 millones brutos y nuevos beneficios: el detalle del cierre de la negociación colectiva de Banco de Chile con sus sindicatos</a></li><li class="toc-l2"><a href="#3-getnet-de-santander-sella-alianza-con-nayax-para-potenciar-negocio-en-latinoamerica-espana-y-portugal">3.  Getnet de Santander sella alianza con Nayax para potenciar negocio en Latinoamérica, España y Portugal</a></li><li class="toc-l2"><a href="#4-los-flujos-de-petroleo-de-medio-oriente-vuelven-a-los-niveles-previos-a-la-guerra-pero-los-precios-se-encaminan-a-una-fuerte-alza-mensual">4.  Los flujos de petróleo de Medio Oriente vuelven a los niveles previos a la guerra, pero los precios se encaminan a una fuerte alza mensual</a></li><li class="toc-l2"><a href="#5-gremio-bancario-defiende-cambios-a-ley-de-fraudes-y-reabre-debate-sobre-tmc-en-reforma-al-mercado-de-capitales">5.  Gremio bancario defiende cambios a Ley de Fraudes y reabre debate sobre TMC en reforma al mercado de capitales</a></li><li class="toc-l2"><a href="#6-gestora-alza-lanza-fondo-para-proyectos-en-santiago-y-regiones-junto-a-inmobiliaria-de-la-familia-perez-yoma">6.  Gestora Alza lanza fondo para proyectos en Santiago y regiones junto a inmobiliaria de la familia Pérez Yoma</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-acreedores-de-enjoy-se-enfrentan-en-tribunales-duena-del-hotel-y-casino-de-coquimbo-pide-la-quiebra-de-su-operadora">1.  Acreedores de Enjoy se enfrentan en tribunales: dueña del Hotel y Casino de Coquimbo pide la quiebra de su operadora</a></li><li class="toc-l2"><a href="#2-tras-la-muerte-de-reinaldo-sanchez-su-hijo-andres-asume-presidencia-de-vina-bus-y-lidera-conformacion-de-un-holding-para-ordenar-el-imperio-familiar">2.  Tras la muerte de Reinaldo Sánchez, su hijo Andrés asume presidencia de Viña Bus y lidera conformación de un holding para ordenar el imperio familiar</a></li><li class="toc-l2"><a href="#3-andes-iron-apuesta-a-que-comite-de-ministros-de-la-era-kast-de-el-vamos-definitivo-a-la-minera-dominga">3.  Andes Iron apuesta a que Comité de Ministros de la era Kast dé el vamos definitivo a la Minera Dominga</a></li><li class="toc-l2"><a href="#4-george-lever-a-15-anos-del-primer-cyberday-la-inteligencia-artificial-es-la-transformacion-mas-importante-que-nos-ha-tocado-ver">4.  George Lever a 15 años del primer CyberDay: “La inteligencia artificial es la transformación más importante que nos ha tocado ver”</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-kast-confirmo-al-oficialismo-que-el-presupuesto-2027-tendra-una-expansion-de-15-el-de-menor-crecimiento-en-dos-decadas-sin-contar-la-pandemia">1.  Kast confirmó al oficialismo que el Presupuesto 2027 tendrá una expansión de 1,5%, el de menor crecimiento en dos décadas sin contar la pandemia</a></li><li class="toc-l2"><a href="#2-un-agosto-en-rojo-la-produccion-industrial-volvio-a-caer-y-el-comercio-anoto-un-crecimiento-nulo">2.  ¿Un agosto en rojo? La producción industrial volvió a caer y el comercio anotó un crecimiento nulo</a></li><li class="toc-l2"><a href="#3-tasa-de-desocupacion-sube-a-96-en-el-trimestre-junio-agosto-y-alcanza-nuevo-maximo-en-mas-de-5-anos">3.  Tasa de desocupación sube a 9,6% en el trimestre junio-agosto y alcanza nuevo máximo en más de 5 años</a></li><li class="toc-l2"><a href="#4-centrales-sindicales-se-abren-a-discutir-flexibilidad-laboral-ante-crisis-del-empleo-pero-con-limites">4.  Centrales sindicales se abren a discutir flexibilidad laboral ante crisis del empleo, pero con límites</a></li><li class="toc-l2"><a href="#5-jose-pakomio-presidente-de-la-camara-nacional-de-comercioen-cuatro-o-cinco-meses-vamos-a-tener-los-primeros-brotes-verdes">5.  José Pakomio, presidente de la Cámara Nacional de Comercio:“En cuatro o cinco meses, vamos a tener los primeros brotes verdes”</a></li><li class="toc-l2"><a href="#6-los-principales-desafios-para-implementar-la-norma-segun-el-sii-la-tesoreria-y-la-dedecon">6.  Los principales desafíos para implementar la norma, según el SII, la Tesorería y la Dedecon</a></li><li class="toc-l2"><a href="#7-ley-de-reconstruccion-se-promulga-en-octubre-hacienda-incluira-ingresos-transitorios-en-el-presupuesto-2027">7.  Ley de Reconstrucción se promulga en octubre: Hacienda incluirá ingresos transitorios en el Presupuesto 2027</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-terror-a-6-mil-metros-de-altura-copiloto-apunala-al-piloto-en-pleno-vuelo-a-tel-aviv-y-autoridades-israelies-apuntan-a-posible-intento-de-ataque-terrorista">1.  Terror a 6 mil metros de altura: copiloto apuñala al piloto en pleno vuelo a Tel Aviv y autoridades israelíes apuntan a posible intento de ataque terrorista</a></li><li class="toc-l2"><a href="#2-xi-destaca-la-resiliencia-de-la-economia-china-y-pide-esfuerzos-para-cumplir-las-metas">2.  Xi destaca la resiliencia de la economía china y pide esfuerzos para cumplir las metas</a></li><li class="toc-l2"><a href="#3-sam-altman-afirma-que-openai-postergara-su-salida-a-bolsa-hasta-resolver-las-preocupaciones-sobre-seguridad">3.  Sam Altman afirma que OpenAI postergará su salida a bolsa hasta resolver las preocupaciones sobre seguridad</a></li><li class="toc-l2"><a href="#4-la-casa-blanca-mantiene-conversaciones-de-emergencia-sobre-prohibicion-a-las-exportaciones-de-diesel-ad-portas-de-la-eleccion-de-medio-termino">4.  La Casa Blanca mantiene conversaciones de emergencia sobre prohibición a las exportaciones de diésel ad portas de la elección de medio término</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-es-posible-proteger-la-autoria-de-una-obra-que-utilizo-parcialmente-inteligencia-artificial">1.  ¿Es posible proteger la autoría de una obra que utilizó parcialmente inteligencia artificial?</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-empleo-mas-alla-de-la-coyuntura">1.  Empleo, más allá de la coyuntura</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>30 De Septiembre De 2026</p><p>6 secciones  ·  23 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-cae-y-pierde-la-marca-de-970-tras-una-sorpresa-a-la-baja-en-el-dato-de-inflacion-favorito-de-la-fed"><strong>1.  Dólar cae y pierde la marca de $ 970 tras una sorpresa a la baja en el "dato de inflación favorito de la Fed"</strong></h2><p>El dólar cedió a media mañana en Chile hasta cerca de $ 969, tras tocar máximos de 13 meses el día anterior, luego de que la inflación PCE subyacente de agosto en EEUU saliera más débil de lo esperado (0,2% mensual y 3% anual, tres décimas bajo lo previsto). Con ello, el dollar index retrocedió 0,3% y el rendimiento del Tesoro a dos años bajó 3,5 puntos base, mientras la probabilidad de una nueva alza de la Fed en octubre cayó a 37% desde cerca de 50%. Las señales fueron mixtas, pues el PIB del segundo trimestre se revisó al alza (2,2% anualizado) y el empleo privado ADP superó expectativas, a la espera de las nóminas del viernes. El petróleo se mantiene elevado pese a que los flujos desde Medio Oriente se normalizaron y Arabia Saudita rehabilitó parte de su oleoducto Este-Oeste.</p><h2 id="2-bono-de-58-millones-brutos-y-nuevos-beneficios-el-detalle-del-cierre-de-la-negociacion-colectiva-de-banco-de-chile-con-sus-sindicatos"><strong>2.  Bono de $5,8 millones brutos y nuevos beneficios: el detalle del cierre de la negociación colectiva de Banco de Chile con sus sindicatos</strong></h2><p>Banco de Chile cerró tras casi un mes de conversaciones una negociación colectiva 2026-2029 con dos sindicatos que reúnen a más de 6.200 socios, ratificada por 90,2% de los 3.578 votantes. El acuerdo incluye un bono de término de $ 5,8 millones brutos por trabajador, $ 60.000 brutos adicionales de renta mensual, alzas en movilización y colación, y un préstamo blando de hasta $ 6 millones. También se mejoraron los bonos de vacaciones y Navidad, se duplicó a $ 200 millones el fondo anual de retiro voluntario y se rediseñó el premio "Súper Cajero" como reconocimiento trimestral. El banco declinó comentar, y su memoria indica que 94,2% de sus colaboradores estaba cubierto por convenios colectivos a fines de 2025.</p><h2 id="3-getnet-de-santander-sella-alianza-con-nayax-para-potenciar-negocio-en-latinoamerica-espana-y-portugal"><strong>3.  Getnet de Santander sella alianza con Nayax para potenciar negocio en Latinoamérica, España y Portugal</strong></h2><p>Getnet, la plataforma de pagos de Santander, selló una alianza con Nayax para ofrecer pagos integrados a operadores de máquinas expendedoras, cargadores eléctricos, quioscos y otros negocios de autoservicio desatendido. El despliegue partirá en Chile en las próximas semanas y se extenderá gradualmente a España, Portugal, Brasil, México y Argentina. Nayax accede así a nuevos mercados en la región, mientras Getnet amplía su cartera hacia el comercio desatendido y espera aumentar sus volúmenes procesados. Ambas compañías lo presentan como un paso dentro de su estrategia de convertirse en socios preferentes de pagos para plataformas tecnológicas.</p><h2 id="4-los-flujos-de-petroleo-de-medio-oriente-vuelven-a-los-niveles-previos-a-la-guerra-pero-los-precios-se-encaminan-a-una-fuerte-alza-mensual"><strong>4.  Los flujos de petróleo de Medio Oriente vuelven a los niveles previos a la guerra, pero los precios se encaminan a una fuerte alza mensual</strong></h2><p>Los flujos de crudo desde Medio Oriente están volviendo a los niveles previos a la guerra pese a los persistentes riesgos para el transporte marítimo , según estimaciones separadas de JPMorgan Chase &amp; Co. y Goldman Sachs Group Inc. “Las arterias de exportación de petróleo de Medio Oriente vuelven a fluir”, dijeron analistas de JPMorgan, entre ellos Natasha Kaneva, en una nota del 29 de septiembre. Se trata de “una recuperación notable para una región que sigue en guerra”, aunque la recuperación no ha sido uniforme, señalaron.</p><h2 id="5-gremio-bancario-defiende-cambios-a-ley-de-fraudes-y-reabre-debate-sobre-tmc-en-reforma-al-mercado-de-capitales"><strong>5.  Gremio bancario defiende cambios a Ley de Fraudes y reabre debate sobre TMC en reforma al mercado de capitales</strong></h2><p>En la Comisión de Hacienda, el presidente de la Abif, José Manuel Mena, defendió que la reforma MK4 cambie la responsabilidad del cliente en fraudes de culpa grave a culpa leve, señalando que el fraude se triplicó desde 2020, y propuso que la CMF resuelva en primera instancia los reclamos para evitar que los bancos demanden a sus clientes. Sobre el Fonavi, el gremio apoya la iniciativa, aunque pide conocer el diseño de las licitaciones y el riesgo que retendrán los bancos, mientras la presidenta del Banco Central, Rosanna Costa, matizó que la falta de holguras de capital no ha limitado el crédito hipotecario. Mena también planteó revisar la tasa máxima convencional, que según él deja a unas 600 mil personas fuera del mercado formal. Además, diputados cuestionaron la trazabilidad de inversionistas extranjeros sin RUT, que el SII defendió, y el DCV pidió un liderazgo claro para coordinar a los reguladores.</p><h2 id="6-gestora-alza-lanza-fondo-para-proyectos-en-santiago-y-regiones-junto-a-inmobiliaria-de-la-familia-perez-yoma"><strong>6.  Gestora Alza lanza fondo para proyectos en Santiago y regiones junto a inmobiliaria de la familia Pérez Yoma</strong></h2><p>Alza AGF inscribió en septiembre ante la CMF el fondo "Alza Desarrollo III", que financiará proyectos habitacionales de Inmobiliaria PY, ligada a la familia Pérez Yoma, en Cerrillos, Macul, Puente Alto, Hualpén y Puerto Montt. El fondo cuenta con aportes de family offices e institucionales, y la gestora ya ha prestado más de US$ 11 millones a Socovesa y más de US$ 10 millones a Eurocorp mediante deuda privada. Su CEO, Álvaro Alliende, sostiene que es buen momento para iniciar proyectos por la baja del stock y la demanda de viviendas de UF 3.000 a 5.000, especialmente en regiones donde el capital es más escaso. Valoró los avances de la reforma de reconstrucción y propuso restituir en MK4 el crédito especial a constructoras para vivienda social.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-acreedores-de-enjoy-se-enfrentan-en-tribunales-duena-del-hotel-y-casino-de-coquimbo-pide-la-quiebra-de-su-operadora"><strong>1.  Acreedores de Enjoy se enfrentan en tribunales: dueña del Hotel y Casino de Coquimbo pide la quiebra de su operadora</strong></h2><p>Inmobiliaria Peñuelas, ligada a los acreedores internacionales de Enjoy, demandó la liquidación forzosa de Casino de la Bahía, operadora del casino de Coquimbo controlada por los acreedores nacionales (Casinos de Chile). Acusa que no paga arriendos desde mayo, con una deuda de UF 56.500 (unos $ 2.319 millones), además de las dos últimas cuotas de un acuerdo anterior por UF 6.708. Ese pacto, que reconocía una deuda de UF 45.983, preveía el pago anticipado de todo el saldo ante un nuevo atraso. El conflicto enfrenta a los dos grupos que se repartieron activos y operaciones de Enjoy tras sus reorganizaciones judiciales, no a la compañía como tal.</p><h2 id="2-tras-la-muerte-de-reinaldo-sanchez-su-hijo-andres-asume-presidencia-de-vina-bus-y-lidera-conformacion-de-un-holding-para-ordenar-el-imperio-familiar"><strong>2.  Tras la muerte de Reinaldo Sánchez, su hijo Andrés asume presidencia de Viña Bus y lidera conformación de un holding para ordenar el imperio familiar</strong></h2><p>Andrés Sánchez asumió la presidencia de Viña Bus y encabezará un holding familiar con directorio común que reunirá transporte, agroexportación (Agrícola Santa Amelia) e inmobiliaria, mientras sus hermanos lideran Santiago Wanderers y el área agrícola. La familia controla cuatro de las 19 unidades de negocio del Gran Valparaíso, con 800 microbuses, y se adjudicó la Unidad 1 de la nueva licitación regional, que incorporará 300 buses eléctricos desde enero de 2028 bajo leasing y con 90% de ingresos por kilómetro recorrido. El grupo invirtió US$ 6 millones en 50 buses convencionales este año, aunque los contratos transitorios de 18 meses frenan una renovación mayor. Sánchez advierte que, con tarifas congeladas desde 2019 y evasión sobre 40%, imponer pago electrónico sin subsidio o ingreso mínimo garantizado haría quebrar a los operadores.</p><h2 id="3-andes-iron-apuesta-a-que-comite-de-ministros-de-la-era-kast-de-el-vamos-definitivo-a-la-minera-dominga"><strong>3.  Andes Iron apuesta a que Comité de Ministros de la era Kast dé el vamos definitivo a la Minera Dominga</strong></h2><p>Andes Iron se desistió de sus recursos ante la Corte Suprema y apuesta a la vía administrativa: cuatro organizaciones de La Higuera pidieron invalidar la resolución del Comité de Ministros de enero de 2025 que rechazó Dominga, solicitudes admitidas por el SEA el 16 de septiembre. Ahora corresponde al Comité, presidido por la ministra de Medio Ambiente Francisca Toledo y visto como pro-inversión, zanjar un proyecto minero-portuario de más de US$ 3.000 millones que lleva 13 años de tramitación y que ya inició obras el 10 de agosto, con producción prevista de 12 millones de toneladas de concentrado de hierro y 150.000 de cobre. Greenpeace interpreta el desistimiento como reconocimiento del rechazo, mientras un académico advierte que el caso no termina y podría volver a tribunales. La incertidumbre sobre una definición final persiste.</p><h2 id="4-george-lever-a-15-anos-del-primer-cyberday-la-inteligencia-artificial-es-la-transformacion-mas-importante-que-nos-ha-tocado-ver"><strong>4.  George Lever a 15 años del primer CyberDay: “La inteligencia artificial es la transformación más importante que nos ha tocado ver”</strong></h2><p>El economista de la Cámara de Comercio de Santiago considera que la inteligencia artificial es el cambio más importante del comercio en 15 años, con el siguiente paso en el "consumo agéntico", donde agentes aconsejarán y luego ejecutarán compras, lo que obligará a las empresas a interactuar con ellos. Proyecta que el comercio electrónico siga creciendo a dos dígitos, aunque para el próximo CyberMonday la CCS estima ventas por US$ 460 millones, un alza real cercana a 3%, bajo el 12% acumulado por el e-commerce. Anticipa un último trimestre complejo, pues la crisis laboral ya llegó al consumo, con compradores más selectivos y presión por tipo de cambio y costos de transporte. Ve oportunidades en alimentos y bebidas y en compras navideñas adelantadas, y mayores dificultades en bienes durables.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-kast-confirmo-al-oficialismo-que-el-presupuesto-2027-tendra-una-expansion-de-15-el-de-menor-crecimiento-en-dos-decadas-sin-contar-la-pandemia"><strong>1.  Kast confirmó al oficialismo que el Presupuesto 2027 tendrá una expansión de 1,5%, el de menor crecimiento en dos décadas sin contar la pandemia</strong></h2><p>El Presidente Kast informó a parlamentarios oficialistas que el gasto fiscal 2027 crecerá 1,5%, el menor aumento en al menos dos décadas sin considerar el ajuste de 2022, frente al 2,2% estimado para este año y al 1,7% del Presupuesto 2026. El foco estará en Obras Públicas, Vivienda, Salud, Seguridad y Niñez, con énfasis en empleo dado el desempleo de 9,6%. Los parlamentarios destacaron que es el primer presupuesto en tres años que se ajusta a la regla fiscal, aunque la presentación fue escueta y sin detalles. El proyecto ingresará este miércoles y se dará cuenta en la Cámara el lunes para iniciar su tramitación.</p><h2 id="2-un-agosto-en-rojo-la-produccion-industrial-volvio-a-caer-y-el-comercio-anoto-un-crecimiento-nulo"><strong>2.  ¿Un agosto en rojo? La producción industrial volvió a caer y el comercio anotó un crecimiento nulo</strong></h2><p>El INE informó que el Índice de Producción Industrial cayó 5,7% anual en agosto, arrastrado por la minería (-11,7%, con la minería metálica en -16,9% por menor extracción de cobre) y la manufactura (-2,6%), mientras electricidad, gas y agua creció 1%. El Índice de Actividad del Comercio no varió en el mes y acumula 2,9% en el año, con el comercio mayorista cayendo 2,8% y el minorista creciendo 2,2%. Las ventas de supermercados retrocedieron 1,2% anual, mientras el comercio electrónico minorista subió 15,6% a precios corrientes, impulsado por productos electrónicos y tecnológicos. Los datos confirman una actividad debilitada en minería e industria.</p><h2 id="3-tasa-de-desocupacion-sube-a-96-en-el-trimestre-junio-agosto-y-alcanza-nuevo-maximo-en-mas-de-5-anos"><strong>3.  Tasa de desocupación sube a 9,6% en el trimestre junio-agosto y alcanza nuevo máximo en más de 5 años</strong></h2><p>La desocupación llegó a 9,6% en junio-agosto, un punto más que hace un año y su sexto aumento interanual consecutivo, con 989.400 desocupados (+13%) y 9,27 millones de ocupados (-0,9%, equivalente a 81.352 personas menos). La caída se explica por el empleo formal, que retrocedió 1,3% (88.124 puestos), mientras el informal subió 0,3% y su tasa llegó a 26,3%. Por sectores, bajaron manufactura (-7,6%), información y comunicaciones (-16,8%) y administración pública (-3,4%), y subieron servicios administrativos y construcción; los desocupados universitarios crecieron 15,3% y el desempleo de larga duración 21,4%. La tasa de ocupación está 2,3 puntos bajo 2019, brecha que baja a 0,3 puntos al considerar el envejecimiento, y el INE señaló que septiembre suele mejorar los datos.</p><h2 id="4-centrales-sindicales-se-abren-a-discutir-flexibilidad-laboral-ante-crisis-del-empleo-pero-con-limites"><strong>4.  Centrales sindicales se abren a discutir flexibilidad laboral ante crisis del empleo, pero con límites</strong></h2><p>En un seminario de Sofofa, dirigentes de la UNT y la CAT mostraron disposición a discutir flexibilidad de jornada ante la magnitud del desempleo, aunque con límites: la UNT aceptó conversar con mirada de futuro y la CAT la considera plausible solo en sectores como turismo. Desde el lado empresarial, Sofofa defendió contratos por hora y protecciones portables, señalando que flexibilidad no es precariedad y que deben resguardarse derechos, descansos y fiscalización. El economista David Bravo propuso ampliar el período de promedio de jornada de cuatro semanas a 15 o 16, como en países OCDE. Hay acercamiento, pero con diferencias sobre hasta dónde llegar.</p><h2 id="5-jose-pakomio-presidente-de-la-camara-nacional-de-comercioen-cuatro-o-cinco-meses-vamos-a-tener-los-primeros-brotes-verdes"><strong>5.  José Pakomio, presidente de la Cámara Nacional de Comercio:“En cuatro o cinco meses, vamos a tener los primeros brotes verdes”</strong></h2><p>El presidente de la CNC, José Pakomio, evalúa positivamente la recepción del gobierno a las demandas del comercio y espera que los primeros "brotes verdes" en empleo aparezcan en cuatro o cinco meses, a medida que se despejan incertidumbres y se activa la inversión. Sostiene que los costos laborales, como el alza del sueldo mínimo, son hoy la principal barrera para contratar y empujan despidos en pymes, por lo que pide desregular y flexibilizar la relación laboral. Propone abrir el debate sobre un subsidio a las cotizaciones, como el aplicado en Argentina, y apoya el Estatuto Laboral para el Turismo. Sobre la elección en la CPC, dice que el proceso está en etapa inicial y que la CNC buscará la unidad empresarial sin definir un cargo.</p><h2 id="6-los-principales-desafios-para-implementar-la-norma-segun-el-sii-la-tesoreria-y-la-dedecon"><strong>6.  Los principales desafíos para implementar la norma, según el SII, la Tesorería y la Dedecon</strong></h2><p>En un seminario sobre la implementación de la Ley de Reconstrucción Nacional, Hacienda explicó que falta el control preventivo del Tribunal Constitucional, esperado en los próximos días. El SII elevó a 13 circulares y 17 resoluciones las instrucciones necesarias; las circulares pasan por 10 días de análisis del Consejo Tributario y 10 de consulta pública, con trabajo colaborativo con gremios. La Tesorería se enfocará en la exención de contribuciones a la primera vivienda de adultos mayores, cobranza municipal, reprogramación de deudas CAE y condonaciones de intereses y multas. La Defensoría del Contribuyente advirtió sobre posibles criterios contradictorios entre autoridades tributarias.</p><h2 id="7-ley-de-reconstruccion-se-promulga-en-octubre-hacienda-incluira-ingresos-transitorios-en-el-presupuesto-2027"><strong>7.  Ley de Reconstrucción se promulga en octubre: Hacienda incluirá ingresos transitorios en el Presupuesto 2027</strong></h2><p>La promulgación de la Ley de Reconstrucción se postergó a octubre, pues el TC revisa la totalidad del articulado y tiene plazo hasta el 9 de octubre, con sentencia posible a fines de esta semana o inicios de la próxima. Esto reordena el calendario: varias medidas regirían desde el 1 de noviembre, como el crédito al empleo para exportadores de servicios y la rebaja de PPM Pyme a 0,23%; la repatriación de capitales con impuesto de 7% a 10% partiría en enero de 2027, y las facilidades de pago de la Tesorería (condonación de hasta 100% de intereses y 80% de multas) durarían 180 días. Hacienda incluirá en el Presupuesto 2027 ingresos transitorios como US$ 419 millones por impuestos sustitutivos, US$ 214 millones por bienes en el exterior y US$ 157 millones por herencias y donaciones. Aun así, el proyecto sería deficitario, con saldo negativo superior a US$ 2.000 millones en 2027, que baja a US$ 1.600 millones considerando mayor crecimiento.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-terror-a-6-mil-metros-de-altura-copiloto-apunala-al-piloto-en-pleno-vuelo-a-tel-aviv-y-autoridades-israelies-apuntan-a-posible-intento-de-ataque-terrorista"><strong>1.  Terror a 6 mil metros de altura: copiloto apuñala al piloto en pleno vuelo a Tel Aviv y autoridades israelíes apuntan a posible intento de ataque terrorista</strong></h2><p>Un vuelo de Flydubai de Dubái a Tel Aviv con unos 150 pasajeros israelíes se desvió a Tabuk, en Arabia Saudita, tras emitir señales de emergencia, luego de que según funcionarios israelíes el copiloto apuñalara al capitán antes de que la tripulación tomara el control. Flightradar24 registró un descenso brusco de unos 4.000 metros en menos de 30 segundos, y ambos pilotos resultaron heridos y fueron hospitalizados. Israel evalúa el hecho como un posible intento de ataque terrorista no vinculado a problemas de salud mental, aunque su oficina del primer ministro inicialmente descartó un secuestro. Netanyahu dijo que el incidente está bajo control y que se trabaja en repatriar a los pasajeros, pese a que Israel y Arabia Saudita no tienen relaciones diplomáticas.</p><h2 id="2-xi-destaca-la-resiliencia-de-la-economia-china-y-pide-esfuerzos-para-cumplir-las-metas"><strong>2.  Xi destaca la resiliencia de la economía china y pide esfuerzos para cumplir las metas</strong></h2><p>En la recepción por el 77° aniversario de la República Popular, Xi Jinping afirmó que la economía china ha avanzado pese a las presiones y pidió cumplir las metas del año y asegurar un buen inicio del decimoquinto plan quinquenal. Pekín presentó esta semana su mayor estímulo desde 2024, con subsidios hipotecarios y más préstamos del banco central para infraestructura y tecnología, dado que el crecimiento cayó el trimestre pasado bajo la meta de 4,5%-5%. Es su primer discurso relevante tras la cumbre con Trump, donde acordaron extender la tregua comercial hasta enero, reducir aranceles sobre US$ 60 mil millones en bienes no sensibles y crear un canal de comunicación sobre riesgos de la IA. Xi también reiteró su postura contra la independencia de Taiwán.</p><h2 id="3-sam-altman-afirma-que-openai-postergara-su-salida-a-bolsa-hasta-resolver-las-preocupaciones-sobre-seguridad"><strong>3.  Sam Altman afirma que OpenAI postergará su salida a bolsa hasta resolver las preocupaciones sobre seguridad</strong></h2><p>Sam Altman dijo que OpenAI, valorada en US$ 852.000 millones, no saldrá a bolsa hasta poder tomar decisiones de seguridad con confianza, mientras enfrenta una demanda en California de la organización LASST por hackeos cometidos por sus agentes, incluido el de Hugging Face y sitios gubernamentales. Paralelamente, negocia una ronda privada de US$ 30.000 millones o más a una valorización cercana a US$ 1,4 billones. Sus ingresos anualizados crecieron más de 70% desde julio y rondan los US$ 70.000 millones, y lanzará asistentes llamados Dots para competir con Meta, cuya acción subió cerca de 18% tras lanzar Muse. La compañía también canceló el lanzamiento de su modelo más reciente por preocupaciones de seguridad y pide a rivales frenar el ritmo de desarrollo.</p><h2 id="4-la-casa-blanca-mantiene-conversaciones-de-emergencia-sobre-prohibicion-a-las-exportaciones-de-diesel-ad-portas-de-la-eleccion-de-medio-termino"><strong>4.  La Casa Blanca mantiene conversaciones de emergencia sobre prohibición a las exportaciones de diésel ad portas de la elección de medio término</strong></h2><p>Trump discute con asesores prohibir las exportaciones de diésel u otras medidas para contener la crisis de combustibles, que amenaza a los republicanos en las elecciones de medio término; el diésel llegó a US$ 6,53 por galón, más de 70% sobre su nivel previo a la guerra con Irán. Legisladores de zonas agrícolas, liderados por Chuck Grassley, presionan por el bloqueo, mientras petroleras como ExxonMobil y miembros del gabinete se oponen, argumentando que elevaría precios en regiones importadoras; Trump dijo que lo evalúa "muy seriamente" y no hay decisión. La Casa Blanca también informó a aliados como Reino Unido, presiona a Europa para liberar reservas y estudia pedir a China más producción. Otras opciones incluyen exenciones a la Jones Act, alivios tributarios y flexibilizar normas del diésel teñido, con el Brent cerca de US$ 102,59 tras subir casi 40% desde febrero.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-es-posible-proteger-la-autoria-de-una-obra-que-utilizo-parcialmente-inteligencia-artificial"><strong>1.  ¿Es posible proteger la autoría de una obra que utilizó parcialmente inteligencia artificial?</strong></h2><p>No existe un porcentaje o fórmula global de uso de IA que determine si una obra es protegible, y tribunales y oficinas de registro resuelven caso a caso cuánto aporte humano se requiere. En EEUU se protegió el texto y la selección de imágenes del cómic Zarya of the Dawn pero no las imágenes de IA, y se rechazó registrar una obra pese a más de 600 prompts; en China, en cambio, un tribunal protegió una imagen creada con más de 150 prompts. La abogada Andrea Lobos explica que casi ningún país tiene ley moderna específica, que la cantidad de prompts no basta y que el autor sigue siendo una persona. En Chile, una obra propia transformada con IA como herramienta puede inscribirse, pero lo creado de forma autónoma por IA no se protege, por lo que la incertidumbre legal depende del país y el juez.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-empleo-mas-alla-de-la-coyuntura"><strong>1.  Empleo, más allá de la coyuntura</strong></h2><p>Con desocupación cercana a 9,5%, el editorial valora que el gobierno actúe con urgencia mediante el plan Chile Despega, que apunta a más de 100 mil empleos con $ 91 mil millones en subsidios, $ 800 mil millones en obras de rápida ejecución, $ 130 mil millones en adelanto de pagos a proveedores de salud y hasta $ 300 mil millones para reforzar Fogape. Este se suma a Modo Empleo ($ 50 mil millones), aportes de gobiernos regionales y la ley de reconstrucción. Sin embargo, advierte que no es seguro que alcance la meta de 6,5% de desempleo, ya que economistas estiman una baja de hasta un punto porcentual solo si los empleos son adicionales. Concluye que sostener el empleo exige inversión privada, reformas legales que favorezcan la contratación formal y transparencia sobre lo efectivamente ejecutado.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

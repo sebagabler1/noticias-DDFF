@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-02.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">2 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-pierde-sus-maximos-y-cae-a-niveles-de-980-tras-una-importante-sorpresa-a-la-baja-en-las-nominas-de-empleo-estadounidenses">1.  Dólar pierde sus máximos y cae a niveles de $ 980 tras una importante sorpresa a la baja en las nóminas de empleo estadounidenses</a></li><li class="toc-l2"><a href="#2-el-brent-baja-de-la-marca-de-us-100-por-barril-tras-conversaciones-sobre-gasoleo-y-liberacion-de-reservas-petroleras">2.  El Brent baja de la marca de US$ 100 por barril tras conversaciones sobre gasóleo y liberación de reservas petroleras</a></li><li class="toc-l2"><a href="#3-banco-bice-concreta-la-colocacion-de-un-bono-senior-en-suiza-por-us-138-millones-en-su-segunda-emision-de-deuda-en-ese-pais">3.  Banco BICE concreta la colocación de un bono senior en Suiza por US$ 138 millones en su segunda emisión de deuda en ese país</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-vivo-pone-fin-a-su-reorganizacion-judicial-tras-cumplir-exigencias-de-sus-acreedores">1.  Vivo pone fin a su reorganización judicial tras cumplir exigencias de sus acreedores</a></li><li class="toc-l2"><a href="#2-pakomio-arremete-contra-proliferacion-de-malls-chinos-y-pide-a-kast-mano-dura-contra-el-comercio-ilicito">2.  Pakomio arremete contra proliferación de “malls chinos” y pide a Kast mano dura contra el comercio ilícito</a></li><li class="toc-l2"><a href="#3-generacion-entra-a-la-agenda-de-rincon-tras-foco-en-distribucion-y-transmision">3.  Generación entra a la agenda de Rincón tras foco en distribución y transmisión</a></li><li class="toc-l2"><a href="#4-el-estancamiento-de-la-mineria-chilena-golpea-a-contratistas-y-proveedores-y-empuja-reestructuraciones-en-la-industria">4.  El estancamiento de la minería chilena golpea a contratistas y proveedores y empuja reestructuraciones en la industria</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-kast-desdramatiza-debate-por-crecimiento-del-gasto-en-el-presupuesto-y-anticipa-que-estoy-seguro-que-los-proximos-seran-buenos-tras-caida-del-imacec-de-agosto">1.  Kast desdramatiza debate por crecimiento del gasto en el Presupuesto y anticipa que “estoy seguro que los próximos serán buenos” tras caída del Imacec de agosto</a></li><li class="toc-l2"><a href="#2-gobierno-abre-postulaciones-al-subsidio-unificado-al-empleo">2.  Gobierno abre postulaciones al Subsidio Unificado al Empleo</a></li><li class="toc-l2"><a href="#3-presupuesto-2027-economistas-creen-que-el-impulso-fiscal-sumaria-hasta-medio-punto-al-pib-del-proximo-ano">3.  Presupuesto 2027: economistas creen que el impulso fiscal sumaría hasta medio punto al PIB del próximo año</a></li><li class="toc-l2"><a href="#4-caida-de-la-actividad-economica-en-agosto-alienta-expectativas-de-un-ano-2026-sin-crecimiento-o-en-rojo">4.  Caída de la actividad económica en agosto alienta expectativas de un año 2026 sin crecimiento o en rojo</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-creacion-de-empleos-en-eeuu-decepciona-y-favorece-una-pausa-en-las-alzas-de-tasas-de-la-fed">1.  Creación de empleos en EEUU decepciona y favorece una pausa en las alzas de tasas de la Fed</a></li><li class="toc-l2"><a href="#2-la-inflacion-de-la-eurozona-se-dispara-en-septiembre-a-su-nivel-mas-alto-en-tres-anos-debido-al-alza-del-petroleo-por-el-conflicto-en-medio-oriente">2.  La inflación de la eurozona se dispara en septiembre a su nivel más alto en tres años debido al alza del petróleo por el conflicto en Medio Oriente</a></li><li class="toc-l2"><a href="#3-china-se-vuelca-al-mercado-interno-amplia-apoyo-fiscal-y-frena-envios-de-combustibles">3.  China se vuelca al mercado interno: amplía apoyo fiscal y frena envíos de combustibles</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-fundacion-pais-digital-pone-el-foco-en-educacion-y-la-necesidad-de-articular-esfuerzos-para-generar-impacto">1.  Fundación País Digital pone el foco en educación y la necesidad de articular esfuerzos para generar impacto</a></li><li class="toc-l2"><a href="#2-uno-de-cada-cuatro-proyectos-de-innovacion-apoyados-por-corfo-ya-usa-ia-y-la-mayoria-lo-hace-para-mejorar-procesos">2.  Uno de cada cuatro proyectos de innovación apoyados por Corfo ya usa IA y la mayoría lo hace para mejorar procesos</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-caida-de-la-actividad-mas-alla-de-la-mineria">1.  Caída de la actividad, más allá de la minería</a></li><li class="toc-l2"><a href="#2-mientras-se-crean-los-empleos-quien-protege-a-quienes-ya-los-perdieron">2.  Mientras se crean los empleos, ¿quién protege a quienes ya los perdieron?</a></li><li class="toc-l2"><a href="#3-chile-un-pasillo-que-todo-el-mundo-mira">3.  Chile, un pasillo que todo el mundo mira</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>2 De Octubre De 2026</p><p>6 secciones  ·  19 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-pierde-sus-maximos-y-cae-a-niveles-de-980-tras-una-importante-sorpresa-a-la-baja-en-las-nominas-de-empleo-estadounidenses"><strong>1.  Dólar pierde sus máximos y cae a niveles de $ 980 tras una importante sorpresa a la baja en las nóminas de empleo estadounidenses</strong></h2><p>El dólar en Chile retrocedió unos $ 5 hasta cerca de $ 982, alejándose de sus máximos de 18 meses, luego de que el empleo no agrícola de EEUU sorprendiera a la baja con solo 29 mil plazas en septiembre frente a 90 mil esperadas, y con revisiones negativas por 60 mil en los dos meses previos. El desempleo subió a 4,2% y los salarios crecieron apenas 0,1% mensual, lo que hizo caer el índice dólar 0,3% y los rendimientos del Tesoro cerca de 7 pb a dos años. Esto reduce la expectativa de que la Fed suba tasas a fines de mes, mientras el cobre avanzó 0,4% y el Brent cayó a cerca de US$ 100 tras la propuesta francesa de liberar 100 millones de barriles de diésel y crudo.</p><h2 id="2-el-brent-baja-de-la-marca-de-us-100-por-barril-tras-conversaciones-sobre-gasoleo-y-liberacion-de-reservas-petroleras"><strong>2.  El Brent baja de la marca de US$ 100 por barril tras conversaciones sobre gasóleo y liberación de reservas petroleras</strong></h2><p>Los precios del crudo cayeron más de 2% y el gasóleo europeo cerca de 5%, con el Brent en US$ 99,74 y el WTI en US$ 89,34, tras conocerse que la UE discute una propuesta francesa de liberar 50 millones de barriles de gasóleo y otros 50 millones de crudo vía la AIE. En la semana el Brent acumula una baja de 4,1% y el WTI de 3,2%. Analistas señalan que la tensión ya no está en la disponibilidad de crudo, pues los flujos de Medio Oriente se recuperan, sino en los productos refinados, limitados por menor capacidad de refino en Medio Oriente y Rusia, además de la presión de EEUU y el riesgo de una prohibición de sus exportaciones de gasóleo.</p><h2 id="3-banco-bice-concreta-la-colocacion-de-un-bono-senior-en-suiza-por-us-138-millones-en-su-segunda-emision-de-deuda-en-ese-pais"><strong>3.  Banco BICE concreta la colocación de un bono senior en Suiza por US$ 138 millones en su segunda emisión de deuda en ese país</strong></h2><p>Banco BICE colocó un bono senior por 115 millones de francos suizos, unos US$ 138 millones, a 4 años con vencimiento en octubre de 2030 y una tasa anual de 1,98%. La operación, la segunda del banco en ese mercado, fue liderada por UBS, Commerzbank y Zürcher Kantonalbank y se listará en la bolsa SIX Swiss Exchange. Su gerente general destacó que refleja la confianza de inversionistas internacionales y la búsqueda de fuentes de financiamiento más eficientes; BICE como grupo suma 2,4 millones de clientes y activos sobre US$ 38 mil millones.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-vivo-pone-fin-a-su-reorganizacion-judicial-tras-cumplir-exigencias-de-sus-acreedores"><strong>1.  Vivo pone fin a su reorganización judicial tras cumplir exigencias de sus acreedores</strong></h2><p>Vivo SpA informó a la CMF que su acuerdo de reorganización judicial quedó íntegramente cumplido y alzado, luego de que la Comisión de Acreedores constatara por unanimidad el cumplimiento de todas las condiciones. Entre los hitos figuran el término de obras en Vivo Outlet Chillán y Mall Panorámico, el refinanciamiento a condiciones de mercado de deudas con Scotiabank y la resolución del leasing con Confuturo. Además cumplió durante dos trimestres los covenants de activos libres de gravámenes sobre deuda neta sin garantías y de deuda neta sobre valor de activos (validado por Deloitte), y pagó los impuestos pendientes por ventas de activos de 2021, cerrando así su proceso de saneamiento financiero.</p><h2 id="2-pakomio-arremete-contra-proliferacion-de-malls-chinos-y-pide-a-kast-mano-dura-contra-el-comercio-ilicito"><strong>2.  Pakomio arremete contra proliferación de “malls chinos” y pide a Kast mano dura contra el comercio ilícito</strong></h2><p>El presidente de la CNC, José Pakomio, destacó que el comercio creció 2,2% en agosto pese a la contracción económica, pero advirtió sobre la informalidad, el crimen y la proliferación de “malls chinos”; según la encuesta del gremio, 56,6% de los comercios fue víctima de delitos en el primer semestre. Pidió al Gobierno una política de Estado contra el comercio ilícito, un estatuto laboral con mayor adaptabilidad para comercio y turismo en un contexto de 9,6% de desempleo y casi 2,5 millones de informales, y herramientas como la devolución del IVA a turistas. Señaló además que, aunque 39,8% de las empresas espera vender más, solo 15,5% planea aumentar su dotación y las expectativas de inversión favorecen a las grandes por sobre las pymes, defendiendo proyectos como Las Salinas (US$ 1.200 millones).</p><h2 id="3-generacion-entra-a-la-agenda-de-rincon-tras-foco-en-distribucion-y-transmision"><strong>3.  Generación entra a la agenda de Rincón tras foco en distribución y transmisión</strong></h2><p>La ministra de Energía, Ximena Rincón, anunció en los 15 años de Generadoras de Chile que su cartera comenzará a analizar las preocupaciones del segmento generación, además de preparar un proyecto de reforma a las redes eléctricas (distribución y transmisión) que presentaría en 2027. Planteó desafíos en seguridad del sistema, flexibilidad y resiliencia, y en las condiciones para que se materialicen las inversiones requeridas. Subrayó que la descarbonización debe continuar para reducir la dependencia de combustibles importados, pero con planificación, transmisión y almacenamiento que aseguren un suministro confiable, y con una discusión basada en evidencia.</p><h2 id="4-el-estancamiento-de-la-mineria-chilena-golpea-a-contratistas-y-proveedores-y-empuja-reestructuraciones-en-la-industria"><strong>4.  El estancamiento de la minería chilena golpea a contratistas y proveedores y empuja reestructuraciones en la industria</strong></h2><p>El Imacec cayó 1% interanual en agosto, arrastrado por una contracción minera de 17,4%, lo que golpea a una cadena de proveedores y contratistas que se preparó para un ciclo de inversión que se ha demorado, pese a que Cochilco contempla una cartera de US$ 104.549 millones para 2025-2034. Aprimin reconoce que la menor tracción de las mineras se siente de inmediato, y Asimet informó una caída de 2,9% anual de la producción metalmecánica en agosto y de 5,6% en ocho meses. Grandes contratistas también ajustan: según causas laborales, Besalco redujo su backlog minero a menos de una quinta parte en un año y Sigdo Koppers cita menores contratos, lo que ha derivado en despidos y reestructuraciones de costos.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-kast-desdramatiza-debate-por-crecimiento-del-gasto-en-el-presupuesto-y-anticipa-que-estoy-seguro-que-los-proximos-seran-buenos-tras-caida-del-imacec-de-agosto"><strong>1.  Kast desdramatiza debate por crecimiento del gasto en el Presupuesto y anticipa que “estoy seguro que los próximos serán buenos” tras caída del Imacec de agosto</strong></h2><p>En el encuentro de la CNC, el Presidente Kast restó dramatismo al Imacec de agosto (-1% total y -17% en minería) y se mostró seguro de que la recuperación minera llevará a buenos resultados en los próximos meses, destacando el repunte del comercio. Defendió la reforma de reactivación, que espera sea promulgada tras la revisión del TC, argumentando que la baja de impuestos terminará aumentando la recaudación, y calificó como serio y responsable el Presupuesto 2027, cuyo gasto crece 1,5% frente al ejecutado de 2026. Pidió esperar el contenido del proyecto, que se conocerá el martes, afirmó que se busca gastar mejor y no menos, y mencionó avances en un estatuto laboral del turismo y eventualmente uno agrícola.</p><h2 id="2-gobierno-abre-postulaciones-al-subsidio-unificado-al-empleo"><strong>2.  Gobierno abre postulaciones al Subsidio Unificado al Empleo</strong></h2><p>El Gobierno inició las postulaciones al Subsidio Unificado al Empleo (SUE), que reemplaza al Subsidio al Empleo Joven, al Bono al Trabajo de la Mujer y al Subsidio Previsional a los Trabajadores Jóvenes. Está dirigido a jóvenes de 18 a 24 años, mujeres de 25 a 54, mayores de 55 y personas con discapacidad, y también beneficia a las empresas que los contraten. En el primer año el trabajador puede recibir hasta 10% de su renta bruta y la empresa hasta 20%, para remuneraciones de hasta 2,25 ingresos mínimos (unos $ 1.190.250); exige acreditar desempleo previo y pertenecer al 40% más vulnerable, y se extiende por 12 meses, o 15 en discapacidad y micro y pequeñas empresas.</p><h2 id="3-presupuesto-2027-economistas-creen-que-el-impulso-fiscal-sumaria-hasta-medio-punto-al-pib-del-proximo-ano"><strong>3.  Presupuesto 2027: economistas creen que el impulso fiscal sumaría hasta medio punto al PIB del próximo año</strong></h2><p>El ministro Quiroz precisó que el gasto 2027 crece 1,5% sobre lo ejecutado este año, pero 2,7% si se compara con el Presupuesto aprobado por el Congreso, abriendo un debate sobre la base de comparación; Hacienda proyecta un PIB de 3% para 2027. Los economistas estiman un aporte al crecimiento entre un par de décimas y medio punto: Weber (USS) calcula 0,38 punto, Scotiabank habla de un gasto en torno a 3% relativamente neutral y hasta 0,5 punto si hay más inversión pública, e Itaú cree que no amenaza la meta de balance estructural de -1,8% del PIB. Varios coinciden en que importa más la composición del gasto, especialmente la inversión, que su nivel, y lo describen como moderadamente expansivo con disciplina fiscal.</p><h2 id="4-caida-de-la-actividad-economica-en-agosto-alienta-expectativas-de-un-ano-2026-sin-crecimiento-o-en-rojo"><strong>4.  Caída de la actividad económica en agosto alienta expectativas de un año 2026 sin crecimiento o en rojo</strong></h2><p>La caída de 1% del Imacec de agosto, explicada por la minería (-17,4%), llevó al mercado a recortar sus proyecciones: Scotiabank considera probable una contracción del PIB 2026, BICE Inversiones y Credicorp proyectan 0%, Gemines -0,6% y Fintual -0,7%, mientras BTG, Bci y Santander esperan alzas de 0,2% a 0,5% con sesgo a la baja. El Imacec no minero creció 1,4%, con comercio en 2,2% y servicios en 0,8%, y el ministro Quiroz mantiene optimismo en un cuarto trimestre mejor. Para 2027 los analistas prevén un repunte entre 2,5% y 3,5%, aunque con un importante componente de rebote estadístico según Credicorp.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-creacion-de-empleos-en-eeuu-decepciona-y-favorece-una-pausa-en-las-alzas-de-tasas-de-la-fed"><strong>1.  Creación de empleos en EEUU decepciona y favorece una pausa en las alzas de tasas de la Fed</strong></h2><p>EEUU creó solo 29 mil empleos en septiembre, frente a 133 mil del mes previo y 90 mil esperados, con revisiones a la baja de julio (a -10 mil) y agosto (-29 mil); el desempleo subió de 4,1% a 4,2% y los salarios avanzaron 0,1% mensual y 3% anual, los menores desde 2021. Salud, construcción y manufactura sumaron empleos, mientras empleo público, trabajo temporal, información y finanzas los perdieron. Los futuros de Wall Street subieron cerca de 0,8-0,9% y los rendimientos del Tesoro cayeron a 5,176%, con el mercado esperando posponer la próxima alza de la Fed hasta diciembre, aunque analistas advierten que un solo dato no cierra el ciclo restrictivo; en contraste, el BCE enfrenta una inflación de 3,8%.</p><h2 id="2-la-inflacion-de-la-eurozona-se-dispara-en-septiembre-a-su-nivel-mas-alto-en-tres-anos-debido-al-alza-del-petroleo-por-el-conflicto-en-medio-oriente"><strong>2.  La inflación de la eurozona se dispara en septiembre a su nivel más alto en tres años debido al alza del petróleo por el conflicto en Medio Oriente</strong></h2><p>La inflación de la eurozona subió a 3,8% interanual en septiembre, su máximo en tres años, desde 3,2% en agosto y sobre el 3,6% esperado, con las cuatro mayores economías sorprendiendo al alza y España en 5%. Es el séptimo mes consecutivo sobre la meta de 2%, impulsada por el alza del petróleo y el gas por el conflicto en Medio Oriente, y ha elevado los costos de financiamiento, con el bono francés a 10 años en 4,96%, su mayor nivel desde 2002. El BCE ya subió tasas un cuarto de punto en junio y septiembre, y los operadores apuestan a otra alza hasta 2,75% antes de fin de año, en línea con el llamado de Schnabel a actuar de forma preventiva.</p><h2 id="3-china-se-vuelca-al-mercado-interno-amplia-apoyo-fiscal-y-frena-envios-de-combustibles"><strong>3.  China se vuelca al mercado interno: amplía apoyo fiscal y frena envíos de combustibles</strong></h2><p>Tras crecer solo 4,3% interanual el trimestre pasado, bajo el rango meta de 4,5%-5%, China lanzó su mayor estímulo desde 2024, que incluye subsidiar 1% de la tasa de créditos hipotecarios por hasta cinco años (hasta 1 millón de yuanes por hogar) y ampliar préstamos del banco central, con una rebaja de la tasa PSL de 1,75% a 1,5% para financiar redes de infraestructura. Pantheon estima que ayudará a alcanzar el extremo inferior del rango, pero sin resolver el desbalance entre débil demanda interna y dependencia exportadora. Por el encarecimiento energético derivado de los conflictos en Irán y Ucrania, Beijing frenó exportaciones de combustible en octubre y PetroChina canceló envíos, mientras las reservas de gasolina de las estatales cayeron 2,9% a su menor nivel desde 2022.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-fundacion-pais-digital-pone-el-foco-en-educacion-y-la-necesidad-de-articular-esfuerzos-para-generar-impacto"><strong>1.  Fundación País Digital pone el foco en educación y la necesidad de articular esfuerzos para generar impacto</strong></h2><p>El presidente de Fundación País Digital, Pelayo Covarrubias, anticipó que el Summit País Digital (6 al 8 de octubre) abordará productividad, empleo, seguridad, salud, educación e IA, y llamó a coordinar a los sectores público, privado, académico y social para acelerar la adopción tecnológica. Afirmó que la conectividad lograda no se ha traducido en mayor productividad y que el desafío es usar la IA para repensar procesos en empresas, Estado y educación, sin que sea un fin en sí misma. Planteó la educación y la formación de talento como la prioridad número uno, incorporando tecnología sin descuidar lectoescritura, matemáticas y pensamiento crítico, para lograr un salto en productividad y competitividad.</p><h2 id="2-uno-de-cada-cuatro-proyectos-de-innovacion-apoyados-por-corfo-ya-usa-ia-y-la-mayoria-lo-hace-para-mejorar-procesos"><strong>2.  Uno de cada cuatro proyectos de innovación apoyados por Corfo ya usa IA y la mayoría lo hace para mejorar procesos</strong></h2><p>Una medición de Corfo sobre más de 11 mil proyectos apoyados entre 2009 y 2025 muestra que en 2025 uno de cada cuatro declaró usar IA, el nivel más alto de la serie, principalmente para automatizar y hacer más eficientes sus procesos. Lideran las tecnologías de la información, salud y minería (mantención predictiva, tronaduras con gemelos digitales), y muchos proyectos son encabezados por micro y pequeñas empresas. La gerente de Innovación, Jocelyn Olivari, reconoció que medir el impacto en tiempo y costos es una deuda pendiente y advirtió que las empresas que no incorporen IA perderán competitividad, esperando usos más sofisticados como IA generativa y robótica.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-caida-de-la-actividad-mas-alla-de-la-mineria"><strong>1.  Caída de la actividad, más allá de la minería</strong></h2><p>La columna sostiene que el Imacec de agosto (-1% anual y -0,7% mensual desestacionalizado) revela una fragilidad que va más allá de la minería (-17,4%), pues el crecimiento no minero de 1,4% se reduce a solo 0,2% al descontar el día hábil adicional y efectos estacionales, tras un primer semestre también débil. El deterioro laboral, con desocupación de 9,6% y caída de 2,9% del empleo asalariado formal, limita el consumo y la inversión, por lo que no hay respaldo suficiente para el rebote que anticipa Hacienda. Plantea examinar si los costos y condiciones de contratación, que el Banco Central vinculó al deterioro del empleo, son compatibles con el crecimiento, y urge implementar la ley de reconstrucción y la reforma al mercado de capitales antes de una nueva contracción.</p><h2 id="2-mientras-se-crean-los-empleos-quien-protege-a-quienes-ya-los-perdieron"><strong>2.  Mientras se crean los empleos, ¿quién protege a quienes ya los perdieron?</strong></h2><p>La columna valora el plan “Chile Despega”, que busca crear más de 100 mil empleos con $ 1,3 billones, pero advierte que no cubre a quienes ya fueron despedidos en un contexto de desocupación de 9,6%, el nivel más alto en cinco años. Una encuesta a 322 despedidos muestra que 9 de cada 10 tenía dependientes y uno de cada cuatro se endeudó mientras buscaba trabajo. Recomienda revisar la causal antes de firmar el finiquito, pues un despido injustificado por necesidades de la empresa recarga la indemnización en 30% (unos $ 1,5 millones adicionales en un caso de 5 años y $ 1 millón de sueldo) y la tutela laboral permite demandar entre 6 y 11 remuneraciones, y propone que la Dirección del Trabajo refuerce la orientación gratuita.</p><h2 id="3-chile-un-pasillo-que-todo-el-mundo-mira"><strong>3.  Chile, un pasillo que todo el mundo mira</strong></h2><p>El autor, académico de la UTEM, sugiere tomar con humor los memes que llaman “pasillo” a Chile y aprovechar esa atención como oportunidad para fortalecer la imagen país. Plantea que la curiosidad puede traducirse en interés por el turismo, y también por lo que el país produce, exporta y ofrece a inversionistas, recordando que Benjamín Subercaseaux ya retrataba la peculiar geografía en 1940. Concluye que ese territorio largo y estrecho, con empresas, talento y oportunidades de intercambio comercial, es la columna vertebral de Latinoamérica.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

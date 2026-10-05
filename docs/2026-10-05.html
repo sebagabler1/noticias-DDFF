@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-05.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">5 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-dolar-revierte-apertura-al-alza-y-se-desploma-mas-de-15-en-el-mercado-chileno-tras-anuncio-de-dipres-de-licitacion-de-dolares">1.  El dólar revierte apertura al alza y se desploma más de $ 15 en el mercado chileno tras anuncio de Dipres de licitación de dólares</a></li><li class="toc-l2"><a href="#2-ipsa-abre-al-alza-mientras-la-sorpresa-electoral-en-brasil-impulsa-a-las-bolsas-emergentes">2.  IPSA abre al alza, mientras la sorpresa electoral en Brasil impulsa a las bolsas emergentes</a></li><li class="toc-l2"><a href="#3-fondo-ligado-a-rama-de-los-luksic-y-carlos-eugenio-lavin-vende-50-de-productora-de-jugos-ama">3.  Fondo ligado a rama de los Luksic y Carlos Eugenio Lavín vende 50% de productora de jugos AMA</a></li><li class="toc-l2"><a href="#4-afiliados-mal-ubicados-en-multifondos-el-desafio-de-la-transicion-al-nuevo-esquema-de-inversion-de-las-afp">4.  Afiliados “mal ubicados” en multifondos: el desafío de la transición al nuevo esquema de inversión de las AFP</a></li><li class="toc-l2"><a href="#5-singular-busca-aprovechar-boom-de-la-bolsa-de-tokio-y-lanza-nuevo-etf-de-acciones-japonesas">5.  Singular busca aprovechar boom de la Bolsa de Tokio y lanza nuevo ETF de acciones japonesas</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-fitch-sube-las-clasificaciones-de-latam-airlines-con-perspectiva-estable-refleja-la-posicion-solida-de-negocio-y-competitiva-en-la-industria-en-latinoamerica">1.  Fitch sube las clasificaciones de Latam Airlines con perspectiva estable: &quot;Refleja la posición sólida de negocio y competitiva&quot; en la industria en Latinoamérica</a></li><li class="toc-l2"><a href="#2-empresas-elevan-alerta-por-debilidad-de-la-red-electrica-y-ya-se-discute-eventual-efecto-en-megalinea-kimal-lo-aguirre">2.  Empresas elevan alerta por debilidad de la red eléctrica y ya se discute eventual efecto en megalínea Kimal-Lo Aguirre</a></li><li class="toc-l2"><a href="#3-contructora-prepara-proyecto-inmobiliario-de-us-46-millones-en-antofagasta">3.  Contructora prepara proyecto inmobiliario de US$ 46 millones en Antofagasta</a></li><li class="toc-l2"><a href="#4-gigante-espanola-de-panaderia-compra-el-control-de-firma-chilena-que-hace-ciabattas-para-supermercados">4.  Gigante española de panadería compra el control de firma chilena que hace ciabattas para supermercados</a></li><li class="toc-l2"><a href="#5-mop-da-luz-verde-a-nuevos-sistemas-free-flow-en-la-ruta-5-sur">5.  MOP da luz verde a nuevos sistemas free flow en la Ruta 5 Sur</a></li><li class="toc-l2"><a href="#6-joint-venture-de-latam-y-delta-cumple-cuatro-anos-con-alza-de-un-31-en-la-capacidad-conjunta-de-las-aerolineas">6.  Joint venture de Latam y Delta cumple cuatro años con alza de un 31% en la capacidad conjunta de las aerolíneas</a></li><li class="toc-l2"><a href="#7-shopee-refuerza-brasil-y-habilita-a-150-mil-vendedores-para-llegar-a-argentina-y-mexico">7.  Shopee refuerza Brasil y habilita a 150 mil vendedores para llegar a Argentina y México</a></li><li class="toc-l2"><a href="#8-cmpc-refuerza-operaciones-en-biobio-con-mas-de-us-90-millones-en-medio-de-reorganizacion-de-negocios">8.  CMPC refuerza operaciones en Biobío con más de US$ 90 millones en medio de reorganización de negocios</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-empresas-reducen-sus-expectativas-de-inflacion-a-dos-anos-a-33">1.  Empresas reducen sus expectativas de inflación a dos años a 3,3%</a></li><li class="toc-l2"><a href="#2-claves-del-congreso-sala-de-la-camara-le-da-el-puntapie-inicial-al-primer-presupuesto-de-kast">2.  Claves del Congreso: Sala de la Cámara le da el puntapié inicial al primer presupuesto de Kast</a></li><li class="toc-l2"><a href="#3-pese-a-repunte-primaveral-el-animo-de-los-consumidoreses-peor-que-hace-un-ano">3.  Pese a repunte primaveral, el ánimo de los consumidoreses peor que hace un año</a></li><li class="toc-l2"><a href="#4-panel-uc-desestima-opcion-de-alza-transitoria-del-gasto-que-afecte-la-regla-fiscal-para-combatir-pesimismo-y-desempleo">4.  Panel UC desestima opción de alza transitoria del gasto que afecte la regla fiscal para combatir pesimismo y desempleo</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-los-unicos-multimillonarios-que-estan-ganando-dinero-este-ano-pertenecen-al-sector-tecnologico">1.  Los únicos multimillonarios que están ganando dinero este año pertenecen al sector tecnológico</a></li><li class="toc-l2"><a href="#2-aliados-de-flavio-bolsonaro-ganan-fuerza-en-el-senado-en-medio-de-disputa-con-la-corte-suprema">2.  Aliados de Flavio Bolsonaro ganan fuerza en el Senado en medio de disputa con la Corte Suprema</a></li><li class="toc-l2"><a href="#3-los-mercados-brasilenos-se-preparan-para-posibles-alzas-tras-la-ventaja-de-bolsonaro">3.  Los mercados brasileños se preparan para posibles alzas tras la ventaja de Bolsonaro</a></li><li class="toc-l2"><a href="#4-sanchez-apuesta-por-elecciones-anticipadas-en-espana-para-desbloquear-el-parlamento">4.  Sánchez apuesta por elecciones anticipadas en España para desbloquear el Parlamento</a></li><li class="toc-l2"><a href="#5-pol-antras-academico-de-la-u-de-harvard-experto-en-comercio-global-desgraciadamente-chile-no-tiene-mucho-poder-negociador">5.  Pol Antràs, académico de la U. de Harvard experto en comercio global: “Desgraciadamente, Chile no tiene mucho poder negociador”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-inversion-en-startups-de-la-region-sube-12-en-el-trimestre-pero-rondas-caen-a-su-peor-nivel-desde-2018">1.  Inversión en startups de la región sube 12% en el trimestre, pero rondas caen a su peor nivel desde 2018</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-los-detalles-del-presupuesto-2027">1.  Los detalles del Presupuesto 2027</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>5 De Octubre De 2026</p><p>6 secciones  ·  24 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-dolar-revierte-apertura-al-alza-y-se-desploma-mas-de-15-en-el-mercado-chileno-tras-anuncio-de-dipres-de-licitacion-de-dolares"><strong>1.  El dólar revierte apertura al alza y se desploma más de $ 15 en el mercado chileno tras anuncio de Dipres de licitación de dólares</strong></h2><p>El dólar en Chile abrió cerca de $995 pero revirtió el movimiento y a media mañana cotizaba en torno a $975, con una baja de más de $15 frente al cierre del viernes. El giro se explicó por el anuncio de la Dipres de que durante octubre liquidará hasta US$600 millones semanales en dólares. En el plano externo, la divisa estadounidense tocó su mayor nivel en casi 17 meses frente al euro, mientras el cobre Comex subía 1,37% a US$6,63 la libra, apoyado en el rally bursátil y en la menor probabilidad de un alza de tasas de la Fed en octubre, que cayó a 18% desde 71% tras un dato de empleo más débil de lo esperado.</p><h2 id="2-ipsa-abre-al-alza-mientras-la-sorpresa-electoral-en-brasil-impulsa-a-las-bolsas-emergentes"><strong>2.  IPSA abre al alza, mientras la sorpresa electoral en Brasil impulsa a las bolsas emergentes</strong></h2><p>El MSCI IPSA abrió con un avance de 0,75% hasta los 10.916 puntos, en una jornada dominada por el triunfo de Flávio Bolsonaro en la primera vuelta brasileña, con 47% frente a 45% de Lula, contra lo que anticipaban las encuestas. El Ibovespa llegó a subir más de 8%, rumbo a su mayor alza diaria desde 2020, y el real se apreció cerca de 3% con una caída del dólar de 4,2% a BRL 4,99, lo que arrastró a los emergentes (MSCI EM +1,2%). Los mercados también digerían el débil informe de empleo de EEUU (29 mil puestos contra 90 mil esperados), la convocatoria a elecciones anticipadas en España y alzas generalizadas en Europa y Asia, con el Nikkei subiendo 2,4%.</p><h2 id="3-fondo-ligado-a-rama-de-los-luksic-y-carlos-eugenio-lavin-vende-50-de-productora-de-jugos-ama"><strong>3.  Fondo ligado a rama de los Luksic y Carlos Eugenio Lavín vende 50% de productora de jugos AMA</strong></h2><p>El fondo de capital privado Ecus Agri-Food, administrado por Amicorp, vendió el 50% de AMA Time, productora de jugos y purés orgánicos que fundó en 2013 junto a la familia Guilisasti, mediante la cesión de 140.200 acciones, según un hecho esencial a la CMF. La participación estaba valorizada en cerca de $10.039 millones, frente a activos totales del fondo de $11.453 millones. Entre sus aportantes figuran sociedades ligadas a los Luksic Puga (19%), a Carlos Eugenio Lavín (cerca de 19% sumando dos vehículos), a la familia Chadwick y a family offices extranjeros; el fondo llevaba tres años en liquidación y la intención de vender se conocía desde 2020.</p><h2 id="4-afiliados-mal-ubicados-en-multifondos-el-desafio-de-la-transicion-al-nuevo-esquema-de-inversion-de-las-afp"><strong>4.  Afiliados “mal ubicados” en multifondos: el desafío de la transición al nuevo esquema de inversión de las AFP</strong></h2><p>En abril de 2027 las AFP pasarán de cinco multifondos a diez fondos generacionales asignados por edad, lo que obligará a recomponer carteras. Según la Superintendencia de Pensiones, 29,4% de las posiciones (3,94 millones) está fuera del multifondo de referencia por edad, con desajustes extremos en el fondo A (76,7%) y el E (85,9%). Estimaciones de MMDV indican que el 42,8% del ahorro (unos US$99.400 millones) aumentaría su exposición al riesgo y 27,8% la reduciría, pero parte de los ajustes se compensaría internamente; el exsuperintendente Osvaldo Macías sostiene que la mayoría de quienes eligieron activamente obtuvo peores resultados que la opción por defecto, lo que el nuevo diseño busca corregir.</p><h2 id="5-singular-busca-aprovechar-boom-de-la-bolsa-de-tokio-y-lanza-nuevo-etf-de-acciones-japonesas"><strong>5.  Singular busca aprovechar boom de la Bolsa de Tokio y lanza nuevo ETF de acciones japonesas</strong></h2><p>Singular Asset Management lanzó ETF Japan, su sexto vehículo de 2026, que invierte vía fondos de terceros en acciones japonesas de alta, mediana y pequeña capitalización, con una comisión de 0,25% anual más IVA. La gestora argumenta que Japón pesa 5,2% en el MSCI ACWI y que el Nikkei 225 acumula un alza de 35,7% en el año, impulsado por Kioxia, Furukawa Electric e Ibiden. Con este lanzamiento Singular suma 16 ETF listados y más de US$1.800 millones bajo gestión, y prepara tres nuevos fondos para el primer trimestre de 2027, apostando a la reactivación del mercado de capitales local.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-fitch-sube-las-clasificaciones-de-latam-airlines-con-perspectiva-estable-refleja-la-posicion-solida-de-negocio-y-competitiva-en-la-industria-en-latinoamerica"><strong>1.  Fitch sube las clasificaciones de Latam Airlines con perspectiva estable: "Refleja la posición sólida de negocio y competitiva" en la industria en Latinoamérica</strong></h2><p>Fitch Ratings mejoró las clasificaciones de Latam Airlines y las dejó con perspectiva estable, destacando la solidez de su posición de negocio y competitiva en la industria latinoamericana. La agencia espera que la ejecución de la compañía, su oferta de servicios premium, su estrategia de coberturas y su disciplina en capacidad le permitan absorber presiones transitorias de costos. La nota disponible entrega pocos datos adicionales sobre los niveles específicos de la nueva calificación.</p><h2 id="2-empresas-elevan-alerta-por-debilidad-de-la-red-electrica-y-ya-se-discute-eventual-efecto-en-megalinea-kimal-lo-aguirre"><strong>2.  Empresas elevan alerta por debilidad de la red eléctrica y ya se discute eventual efecto en megalínea Kimal-Lo Aguirre</strong></h2><p>Enel y Engie presentaron discrepancias ante el Panel de Expertos contra el Coordinador Eléctrico por no cuantificar los requerimientos de control de tensión en el norte del sistema, reflejo de la menor potencia de cortocircuito a medida que crece la generación renovable. La megalínea HVDC Kimal-Lo Aguirre, que entraría en operación en 2029, exige una razón efectiva de cortocircuito superior a 2,5, mientras Inodú estima que a fines de este año podría caer bajo 1,3 en la zona norte; estudios de Systep advierten insuficiencia de fortaleza de red. El Ministerio de Energía y el Coordinador dicen que no puede concluirse que habrá restricciones y que un estudio de robustez saldrá en febrero de 2027, aunque algunas empresas piden actuar antes.</p><h2 id="3-contructora-prepara-proyecto-inmobiliario-de-us-46-millones-en-antofagasta"><strong>3.  Contructora prepara proyecto inmobiliario de US$ 46 millones en Antofagasta</strong></h2><p>Inmobiliaria Monte Aconcagua presentó al SEA una consulta de pertinencia para el proyecto San Gregorio - Lote H, una inversión de US$46 millones en el sector norte de Antofagasta. Contempla 429 departamentos en dos torres de 20 pisos, tres locales comerciales y un subterráneo, sobre 0,71 hectáreas, ejecutados en dos etapas de 232 y 197 unidades. Con la consulta, ingresada el 28 de septiembre, la empresa busca que el organismo determine si debe someterse al SEIA, declarando que no está cerca de humedales ni áreas protegidas.</p><h2 id="4-gigante-espanola-de-panaderia-compra-el-control-de-firma-chilena-que-hace-ciabattas-para-supermercados"><strong>4.  Gigante española de panadería compra el control de firma chilena que hace ciabattas para supermercados</strong></h2><p>La española Europastry adquirió la mayoría de una nueva sociedad que combina su operación en Chile con Alicomer, la firma de Felipe Castaño proveedora de ciabatta de Walmart y marca Pan de Origen, con el fin de escalar en pan congelado y luego explorar otros mercados sudamericanos. La apuesta se basa en la baja penetración del congelado, menos de 10% de la panadería fresca en Chile frente a cerca de 40% en Europa, que según la compañía podría llegar a 20% en una década. La producción local permitiría acelerar entregas y reducir importaciones; Europastry, fundada en 1987, invirtió además 700 millones de euros en su planta en EEUU en junio.</p><h2 id="5-mop-da-luz-verde-a-nuevos-sistemas-free-flow-en-la-ruta-5-sur"><strong>5.  MOP da luz verde a nuevos sistemas free flow en la Ruta 5 Sur</strong></h2><p>El MOP modificó el contrato de la concesión Ruta 5 Collipulli-Temuco, operada por Ruta de la Araucanía (ISA Intervial), para implementar cobro electrónico, dado el fuerte aumento del tráfico que superó los niveles de diseño. Los peajes troncales PUA y Quepe pasarán a free flow y se habilitarán vías Stop &amp; Go en ocho plazas laterales, con inversiones cercanas a UF 379 mil (UF 253.637 en obras civiles, UF 93.210 en equipamiento y UF 31.870 en ingeniería). Como compensación, la concesión, que vencía el 31 de octubre de 2026, se extiende 13 meses hasta fines de noviembre de 2027, con una cuenta de compensación que definirá el saldo final entre la empresa y el MOP.</p><h2 id="6-joint-venture-de-latam-y-delta-cumple-cuatro-anos-con-alza-de-un-31-en-la-capacidad-conjunta-de-las-aerolineas"><strong>6.  Joint venture de Latam y Delta cumple cuatro años con alza de un 31% en la capacidad conjunta de las aerolíneas</strong></h2><p>A cuatro años de su joint venture, Latam y Delta destacan un aumento de 31% en capacidad conjunta, 28 rutas compartidas y más de 17,4 millones de pasajeros transportados en 83 mil vuelos, en diez países. Los ejecutivos aseguran que la demanda resiste el alza del jet fuel y los cambios migratorios en EEUU, y Latam proyecta crecer entre 8% y 10% en 2026; el segmento de carga sube 16% anual y las reservas corporativas crecieron 30% entre 2023 y 2025. Ambas invierten en oferta premium y Latam espera recibir aviones XLR en 2027, mientras Delta, que posee 10,57% de Latam, ya opera el A350 a Santiago gracias a la alianza.</p><h2 id="7-shopee-refuerza-brasil-y-habilita-a-150-mil-vendedores-para-llegar-a-argentina-y-mexico"><strong>7.  Shopee refuerza Brasil y habilita a 150 mil vendedores para llegar a Argentina y México</strong></h2><p>Brasil fue el mercado de mayor crecimiento de Shopee en el segundo trimestre, impulsado por más compradores activos, mayor frecuencia de compra y ticket promedio, y la compañía ve aún amplio espacio para expandirse. La plataforma habilitó a más de 150 mil vendedores brasileños para vender a clientes de Argentina y México. Además, su programa ShopeeVIP, lanzado en abril, superó el millón de usuarios a junio, y la filial financiera Monee prepara una aplicación independiente de ShopeePay en Brasil.</p><h2 id="8-cmpc-refuerza-operaciones-en-biobio-con-mas-de-us-90-millones-en-medio-de-reorganizacion-de-negocios"><strong>8.  CMPC refuerza operaciones en Biobío con más de US$ 90 millones en medio de reorganización de negocios</strong></h2><p>CMPC invierte US$92,6 millones en el Biobío: US$72 millones en la planta de remanufactura de Los Ángeles (paneles y molduras, con automatización y nuevos equipos) y US$20,6 millones en el Aserradero Mulchén, cuya capacidad subirá de 335 mil a 365 mil m³ anuales (alrededor de 9%). El objetivo es elevar productividad, reducir costos y avanzar a productos de mayor valor agregado, en el marco de un plan bianual de más de US$1.000 millones. Los anuncios llegan poco después del acuerdo para vender su negocio de corrugados en Chile a Smurfit Westrock por US$420 millones, sujeto a aprobación de la FNE, parte de su estrategia de concentrarse en los negocios donde tiene mayor escala.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-empresas-reducen-sus-expectativas-de-inflacion-a-dos-anos-a-33"><strong>1.  Empresas reducen sus expectativas de inflación a dos años a 3,3%</strong></h2><p>La encuesta EDEP del Banco Central (trimestre junio-agosto) mostró que las empresas esperan una inflación mediana de 4% a 12 meses, sin cambios, pero a 24 meses la proyección baja a 3,3% desde 3,5%. Los factores de costos y precios de venta se moderan levemente y el deterioro de márgenes se atenúa, aunque las ventas vuelven a disminuir. El tipo de cambio es la excepción, ya que su presión sobre los precios aumentó nuevamente, y se mantiene el porcentaje de firmas que prevé alzas de costos y de precios.</p><h2 id="2-claves-del-congreso-sala-de-la-camara-le-da-el-puntapie-inicial-al-primer-presupuesto-de-kast"><strong>2.  Claves del Congreso: Sala de la Cámara le da el puntapié inicial al primer presupuesto de Kast</strong></h2><p>Este lunes se da cuenta en la Cámara del primer proyecto de Presupuestos del gobierno de Kast, que enfrenta polémica transversal por la eliminación del programa “Yo elijo mi PC” y dudas de la oposición sobre el cálculo de la expansión de gasto de 1,5%. El martes la Comisión Mixta escuchará al ministro Jorge Quiroz sobre el estado de la Hacienda Pública y al director de Presupuestos, José Pablo Gómez, sobre el Informe de Finanzas Públicas. La agenda legislativa incluye además el proyecto de sala cuna con discusión inmediata, firma electrónica, mercado del gas licuado, amparo minero, subcontratación de teleoperadores, inteligencia económica y sesiones especiales sobre soberanía en el Estrecho de Magallanes y el “Escudo de las Américas”.</p><h2 id="3-pese-a-repunte-primaveral-el-animo-de-los-consumidoreses-peor-que-hace-un-ano"><strong>3.  Pese a repunte primaveral, el ánimo de los consumidoreses peor que hace un año</strong></h2><p>El dólar revierte apertura al alza y se desploma más de $ 15 en el mercado chileno tras anuncio de Dipres de licitación de dólares La medición elaborada por Ipsos muestra que el empleo sigue siendo una preocupación y el principal límite para la mejora del ánimo para los chilenos. Septiembre significó una mejora para el ánimo de los consumidores chilenos. El Índice de Confianza del Consumidor (CCI, su sigla en inglés) del país elaborado por Ipsos experimentó un alza de 2,4 puntos en el noveno mes del año para llegar a 40,5 puntos.</p><h2 id="4-panel-uc-desestima-opcion-de-alza-transitoria-del-gasto-que-afecte-la-regla-fiscal-para-combatir-pesimismo-y-desempleo"><strong>4.  Panel UC desestima opción de alza transitoria del gasto que afecte la regla fiscal para combatir pesimismo y desempleo</strong></h2><p>Un 56% de los 43 panelistas del Panel de Políticas Públicas de la UC rechazó que se requiera un aumento transitorio del gasto fiscal por sobre las reglas para enfrentar el pesimismo y el desempleo, frente a un 32% a favor. Andrea Repetto explicó que quienes rechazan creen que el Presupuesto puede enfocarse en empleo e inversión pública con reasignaciones, aprovechando el mayor precio del cobre, y que el plan “Chile Despega con Pega” no contradice la consolidación fiscal. La meta es reducir el déficit estructural de 2,6% del PIB en 2026 a 1,8% en 2027, lo que implicaría un crecimiento del gasto de entre 1% y 2%, aunque aún es incierto cuánto crecerá realmente.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-los-unicos-multimillonarios-que-estan-ganando-dinero-este-ano-pertenecen-al-sector-tecnologico"><strong>1.  Los únicos multimillonarios que están ganando dinero este año pertenecen al sector tecnológico</strong></h2><p>Según el Índice de Multimillonarios de Bloomberg, unas 100 fortunas tecnológicas ganaron US$845.000 millones hasta el 30 de septiembre, la mayor cifra para un período de nueve meses, y suman US$4,6 billones, el 36% de la riqueza del índice, mientras los multimillonarios no tecnológicos perdieron US$62.000 millones. Elon Musk sumó US$310.000 millones (cerca de 40% del alza total) tras la fusión de SpaceX con xAI y su salida a bolsa, y las diez personas más ricas son por primera vez todas estadounidenses. La riqueza total de los 500 mayores cayó 6% desde el máximo de junio a US$12,6 billones por dudas sobre el endeudamiento de la IA, caso ilustrado por Larry Ellison y los CDS de Oracle, mientras crece la presión por impuestos a los ultrarricos.</p><h2 id="2-aliados-de-flavio-bolsonaro-ganan-fuerza-en-el-senado-en-medio-de-disputa-con-la-corte-suprema"><strong>2.  Aliados de Flavio Bolsonaro ganan fuerza en el Senado en medio de disputa con la Corte Suprema</strong></h2><p>Los conservadores y aliados de Flávio Bolsonaro avanzaron con fuerza en el Senado brasileño, y su Partido Liberal prácticamente duplicaría su bancada de 15, acercando a la derecha a los 54 votos necesarios para destituir magistrados de la Corte Suprema. Si Bolsonaro gana el balotaje del 25 de octubre podría nombrar hasta cuatro de los 11 jueces, y la derecha podría impulsar medidas como rebajar la edad de responsabilidad penal a 16 años y una amnistía para los condenados del 8 de enero. Pese a que la policía federal investiga sus vínculos con Daniel Vorcaro, del desaparecido Banco Master, los votantes respaldaron el giro a la derecha, con victorias de Michelle y Carlos Bolsonaro y derrotas de aliadas de Lula en São Paulo.</p><h2 id="3-los-mercados-brasilenos-se-preparan-para-posibles-alzas-tras-la-ventaja-de-bolsonaro"><strong>3.  Los mercados brasileños se preparan para posibles alzas tras la ventaja de Bolsonaro</strong></h2><p>Analistas consultados por Reuters esperaban un fuerte repunte de los mercados brasileños tras la primera vuelta, en la que Flávio Bolsonaro obtuvo 47% frente a 45% de Lula, superando las encuestas. Ivo Chermont, de Quantitas, proyectaba una caída del dólar de 2% a 4%, alzas de acciones de 4% a 6% y un endurecimiento de tasas, similar a lo ocurrido en 2022, cuando el Bovespa subió 5,5%. Otros analistas piden señales claras de política económica y advierten que Bolsonaro ha mostrado poca aptitud en ese ámbito; el balotaje llegará marcado por escándalos como el del Banco Master y por denuncias de injerencia externa.</p><h2 id="4-sanchez-apuesta-por-elecciones-anticipadas-en-espana-para-desbloquear-el-parlamento"><strong>4.  Sánchez apuesta por elecciones anticipadas en España para desbloquear el Parlamento</strong></h2><p>Pedro Sánchez convocó elecciones generales anticipadas para el 29 de noviembre, tras el rechazo en el Congreso de sus decretos de vivienda y en medio de protestas, en una apuesta de alto riesgo con el PSOE rezagado en casi todas las encuestas. Los sondeos apuntan a una coalición del PP con Vox, que llevaría a la ultraderecha al gobierno central por primera vez desde Franco. Su gobierno apenas ha aprobado leyes en este mandato y no logra sacar presupuestos desde 2023, aunque la economía española sigue entre las de mejor desempeño del mundo desarrollado y el desempleo está en su nivel más bajo en casi dos décadas.</p><h2 id="5-pol-antras-academico-de-la-u-de-harvard-experto-en-comercio-global-desgraciadamente-chile-no-tiene-mucho-poder-negociador"><strong>5.  Pol Antràs, académico de la U. de Harvard experto en comercio global: “Desgraciadamente, Chile no tiene mucho poder negociador”</strong></h2><p>Pol Antràs sostiene que el mundo no se desglobaliza sino que reorganiza sus flujos comerciales bajo lógica geopolítica: la razón comercio/PIB mundial es estable desde 2010 y las importaciones de EEUU desde China cayeron de más de 20% a 7-8%, desviándose hacia México, Vietnam, Taiwán y Tailandia, un reordenamiento de cerca de US$400 mil millones. Advierte que Chile tiene escaso poder negociador por su sector exterior concentrado y porque el cobre es sustituible, lo que lo expone a amenazas como el arancel de 12,5%, y recomienda identificar activos singulares y cuellos de botella en cadenas globales donde pueda hacerse imprescindible. Considera comprensible que Chile se acerque pragmáticamente a EEUU para minimizar costos de corto plazo sin compromisos duraderos, algo que China probablemente entendería, aunque cree que el escenario se aclarará tras noviembre.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-inversion-en-startups-de-la-region-sube-12-en-el-trimestre-pero-rondas-caen-a-su-peor-nivel-desde-2018"><strong>1.  Inversión en startups de la región sube 12% en el trimestre, pero rondas caen a su peor nivel desde 2018</strong></h2><p>Según PitchBook, las startups latinoamericanas captaron US$1.900 millones en el tercer trimestre, 12% más que un año antes, pero con solo 155 rondas (19% menos), muy concentradas: Clip, Ualá y Flash sumaron 45% del total. En el acumulado de 2026 la región suma algo más de US$4 mil millones en 520 rondas, caídas de 16% y 14%, el menor número de operaciones a esta altura desde 2018, por la escasez de capital local y la falta de exits (40 salidas por US$1.900 millones en el año). A nivel global la inversión llegó a US$170.900 millones en el trimestre, con la IA concentrando 63%, y el acumulado de US$727 mil millones ya supera todo 2025.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-los-detalles-del-presupuesto-2027"><strong>1.  Los detalles del Presupuesto 2027</strong></h2><p>La columna plantea que el Presupuesto 2027 es un hito en la consolidación fiscal del gobierno de Kast, con una trayectoria del déficit estructural de 2,6% a 1,8% del PIB y un crecimiento del gasto de solo 1,5%, el menor en dos décadas. Advierte que el esfuerzo es exigente al preservar prestaciones sociales y que Hacienda prevé usar ingresos transitorios de la ley de reconstrucción, que no deben financiar gastos recurrentes. Pide estimaciones realistas de ingresos, evitar que el ajuste recaiga en inversión productiva, cuyo impulso podría aportar hasta medio punto al PIB de 2027, y aprovechar el debate para revisar rigideces del gasto y asegurar sostenibilidad fiscal.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

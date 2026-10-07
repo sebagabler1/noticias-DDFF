@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-07.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">7 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-bolsa-chilena-retrocede-1-por-ventas-globales-mientras-la-principal-tasa-soberana-de-eeuu-alcanza-nuevos-maximos-de-24-anos">1.  Bolsa chilena retrocede 1% por ventas globales mientras la principal tasa soberana de EEUU alcanza nuevos máximos de 24 años</a></li><li class="toc-l2"><a href="#2-deloitte-mueve-la-grua-y-ficha-a-exabif-para-reforzar-su-area-de-riesgo-financiero">2.  Deloitte mueve la &quot;grúa&quot; y ficha a exAbif para reforzar su área de riesgo financiero</a></li><li class="toc-l2"><a href="#3-dolar-abre-con-fuerte-alza-y-supera-los-980-por-agitacion-en-los-mercados-frente-a-la-crisis-en-medio-oriente">3.  Dólar abre con fuerte alza y supera los $ 980 por agitación en los mercados frente a la crisis en Medio Oriente</a></li><li class="toc-l2"><a href="#4-hacienda-busca-multiplicar-por-seis-su-capacidad-para-vender-dolares-a-futuro">4.  Hacienda busca multiplicar por seis su capacidad para vender dólares a futuro</a></li><li class="toc-l2"><a href="#5-pgu-y-ges-concentran-55-de-los-recursos-publicos-para-enfrentar-la-longevidad">5.  PGU y GES concentran 55% de los recursos públicos para enfrentar la longevidad</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-chery-y-exeed-nombran-a-ejecutivo-con-18-anos-de-trayectoria-en-industria-automotriz-como-nuevo-gerente-general-en-chile">1.  Chery y Exeed nombran a ejecutivo con 18 años de trayectoria en industria automotriz como nuevo gerente general en Chile</a></li><li class="toc-l2"><a href="#2-sindicatos-de-mineras-del-grupo-luksic-inician-huelga-tras-fracasar-mediacion-con-antofagasta-minerals">2.  Sindicatos de mineras del grupo Luksic inician huelga tras fracasar mediación con Antofagasta Minerals</a></li><li class="toc-l2"><a href="#3-recortes-en-transicion-energetica-y-obras-publicas-como-prioridad-los-focos-de-gasto-del-gobierno-para-los-sectores-productivos">3.  Recortes en transición energética y Obras Públicas como prioridad: los focos de gasto del gobierno para los sectores productivos</a></li><li class="toc-l2"><a href="#4-subtel-proyecta-us-2000-millones-de-inversion-al-2036-y-prioriza-reorden-del-espectro-fin-del-3g-y-permisos-en-30-dias">4.  Subtel proyecta US$ 2.000 millones de inversión al 2036 y prioriza reorden del espectro, fin del 3G y permisos en 30 días</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-no-solo-el-pase-el-ajuste-presupuestario-en-el-ministerio-de-cultura">1.  No solo el pase: el ajuste presupuestario en el ministerio de Cultura</a></li><li class="toc-l2"><a href="#2-chile-a-dos-velocidades-exportaciones-aceleran-el-paso-pero-las-importaciones-de-bienes-de-capital-extienden-las-bajas">2.  ¿Chile a dos velocidades? Exportaciones aceleran el paso, pero las importaciones de bienes de capital extienden las bajas</a></li><li class="toc-l2"><a href="#3-remuneraciones-y-costos-laborales-extienden-sus-alzas-en-medio-de-una-alta-desocupacion">3.  Remuneraciones y costos laborales extienden sus alzas en medio de una alta desocupación</a></li><li class="toc-l2"><a href="#4-ceo-de-gigantes-globales-y-lideres-politicos-debaten-en-malta-el-futuro-del-turismo">4.  CEO de gigantes globales y líderes políticos debaten en Malta el futuro del turismo</a></li><li class="toc-l2"><a href="#5-y-el-veredicto-del-mercado-para-este-ano-analistas-ven-mas-factible-mejora-fiscal-que-un-pib-de-07">5.  ¿Y el veredicto del mercado para este año? Analistas ven más factible mejora fiscal que un PIB de 0,7%</a></li><li class="toc-l2"><a href="#6-la-dispar-suerte-de-los-ministerios-deportes-lidera-las-alzas-y-energia-se-lleva-el-mayor-ajuste">6.  La dispar suerte de los ministerios: Deportes lidera las alzas y Energía se lleva el mayor ajuste</a></li><li class="toc-l2"><a href="#7-las-malas-evaluaciones-tuvieron-consecuencias-gobierno-recorto-gasto-a-programas-publicos-con-hallazgos">7.  Las malas evaluaciones tuvieron consecuencias: gobierno recortó gasto a programas públicos con “hallazgos”</a></li><li class="toc-l2"><a href="#8-aumento-en-gasto-de-la-pgu-y-plan-pro-empleo-destacan-en-la-partida-del-ministerio-del-trabajo">8.  Aumento en gasto de la PGU y plan pro empleo destacan en la partida del Ministerio del Trabajo</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-el-curiosity-de-la-nasa-capta-una-impresionante-imagen-de-las-primeras-luces-del-amanecer-en-marte">1.  El Curiosity, de la NASA, capta una impresionante imagen de las primeras luces del amanecer en Marte</a></li><li class="toc-l2"><a href="#2-aun-mas-exclusivos-porsche-prepara-un-alza-de-20-en-los-precios-de-sus-modelos-deportivos-de-alta-gama">2.  Aún más exclusivos: Porsche prepara un alza de 20% en los precios de sus modelos deportivos de alta gama</a></li><li class="toc-l2"><a href="#3-embajador-judd-afirma-que-agencia-estatal-de-eeuu-trabaja-en-inversiones-por-miles-de-millones-de-dolares-en-chile">3.  Embajador Judd afirma que agencia estatal de EEUU trabaja en inversiones por miles de millones de dólares en Chile</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-brasil-y-las-oportunidades-para-la-inversion-chilena">1.  Brasil y las oportunidades para la inversión chilena</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>7 De Octubre De 2026</p><p>5 secciones  ·  21 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-bolsa-chilena-retrocede-1-por-ventas-globales-mientras-la-principal-tasa-soberana-de-eeuu-alcanza-nuevos-maximos-de-24-anos"><strong>1.  Bolsa chilena retrocede 1% por ventas globales mientras la principal tasa soberana de EEUU alcanza nuevos máximos de 24 años</strong></h2><p>El IPSA cayó 1% hasta 11.054,64 puntos, con casi todas sus acciones en rojo y Latam, Enel Américas y SQM-B entre las más golpeadas, en medio de nuevas liquidaciones de bonos del Tesoro y de la persistente violencia en el golfo Pérsico. El rendimiento del bono estadounidense a 10 años subió a 5,36%, su mayor nivel desde 2002, mientras el Brent avanzaba a unos US$ 101,8 y las principales bolsas de Wall Street y Europa también retrocedían. Las tensiones por el estrecho de Ormuz y las declaraciones estadounidenses sobre Irán diluyen las expectativas de paz y mantienen la presión inflacionaria y sobre el costo del crédito. El mercado espera una subasta de bonos a 10 años por US$ 39 mil millones y las actas de la Fed, que en septiembre anunció su primera alza de tasas desde 2023.</p><h2 id="2-deloitte-mueve-la-grua-y-ficha-a-exabif-para-reforzar-su-area-de-riesgo-financiero"><strong>2.  Deloitte mueve la "grúa" y ficha a exAbif para reforzar su área de riesgo financiero</strong></h2><p>Deloitte Chile incorporó a Jaime Forteza, proveniente de la Abif y con pasado en la SBIF y la CMF, como director de riesgo financiero y asuntos regulatorios, para liderar estándares y modelos internos ligados a Basilea III dentro de un equipo de 70 profesionales. El fichaje coincide con la hoja de ruta de la CMF para permitir modelos internos en la determinación de requerimientos de capital, tema pendiente tras la implementación inicial de Basilea III. Forteza sostiene que, para un mismo riesgo, un banco europeo promedio enfrenta menores exigencias de capital que uno chileno, brecha que la agenda de la CMF podría cerrar parcialmente. A su juicio, los modelos internos podrían reducir el capital exigido a quienes midan mejor sus riesgos y traducirse en menores tasas de interés para los clientes.</p><h2 id="3-dolar-abre-con-fuerte-alza-y-supera-los-980-por-agitacion-en-los-mercados-frente-a-la-crisis-en-medio-oriente"><strong>3.  Dólar abre con fuerte alza y supera los $ 980 por agitación en los mercados frente a la crisis en Medio Oriente</strong></h2><p>El dólar subió $ 7,9 hasta $ 982,2 en las primeras transacciones, tras una sesión volátil, impulsado por la crisis del golfo Pérsico y la búsqueda global de dólares. El rendimiento del Tesoro a 10 años llegó a 5,35%, máximo desde 2002, el dollar index avanzó 0,5% a 102,3 puntos, su mayor nivel en 18 meses, y el Brent superó los US$ 101 por barril, mientras el cobre se estabilizaba. Un estratega de ING advirtió que el petróleo alto seguirá frenando la recuperación del mercado de bonos y la caída del dólar global. Los operadores descuentan que la Fed mantendría tasas este mes, pero con otra alza de 25 pb en diciembre y 50 pb adicionales en el primer semestre de 2027.</p><h2 id="4-hacienda-busca-multiplicar-por-seis-su-capacidad-para-vender-dolares-a-futuro"><strong>4.  Hacienda busca multiplicar por seis su capacidad para vender dólares a futuro</strong></h2><p>El proyecto de Presupuesto 2027 eleva de US$ 4.000 millones a US$ 24.000 millones el tope anual de coberturas cambiarias del Fisco, que se ejecutarán con forwards de venta de dólares. El ministro Quiroz explicó que cerca del 14% de los ingresos fiscales depende del dólar, y que el Fisco debe cubrirse como lo haría una empresa exportadora, igual que el Fondo de Reserva de Pensiones. La medida pasó casi inadvertida (el dólar subió apenas $ 0,4 a $ 972,9), pero expertos creen que podría poner un techo al tipo de cambio, dependiendo de la velocidad de ejecución; el monto es comparable al programa de US$ 25.000 millones del Banco Central en 2022, aunque sin calendario ni meta. Hacienda insiste en que no es una intervención cambiaria y recuerda que desde 2023 el tope anual era de US$ 4.000 millones, usado hasta ahora para cubrir deuda en moneda extranjera.</p><h2 id="5-pgu-y-ges-concentran-55-de-los-recursos-publicos-para-enfrentar-la-longevidad"><strong>5.  PGU y GES concentran 55% de los recursos públicos para enfrentar la longevidad</strong></h2><p>Un estudio del Centro UC de Estudios en Vejez y Envejecimiento e ILC revisó 814 iniciativas públicas sobre longevidad y analizó 53 medidas, hallando un desarrollo desigual: 79,2% se concentra en salud, seguridad económica, cuidados y vivienda, y solo 20,8% en las otras cinco dimensiones. Salud y seguridad económica absorben cerca de 55% del presupuesto identificado por el peso de la PGU y el GES. Las mayores brechas están en el mercado laboral, donde de 24 iniciativas comparables solo una considera las trayectorias laborales en edades avanzadas, además de educación e inclusión digital. El gerente general de ILC, Pablo González, llamó a sumar capacidades del Estado, empresas, academia y sociedad civil, y el estudio propone fortalecer la prevención e incorporar la longevidad en las políticas públicas.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-chery-y-exeed-nombran-a-ejecutivo-con-18-anos-de-trayectoria-en-industria-automotriz-como-nuevo-gerente-general-en-chile"><strong>1.  Chery y Exeed nombran a ejecutivo con 18 años de trayectoria en industria automotriz como nuevo gerente general en Chile</strong></h2><p>Astara, representante de Chery y Exeed en Chile, nombró a Alfredo Chaparro como gerente general de ambas marcas desde octubre, con foco en estrategia comercial, red de concesionarios, postventa y vehículos de nuevas energías. Chaparro acumula más de 18 años en la industria, con gerencias generales en Melhuish, Curifor y Coseche, y destacó un mercado marcado por mayor competencia, el auge de los SUV y el protagonismo de las marcas chinas. Astara lleva más de 25 años en Chile y representa a numerosas marcas; a nivel global tuvo ingresos por 5.000 millones de euros en 2025, vendió 220 mil vehículos nuevos y opera en 18 países con cerca de 3.000 trabajadores.</p><h2 id="2-sindicatos-de-mineras-del-grupo-luksic-inician-huelga-tras-fracasar-mediacion-con-antofagasta-minerals"><strong>2.  Sindicatos de mineras del grupo Luksic inician huelga tras fracasar mediación con Antofagasta Minerals</strong></h2><p>Los sindicatos Esperanza y Distrito Centinela, que reúnen a 709 trabajadores (22% de la dotación propia de Centinela), iniciaron huelga tras fracasar la mediación obligatoria; acusan a la empresa de negarse a un mecanismo contra la supuesta discriminación entre instrumentos colectivos. Antofagasta Minerals dice que su última oferta incluía 2% de aumento real del sueldo base, un bono de término de conflicto de $ 22,5 millones y un préstamo blando, y asegura que la producción proyectada no se altera. La huelga fue aprobada con 98,73% de los votos y ocurre cuando la compañía aprobó el segundo concentrador de Centinela, que sumará unas 170.000 toneladas de cobre equivalente al año desde 2027, y en un mercado del cobre con restricciones de oferta en Chile.</p><h2 id="3-recortes-en-transicion-energetica-y-obras-publicas-como-prioridad-los-focos-de-gasto-del-gobierno-para-los-sectores-productivos"><strong>3.  Recortes en transición energética y Obras Públicas como prioridad: los focos de gasto del gobierno para los sectores productivos</strong></h2><p>El Presupuesto 2027 muestra prioridades claras: Energía sufre la mayor caída (11,8% real, a $ 137.072 millones), con recortes a ENAP, eliminación de fondos para ERNC y Transición Energética Justa, y una baja de 23,5% en eficiencia energética. Obras Públicas crece 8,9% hasta $ 4,70 billones y Vivienda 5,8%, impulsado por el fondo de reconstrucción tras los incendios, que pasa de $ 582 millones a $ 137.943 millones, aunque caen subsidios de arriendo, campamentos y barrios. Salud sube 4,7% a $ 18,3 billones, pero el recorte de 14,5% a la Ley Ricarte Soto genera críticas de la industria farmacéutica; Medio Ambiente, Agricultura y Minería casi no varían, con recortes en programas específicos como educación ambiental y fomento vía Corfo.</p><h2 id="4-subtel-proyecta-us-2000-millones-de-inversion-al-2036-y-prioriza-reorden-del-espectro-fin-del-3g-y-permisos-en-30-dias"><strong>4.  Subtel proyecta US$ 2.000 millones de inversión al 2036 y prioriza reorden del espectro, fin del 3G y permisos en 30 días</strong></h2><p>La subsecretaria Romina Garrido presentó a los CEOs de las telecomunicaciones el Plan Nacional Digital a diez años, con siete ejes, que proyecta cerca de US$ 2.000 millones de inversión de la industria al 2036 y entre 8.000 y 12.000 empleos. Contempla reordenar y recuperar espectro no utilizado, apagar el 3G, potenciar el uso industrial del 5G con cambios en neutralidad de red y reducir 83% los tiempos de permisos (de 180 a 30 días con control ex post), mediante un proyecto de ley que se empezaría a tramitar en marzo. Chile tiene más de diez millones de conexiones 5G; desde la industria, Chile Telcos valora el estudio del 6G pero advierte que apresurarlo sería un error dada la situación financiera del sector y propone mejorar a 5,5G aprovechando la infraestructura instalada.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-no-solo-el-pase-el-ajuste-presupuestario-en-el-ministerio-de-cultura"><strong>1.  No solo el pase: el ajuste presupuestario en el ministerio de Cultura</strong></h2><p>El presupuesto del Ministerio de las Culturas bajaría 10,1% en 2027, de $ 489.899 millones a $ 440.518 millones, por menores gastos operativos y transferencias de capital. El pase cultural cae 50,8% (de $ 6.101 millones a $ 3.000 millones), la inversión cultural baja 64,8%, el Fondo del Libro 17,6% y el programa de bibliotecas 57,9%. Se elimina el financiamiento al Centro de Extensión de la Universidad de Chile ($ 2.161 millones en 2026) y el programa de ecosistemas creativos, y la inversión patrimonial se reduce 16,2%, de $ 79.006 millones a $ 66.183 millones.</p><h2 id="2-chile-a-dos-velocidades-exportaciones-aceleran-el-paso-pero-las-importaciones-de-bienes-de-capital-extienden-las-bajas"><strong>2.  ¿Chile a dos velocidades? Exportaciones aceleran el paso, pero las importaciones de bienes de capital extienden las bajas</strong></h2><p>En septiembre las exportaciones sumaron US$ 10.584 millones, 14,1% más que un año antes, con el cobre en US$ 5.971 millones (+14%), el litio creciendo 128% hasta US$ 360 millones y el sector industrial subiendo 19% a US$ 3.280 millones, con el salmón sobre US$ 500 millones. Las importaciones crecieron 14% a US$ 9.204 millones, con bienes intermedios al alza (+25,8%, por el diésel) y bienes de consumo +13,1%. En contraste, las importaciones de bienes de capital cayeron cerca de 9,4% a unos US$ 1.699 millones, por menores compras de maquinaria y equipos de inversión. El saldo comercial fue de cerca de US$ 2.047 millones, frente a US$ 1.756 millones un año antes.</p><h2 id="3-remuneraciones-y-costos-laborales-extienden-sus-alzas-en-medio-de-una-alta-desocupacion"><strong>3.  Remuneraciones y costos laborales extienden sus alzas en medio de una alta desocupación</strong></h2><p>El INE informó que en agosto los índices nominales de remuneraciones y de costos laborales subieron 7,6% y 8,3% anual, con comercio, industria manufacturera y construcción como mayores incidencias. El índice real de remuneraciones creció 3,4% anual y acumula 2,2% en el año; el salario medio por hora ordinaria fue de $ 7.614 (+8,4%) y el costo laboral medio por hora de $ 8.783 (+8,9%). La brecha de género en la remuneración por hora fue de -4,6% y de -5,2% en el costo laboral. En paralelo, los avisos laborales por internet cayeron 2,3% anual en septiembre, una moderación de la racha de bajas desde noviembre del año pasado.</p><h2 id="4-ceo-de-gigantes-globales-y-lideres-politicos-debaten-en-malta-el-futuro-del-turismo"><strong>4.  CEO de gigantes globales y líderes políticos debaten en Malta el futuro del turismo</strong></h2><p>La Cumbre Mundial del WTTC, bajo el lema FUTU[RE]SET, reúne en La Valeta a más de 100 líderes políticos y empresariales, entre directores ejecutivos, ministros, parlamentarios y representantes de organismos internacionales. Los temas centrales son los desafíos de la inteligencia artificial, la inversión, el empleo y las nuevas tecnologías para el sector turístico.</p><h2 id="5-y-el-veredicto-del-mercado-para-este-ano-analistas-ven-mas-factible-mejora-fiscal-que-un-pib-de-07"><strong>5.  ¿Y el veredicto del mercado para este año? Analistas ven más factible mejora fiscal que un PIB de 0,7%</strong></h2><p>Tras la Exposición de la Hacienda Pública, los analistas dan más crédito a las proyecciones fiscales que a las de crecimiento: Hacienda espera un déficit estructural de 2,3% del PIB este año, mejor que la meta de 2,6%, algo que Scotiabank y la USS ven probable gracias al cobre y al tipo de cambio, mientras Bci e Itaú lo ven posible pero no garantizado. En crecimiento, el Ejecutivo proyecta 0,7% para 2026 y 3,3% para 2027, pero los economistas son más cautos: Itaú estima 0,3% y 3%, Bci 0,2% y 3%, Scotiabank -0,3% y 3,5%, y la USS 0,5% y 3%. Varios advierten que 2027 requerirá una recuperación fuerte de la inversión y la demanda interna.</p><h2 id="6-la-dispar-suerte-de-los-ministerios-deportes-lidera-las-alzas-y-energia-se-lleva-el-mayor-ajuste"><strong>6.  La dispar suerte de los ministerios: Deportes lidera las alzas y Energía se lleva el mayor ajuste</strong></h2><p>El proyecto de Presupuesto 2027 contempla un alza de 1,5% del gasto público, con Deportes (+39,8%), Bienes Nacionales (+38%) y Justicia (+20,5%) como únicas partidas con alzas de dos dígitos, seguidas de Obras Públicas (+8,9%) y Seguridad Pública (+7%). Los mayores recortes son Energía (-11,8%), Culturas (-10,1%), Ciencia (-6,4%) y Economía (-2,9%), mientras Educación no varía, aunque no se asignaron recursos al programa de becas de acceso a tecnología (Yo Elijo Mi PC y Me Conecto Para Aprender), lo que abre debate en el Congreso. En montos, Salud lidera el alza con $ 829.000 millones adicionales y Culturas la baja con $ 49.381 millones menos.</p><h2 id="7-las-malas-evaluaciones-tuvieron-consecuencias-gobierno-recorto-gasto-a-programas-publicos-con-hallazgos"><strong>7.  Las malas evaluaciones tuvieron consecuencias: gobierno recortó gasto a programas públicos con “hallazgos”</strong></h2><p>La rebaja fue de 18% para el próximo año, algo mayor que el 15% previsto para el ejercicio 2026. El gobierno había anticipado que uno de los ejes del proyecto de ley de Presupuestos 2027 sería periciar de que los recursos públicos se estén gastando correctamente, utilizando los sistemas de evaluación disponibles. Uno de los principales, hoy, es el Sistema de Monitoreo y Evaluación (SM&amp;E), que genera evidencia sobre el diseño y el desempeño de políticas, programas y otras iniciativas públicas basado en tres instrumentos: evaluación ex ante, ex post y monitoreo.</p><h2 id="8-aumento-en-gasto-de-la-pgu-y-plan-pro-empleo-destacan-en-la-partida-del-ministerio-del-trabajo"><strong>8.  Aumento en gasto de la PGU y plan pro empleo destacan en la partida del Ministerio del Trabajo</strong></h2><p>La partida del Ministerio del Trabajo para 2027 suma $ 16.908.393 millones, un alza de 1,4% ($ 232.785 millones más). El programa de reactivación laboral sube a $ 140.502 millones (+$ 115.778 millones) y el de formación en el puesto de trabajo pasa de $ 5.976 millones a $ 41.395 millones, mientras los subsidios al empleo joven y de la mujer se reemplazan por un Subsidio Unificado de Empleo. En previsión se destinan $ 7 billones a la PGU (+2%), con 2.330.895 beneficiarios proyectados, y crecen el Bono por Hijo (+8,7%) y el Subsidio de Discapacidad Mental (+12,4%).</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-el-curiosity-de-la-nasa-capta-una-impresionante-imagen-de-las-primeras-luces-del-amanecer-en-marte"><strong>1.  El Curiosity, de la NASA, capta una impresionante imagen de las primeras luces del amanecer en Marte</strong></h2><p>La NASA difundió una imagen del amanecer marciano tomada por la cámara Mastcam del rover Curiosity, que muestra acantilados esculpidos por el viento en el monte Sharp, del cráter Gale. El científico Ashwin Vasavada explicó que la capa de yardangs se formó hace unos 3.000 millones de años, probablemente por sedimentos transportados por el viento, y se extiende unos 16 kilómetros. El rover ya ha ascendido más de 1.000 metros, el mayor desnivel superado en Marte, y la NASA espera que llegue a esa capa en 2027 o 2028 para estudiarla en detalle.</p><h2 id="2-aun-mas-exclusivos-porsche-prepara-un-alza-de-20-en-los-precios-de-sus-modelos-deportivos-de-alta-gama"><strong>2.  Aún más exclusivos: Porsche prepara un alza de 20% en los precios de sus modelos deportivos de alta gama</strong></h2><p>Porsche presentó a inversionistas una estrategia de vender menos autos pero más exclusivos, con alzas de precio promedio de 20% en sus deportivos de gama alta y un nuevo modelo sobre el 911; busca elevar el precio medio de unos 270.000 a más de 330.000 euros a fines de la década. La compañía enfrenta costosos errores en electrificación, caída de ventas en China y aranceles, con un margen operativo de apenas 1,1% el año pasado, 7,8% en el primer semestre de 2026 y una meta de 10% a 15% a mediano plazo. El plan incluye recortar más de una quinta parte de la plantilla (9.000 puestos), bajar el punto de equilibrio a unos 200.000 vehículos y reducir 20% el gasto de desarrollo, mientras sus acciones subían 0,7% en Frankfurt.</p><h2 id="3-embajador-judd-afirma-que-agencia-estatal-de-eeuu-trabaja-en-inversiones-por-miles-de-millones-de-dolares-en-chile"><strong>3.  Embajador Judd afirma que agencia estatal de EEUU trabaja en inversiones por miles de millones de dólares en Chile</strong></h2><p>El embajador estadounidense Brandon Judd afirmó que la DFC, con capacidad de inversión de hasta US$ 205 mil millones, negocia en Chile proyectos por varios miles de millones de dólares, en etapas muy avanzadas, centrados en refinación de cobre, puertos, desalinizadoras, energía, centros de datos e inteligencia artificial. Agregó que el Ex-Im Bank podría facilitar inversiones de largo plazo y que las negociaciones arancelarias con EEUU avanzan bien. Judd defendió el Escudo de las Américas como una coalición contra el crimen organizado y calificó de política las críticas de Bachelet y Boric; añadió que a EEUU no le preocupa el comercio con China, sino los proyectos de infraestructura estratégica que impliquen ceder soberanía.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-brasil-y-las-oportunidades-para-la-inversion-chilena"><strong>1.  Brasil y las oportunidades para la inversión chilena</strong></h2><p>La primera vuelta presidencial en Brasil, donde Flávio Bolsonaro obtuvo 47,03% frente a 45,16% de Lula y se enfrentarán en balotaje el 25 de octubre, refuerza el giro político regional y podría abrir oportunidades para las empresas chilenas, aunque no garantiza por sí solo un mejor ciclo económico. Brasil es el tercer socio comercial de Chile, con un intercambio de US$ 8.387 millones entre enero y agosto, y empresas como Latam, Cencosud, CMPC, Arauco, Andina y Enel Américas tienen operaciones relevantes allí; tras la elección el Ibovespa superó los 200 mil puntos y el real se apreció. El autor advierte que un gobierno de derecha enfrentaría restricciones fiscales, dependencia de China y polarización, por lo que los nuevos gobiernos deben traducir el mandato en gobernabilidad y reformas viables.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

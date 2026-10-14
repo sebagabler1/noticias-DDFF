@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-14.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">14 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-salta-a-niveles-de-990-por-datos-de-inflacion-que-hicieron-despegar-las-tasas-de-mercado-en-eeuu">1.  Dólar salta a niveles de $ 990 por datos de inflación que hicieron despegar las tasas de mercado en EEUU</a></li><li class="toc-l2"><a href="#2-ipsa-pierde-los-11-mil-puntos-mientras-wall-street-abre-en-rojo-tras-las-sorpresas-al-alza-en-el-ipc-estadounidense">2.  IPSA pierde los 11 mil puntos mientras Wall Street abre en rojo tras las sorpresas al alza en el IPC estadounidense</a></li><li class="toc-l2"><a href="#3-superintendente-de-pensiones-y-fuerte-caida-del-fondo-e-hemos-estado-encima-del-tema">3.  Superintendente de Pensiones y fuerte caída del fondo E: &quot;Hemos estado encima del tema&quot;</a></li><li class="toc-l2"><a href="#4-bancos-flexibilizan-condiciones-de-otorgamiento-de-creditos-hipotecarios">4.  Bancos flexibilizan condiciones de otorgamiento de créditos hipotecarios</a></li><li class="toc-l2"><a href="#5-el-presidente-ejecutivo-de-la-asociacion-de-afp-y-la-caida-del-fondo-e-hay-un-desafio-de-como-miramos-a-la-renta-fija-como-estructura-activa-de-proteccion">5.  El presidente ejecutivo de la Asociación de AFP y la caída del fondo E: “Hay un desafío de cómo miramos a la renta fija como estructura activa de protección”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-estudio-de-salmonchile-industria-aporta-casi-us-7000-millones-al-pais-al-ano-y-mas-de-330-mil-empleos">1.  Estudio de SalmonChile: industria aporta casi US$ 7.000 millones al país al año y más de 330 mil empleos</a></li><li class="toc-l2"><a href="#2-colun-sufre-reves-judicial-tribunal-mantiene-suspendida-la-expulsion-de-agricola-las-mercedes">2.  Colun sufre revés judicial: tribunal mantiene suspendida la expulsión de Agrícola Las Mercedes</a></li><li class="toc-l2"><a href="#3-latam-abre-la-puerta-a-operar-sus-nuevos-aviones-embraer-en-chile-es-una-opcion">3.  Latam abre la puerta a operar sus nuevos aviones Embraer en Chile: “Es una opción”</a></li><li class="toc-l2"><a href="#4-sindicato-de-supervisores-y-minera-escondida-evitan-inicio-de-huelga-con-preacuerdo-contractual-y-prorroga-de-mediacion-para-que-sea-votado-por-trabajadores">4.  Sindicato de Supervisores y Minera Escondida evitan inicio de huelga con preacuerdo contractual y prórroga de mediación para que sea votado por trabajadores</a></li><li class="toc-l2"><a href="#5-nueva-consejera-del-coordinador-electrico-y-blackout-del-25f-nunca-se-puede-garantizar-que-no-ocurran-fallas-pero-debemos-evitar-un-apagon-sistemico-total">5.  Nueva consejera del Coordinador Eléctrico y blackout del 25F: “Nunca se puede garantizar que no ocurran fallas” pero debemos evitar “un apagón sistémico total”</a></li><li class="toc-l2"><a href="#6-concha-y-toro-se-abre-paso-en-el-enoturismo-su-centro-del-vino-gana-premio-regional-y-compite-por-el-mundial">6.  Concha y Toro se abre paso en el enoturismo: su Centro del Vino gana premio regional y compite por el mundial</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-nuevas-proyecciones-del-fmi-dejan-a-chile-ad-portas-de-crecer-por-quinto-ano-por-debajo-del-mundo">1.  Nuevas proyecciones del FMI dejan a Chile ad portas de crecer por quinto año por debajo del mundo</a></li><li class="toc-l2"><a href="#2-gratuidad-a-la-pizarra-mas-de-272-mil-beneficiarios-abandonaron-sus-estudios-con-un-costo-fiscal-millonario">2.  Gratuidad a la pizarra: más de 272 mil beneficiarios abandonaron sus estudios con un costo fiscal millonario</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-ipc-en-eeuu-en-septiembre-sube-dentro-de-las-expactivas-y-la-inflacion-llega-al-37-anual-aumentan-las-apuestas-por-una-nueva-alza-de-tasas-de-la-fed">1.  IPC en EEUU en septiembre sube dentro de las expactivas y la inflación llega al 3,7% anual: aumentan las apuestas por una nueva alza de tasas de la Fed</a></li><li class="toc-l2"><a href="#2-ataque-con-misiles-de-huties-a-sede-central-de-aramco-y-alerta-de-la-aie-por-escasez-de-diesel-impulsan-al-petroleo">2.  Ataque con misiles de hutíes a sede central de Aramco y alerta de la AIE por escasez de diésel impulsan al petróleo</a></li><li class="toc-l2"><a href="#3-eeuu-detiene-a-empleado-saudi-de-openai-por-presuntamente-instalar-dispositivos-de-espionaje-en-sus-oficinas">3.  EEUU detiene a empleado saudí de OpenAI por presuntamente instalar dispositivos de espionaje en sus oficinas</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-healthatom-abre-oficina-en-espana-y-prepara-su-llegada-a-otros-tres-paises-europeos">1.  Healthatom abre oficina en España y prepara su llegada a otros tres países europeos</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-editorial-14102026">1.  Editorial |14/10/2026</a></li><li class="toc-l2"><a href="#2-mirando-el-ano-2027">2.  Mirando el año 2027</a></li><li class="toc-l2"><a href="#3-ciencia-evidencia-y-largo-plazo">3.  Ciencia, evidencia y largo plazo</a></li><li class="toc-l2"><a href="#4-el-futuro-de-las-becas-tic">4.  El futuro de las Becas TIC</a></li><li class="toc-l2"><a href="#5-iva-inmobiliario-en-la-mega-reforma">5.  IVA inmobiliario en la mega reforma</a></li><li class="toc-l2"><a href="#6-aluviones-cuantas-advertencias-necesitamos">6.  Aluviones: ¿cuántas advertencias necesitamos?</a></li><li class="toc-l2"><a href="#7-lluvia-y-cambio-climatico-la-trampa-de-negar-la-evidencia">7.  Lluvia y cambio climático: La trampa de negar la evidencia</a></li><li class="toc-l2"><a href="#8-el-desafio-de-las-pyme-abrir-puertas-en-un-pais-de-contactos">8.  El desafío de las PYME: abrir puertas en un país de contactos</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>14 De Octubre De 2026</p><p>6 secciones  ·  25 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-salta-a-niveles-de-990-por-datos-de-inflacion-que-hicieron-despegar-las-tasas-de-mercado-en-eeuu"><strong>1.  Dólar salta a niveles de $ 990 por datos de inflación que hicieron despegar las tasas de mercado en EEUU</strong></h2><p>El dólar se disparó en Chile hasta rozar los $ 990 en puntas vendedoras y operaba en torno a $ 987,8, tras un IPC estadounidense que sorprendió al alza en casi todas sus lecturas. El rendimiento del Tesoro a dos años subía unos 11 puntos base, el de 10 años 8 puntos y el índice dólar global tocaba máximos de 18 meses, mientras el cobre cedía a US$ 6,59 por libra. Los operadores pasaron de asignar algo más de 20% a más de 50% de probabilidad a un alza de tasas de la Fed a fin de mes. El petróleo Brent seguía firme sobre US$ 105 por la escalada bélica en Medio Oriente, lo que según analistas alimenta una inflación más persistente y amplia.</p><h2 id="2-ipsa-pierde-los-11-mil-puntos-mientras-wall-street-abre-en-rojo-tras-las-sorpresas-al-alza-en-el-ipc-estadounidense"><strong>2.  IPSA pierde los 11 mil puntos mientras Wall Street abre en rojo tras las sorpresas al alza en el IPC estadounidense</strong></h2><p>Las bolsas cayeron tras el IPC de EEUU: el IPSA retrocedía 0,6% a 10.954 puntos, con ILC, Latam y Vapores entre las mayores bajas, y Wall Street abría con el Nasdaq -0,7%, el S&amp;P 500 -0,5% y el Dow Jones -0,2%. Los rendimientos del Tesoro subían con fuerza (casi 13 puntos base a dos años y cerca de 10 a diez años) y el dólar se fortalecía a nivel global. La probabilidad de que la Fed suba tasas en su próxima reunión pasó de algo más de 20% a cerca de 50%. Los precios de la energía seguían firmes, con el Brent en torno a US$ 105 tras el ataque hutí a la sede de Aramco.</p><h2 id="3-superintendente-de-pensiones-y-fuerte-caida-del-fondo-e-hemos-estado-encima-del-tema"><strong>3.  Superintendente de Pensiones y fuerte caída del fondo E: "Hemos estado encima del tema"</strong></h2><p>El superintendente de Pensiones, Joaquín Cortez, dijo que el regulador está preocupado por la caída real de 10,39% del fondo E entre enero y septiembre, su segundo peor retroceso desde la creación de los multifondos en 2002. Afirmó que se reunió con las administradoras hace unas semanas para evaluar cursos de acción, sin revelarlos. Parte importante de la pérdida se originó en apuestas de las AFP con swaps de tasas, que replican la exposición a bonos de larga duración sin comprarlos y que perdieron valor porque las tasas subieron en lugar de bajar. Cortez habló al inaugurar el Picton Latam Summit, donde también abordó el nuevo régimen de inversión y los fondos generacionales.</p><h2 id="4-bancos-flexibilizan-condiciones-de-otorgamiento-de-creditos-hipotecarios"><strong>4.  Bancos flexibilizan condiciones de otorgamiento de créditos hipotecarios</strong></h2><p>La encuesta de créditos bancarios del Banco Central del tercer trimestre de 2026 muestra condiciones más flexibles en vivienda (30% de los bancos las flexibilizó) y en el sector inmobiliario (30% de los bancos), mientras en consumo se mantuvo la restricción (18% más estrictos y 9% más flexibles). Para grandes empresas las condiciones fueron algo más favorables (15% más flexibles frente a 8% más restrictivos) y para las PYME no hubo cambios. La demanda se fortaleció, sobre todo en vivienda, donde 40% de los bancos reportó repunte asociado a mejores tasas, y en consumo el debilitamiento cayó de 36% a 9%. También mejoró la demanda de grandes empresas, de PYME y del sector inmobiliario y constructor.</p><h2 id="5-el-presidente-ejecutivo-de-la-asociacion-de-afp-y-la-caida-del-fondo-e-hay-un-desafio-de-como-miramos-a-la-renta-fija-como-estructura-activa-de-proteccion"><strong>5.  El presidente ejecutivo de la Asociación de AFP y la caída del fondo E: “Hay un desafío de cómo miramos a la renta fija como estructura activa de protección”</strong></h2><p>El presidente de la Asociación de AFP, León Fernández de Castro, planteó que la caída de más de 10% del fondo E en 2026 abre el debate sobre qué tan "fija" es la renta fija, que puede ser muy volátil cuando hay crisis locales desalineadas de las tasas internacionales. Recalcó que el fondo E es voluntario, que la mayoría de quienes están por pensionarse está en el D y que los afiliados del E suelen tener entre 30 y 45 años. Sobre los fondos generacionales, dijo que la trayectoria conservadora para los mayores será un desafío ante movimientos de tasas, aunque incorporarán activos alternativos e infraestructura como protección. El exsuperintendente Osvaldo Macías criticó que el nuevo esquema no permita elegir fondo y propuso opciones definidas por la Superintendencia o por las AFP.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-estudio-de-salmonchile-industria-aporta-casi-us-7000-millones-al-pais-al-ano-y-mas-de-330-mil-empleos"><strong>1.  Estudio de SalmonChile: industria aporta casi US$ 7.000 millones al país al año y más de 330 mil empleos</strong></h2><p>Un estudio de CoMov Consultores para SalmonChile, con datos de 2022, estima que la salmonicultura aporta US$ 6.956 millones (2,6% del PIB) y sostiene 337.670 empleos. De ellos, 78.808 son directos en cultivo y procesamiento y 258.862 en proveedores, transporte, comercio y servicios, es decir, 3,3 empleos indirectos por cada directo. Las plantas procesadoras concentran 59% del valor agregado directo y 65% del empleo directo. Aysén es la región más dependiente, con 21,4% de su PIB y 19,3% de su empleo, seguida por Los Lagos (12,6%) y Magallanes (11,1%).</p><h2 id="2-colun-sufre-reves-judicial-tribunal-mantiene-suspendida-la-expulsion-de-agricola-las-mercedes"><strong>2.  Colun sufre revés judicial: tribunal mantiene suspendida la expulsión de Agrícola Las Mercedes</strong></h2><p>El Juzgado de La Unión rechazó la solicitud de Colun para levantar la suspensión de la expulsión de Agrícola Las Mercedes, productora que entrega unos 60 mil litros diarios de leche a la cooperativa desde hace 36 años. La disputa nació tras la venta de la agrícola por la familia Köster a cinco sociedades en marzo, que Colun dice requería autorización de su consejo, y mantiene tres frentes abiertos: el proceso civil, dos recursos de protección en la Corte de Valdivia y el procedimiento ante el TDLC. Las Mercedes advierte que las condiciones de salida (10% de descuento en el precio, pérdida de excedentes y retención de 20% del valor de sus cuotas) la obligarían a vender bajo costo. Colun reforzó su defensa en el TDLC con un equipo de Garrigues y tiene audiencia hoy a las 15:00.</p><h2 id="3-latam-abre-la-puerta-a-operar-sus-nuevos-aviones-embraer-en-chile-es-una-opcion"><strong>3.  Latam abre la puerta a operar sus nuevos aviones Embraer en Chile: “Es una opción”</strong></h2><p>El CEO de Latam Brasil, Jerome Cadier, dijo que operar los nuevos Embraer E195-E2 en Chile "es una opción", aunque la prioridad es consolidar primero la flota de 24 aviones en Brasil. De ellos, 12 llegarían a fines de este año y 12 en 2027, con opciones por otros 50 que podrían basarse en Perú, Chile o Argentina. El avión de pasillo único tiene 136 asientos, alcance de unos 5.556 km y consume hasta 30% menos combustible que los E-jets de primera generación. El plan inicial contempla 42 rutas, con cuatro destinos nuevos, y la red doméstica de Latam en Brasil pasaría de 44 a 67 aeropuertos, con hasta 18 destinos adicionales evaluados para 2027.</p><h2 id="4-sindicato-de-supervisores-y-minera-escondida-evitan-inicio-de-huelga-con-preacuerdo-contractual-y-prorroga-de-mediacion-para-que-sea-votado-por-trabajadores"><strong>4.  Sindicato de Supervisores y Minera Escondida evitan inicio de huelga con preacuerdo contractual y prórroga de mediación para que sea votado por trabajadores</strong></h2><p>Escondida (BHP) y el Sindicato N°2 de Supervisores y Staff, de 1.020 socios, alcanzaron en la madrugada un preacuerdo que evitó la huelga que debía comenzar este miércoles en el mayor yacimiento de cobre del mundo. La mediación se prorrogó un día para que los trabajadores voten la propuesta; si no la aprueban, la huelga comenzaría el jueves 15 a las 8:00. El preacuerdo mejora beneficios y condiciones de cierre respecto de la oferta del 12 de octubre, que incluía un bono de término de conflicto de $ 28 millones, uno de vacaciones de $ 1,5 millones y otros beneficios, y que el sindicato había rechazado. El Sindicato N°1 había advertido que, ante una paralización, sus socios podrían interrumpir labores por riesgos de seguridad al quedar sin supervisores.</p><h2 id="5-nueva-consejera-del-coordinador-electrico-y-blackout-del-25f-nunca-se-puede-garantizar-que-no-ocurran-fallas-pero-debemos-evitar-un-apagon-sistemico-total"><strong>5.  Nueva consejera del Coordinador Eléctrico y blackout del 25F: “Nunca se puede garantizar que no ocurran fallas” pero debemos evitar “un apagón sistémico total”</strong></h2><p>Claudia Rahmann, ingeniera que lideró el estudio académico sobre la propagación de la falla del apagón del 25 de febrero de 2025, asumió como consejera del Coordinador Eléctrico Nacional junto al nuevo presidente Humberto Espejo. Plantea tres desafíos: consolidar la seguridad y resiliencia del sistema, adaptar la operación a la alta penetración de renovables, almacenamiento y convertidores, y fortalecer la gestión de riesgos, la calidad de la información y la cultura de cumplimiento. Reconoce que tras el 25F se han implementado numerosas medidas, pero el reto es completarlas, evaluar su efectividad y revisar permanentemente la seguridad. Advierte que nunca se pueden garantizar cero fallas, pero sí evitar que una contingencia derive en un apagón total.</p><h2 id="6-concha-y-toro-se-abre-paso-en-el-enoturismo-su-centro-del-vino-gana-premio-regional-y-compite-por-el-mundial"><strong>6.  Concha y Toro se abre paso en el enoturismo: su Centro del Vino gana premio regional y compite por el mundial</strong></h2><p>El Centro del Vino Concha y Toro, inaugurado en julio de 2025, ganó en los World Travel Awards 2026 el premio a la mejor experiencia de turismo enológico de Sudamérica, superando a destinos de Chile, Argentina y Uruguay, y ahora competirá por el título mundial. El espacio de más de 12 mil metros cuadrados combina vino, gastronomía, patrimonio y experiencias inmersivas, con un recorrido que termina en la bodega Casillero del Diablo. La ejecutiva Isabel Guilisasti señaló que el reconocimiento valida la forma de poner en valor la cultura y el patrimonio a través del vino.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-nuevas-proyecciones-del-fmi-dejan-a-chile-ad-portas-de-crecer-por-quinto-ano-por-debajo-del-mundo"><strong>1.  Nuevas proyecciones del FMI dejan a Chile ad portas de crecer por quinto año por debajo del mundo</strong></h2><p>El FMI recortó el crecimiento de Chile a 0,6% en 2026, con repunte a 2,6% en 2027, por debajo del 3,1% y 3,4% proyectados para la economía mundial, lo que sería el quinto año seguido sobre un ritmo inferior al global. Prevé inflación de 3,7% en 2026 y 3,5% en 2027, y desempleo de 9,5% y 9,6%, respectivamente. A nivel global, estima que la inflación sube a 4,7% en 2026 y 4,1% en 2027 por el shock de oferta de la guerra, con petróleo +41,3%, fertilizantes +10% y alimentos +5%. Proyecta 2,3% para EEUU, 1,1% para la eurozona, 4,5% para China en 2026 y 2,3% para la región, con Perú en 3% y Brasil en 2,2%.</p><h2 id="2-gratuidad-a-la-pizarra-mas-de-272-mil-beneficiarios-abandonaron-sus-estudios-con-un-costo-fiscal-millonario"><strong>2.  Gratuidad a la pizarra: más de 272 mil beneficiarios abandonaron sus estudios con un costo fiscal millonario</strong></h2><p>Un estudio de Acción Educar estima que entre 2016 y 2023 abandonaron la educación superior 272.508 estudiantes que habían financiado al menos un año con gratuidad, de los cuales 68.637 cubrieron toda la duración nominal de su carrera sin titularse, con un costo fiscal de unos $ 1,6 billones (US$ 1.600 millones). La cobertura de la gratuidad pasó de 11,6% de la matrícula de pregrado en 2016 a 46,2% en 2025, sin un alza equivalente de titulados. Además, el arancel regulado y la imposibilidad de copago generan déficits para las instituciones por $ 1,85 billones (US$ 1.927 millones) en 2025, cerca de 70% soportado por universidades privadas. El centro propone mecanismos de restitución por deserción injustificada, revisar aranceles regulados, flexibilizar cobros por sobreduración y mantener la gratuidad hasta el sexto decil.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-ipc-en-eeuu-en-septiembre-sube-dentro-de-las-expactivas-y-la-inflacion-llega-al-37-anual-aumentan-las-apuestas-por-una-nueva-alza-de-tasas-de-la-fed"><strong>1.  IPC en EEUU en septiembre sube dentro de las expactivas y la inflación llega al 3,7% anual: aumentan las apuestas por una nueva alza de tasas de la Fed</strong></h2><p>El IPC de EEUU subió 0,6% mensual en septiembre, en línea con lo esperado, y la inflación anual se aceleró a 3,7% desde 3,4%, impulsada por los combustibles. La inflación subyacente llegó a 2,6% anual, una décima sobre lo previsto. El rendimiento del Tesoro a 10 años subió 9 puntos base a 5,304% y la probabilidad de alza de tasas en octubre pasó de 22% a 45%, aunque varios analistas creen que la Fed esperaría hasta diciembre. Es el último dato antes de las elecciones de medio mandato del 3 de noviembre, con gasolina sobre US$ 4 por galón por la guerra con Irán y polémica por la flexibilización a las exportaciones de diésel ruso.</p><h2 id="2-ataque-con-misiles-de-huties-a-sede-central-de-aramco-y-alerta-de-la-aie-por-escasez-de-diesel-impulsan-al-petroleo"><strong>2.  Ataque con misiles de hutíes a sede central de Aramco y alerta de la AIE por escasez de diésel impulsan al petróleo</strong></h2><p>El petróleo subió tras un ataque con misiles de los hutíes a la sede central de Saudi Aramco en Dhahran, que causó un incendio sin heridos; el Brent cotizaba a US$ 106,46 y el WTI a US$ 95,30. El ataque se suma a una ola de agresiones contra Arabia Saudita, con refinerías, puertos y un oleoducto afectados. La AIE advirtió que las restricciones del mercado de diésel podrían extenderse hasta bien entrado 2027, con la oferta mundial cayendo 5,8 millones de barriles diarios en 2026, inventarios 509 millones de barriles bajo niveles prebélicos y precios mayoristas del diésel cerca de US$ 220 por barril. El G7 se comprometió a acelerar la liberación de suministros de diésel.</p><h2 id="3-eeuu-detiene-a-empleado-saudi-de-openai-por-presuntamente-instalar-dispositivos-de-espionaje-en-sus-oficinas"><strong>3.  EEUU detiene a empleado saudí de OpenAI por presuntamente instalar dispositivos de espionaje en sus oficinas</strong></h2><p>El FBI detuvo el 9 de octubre a Abdulrahman Alfozan, ingeniero saudí de OpenAI, después de que la empresa hallara el 30 de septiembre un dispositivo de grabación oculto tras un televisor en una sala de reuniones de ejecutivos, y un segundo en su bolso. Fue acusado de intentar interceptar comunicaciones orales y arriesga hasta cinco años de cárcel. OpenAI lo despidió y afirma que no hay indicios de robo de datos de clientes, código fuente ni pesos de modelos. El caso, que el gobierno califica de asunto de seguridad nacional, revive el temor al espionaje industrial o estatal contra los laboratorios de IA, que han endurecido su seguridad.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-healthatom-abre-oficina-en-espana-y-prepara-su-llegada-a-otros-tres-paises-europeos"><strong>1.  Healthatom abre oficina en España y prepara su llegada a otros tres países europeos</strong></h2><p>La startup chilena de salud Healthatom abrió oficinas en Madrid, enfocada primero en el segmento dental, donde buena parte del mercado europeo aún usa software en servidores propios y migra a la nube. Planea llegar a Portugal en 2027 y luego a Italia y Francia, y busca adquisiciones de empresas de gestión dental en Europa, sin operaciones cerradas. Tiene más de 26 mil sucursales en 25 países, 65 millones de citas al año, más de US$ 25 millones en ingresos recurrentes, crece 40% anual y es rentable desde 2025. Su modelo evolucionó hacia pagos, crédito y seguros integrados, y ha rechazado ofertas de compra de fondos y actores globales, tema que podría reabrirse en 24 meses.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-editorial-14102026"><strong>1.  Editorial |14/10/2026</strong></h2><p><em>(Sin detalle disponible.)</em></p><h2 id="2-mirando-el-ano-2027"><strong>2.  Mirando el año 2027</strong></h2><p>La columna sostiene que el repunte de 2,6% que el FMI proyecta para Chile en 2027 se medirá contra un 2026 casi estancado (0,6%), por lo que no asegura un cambio sostenido de trayectoria. Sostener mayor crecimiento exige inversión, productividad y recuperación del empleo, en un entorno externo con riesgos por conflictos y energía más cara. Valora las iniciativas del gobierno, como la ley de reconstrucción nacional, que el Banco Central estima aportaría cerca de 0,5 puntos porcentuales adicionales en 2027 y 2028, pero advierte que su efecto depende de la implementación. Concluye que hay que convertir las mejores expectativas en inversión concreta, con certeza jurídica y plazos de autorización razonables.</p><h2 id="3-ciencia-evidencia-y-largo-plazo"><strong>3.  Ciencia, evidencia y largo plazo</strong></h2><p>La columna critica que el Presupuesto 2027 recorte 6,4% real al Ministerio de Ciencia, pese al discurso presidencial pro ciencia: Fondequip perdería cerca de 80% de sus fondos, Fondef bajaría 20% y el programa de inserción de investigadores casi la mitad. Argumenta que la productividad chilena lleva más de una década estancada y que Chile invirtió solo 0,41% del PIB en I+D en 2023, frente a 2,7% promedio de la OCDE. Propone aumentos reales de dos dígitos por varios años; un alza de 10% requeriría unos $ 100 mil millones adicionales, menos de 0,03% del PIB.</p><h2 id="4-el-futuro-de-las-becas-tic"><strong>4.  El futuro de las Becas TIC</strong></h2><p>El Presupuesto 2027 elimina los $ 35 mil millones de las Becas TIC de Junaeb, que este año entregaron computadores a más de 96 mil estudiantes de séptimo básico, por evaluaciones negativas y problemas de implementación, como más de 5 mil equipos sin entregar hallados por Contraloría en 2024. La columna señala que el problema está en la ejecución: en 2025 solo 24% de los beneficiarios tenía su equipo a mitad de año y la mitad decía que casi nunca lo usaba en clases. Propone mantener el programa en 2027 con rediseño (entrega al inicio del año, uso en aula, mejor focalización y evaluación independiente), pues reconstruirlo después costaría más y tomaría años.</p><h2 id="5-iva-inmobiliario-en-la-mega-reforma"><strong>5.  IVA inmobiliario en la mega reforma</strong></h2><p>La columna analiza el mecanismo de la ley de reconstrucción nacional que permite a los compradores de viviendas nuevas recuperar el IVA, con vigencia retroactiva desde el 22 de abril de 2026, a través de la inmobiliaria, que debe pedir el reembolso al SII. Advierte que esto traslada una severa contingencia financiera y operativa a las empresas y que no todas lograrían materializar la devolución, generando incertidumbre en el sector y en los compradores. Señala que la efectividad dependerá de las instrucciones del SII, cuyo procedimiento debiera ser lo más expedito posible si se quiere reactivar el rubro inmobiliario.</p><h2 id="6-aluviones-cuantas-advertencias-necesitamos"><strong>6.  Aluviones: ¿cuántas advertencias necesitamos?</strong></h2><p>La columna, de la AIC, plantea que el aluvión de San Carlos de Apoquindo y los temporales del norte obligan a revisar si se anticipan bien estos riesgos. Pide actualizar los análisis hidrológicos por el cambio ambiental global y considerar la capacidad de las quebradas de generar flujos detríticos, traduciéndolos en exigencias concretas en los estudios que licita el MOP. Propone actualizar criterios técnicos, revisar obras existentes y priorizar intervenciones donde la población está más expuesta, con prevención desde los estudios de ingeniería.</p><h2 id="7-lluvia-y-cambio-climatico-la-trampa-de-negar-la-evidencia"><strong>7.  Lluvia y cambio climático: La trampa de negar la evidencia</strong></h2><p>La columna rechaza que el aluvión de San Carlos de Apoquindo se use para cuestionar el cambio climático por contradecir la sequía prolongada. Según el IPCC, el calentamiento altera el ciclo hidrológico e intensifica los extremos, por lo que un territorio puede volverse más seco y a la vez sufrir lluvias concentradas y destructivas. Advierte que confundir un episodio de lluvia con una refutación de la evidencia científica posterga la adaptación y encarece el costo social.</p><h2 id="8-el-desafio-de-las-pyme-abrir-puertas-en-un-pais-de-contactos"><strong>8.  El desafío de las PYME: abrir puertas en un país de contactos</strong></h2><p>En la semana de la PYME, la columna destaca una brecha poco discutida: el acceso a contactos y redes de negocios, pues demasiadas oportunidades comerciales dependen de conocer a la persona correcta. Esto limita la competencia, frena la innovación y perpetúa ventajas de quienes ya pertenecen a ciertos círculos, aunque una PYME tenga un producto competitivo. Plantea que la tecnología y la inteligencia artificial pueden conectar empresas con clientes, socios e inversionistas, y que democratizar las redes de negocios debe ser parte del apoyo a las PYME.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

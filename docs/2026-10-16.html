@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-16.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">16 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-abre-con-leve-caida-mientras-los-mercados-se-convencen-de-que-la-fed-hara-una-pausa-en-su-proxima-reunion">1.  Dólar abre con leve caída mientras los mercados se convencen de que la Fed hará una pausa en su próxima reunión</a></li><li class="toc-l2"><a href="#2-ares-y-naturaleza-en-la-deuda-privada-puede-que-tengas-creditos-que-no-esten-rindiendo-como-habias-previsto">2.  Ares y naturaleza en la deuda privada: “Puede que tengas créditos que no estén rindiendo como habías previsto”</a></li><li class="toc-l2"><a href="#3-gestoras-macquarie-eqt-y-kkr-ven-demanda-estructural-por-ia-y-data-centers-pese-a-ruidos-de-burbuja-en-el-mercado">3.  Gestoras Macquarie, EQT y KKR ven demanda estructural por IA y data centers pese a ruidos de burbuja en el mercado</a></li><li class="toc-l2"><a href="#4-banco-central-apunta-que-lleva-varios-semestres-senalizando-el-riesgo-de-un-alza-abrupta-de-las-tasas-interes-que-golpea-la-estrategia-de-las-afp">4.  Banco Central apunta que lleva varios semestres “señalizando el riesgo de un alza abrupta de las tasas interés” que golpea la estrategia de las AFP</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-al-aire-libre-el-exsitio-deportivo-de-radio-cooperativa-cerrara-sus-operaciones-en-chile">1.  Al Aire Libre, el exsitio deportivo de radio Cooperativa, cerrará sus operaciones en Chile</a></li><li class="toc-l2"><a href="#2-el-empresario-austriaco-cevdet-caner-se-apura-para-impulsar-la-produccion-de-cobre-de-minera-tres-valles-en-coquimbo">2.  El empresario austríaco Cevdet Caner se apura para impulsar la producción de cobre de Minera Tres Valles en Coquimbo</a></li><li class="toc-l2"><a href="#3-cinco-expertas-fundan-la-primera-asociacion-de-abogadas-ambientales-del-pais">3.  Cinco expertas fundan la primera asociación de abogadas ambientales del país</a></li><li class="toc-l2"><a href="#4-df-y-ey-lanzan-cuarta-edicion-del-barometro-de-gerencias-legales">4.  DF y EY lanzan cuarta edición del Barómetro de Gerencias Legales</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-el-fantasma-de-los-retiros-de-las-afp-otra-vez-sobrevuela-el-congreso-y-presiona-al-gobierno-en-medio-del-alto-desempleo">1.  El fantasma de los retiros de las AFP otra vez sobrevuela el Congreso y presiona al gobierno en medio del alto desempleo</a></li><li class="toc-l2"><a href="#2-fitch-valora-el-esfuerzo-fiscal-en-el-presupuesto-2027-pero-advierte-incertidumbre-hacia-adelante-por-el-menor-crecimiento-economico">2.  Fitch valora el esfuerzo fiscal en el Presupuesto 2027, pero advierte incertidumbre hacia adelante por el menor crecimiento económico</a></li><li class="toc-l2"><a href="#3-quinto-aumento-mercado-asume-nuevas-alzas-de-combustibles-la-proxima-semana">3.  ¿Quinto aumento? Mercado asume nuevas alzas de combustibles la próxima semana</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-china-gana-terreno-frente-a-eeuu-en-la-economia-global-ante-la-creciente-preocupacion-por-los-rendimientos-de-los-bonos">1.  China gana terreno frente a EEUU en la economía global ante la creciente preocupación por los rendimientos de los bonos</a></li><li class="toc-l2"><a href="#2-aumentan-las-apuestas-a-que-la-fed-mantendra-las-tasas-en-octubre-tras-comentarios-de-warsh">2.  Aumentan las apuestas a que la Fed mantendrá las tasas en octubre tras comentarios de Warsh</a></li><li class="toc-l2"><a href="#3-isabel-allende-recibe-el-prestigioso-premio-planeta-en-espana-es-como-ganar-el-nobel">3.  Isabel Allende recibe el prestigioso Premio Planeta en España: &quot;Es como ganar el Nobel&quot;</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-casi-un-tercio-de-las-victimas-de-ransomware-en-chile-y-america-latina-corresponden-a-infraestructura-critica">1.  Casi un tercio de las víctimas de ransomware en Chile y América Latina corresponden a infraestructura crítica</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-las-lecciones-del-fondo-e">1.  Las lecciones del fondo E</a></li><li class="toc-l2"><a href="#2-ciencia-evaluar-bien-para-invertir-mejor">2.  Ciencia: evaluar bien para invertir mejor</a></li><li class="toc-l2"><a href="#3-que-riesgo-estamos-dispuestos-a-financiar">3.  ¿Qué riesgo estamos dispuestos a financiar?</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>16 De Octubre De 2026</p><p>6 secciones  ·  18 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-abre-con-leve-caida-mientras-los-mercados-se-convencen-de-que-la-fed-hara-una-pausa-en-su-proxima-reunion"><strong>1.  Dólar abre con leve caída mientras los mercados se convencen de que la Fed hará una pausa en su próxima reunión</strong></h2><p>El dólar abrió a la baja en Chile, cayendo $ 1,2 hasta $ 980,6, en línea con el retroceso global de la divisa (dollar index -0,3% a 101,7 puntos) y con un cobre que sube 0,9% a US$ 6,57 la libra en Londres. El mercado leyó la ausencia de señales de política monetaria en la intervención del presidente de la Fed, Kevin Warsh, en Bangkok, como un respaldo a una pausa: la probabilidad descontada de un alza en octubre bajó a 17% desde 27% del jueves, cuando preocupó el salto de la inflación mayorista a su mayor nivel desde 2022. Se sigue esperando un aumento de tasas en diciembre, y analistas como MUFG advierten que la creciente volatilidad en divisas, la liquidación de operaciones de carry trade en Latinoamérica y los ajustes de expectativas sobre la IA en Asia podrían afectar al dólar global.</p><h2 id="2-ares-y-naturaleza-en-la-deuda-privada-puede-que-tengas-creditos-que-no-esten-rindiendo-como-habias-previsto"><strong>2.  Ares y naturaleza en la deuda privada: “Puede que tengas créditos que no estén rindiendo como habías previsto”</strong></h2><p>Dos socios de Ares, gestora que administra US$ 440.500 millones en deuda privada, defendieron en el Picton Latam Summit que el segmento sigue siendo atractivo pese a los defaults que han afectado a algunos fondos internacionales y al escrutinio mediático. Sostuvieron que la calidad del prestatario es el factor decisivo y que, elegida bien, ordena el resto de las variables: estructura, documentación, patrocinador y spread. Explicaron que exigen covenants y relaciones préstamo-valor de al menos 50% o 60%, y que en compañías medianas y pequeñas descartan muchas operaciones por spreads excesivamente agresivos. Reconocieron que es normal que algunos créditos de una cartera rindan menos de lo previsto.</p><h2 id="3-gestoras-macquarie-eqt-y-kkr-ven-demanda-estructural-por-ia-y-data-centers-pese-a-ruidos-de-burbuja-en-el-mercado"><strong>3.  Gestoras Macquarie, EQT y KKR ven demanda estructural por IA y data centers pese a ruidos de burbuja en el mercado</strong></h2><p>En el último panel del Picton Latam Summit, ejecutivos de Macquarie, EQT y KKR coincidieron en que la inversión en infraestructura digital y data centers responde a una demanda estructural impulsada por la IA y por un déficit energético esperado en Estados Unidos. Macquarie advirtió que no debe asumirse que las valoraciones actuales se mantendrán y que pagar primas elevadas por plataformas implica pagar mucho crecimiento futuro, con riesgos en el valor terminal y la renegociación de contratos. EQT mencionó casos de uso empresarial reales en su cartera y la existencia de un ecosistema capaz de pagar por esa infraestructura, mientras KKR prefiere estrategias que generen retornos independientemente de si hay burbuja, apoyadas en diversificación de ubicaciones, fuentes de demanda y clientes.</p><h2 id="4-banco-central-apunta-que-lleva-varios-semestres-senalizando-el-riesgo-de-un-alza-abrupta-de-las-tasas-interes-que-golpea-la-estrategia-de-las-afp"><strong>4.  Banco Central apunta que lleva varios semestres “señalizando el riesgo de un alza abrupta de las tasas interés” que golpea la estrategia de las AFP</strong></h2><p>Tras la caída de más de 10% del fondo E entre enero y septiembre, el Banco Central respondió que desde hace varios semestres viene identificando el riesgo de un alza abrupta de tasas y un estrechamiento de las condiciones financieras. Precisó que sus preocupaciones por la exposición de los fondos de pensiones a derivados de tasas externas quedaron plasmadas en los Informes de Estabilidad Financiera del segundo semestre de 2025 y el primero de 2026, además de instancias de coordinación con otras autoridades. Aclaró que su mandato es resguardar la estabilidad financiera y que no evalúa las estrategias de inversión de los agentes salvo por sus efectos en ella.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-al-aire-libre-el-exsitio-deportivo-de-radio-cooperativa-cerrara-sus-operaciones-en-chile"><strong>1.  Al Aire Libre, el exsitio deportivo de radio Cooperativa, cerrará sus operaciones en Chile</strong></h2><p>North Star Network, holding francés que compró Al Aire Libre a radio Cooperativa en marzo de 2024, comunicó a sus trabajadores el cese inmediato de la producción editorial del sitio deportivo en Chile. La compañía atribuyó la decisión a circunstancias comerciales, a las restricciones recientes al sector de apuestas en Brasil y a decisiones estratégicas más amplias sobre sus operaciones en el país. Una parte importante de los ingresos del grupo, presente en más de 30 países, se vincularía a la promoción de casas de apuestas en sus sitios, por lo que los cambios regulatorios habrían golpeado su modelo de negocio.</p><h2 id="2-el-empresario-austriaco-cevdet-caner-se-apura-para-impulsar-la-produccion-de-cobre-de-minera-tres-valles-en-coquimbo"><strong>2.  El empresario austríaco Cevdet Caner se apura para impulsar la producción de cobre de Minera Tres Valles en Coquimbo</strong></h2><p>Según documentos revisados por Reuters, la estadounidense Global Critical Resources (GCR), fundada por Cevdet Caner, busca aumentar la producción de Tres Valles, en Coquimbo, para aprovechar el déficit mundial de cobre, combinando mina propia con mineral comprado a más de 90 pequeños mineros. La mina subterránea Papomono, que partiría a fines de año, aportaría unas 30.800 toneladas anuales, y la empresa proyecta ingresos cercanos a US$ 238 millones y un EBITDA promedio de US$ 80 millones al año entre 2026 y 2031, frente a una producción actual de cátodos de 14.100 toneladas versus una capacidad de 18.500. El proyecto enfrenta ocho cargos del regulador ambiental, protestas de proveedores impagos por problemas de liquidez y un litigio sobre la compra de la mina por parte de GCR.</p><h2 id="3-cinco-expertas-fundan-la-primera-asociacion-de-abogadas-ambientales-del-pais"><strong>3.  Cinco expertas fundan la primera asociación de abogadas ambientales del país</strong></h2><p>Cinco abogadas de estudios como Prieto, Garrigues, Carrasco Benítez, Ferrada Nehme y VGC constituyeron Cadas, la primera comunidad sin fines de lucro de abogadas de derecho ambiental y sostenibilidad, presidida por Romina Tobar. Su origen responde a la baja visibilidad femenina en el rubro: según Chambers &amp; Partners, solo 14% de los abogados reconocidos en Chile son mujeres y en medio ambiente son nueve de 55 rankeados. Sus prioridades iniciales son formación y mentoría, visibilidad, redes y desarrollo de negocios, y aportar técnicamente al debate regulatorio, con énfasis en la certeza jurídica ante reformas al SEIA, la SMA y la regulación del SBAP.</p><h2 id="4-df-y-ey-lanzan-cuarta-edicion-del-barometro-de-gerencias-legales"><strong>4.  DF y EY lanzan cuarta edición del Barómetro de Gerencias Legales</strong></h2><p>Diario Financiero y EY presentaron la cuarta edición del Barómetro de Gerencias Legales, estudio que se realiza desde 2023 y está dirigido a las áreas legales de empresas en Chile. Busca identificar desafíos, tendencias y prioridades de las gerencias legales, incluyendo inteligencia artificial, gestión de riesgos, regulación y el rol estratégico de los equipos jurídicos. La convocatoria y el enlace para participar estarán disponibles desde el 16 de octubre a través de las redes de DF y EY y del newsletter Entre Códigos.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-el-fantasma-de-los-retiros-de-las-afp-otra-vez-sobrevuela-el-congreso-y-presiona-al-gobierno-en-medio-del-alto-desempleo"><strong>1.  El fantasma de los retiros de las AFP otra vez sobrevuela el Congreso y presiona al gobierno en medio del alto desempleo</strong></h2><p>La caída del fondo E y el alto desempleo reabrieron en el Congreso la discusión de un nuevo retiro de fondos de pensiones, idea que el PDG evalúa impulsar y que parte de la oposición, aunque sin respaldo generalizado, dice que votaría a favor si el gobierno no adopta medidas de corto plazo como un nuevo IFE. Los diputados Jaime Araya y Héctor Barría condicionan su apoyo a esa falta de respuesta; Araya sostiene que se perdió más dinero que lo que costó el tercer retiro, y Barría pide también congelar la megarreforma y critica al PDG por su rol en ella. Por ahora la oposición se concentra en oficios a la Superintendencia de Pensiones, y el escenario podría cambiar desde el 19 de octubre, cuando el Congreso retome la actividad legislativa.</p><h2 id="2-fitch-valora-el-esfuerzo-fiscal-en-el-presupuesto-2027-pero-advierte-incertidumbre-hacia-adelante-por-el-menor-crecimiento-economico"><strong>2.  Fitch valora el esfuerzo fiscal en el Presupuesto 2027, pero advierte incertidumbre hacia adelante por el menor crecimiento económico</strong></h2><p>Fitch destaca los esfuerzos de control presupuestario del Presupuesto 2027, que contempla un alza del gasto de 1,5% sobre la ejecución proyectada de este año (2,7% sobre el presupuesto 2026), pero advierte que la mejora fiscal depende más del alza de precios del cobre y del litio que de recortes de gasto. Señala que los límites son menos estrictos y dan flexibilidad contracíclica, con programas como Chile Despega (US$ 1.300 millones) y la Ley de Reconstrucción Nacional. La caída de 1% del Imacec en agosto eleva la probabilidad de un PIB nulo o negativo en 2026, y para 2027 Fitch proyecta 3% frente al 3,3% del gobierno; mantiene la nota en A- con perspectiva estable, con riesgos en una reversión de precios de materias primas, El Niño o una recuperación más lenta.</p><h2 id="3-quinto-aumento-mercado-asume-nuevas-alzas-de-combustibles-la-proxima-semana"><strong>3.  ¿Quinto aumento? Mercado asume nuevas alzas de combustibles la próxima semana</strong></h2><p>Analistas anticipan un quinto aumento consecutivo en los combustibles el 22 de octubre: según la UDP, las bencinas subirían unos $ 41,3 por litro y el diésel $ 90, mientras XTB proyecta entre $ 37 y $ 45 para las gasolinas y entre $ 80 y $ 100 para el diésel. Las alzas responden a un petróleo que alcanzó US$ 105,8 por barril esta semana y a un tipo de cambio promedio de $ 982, el más alto del año. El Mepco suaviza el efecto en las gasolinas, mientras el diésel refleja con más fuerza el comportamiento del precio mayorista.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-china-gana-terreno-frente-a-eeuu-en-la-economia-global-ante-la-creciente-preocupacion-por-los-rendimientos-de-los-bonos"><strong>1.  China gana terreno frente a EEUU en la economía global ante la creciente preocupación por los rendimientos de los bonos</strong></h2><p>En las reuniones del FMI y el Banco Mundial en Bangkok, el foco pasó de los desequilibrios comerciales atribuidos a China al alza de los rendimientos de bonos en EEUU, Francia y Japón, que tocaron máximos de varias décadas, impulsados por la guerra de Trump contra Irán y los déficits fiscales. La directora del FMI, Kristalina Georgieva, calificó a las economías avanzadas como las peores infractoras y el informe de estabilidad financiera destacó el aumento de rendimientos como el mayor riesgo, con presión sobre emergentes como Kenia. Aprovechando el escenario, el gobernador del banco central chino, Pan Gongsheng, promovió los activos en yuanes: los bonos chinos rindieron cerca de 10% en dólares en 12 meses, frente a pérdidas de 2% del índice global de deuda y de 1,5% de los bonos del Tesoro estadounidense.</p><h2 id="2-aumentan-las-apuestas-a-que-la-fed-mantendra-las-tasas-en-octubre-tras-comentarios-de-warsh"><strong>2.  Aumentan las apuestas a que la Fed mantendrá las tasas en octubre tras comentarios de Warsh</strong></h2><p>El presidente de la Fed, Kevin Warsh, afirmó en Bangkok que la economía ha evolucionado en términos generales según lo esperado desde el alza de septiembre, sin comprometerse sobre la reunión del 28 de octubre, lo que redujo la probabilidad de alza de tasas de cerca de 27% a unos 15%, tras haber llegado a 55% por una inflación de 3,7% en septiembre (subyacente 2,6%). Goldman Sachs prevé una pausa en octubre y un alza en diciembre; otros miembros del FOMC, como Williams y Jefferson, abogan por paciencia, y Daly considera nuevas alzas más probables que improbables pero no urgentes. La Fed subió en septiembre su tasa a un rango de 3,75%-4%, la primera alza desde julio de 2023, pese a la presión de Trump por bajarla, y el dólar cedió 0,1% mientras los futuros del S&amp;P 500 subieron 0,3%.</p><h2 id="3-isabel-allende-recibe-el-prestigioso-premio-planeta-en-espana-es-como-ganar-el-nobel"><strong>3.  Isabel Allende recibe el prestigioso Premio Planeta en España: "Es como ganar el Nobel"</strong></h2><p>La escritora chilena Isabel Allende, de 84 años, ganó el Premio Planeta, dotado con un millón de euros (US$ 1,16 millones), por "La hora antes del alba", secuela de "La casa de los espíritus" centrada en Alba, nieta de Esteban Trueba. El galardón es de los de mayor peso comercial del mundo hispanohablante, aunque se le critica un proceso de selección teatral y favorable a autores consagrados. El triunfo marca además su cambio de Plaza &amp; Janés, de Penguin Random House, al grupo Planeta tras más de cuatro décadas. En su discurso vinculó el libro con el temor actual ante democracias amenazadas por el autoritarismo.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-casi-un-tercio-de-las-victimas-de-ransomware-en-chile-y-america-latina-corresponden-a-infraestructura-critica"><strong>1.  Casi un tercio de las víctimas de ransomware en Chile y América Latina corresponden a infraestructura crítica</strong></h2><p>Un informe de Entel Digital muestra que, entre enero de 2025 y septiembre de 2026, 31,3% de las 1.080 víctimas de ransomware en Latinoamérica y 32,7% de las 55 en Chile (18 casos) correspondieron a infraestructura crítica, sobre el promedio mundial de 26,3%. En la región estos ataques crecieron 28% en los primeros nueve meses de 2026 (de 125 a 160), y en Chile suman 11 en ese lapso frente a siete en todo 2025, concentrados en transporte y logística (27,8%) y energía, combustibles y agua (22,2%). El director del centro de ciberinteligencia, Eduardo Bouillet, advierte un enfoque reactivo, brechas de presupuesto y riesgos en redes OT, proveedores y reutilización de contraseñas, y proyecta mayor presión en 2027 por accesos remotos e inteligencia artificial.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-las-lecciones-del-fondo-e"><strong>1.  Las lecciones del fondo E</strong></h2><p>La editorial plantea que la caída real de 10,39% del fondo E entre enero y septiembre, frente a ganancias de 6,85% y 9,21% en igual período de 2025 y 2024, obliga a revisar si los riesgos asumidos son compatibles con proteger el ahorro de quienes están por jubilarse. Recuerda que la duración de los bonos del fondo subió de cerca de cinco años en 2009 a 10,2 en 2025, aumentando su sensibilidad a las tasas, sin contar el efecto de los swaps, y que las advertencias del regulador y de investigadores no tuvieron seguimiento suficiente. Concluye que los fondos generacionales son una oportunidad para alinear incentivos, hacer pruebas de estrés y supervisar con capacidad de traducir las alertas en medidas oportunas.</p><h2 id="2-ciencia-evaluar-bien-para-invertir-mejor"><strong>2.  Ciencia: evaluar bien para invertir mejor</strong></h2><p>Representantes de la Red de Gestores Tecnológicos y de oficinas de transferencia tecnológica responden a una columna sobre la evaluación de Dipres, señalando que sí hubo autocrítica y que trabajaron en responder las observaciones, lo que permitió diseñar una convocatoria mejorada. Argumentan que la transferencia no se limita a patentes, pues incluye vinculación con empresas y emprendimientos de base científica, y que los indicadores cuestionados no los definen las universidades. Valoran el financiamiento para quince oficinas en el Presupuesto 2027 y ofrecen colaborar con ANID y el ministerio en indicadores adecuados a cada etapa de maduración tecnológica.</p><h2 id="3-que-riesgo-estamos-dispuestos-a-financiar"><strong>3.  ¿Qué riesgo estamos dispuestos a financiar?</strong></h2><p>La columna cuestiona que los fondos de pensiones asuman posiciones sofisticadas en derivados de tasas internacionales, con pérdidas de miles de millones de dólares, mientras la inversión institucional en startups y empresas tecnológicas chilenas sigue siendo marginal. Señala la contradicción de que invertir en emprendimientos se considere demasiado riesgoso para el ahorro previsional, aunque el fondo E se haya visto fuertemente afectado por swaps de tasas extranjeras. Propone revisar qué se entiende por riesgo y destinar al menos una parte del capital de largo plazo del país a financiar el crecimiento de empresas locales.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

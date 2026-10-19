@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>19 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-19.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">19 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-bolsa-chilena-pierde-terreno-en-sesion-marcada-por-las-fuertes-turbulencias-politicas-y-sociales-en-francia">1.  Bolsa chilena pierde terreno en sesión marcada por las fuertes turbulencias políticas y sociales en Francia</a></li><li class="toc-l2"><a href="#2-dolar-abre-con-leve-caida-a-medida-que-el-petroleo-brent-pierde-sus-recientes-maximos-de-cinco-meses">2.  Dólar abre con leve caída a medida que el petróleo Brent pierde sus recientes máximos de cinco meses</a></li><li class="toc-l2"><a href="#3-las-afp-enfrentan-primeras-acciones-judiciales-por-caida-del-fondo-e-acusan-infraccion-grave-al-estandar-de-deber-fiduciario">3.  Las AFP enfrentan primeras acciones judiciales por caída del fondo E: acusan “infracción grave al estándar de deber fiduciario”</a></li><li class="toc-l2"><a href="#4-familia-ponce-define-politica-de-inversion-mas-alla-de-sqm-arma-cartera-conservadora-y-prepara-programa-de-alternativos">4.  Familia Ponce define política de inversión más allá de SQM: arma cartera conservadora y prepara programa de alternativos</a></li><li class="toc-l2"><a href="#5-gonzalo-trejos-gerente-de-estrategia-de-nevasa-por-primera-vez-en-anos-la-renta-fija-podria-empezar-a-cumplir-un-rol-diversificador">5.  Gonzalo Trejos, gerente de estrategia de Nevasa: “Por primera vez en años la renta fija podría empezar a cumplir un rol diversificador”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-fiebre-del-oro-en-tierra-del-fuego-minera-quiere-explotar-yacimiento-cerca-de-un-estero-por-nueve-anos">1.  Fiebre del oro en Tierra del Fuego: minera quiere explotar yacimiento cerca de un estero por nueve años</a></li><li class="toc-l2"><a href="#2-scotiabank-se-enfrenta-a-municipalidad-de-vina-del-mar-por-licitacion-de-cuentas-corrientes">2.  Scotiabank se enfrenta a Municipalidad de Viña del Mar por licitación de cuentas corrientes</a></li><li class="toc-l2"><a href="#3-vinos-y-piscos-de-lujo-en-la-mira-de-los-delincuentes-la-trama-tras-los-robos-a-villard-y-bou-barroeta">3.  Vinos y piscos de lujo en la mira de los delincuentes: la trama tras los robos a Villard y Bou Barroeta</a></li><li class="toc-l2"><a href="#4-australiana-va-por-el-100-de-minera-ligada-a-martin-borda-planea-mas-inversiones-y-polo-regional-de-procesamiento">4.  Australiana va por el 100% de minera ligada a Martín Borda: planea más inversiones y polo regional de procesamiento</a></li><li class="toc-l2"><a href="#5-cervecera-ab-inbev-sobre-cumplimiento-del-acuerdo-de-ccu-con-la-fne-las-barreras-las-seguimos-viendo">5.  Cervecera AB InBev sobre cumplimiento del acuerdo de CCU con la FNE: “Las barreras las seguimos viendo”</a></li><li class="toc-l2"><a href="#6-calzados-bestias-cumple-15-anos-fundadores-trasladaran-produccion-a-brasil-y-dibujan-plan-de-nuevas-aperturas-a-2030">6.  Calzados Bestias cumple 15 años: fundadores trasladarán producción a Brasil y dibujan plan de nuevas aperturas a 2030</a></li><li class="toc-l2"><a href="#7-los-dos-principales-gremios-fruticolas-del-pais-escalan-disputa-por-el-registro-de-la-marca-frutas-de-chile">7.  Los dos principales gremios frutícolas del país escalan disputa por el registro de la marca Frutas de Chile</a></li><li class="toc-l2"><a href="#8-abogados-respaldan-postergar-la-ley-de-proteccion-de-datos-y-apuntan-a-retos-de-cultura-e-interpretacion-normativa">8.  Abogados respaldan postergar la Ley de Protección de Datos y apuntan a retos de cultura e interpretación normativa</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-claves-del-congreso-proteccion-de-datos-inicia-tramitacion-en-el-senado-con-urgencia-suma">1.  Claves del Congreso: protección de datos inicia tramitación en el Senado con urgencia suma</a></li><li class="toc-l2"><a href="#2-economistas-levantan-preocupaciones-por-el-bajo-nivel-de-los-ahorros-del-estado-para-2027-y-piden-definir-hoja-de-ruta-para-recomponer-los-fondos-soberanos">2.  Economistas levantan preocupaciones por el bajo nivel de los ahorros del Estado para 2027 y piden definir hoja de ruta para recomponer los fondos soberanos</a></li><li class="toc-l2"><a href="#3-noviembre-y-enero-emergen-como-fechas-clave-en-la-negociacion-arancelaria-entre-chile-y-estados-unidos">3.  Noviembre y enero emergen como fechas clave en la negociación arancelaria entre Chile y Estados Unidos</a></li><li class="toc-l2"><a href="#4-foro-de-economistas-de-oposicion-alerta-sobre-posible-caida-del-pib-este-ano-y-cuestiona-gestion-de-hacienda">4.  Foro de economistas de oposición alerta sobre posible caída del PIB este año y cuestiona gestión de Hacienda</a></li><li class="toc-l2"><a href="#5-formula-de-chilemujeres-para-financiar-sala-cuna-gana-terreno-y-trabajo-abre-revision-de-cifras-para-buscar-acuerdo">5.  Fórmula de ChileMujeres para financiar sala cuna gana terreno y Trabajo abre revisión de cifras para buscar acuerdo</a></li><li class="toc-l2"><a href="#6-gobierno-preve-caida-de-activos-financieros-del-estado-en-2027-y-fondos-soberanos-seguiran-bajo-lo-sugerido-por-el-fmi">6.  Gobierno prevé caída de activos financieros del Estado en 2027 y fondos soberanos seguirán bajo lo sugerido por el FMI</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-macron-rechaza-dimision-de-su-ministro-del-interior-y-le-pide-poner-fin-a-las-barricadas-y-los-saqueos-que-sacudieron-francia">1.  Macron rechaza dimisión de su ministro del Interior y le pide poner fin a las barricadas y los saqueos que sacudieron Francia</a></li><li class="toc-l2"><a href="#2-la-economia-de-china-acelera-su-crecimiento-en-el-tercer-trimestre-por-las-exportaciones-pero-el-consumo-y-la-vivienda-siguen-debiles">2.  La economía de China acelera su crecimiento en el tercer trimestre por las exportaciones, pero el consumo y la vivienda siguen débiles</a></li><li class="toc-l2"><a href="#3-michael-stott-editor-del-ft-en-el-lugar-de-un-lider-latinoamericano-tendria-mucho-cuidado-en-que-cosas-me-meteria-con-eeuu-porque-en-dos-anos-el-panorama-podria-cambiar">3.  Michael Stott, editor del FT: “En el lugar de un líder latinoamericano, tendría mucho cuidado en qué cosas me metería (con EEUU), porque en dos años el panorama podría cambiar”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-como-un-hacker-utilizo-agentes-de-ia-y-unos-pocos-miles-de-dolares-para-vulnerar-mas-de-un-centenar-de-sitios-web">1.  Cómo un hacker utilizó agentes de IA y unos pocos miles de dólares para vulnerar más de un centenar de sitios web</a></li><li class="toc-l2"><a href="#2-empresarios-y-altos-ejecutivos-ponen-nota-43-a-la-preparacion-de-sus-companias-para-la-ia">2.  Empresarios y altos ejecutivos ponen nota 4,3 a la preparación de sus compañías para la IA</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-seguridad-minera-y-gestion-empresarial">1.  Seguridad minera y gestión empresarial</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>19 De Octubre De 2026</p><p>6 secciones  ·  25 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-bolsa-chilena-pierde-terreno-en-sesion-marcada-por-las-fuertes-turbulencias-politicas-y-sociales-en-francia"><strong>1.  Bolsa chilena pierde terreno en sesión marcada por las fuertes turbulencias políticas y sociales en Francia</strong></h2><p>El IPSA retrocedía 0,2% hasta los 10.946 puntos en una sesión dominada por la crisis política francesa, con caídas lideradas por CCU, Quiñenco y Engie. En Europa el CAC 40 cedía 1,7% y los bonos franceses sufrían ventas, con alzas cercanas a 9 puntos base en el rendimiento a 10 años, tras protestas que dejaron unos 2.400 detenidos y complican la tramitación presupuestaria. Wall Street rebotaba con el Nasdaq subiendo 1%, luego de su peor semana desde junio por dudas sobre la infraestructura de IA, mientras el Brent bajaba 2% a unos US$ 107,7 tras la suspensión de nuevas sanciones a Rusia dispuesta por Trump.</p><h2 id="2-dolar-abre-con-leve-caida-a-medida-que-el-petroleo-brent-pierde-sus-recientes-maximos-de-cinco-meses"><strong>2.  Dólar abre con leve caída a medida que el petróleo Brent pierde sus recientes máximos de cinco meses</strong></h2><p>El dólar en Chile abrió la semana con una baja de $ 2,4 hasta $ 983,2, mientras el petróleo devolvía parte de sus alzas: el Brent retrocedía 1,1% a US$ 108,6 por barril tras tocar máximos de cinco meses. El cobre en Londres cedía 0,2% a US$ 6,53 la libra y el índice dólar global se mantenía estable, con la Fed en período de silencio y sin datos relevantes en EEUU. Los operadores siguen atentos al tráfico en el estrecho de Ormuz y a la respuesta iraní a una propuesta de alto el fuego, y China reportó un crecimiento de 4,5% en el tercer trimestre, algo sobre lo esperado, aunque con el sector inmobiliario débil.</p><h2 id="3-las-afp-enfrentan-primeras-acciones-judiciales-por-caida-del-fondo-e-acusan-infraccion-grave-al-estandar-de-deber-fiduciario"><strong>3.  Las AFP enfrentan primeras acciones judiciales por caída del fondo E: acusan “infracción grave al estándar de deber fiduciario”</strong></h2><p>Dos afiliados presentaron recursos de protección en las cortes de Santiago y Puerto Montt contra AFP Capital y AFP UNO por la caída de más de 10% del fondo E entre enero y septiembre de 2026. Cuestionan las decisiones de inversión en renta fija de largo plazo y swaps de tasas, estrategia que rindió mientras las tasas bajaban pero provocó fuertes pérdidas cuando subieron. El recurso contra AFP UNO pide recalcular y restituir las sumas depreciadas y una orden de no innovar que suspenda nuevos swaps e inversiones a más de cinco años, mientras el dirigido a AFP Capital busca esclarecer si se cumplieron los límites normativos y el control de riesgos.</p><h2 id="4-familia-ponce-define-politica-de-inversion-mas-alla-de-sqm-arma-cartera-conservadora-y-prepara-programa-de-alternativos"><strong>4.  Familia Ponce define política de inversión más allá de SQM: arma cartera conservadora y prepara programa de alternativos</strong></h2><p>El family office Ponce Group, ligado a Julio Ponce Lerou y liderado por Francisca Ponce, está construyendo desde 2025 un portafolio financiero fuera de SQM, hoy compuesto por cerca de 75% renta fija y 25% acciones internacionales vía fondos mutuos y ETF. Su tamaño, sin considerar SQM, se estima entre US$ 400 millones y US$ 500 millones, con un perfil conservador y de alta liquidez pensado para eventuales necesidades de la minera. El grupo prepara además un programa de activos alternativos (private equity, deuda privada, infraestructura e inmobiliario) que aún está en diseño, sin compromisos concretos, y participó en cumbres del sector para reunirse con administradoras.</p><h2 id="5-gonzalo-trejos-gerente-de-estrategia-de-nevasa-por-primera-vez-en-anos-la-renta-fija-podria-empezar-a-cumplir-un-rol-diversificador"><strong>5.  Gonzalo Trejos, gerente de estrategia de Nevasa: “Por primera vez en años la renta fija podría empezar a cumplir un rol diversificador”</strong></h2><p>Trejos plantea que, tras años de tasas bajas, el alza de las tasas del Tesoro (con niveles no vistos desde 2007) devuelve atractivo a la renta fija, con bonos corporativos de buena calidad rindiendo cerca de 7% en dólares y mayor competencia para la renta variable. Su escenario base es un Treasury entre 4,5% y 5%, sin ciclo de alzas en 2027, lo que debería permitir un retorno positivo del fondo E que compense las pérdidas de 2026. Mantiene una apuesta contraria por la bolsa chilena, hoy subponderada y rezagada entre emergentes, con catalizadores en la Ley de Reconstrucción y la reforma MK4, y prefiere empresas grandes, bancos (Bci, Banco de Chile) y SQM.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-fiebre-del-oro-en-tierra-del-fuego-minera-quiere-explotar-yacimiento-cerca-de-un-estero-por-nueve-anos"><strong>1.  Fiebre del oro en Tierra del Fuego: minera quiere explotar yacimiento cerca de un estero por nueve años</strong></h2><p>Minera Santa Paula presentó el 9 de octubre una consulta de pertinencia ante el SEA para su proyecto Lavadero de Oro Mina Nueva en el Cordón Baquedano, Magallanes, que extraería oro durante nueve años en 20 hectáreas con excavaciones de hasta cinco metros. La planta separaría el oro con agua y maquinaria, con piscinas a más de 30 metros del estero Mina Nueva y humedales a unos 2 a 3 kilómetros. La empresa asegura que no usará químicos ni mercurio, reutilizará al menos 90% del agua y contratará a 10 trabajadores con una inversión cercana a medio millón de dólares.</p><h2 id="2-scotiabank-se-enfrenta-a-municipalidad-de-vina-del-mar-por-licitacion-de-cuentas-corrientes"><strong>2.  Scotiabank se enfrenta a Municipalidad de Viña del Mar por licitación de cuentas corrientes</strong></h2><p>Scotiabank demandó a la Municipalidad de Viña del Mar ante el Tribunal de Contratación Pública por la licitación de cuentas corrientes lanzada en abril, que el Consejo Municipal adjudicó al Bci en julio. El banco sostiene que se vulneraron las bases y que se dejó fuera la mejor oferta económica, que habría dado al municipio una mayor rentabilidad estimada en $ 762 millones durante los cuatro años de contrato, y pide retrotraer el proceso a la evaluación de ofertas. El municipio pide rechazar la demanda con costas, afirmando que la oferta fue bien evaluada y ponderada.</p><h2 id="3-vinos-y-piscos-de-lujo-en-la-mira-de-los-delincuentes-la-trama-tras-los-robos-a-villard-y-bou-barroeta"><strong>3.  Vinos y piscos de lujo en la mira de los delincuentes: la trama tras los robos a Villard y Bou Barroeta</strong></h2><p>La viña boutique Villard sufrió el robo de unas 1.600 botellas, incluidas cosechas reservadas desde 2005, con un perjuicio estimado en $ 50 millones, y la pisquera Bou Barroeta perdió unas 50 cajas de Cofradía en un asalto a un camión, con pérdidas preliminares de $ 14 millones. Las botellas aparecieron ofrecidas muy bajo su valor en redes sociales, lo que preocupa por el efecto de la reventa informal sobre marcas y distribuidores. Mientras la pisquera, que vende unas 60.000 botellas al año, pide reportar ofertas sospechosas, Villard lanzó una promoción de 30% y recibió respaldo de clientes y restaurantes.</p><h2 id="4-australiana-va-por-el-100-de-minera-ligada-a-martin-borda-planea-mas-inversiones-y-polo-regional-de-procesamiento"><strong>4.  Australiana va por el 100% de minera ligada a Martín Borda: planea más inversiones y polo regional de procesamiento</strong></h2><p>Cobre Limited alcanzó el 62,86% de Sierra Atacama (Antofagasta) y su CFO afirma que existe una hoja de ruta para llegar al 100%, adelantable si la evaluación económica lo justifica. La compañía ya destinó más de US$ 20 millones a saldar deudas y planea invertir otros US$ 30 millones en seis meses en planta de cátodos, un programa de sondajes de 40.000 metros y el inicio del rajo abierto en 2027. La meta es llegar a 18.000 toneladas anuales a fines de 2027 (cuatro veces el nivel actual), con ambiciones de 25.000 y 50.000, tras subir la recuperación de cobre de 63% a cerca de 82%, y ve en el procesamiento de mineral de terceros un polo regional, pese a la caída de 1,0% del Imacec de agosto y el alza del ácido sulfúrico.</p><h2 id="5-cervecera-ab-inbev-sobre-cumplimiento-del-acuerdo-de-ccu-con-la-fne-las-barreras-las-seguimos-viendo"><strong>5.  Cervecera AB InBev sobre cumplimiento del acuerdo de CCU con la FNE: “Las barreras las seguimos viendo”</strong></h2><p>El gerente general de AB InBev Chile, Juan Manuel Ferrés, afirma que, pese al acuerdo de CCU con la FNE, persisten contratos que impiden incorporar sus marcas en bares y restaurantes, y que la causa sigue en el TDLC; la compañía concentra un tercio del mercado cervecero local. La firma busca crecer con una oferta amplia: más del 90% del portafolio es cerveza tradicional, pero opciones bajas en calorías o sin alcohol podrían superar el 10%, con cuatro lanzamientos cero alcohol en dos años. En Sudamérica sus ventas subieron casi 8% en el segundo trimestre (US$ 2.961 millones) y el Ebitda 14,3%, y mantiene planes de crecimiento y alianza de distribución con Coca-Cola Andina y Embonor.</p><h2 id="6-calzados-bestias-cumple-15-anos-fundadores-trasladaran-produccion-a-brasil-y-dibujan-plan-de-nuevas-aperturas-a-2030"><strong>6.  Calzados Bestias cumple 15 años: fundadores trasladarán producción a Brasil y dibujan plan de nuevas aperturas a 2030</strong></h2><p>La marca chilena Bestias cerrará el 31 de diciembre su fábrica de barrio Victoria y trasladará la producción a Brasil, manteniendo el diseño en Chile, tras proyectar el cambio desde 2023. Vende entre 2.000 y 2.500 pares mensuales, con ingresos de $ 1.300 millones en el primer semestre y un alza de 6% frente a 2025. Sus fundadores creen que Chile no puede competir fabricando más barato, dado que la producción nacional cayó de unos 35,7 millones de pares en los noventa a menos de un millón, y buscan un socio estratégico para pasar de tres a 12 tiendas hacia 2030.</p><h2 id="7-los-dos-principales-gremios-fruticolas-del-pais-escalan-disputa-por-el-registro-de-la-marca-frutas-de-chile"><strong>7.  Los dos principales gremios frutícolas del país escalan disputa por el registro de la marca Frutas de Chile</strong></h2><p>Asoex ya usa la marca Frutas de Chile en Estados Unidos, pero en Chile su registro enfrenta la oposición de Fedefruta y Anpros ante el Inapi, que en junio rechazó el nombre solo y aceptó dos versiones con diseño. Ambos bandos apelaron ante el Tribunal de Propiedad Industrial: Fedefruta sostiene que la expresión es genérica y que condicionar su uso a Asoex podría excluir a otros actores, mientras Asoex defiende su reconocimiento comercial. Los gremios aseguran que la disputa no ha dañado su colaboración, en un momento en que la industria requiere coordinación, y Asoex tiene registrados sus lemas con protección hasta 2035.</p><h2 id="8-abogados-respaldan-postergar-la-ley-de-proteccion-de-datos-y-apuntan-a-retos-de-cultura-e-interpretacion-normativa"><strong>8.  Abogados respaldan postergar la Ley de Protección de Datos y apuntan a retos de cultura e interpretación normativa</strong></h2><p>Expertos reunidos por DF respaldaron el proyecto del gobierno que posterga a diciembre de 2027 la entrada en vigencia de la ley de datos personales, fijada para el 1 de diciembre de 2026, y que sube de tres a cinco los consejeros de la futura agencia. Argumentan que sin agencia ni directrices las empresas deben interpretar la ley con criterios europeos, lo que genera incertidumbre en temas como interés legítimo y transferencias internacionales, y que levantar el Registro de Actividades de Tratamiento exige reingeniería de procesos y cambio cultural. Las multas, de hasta UTM 20 mil (unos $ 1.400 millones), mantienen a las empresas preparándose, y el DPO de BancoEstado valoró una prórroga de no más de un año para evitar relajar la adecuación.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-claves-del-congreso-proteccion-de-datos-inicia-tramitacion-en-el-senado-con-urgencia-suma"><strong>1.  Claves del Congreso: protección de datos inicia tramitación en el Senado con urgencia suma</strong></h2><p>La Comisión de Constitución del Senado inicia este lunes la tramitación, con suma urgencia, del proyecto que posterga un año la ley de protección de datos, que debería despacharse antes del 1 de diciembre. La semana también incluye la votación particular de la reforma al mercado de capitales (MK4) en Hacienda de la Cámara, la votación en general de sala cuna con discusión inmediata, el estudio del contrato por horas y el nombramiento de comisionados de la CMF, además del trabajo de las subcomisiones de presupuestos 2027. En la Cámara, la caída del fondo E marca el telón de fondo, con posibles proyectos del PC para que las AFP devuelvan pérdidas y el sorpresivo regreso a tabla del proyecto que elimina la UF como reajustabilidad.</p><h2 id="2-economistas-levantan-preocupaciones-por-el-bajo-nivel-de-los-ahorros-del-estado-para-2027-y-piden-definir-hoja-de-ruta-para-recomponer-los-fondos-soberanos"><strong>2.  Economistas levantan preocupaciones por el bajo nivel de los ahorros del Estado para 2027 y piden definir hoja de ruta para recomponer los fondos soberanos</strong></h2><p>El gobierno proyecta que los activos financieros del Tesoro bajarán de US$ 18.957 millones (4,7% del PIB) este año a US$ 16.862 millones (3,9%) en 2027, mientras los fondos soberanos quedarán en 3,4% del PIB, bajo el 5% a 7% sugerido por el FMI. Economistas de LyD, UDP, Gemines y otros advierten que el Fisco no podría enfrentar una crisis relevante sin endeudarse y piden un calendario concreto de aportes, aunque valoran que no se usen los fondos soberanos. Santander y otros recuerdan que gran parte de la baja (unos US$ 2.000 millones de caja) se usará para pagar deuda de 2027, por lo que la posición neta prácticamente no cambia.</p><h2 id="3-noviembre-y-enero-emergen-como-fechas-clave-en-la-negociacion-arancelaria-entre-chile-y-estados-unidos"><strong>3.  Noviembre y enero emergen como fechas clave en la negociación arancelaria entre Chile y Estados Unidos</strong></h2><p>La negociación con la USTR por el arancel de 12,5% vigente desde julio tiene dos hitos: las elecciones de medio mandato del 3 de noviembre en EEUU y enero, cuando Comercio podría recomendar, vía Sección 232, un arancel de 15% al cobre (con posible alza a 30% desde 2028). Expertos coinciden en que un Congreso demócrata no cambiaría por sí solo la política arancelaria, que depende del Ejecutivo, y que el informe sobre el cobre entregado el 30 de junio aún no es público. Chile cuenta con un argumento negociador: EEUU depende en 57% de importaciones netas de cobre y Chile aporta 68% del cobre refinado que compra; además, el consejo empresarial Chile-Perú sesionó en Lima con foco en minería, energía y logística.</p><h2 id="4-foro-de-economistas-de-oposicion-alerta-sobre-posible-caida-del-pib-este-ano-y-cuestiona-gestion-de-hacienda"><strong>4.  Foro de economistas de oposición alerta sobre posible caída del PIB este año y cuestiona gestión de Hacienda</strong></h2><p>El Foro para un Desarrollo Justo y Sostenible, integrado por economistas de oposición, critica los primeros seis meses del gobierno de Kast, advirtiendo que la economía se acerca a una situación recesiva y que el PIB podría cerrar el año con crecimiento negativo. Apuntan a una desocupación de 9,6%, la más alta desde la pandemia, y cuestionan el no uso inicial del Mepco, que habría generado mayor inflación y limitado al Banco Central. También critican el Presupuesto 2027, con recortes sociales por casi $ 800 mil millones y poco foco en empleo, y la Ley de Reconstrucción, y no descartan mayor movilización social si persisten el desempleo y el alza de precios.</p><h2 id="5-formula-de-chilemujeres-para-financiar-sala-cuna-gana-terreno-y-trabajo-abre-revision-de-cifras-para-buscar-acuerdo"><strong>5.  Fórmula de ChileMujeres para financiar sala cuna gana terreno y Trabajo abre revisión de cifras para buscar acuerdo</strong></h2><p>Tras postergarse al martes 20 la votación en general de Sala Cuna Universal, gana respaldo la propuesta de ChileMujeres de reducir la cotización de 0,35% a 0,3% y compensarla con 0,1 punto desde cuentas individuales del Seguro de Cesantía y 0,2 desde el Fondo de Cesantía Solidario, frente a la compensación gubernamental de 0,2 y 0,15. El ministro Rau pidió a la Superintendencia de Pensiones actualizar el informe actuarial para evaluar su impacto, aunque el Frente Amplio objeta una compensación total con cargo al seguro. El Ejecutivo prepara además ajustes como adelantar al primer año el acceso de trabajadoras de casa particular y una fórmula acotada para cubrir brechas de financiamiento de establecimientos VTF.</p><h2 id="6-gobierno-preve-caida-de-activos-financieros-del-estado-en-2027-y-fondos-soberanos-seguiran-bajo-lo-sugerido-por-el-fmi"><strong>6.  Gobierno prevé caída de activos financieros del Estado en 2027 y fondos soberanos seguirán bajo lo sugerido por el FMI</strong></h2><p>En la partida del Tesoro Público, Dipres proyectó activos financieros por US$ 16.862 millones (3,9% del PIB) en 2027, frente a US$ 18.957 millones este año, con fondos soberanos de US$ 14.699 millones (FRP US$ 10.730 millones y FEES US$ 3.968 millones sin retiros previstos). La caja fiscal caerá 59,4%, de US$ 3.617 millones a US$ 1.465 millones, porque unos US$ 2.200 millones se usarán para pagar deuda, reemplazando el uso del FEES anticipado antes. El director de Dipres adelantó que parte de la venta de activos fiscales engrosaría los fondos soberanos, y las subcomisiones deben despachar las partidas del Presupuesto 2027, que autoriza endeudamiento de hasta US$ 25 mil millones, antes del 23 de octubre.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-macron-rechaza-dimision-de-su-ministro-del-interior-y-le-pide-poner-fin-a-las-barricadas-y-los-saqueos-que-sacudieron-francia"><strong>1.  Macron rechaza dimisión de su ministro del Interior y le pide poner fin a las barricadas y los saqueos que sacudieron Francia</strong></h2><p>Macron rechazó la renuncia del ministro del Interior, Laurent Núñez, y le exigió poner fin a barricadas y saqueos y transparentar las fallas de inteligencia tras un fin de semana de disturbios en París, Marsella y Lyon, pese al despliegue de 60.000 efectivos. Las protestas por servicios públicos y costo de vida ocurren a seis meses de las presidenciales y mientras el gobierno necesita aprobar un presupuesto clave para sus finanzas, lo que inquieta a los inversionistas. El rendimiento del bono francés a 10 años subió 8 puntos base a 4,86%, el CAC 40 caía 1,3% y los bancos BNP Paribas, Société Générale y Crédit Agricole retrocedían cerca de 2%.</p><h2 id="2-la-economia-de-china-acelera-su-crecimiento-en-el-tercer-trimestre-por-las-exportaciones-pero-el-consumo-y-la-vivienda-siguen-debiles"><strong>2.  La economía de China acelera su crecimiento en el tercer trimestre por las exportaciones, pero el consumo y la vivienda siguen débiles</strong></h2><p>El PIB de China creció 4,5% en el tercer trimestre, por sobre lo previsto, impulsado por exportaciones que subieron más de un tercio, mientras las ventas minoristas siguen rezagadas frente a la producción industrial (5,5% en septiembre) y el mercado inmobiliario continúa en declive. Los analistas esperan que Beijing cumpla su meta de 4,5% a 5,0% para 2026 sin más estímulos, pero advierten un crecimiento desequilibrado, dependiente del sector externo y del Estado, con guerras de precios y débil demanda interna. El superávit comercial va camino de superar los US$ 1,2 billones del año pasado, lo que genera reacciones proteccionistas como nuevas restricciones de la UE, y el yuan alcanzó su nivel más alto desde julio de 2022.</p><h2 id="3-michael-stott-editor-del-ft-en-el-lugar-de-un-lider-latinoamericano-tendria-mucho-cuidado-en-que-cosas-me-meteria-con-eeuu-porque-en-dos-anos-el-panorama-podria-cambiar"><strong>3.  Michael Stott, editor del FT: “En el lugar de un líder latinoamericano, tendría mucho cuidado en qué cosas me metería (con EEUU), porque en dos años el panorama podría cambiar”</strong></h2><p>Stott describe un orden mundial en fractura, con varias potencias medias y países buscando múltiples alianzas, proceso que podría durar una o dos décadas. Anticipa que los republicanos perderán la Cámara en las elecciones del 3 de noviembre y posiblemente el Senado, lo que debilitaría a Trump, cuya guerra con Irán (costo sobre US$ 45 mil millones, combustibles más de 40% más caros e hipotecas sobre 7%) ha sido muy impopular, y limitaría un mayor proteccionismo. Sobre América Latina, advierte que el Escudo de las Américas es más retórico que económico, que EEUU ofrece pocas alternativas de financiamiento frente a China y que los líderes que se alineen hoy con Trump arriesgan un cambio de panorama político en dos años.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-como-un-hacker-utilizo-agentes-de-ia-y-unos-pocos-miles-de-dolares-para-vulnerar-mas-de-un-centenar-de-sitios-web"><strong>1.  Cómo un hacker utilizó agentes de IA y unos pocos miles de dólares para vulnerar más de un centenar de sitios web</strong></h2><p>Un investigador de NorForge detectó a un hacker de habla china que, usando agentes de IA autónomos sobre la plataforma Cairn, vulneró sitios de más de 100 empresas como Deere, SharkNinja y Cummins, tras intentar atacar más de 1.200 sitios de comercio electrónico desde fines de septiembre. Las intrusiones exitosas requerían unas 23 horas de exploración sin supervisión humana, con un costo estimado de US$ 5 mil en tokens, cerca de US$ 50 por ataque exitoso, y combinaban DeepSeek y Claude Code. El hallazgo muestra que los agentes comerciales ya pueden ejecutar intrusiones complejas de principio a fin, en un contexto de creciente uso de IA en el cibercrimen, con oleadas de ataques que afectaron a 25 empresas y robaron al menos 600 mil registros de tarjetas.</p><h2 id="2-empresarios-y-altos-ejecutivos-ponen-nota-43-a-la-preparacion-de-sus-companias-para-la-ia"><strong>2.  Empresarios y altos ejecutivos ponen nota 4,3 a la preparación de sus compañías para la IA</strong></h2><p>Un informe de MAS Analytics basado en entrevistas a 12 gerentes generales y directores chilenos encontró que los ejecutivos califican con 4,3 en una escala de 1 a 7 la preparación de sus organizaciones para la IA en los próximos dos años. Los desafíos son más adaptativos que tecnológicos: datos ordenados, gobernanza, capacitación y evolución del modelo de negocio. Su CEO, Matías Sahli, señala que quedarse en productividad da beneficios acotados de 20% a 40%, mientras apuntar al crecimiento podría multiplicarlos por dos a cuatro, y que Chile no está lejos de la frontera; el libro se presenta el 22 de octubre.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-seguridad-minera-y-gestion-empresarial"><strong>1.  Seguridad minera y gestión empresarial</strong></h2><p>El editorial sostiene que la reciente seguidilla de accidentes fatales en la minería exige que las empresas revisen sus protocolos y no se limiten a pedir más fiscalización pública. Destaca la mesa transversal por la seguridad minera y los mayores recursos para Sernageomin en el Presupuesto 2027, con la meta de 13 mil fiscalizaciones anuales (30% más) y cubrir 50% de las faenas. Recuerda que la tasa de fatalidad bajó 83% entre 2010 y 2024, pero los fallecidos subieron de 11 en 2024 a 20 en 2025, y plantea que los incentivos de las compañías, hoy centrados en producción, costos y plazos, deben integrar la seguridad en la evaluación de ejecutivos y supervisores.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

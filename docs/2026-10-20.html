@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-20.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">20 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-superintendencia-de-pensiones-inicia-proceso-sancionatorio-en-contra-de-las-afp-por-caida-del-fondo-e">1.  Superintendencia de Pensiones inicia proceso sancionatorio en contra de las AFP por caída del fondo E</a></li><li class="toc-l2"><a href="#2-los-mercados-bursatiles-caen-frente-a-la-agitacion-politica-en-europa-y-la-guerra-en-medio-oriente">2.  Los mercados bursátiles caen frente a la agitación política en Europa y la guerra en Medio Oriente</a></li><li class="toc-l2"><a href="#3-bci-respalda-mecanismo-de-primera-perdida-del-fonavi-pero-pide-ajustarlo-al-riesgo-de-cada-cartera-hipotecaria">3.  Bci respalda mecanismo de primera pérdida del Fonavi, pero pide ajustarlo al riesgo de cada cartera hipotecaria</a></li><li class="toc-l2"><a href="#4-otros-dos-afiliados-presentan-recursos-de-proteccion-en-contra-de-mas-afp-por-la-caida-del-fondo-e">4.  Otros dos afiliados presentan recursos de protección en contra de más AFP por la caída del fondo E</a></li><li class="toc-l2"><a href="#5-dolar-abre-al-alza-mientras-el-petroleo-brent-alcanza-nuevos-maximos-desde-mayo-por-la-tension-en-medio-oriente">5.  Dólar abre al alza mientras el petróleo Brent alcanza nuevos máximos desde mayo por la tensión en Medio Oriente</a></li><li class="toc-l2"><a href="#6-fernando-mejido-critica-a-las-afp-por-decisiones-en-fondo-e-estaban-especulando-sobre-el-comportamiento-de-las-tasas-en-eeuu">6.  Fernando Mejido critica a las AFP por decisiones en fondo E: “Estaban especulando sobre el comportamiento de las tasas en EEUU”</a></li><li class="toc-l2"><a href="#7-afp-enfrentan-primeras-acciones-judiciales-de-afiliados-por-caida-del-fondo-e-y-senado-evalua-sesion-especial">7.  AFP enfrentan primeras acciones judiciales de afiliados por caída del fondo E y Senado evalúa sesión especial</a></li><li class="toc-l2"><a href="#8-mk4-indicaciones-del-gobierno-y-parlamentarios-ajustan-el-fonavi-y-elevan-el-costo-fiscal-proyectado-para-2027">8.  MK4: indicaciones del gobierno y parlamentarios ajustan el Fonavi y elevan el costo fiscal proyectado para 2027</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-la-arremetida-de-codelco-contra-grupo-pullman-bus-apunta-a-querella-por-administracion-desleal-peticion-de-quiebra-y-denuncia-por-practicas-antisindicales">1.  La arremetida de Codelco contra grupo Pullman Bus: apunta a querella por administración desleal, petición de quiebra y denuncia por prácticas antisindicales</a></li><li class="toc-l2"><a href="#2-la-salmonera-noruega-mowi-alcanza-record-historico-de-produccion-trimestral-a-nivel-mundial-y-aumenta-sus-cosechas-en-chile">2.  La salmonera noruega Mowi alcanza récord histórico de producción trimestral a nivel mundial y aumenta sus cosechas en Chile</a></li><li class="toc-l2"><a href="#3-anglo-american-baja-6-su-produccion-de-cobre-en-chile-en-el-tercer-trimestre-por-clima-y-menor-ley">3.  Anglo American baja 6% su producción de cobre en Chile en el tercer trimestre por clima y menor ley</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-casi-10-millones-de-sueldo-liquido-y-rol-clave-en-la-agenda-de-seguridad-gobierno-inicia-busqueda-de-un-nuevo-director-nacional-de-aduanas">1.  Casi $ 10 millones de sueldo líquido y rol clave en la agenda de seguridad: gobierno inicia búsqueda de un nuevo director nacional de Aduanas</a></li><li class="toc-l2"><a href="#2-incluye-rebaja-de-contribuciones-impuestos-internos-entregara-alivios-para-propietarios-de-viviendas-afectadas-por-los-ultimos-eventos-climaticos">2.  Incluye rebaja de contribuciones: Impuestos Internos entregará alivios para propietarios de viviendas afectadas por los últimos eventos climáticos</a></li><li class="toc-l2"><a href="#3-impacto-del-alza-del-dolar-mercado-se-abre-a-la-posibilidad-de-que-el-banco-central-suba-la-tasa-este-ano">3.  ¿Impacto del alza del dólar? Mercado se abre a la posibilidad de que el Banco Central suba la tasa este año</a></li><li class="toc-l2"><a href="#4-termina-el-periodo-de-adp-del-suspendido-director-del-sernac-andres-herrera">4.  Termina el período de ADP del suspendido director del Sernac, Andrés Herrera</a></li><li class="toc-l2"><a href="#5-presupuesto-2027-de-gores-sigue-en-suspenso-empate-en-subcomision-abre-espacio-a-ultima-negociacion-con-hacienda">5.  Presupuesto 2027 de Gores sigue en suspenso: empate en subcomisión abre espacio a última negociación con Hacienda</a></li><li class="toc-l2"><a href="#6-comienza-la-cuenta-regresiva-sii-y-tesoreria-inician-la-implementacion-de-la-ley-de-reconstruccion">6.  Comienza la cuenta regresiva: SII y Tesorería inician la implementación de la Ley de Reconstrucción</a></li><li class="toc-l2"><a href="#7-ad-portas-del-debut-de-la-ley-de-reconstruccion-chile-sigue-en-la-parte-baja-de-los-sistemas-tributarios-mas-competitivos">7.  Ad portas del debut de la Ley de Reconstrucción, Chile sigue en la parte baja de los sistemas tributarios más competitivos</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-el-petroleo-alcanza-su-nivel-mas-alto-en-cinco-meses-ante-crecientes-riesgos-de-un-ataque-irani">1.  El petróleo alcanza su nivel más alto en cinco meses ante crecientes riesgos de un ataque iraní</a></li><li class="toc-l2"><a href="#2-aix-vendio-a-los-inversionistas-el-sueno-de-dubai-pero-ahora-tiene-dificultades-para-devolverles-su-dinero">2.  AIX vendió a los inversionistas el &quot;sueño de Dubái&quot;, pero ahora tiene dificultades para devolverles su dinero</a></li><li class="toc-l2"><a href="#3-francia-entra-en-un-circulo-de-crisis-fiscal-protestas-y-paralisis-politica-que-amenaza-a-europa">3.  Francia entra en un círculo de crisis fiscal, protestas y parálisis política que amenaza a Europa</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-eeuu-busca-prohibir-el-uso-de-deepseek-en-los-sistemas-de-las-agencias-federales">1.  EEUU busca prohibir el uso de DeepSeek en los sistemas de las agencias federales</a></li><li class="toc-l2"><a href="#2-chile-mantiene-liderazgo-regional-en-ia-pero-enfrenta-brechas-en-computo-y-talento">2.  Chile mantiene liderazgo regional en IA, pero enfrenta brechas en cómputo y talento</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-francia-y-lecciones-fiscales">1.  Francia y lecciones fiscales</a></li><li class="toc-l2"><a href="#2-la-vida-de-un-trabajador-del-sur-vale-menos">2.  ¿La vida de un trabajador del sur vale menos?</a></li><li class="toc-l2"><a href="#3-el-precio-del-aluvion">3.  El precio del aluvión</a></li><li class="toc-l2"><a href="#4-dime-quien-te-aconseja-y-te-dire-que-quiere">4.  Dime quién te aconseja y te diré qué quiere</a></li><li class="toc-l2"><a href="#5-te-lo-dejo-a-ti-que-lo-haces-tan-bien">5.  “Te lo dejo a ti, que lo haces tan bien”</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>20 De Octubre De 2026</p><p>6 secciones  ·  28 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-superintendencia-de-pensiones-inicia-proceso-sancionatorio-en-contra-de-las-afp-por-caida-del-fondo-e"><strong>1.  Superintendencia de Pensiones inicia proceso sancionatorio en contra de las AFP por caída del fondo E</strong></h2><p>El regulador previsional abrió un proceso sancionatorio contra las siete administradoras tras concluir su fiscalización de las pérdidas del fondo E, que retrocedió más de 10% entre enero y septiembre. Se investigará si las AFP incumplieron el deber de lealtad y diligencia que establece el artículo 147 del DL 3.500 y la norma NCG 340 de julio de 2025, que fija deberes fiduciarios de cuidado, resguardo de los fondos y prevención de conflictos de interés. La decisión suma presión regulatoria a un sistema ya golpeado por demandas judiciales y cuestionamientos políticos por sus decisiones de inversión.</p><h2 id="2-los-mercados-bursatiles-caen-frente-a-la-agitacion-politica-en-europa-y-la-guerra-en-medio-oriente"><strong>2.  Los mercados bursátiles caen frente a la agitación política en Europa y la guerra en Medio Oriente</strong></h2><p>Las bolsas cayeron por la crisis política y social en Francia y por nuevos máximos del petróleo. El MSCI IPSA bajaba 0,5% a 10.914 puntos, arrastrado por Latam y Falabella, mientras el Nasdaq perdía 0,6%, el Euro Stoxx 50 1% y el Nikkei y el Hang Seng 1,3%. El Brent subía a cerca de US$ 110,5 por ataques a embarcaciones en Ormuz y de los hutíes a objetivos saudíes, y los bonos del Tesoro a 10 años recuperaban demanda tras el contagio de las ventas de deuda francesa y europea.</p><h2 id="3-bci-respalda-mecanismo-de-primera-perdida-del-fonavi-pero-pide-ajustarlo-al-riesgo-de-cada-cartera-hipotecaria"><strong>3.  Bci respalda mecanismo de primera pérdida del Fonavi, pero pide ajustarlo al riesgo de cada cartera hipotecaria</strong></h2><p>Bci Estudios valora la creación del Fonavi, que tendría aportes estatales de hasta US$ 2.000 millones y podría endeudarse hasta 10 veces su capital, pero advierte que la primera pérdida debe calibrarse por perfil de riesgo de cada cartera y no con deducibles fijos que desincentiven a los bancos. El informe cifra el spread entre la tasa hipotecaria y el bono en UF a 20 años en 207,7 puntos base, frente a 148,9 históricos, y estima que el fondo podría comprimirlo hasta 30 pb, reemplazando subsidios fiscales costosos. Además calcula que recuperar la profundidad del mercado de capitales, hoy 21,5% bajo su máximo de 2020, elevaría la inversión entre 3,6% y 4% y sumaría 0,13 a 0,14 puntos al crecimiento tendencial anual, con rezagos de cinco trimestres para absorber la mitad del efecto.</p><h2 id="4-otros-dos-afiliados-presentan-recursos-de-proteccion-en-contra-de-mas-afp-por-la-caida-del-fondo-e"><strong>4.  Otros dos afiliados presentan recursos de protección en contra de más AFP por la caída del fondo E</strong></h2><p>Superintendencia de Pensiones inicia proceso sancionatorio en contra de las AFP por caída del fondo E En esta ocasión, las administradoras apuntadas fueron Habitat y Modelo. Laabrupta caída de más de 10% fondo E entre enero y septiembresigue sumando nuevas acciones judiciales en contra de las AFP.</p><h2 id="5-dolar-abre-al-alza-mientras-el-petroleo-brent-alcanza-nuevos-maximos-desde-mayo-por-la-tension-en-medio-oriente"><strong>5.  Dólar abre al alza mientras el petróleo Brent alcanza nuevos máximos desde mayo por la tensión en Medio Oriente</strong></h2><p>El dólar abrió con un alza de $ 3,6 hasta $ 984,7 en un contexto de violencia en Medio Oriente y costos energéticos elevados, mientras el índice dólar global retrocedía levemente y el cobre se estabilizaba. El Brent subía 1,6% a US$ 111,3, su máximo desde mayo, tras ataques hutíes contra objetivos saudíes. Analistas advierten que los precios altos alimentan presiones inflacionarias que podrían forzar a la Fed a endurecer su política, y que las ventas de bonos franceses aumentan la volatilidad y los rendimientos de los treasuries.</p><h2 id="6-fernando-mejido-critica-a-las-afp-por-decisiones-en-fondo-e-estaban-especulando-sobre-el-comportamiento-de-las-tasas-en-eeuu"><strong>6.  Fernando Mejido critica a las AFP por decisiones en fondo E: “Estaban especulando sobre el comportamiento de las tasas en EEUU”</strong></h2><p>El integrante del Consejo Técnico de Inversiones de la Superintendencia sostiene que las AFP tomaron posiciones incompatibles con un fondo que debe ser estable, y que apostaron a la evolución de las tasas en Estados Unidos con un error de estimación. Rechaza que el 7% de afiliados en edad de jubilar, unas 60.000 personas, reste gravedad a una pérdida cercana a 10%, y plantea que las buenas rentabilidades previas empujaron a posiciones más agresivas. Recuerda que el regulador advirtió desde 2025 y que en 2026 se impusieron restricciones respaldadas por el consejo, reconoce un vacío normativo que el nuevo régimen de fondos generacionales corrige con límites a derivados, y pide un mea culpa público de las administradoras por el riesgo para la confianza en el sistema.</p><h2 id="7-afp-enfrentan-primeras-acciones-judiciales-de-afiliados-por-caida-del-fondo-e-y-senado-evalua-sesion-especial"><strong>7.  AFP enfrentan primeras acciones judiciales de afiliados por caída del fondo E y Senado evalúa sesión especial</strong></h2><p>Dos afiliados presentaron los primeros recursos de protección contra AFP Capital y UNO, acusando infracción al deber fiduciario y una estrategia temeraria en el fondo E, y uno de ellos pidió una orden de no innovar sobre swaps de tasas y renta fija de más de cinco años. Juristas dudan de su viabilidad, pues la seguridad social no está amparada por esta acción y probar negligencia y monto exige un juicio de lato conocimiento; sugieren la vía sancionatoria o una acción civil indemnizatoria. En paralelo, senadores de oposición piden una sesión especial con autoridades, se evalúa una comisión investigadora en la Cámara y PlanVital aseguró que redujo estrategias de peor relación riesgo-retorno.</p><h2 id="8-mk4-indicaciones-del-gobierno-y-parlamentarios-ajustan-el-fonavi-y-elevan-el-costo-fiscal-proyectado-para-2027"><strong>8.  MK4: indicaciones del gobierno y parlamentarios ajustan el Fonavi y elevan el costo fiscal proyectado para 2027</strong></h2><p>La Comisión de Hacienda de la Cámara inicia la votación en particular de la reforma al mercado de capitales (MK4), con despacho previsto para el miércoles. El gobierno propone aplicar la primera pérdida del Fonavi sobre la cartera completa del originador, limitarlo a personas naturales con única vivienda, mantener el estándar de dolo o culpa grave en la Ley de Fraudes y eximir de IVA la administración de fondos, mientras diputados piden deducibles mínimos de 3,5% a 5% y topes a las garantías estatales. El costo fiscal 2027 sube de $ 87.672 millones a $ 237.246 millones sin considerar crecimiento (de $ 54.258 a $ 203.098 millones netos), por la exención de IVA ($ 98.861 millones) y el adelanto del ahorro voluntario para vivienda ($ 50.713 millones), y el saldo positivo se posterga de 2032 a 2034.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-la-arremetida-de-codelco-contra-grupo-pullman-bus-apunta-a-querella-por-administracion-desleal-peticion-de-quiebra-y-denuncia-por-practicas-antisindicales"><strong>1.  La arremetida de Codelco contra grupo Pullman Bus: apunta a querella por administración desleal, petición de quiebra y denuncia por prácticas antisindicales</strong></h2><p>En la disputa judicial con Tandem, filial de Pullman Bus que demandó a Codelco por US$ 71 millones por supuesto incumplimiento del contrato de transporte de División Salvador, la estatal calificó a la empresa de prestador incumplidor y listó los procesos que enfrenta el grupo. Entre ellos hay una solicitud de liquidación forzosa por $ 499 millones, demandas por arriendos de buses, una medida precautoria de Scania Finance por unos $ 3.466 millones, una demanda de Banco Bice por $ 4.132 millones, querellas por administración desleal y apropiación indebida, una denuncia antisindical y la liquidación de Pullman Cargo. Codelco afirma que Tandem abandonó el servicio en forma intempestiva en agosto, pide levantar una medida que le prohíbe contratar rutas y hoy opera el transporte con Buses JM.</p><h2 id="2-la-salmonera-noruega-mowi-alcanza-record-historico-de-produccion-trimestral-a-nivel-mundial-y-aumenta-sus-cosechas-en-chile"><strong>2.  La salmonera noruega Mowi alcanza récord histórico de producción trimestral a nivel mundial y aumenta sus cosechas en Chile</strong></h2><p>Mowi cosechó 186 mil toneladas en el tercer trimestre, 12% más que un año antes y sobre las 169.500 proyectadas, y duplicó su resultado operacional a 275 millones de euros desde 112 millones. En Chile la cosecha creció 5% a 23.500 toneladas, aunque quedó bajo la meta de 24 mil, y el resultado operacional se mantuvo en 0,55 euros por kilo, muy por debajo de Noruega (1,80). El costo medio de cultivo bajó de 5,42 a 5,11 euros por kilo, y la compañía proyecta 600 mil toneladas globales en 2026, 82 mil en Chile, con resultados completos el 4 de noviembre.</p><h2 id="3-anglo-american-baja-6-su-produccion-de-cobre-en-chile-en-el-tercer-trimestre-por-clima-y-menor-ley"><strong>3.  Anglo American baja 6% su producción de cobre en Chile en el tercer trimestre por clima y menor ley</strong></h2><p>Anglo American produjo 174.900 toneladas de cobre en el trimestre, 5% menos interanual, con 94.200 toneladas en Chile (-6%) por nevadas récord, clima extremo y menor ley en Collahuasi y El Soldado. Los Bronces subió 2% a 42.500 toneladas, Collahuasi cayó 11% a 42.000 y El Soldado 12% a 9.700. La guía 2026 se mantiene en 700.000 a 760.000 toneladas, con producción chilena concentrada en el segundo semestre y sujeta al agua, tras el fallo ambiental contra la desalinizadora de Collahuasi. La fusión con Teck avanza y el cierre, previsto para marzo de 2027, solo espera la aprobación del regulador de competencia de China.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-casi-10-millones-de-sueldo-liquido-y-rol-clave-en-la-agenda-de-seguridad-gobierno-inicia-busqueda-de-un-nuevo-director-nacional-de-aduanas"><strong>1.  Casi $ 10 millones de sueldo líquido y rol clave en la agenda de seguridad: gobierno inicia búsqueda de un nuevo director nacional de Aduanas</strong></h2><p>El Servicio Civil abrió el concurso para dirigir Aduanas, cargo vacante desde que el gobierno pidió la renuncia de Alejandra Arriaza por mala evaluación del ministro de Hacienda, en medio de un informe de Contraloría que halló 25 contenedores sin revisar y 28 operaciones de riesgo sin control. Las postulaciones cierran el 2 de noviembre y exigen título profesional y cinco años de experiencia directiva en materias aduaneras, tributarias o de comercio exterior. El nuevo titular liderará fiscalización basada en riesgo contra el contrabando y el crimen organizado, con renta líquida mensual de $ 9.897.000.</p><h2 id="2-incluye-rebaja-de-contribuciones-impuestos-internos-entregara-alivios-para-propietarios-de-viviendas-afectadas-por-los-ultimos-eventos-climaticos"><strong>2.  Incluye rebaja de contribuciones: Impuestos Internos entregará alivios para propietarios de viviendas afectadas por los últimos eventos climáticos</strong></h2><p>El SII aplicará alivios de impuesto territorial a propiedades dañadas por incendios, inundaciones, temporales y otros eventos, conforme a la resolución exenta N°22 de 2024. La rebaja será proporcional al daño y automática para inmuebles en zonas informadas por organismos competentes, mientras que los no considerados podrán pedir revisión del avalúo con certificados o fotografías mediante una solicitud de bienes raíces en la web o en oficinas. Las medidas también podrán aplicarse a nuevas emergencias durante 2026.</p><h2 id="3-impacto-del-alza-del-dolar-mercado-se-abre-a-la-posibilidad-de-que-el-banco-central-suba-la-tasa-este-ano"><strong>3.  ¿Impacto del alza del dólar? Mercado se abre a la posibilidad de que el Banco Central suba la tasa este año</strong></h2><p>Aunque se espera mantener la TPM en 4,5% en la reunión de la próxima semana, los swaps descuentan 34% de probabilidad de un alza de 25 pb en diciembre y casi seguro un ajuste a más tardar en enero de 2027. Gemines sostiene que el tipo de cambio real está 10,5% sobre su referencia de largo plazo y que subir la tasa sería responsable si la Fed sube tres veces más, y Scotiabank anticipa un tono más cauteloso del Central y traspaso cambiario a combustibles (0,3% en el IPC de octubre). La UDP ve un sesgo alcista hacia comienzos de 2027, mientras Bci y Coopeuch no ven aún razones para subir, pues el shock de oferta no ha llegado a la inflación subyacente.</p><h2 id="4-termina-el-periodo-de-adp-del-suspendido-director-del-sernac-andres-herrera"><strong>4.  Termina el período de ADP del suspendido director del Sernac, Andrés Herrera</strong></h2><p>El período de Andrés Herrera como director del Sernac terminó legalmente el 18 de octubre, y el gobierno de Kast decidió no renovarlo. Estaba suspendido desde octubre de 2025 por una investigación sumaria por eventuales infracciones a la Ley Karin. Carolina González seguirá como directora subrogante hasta que concluya un nuevo concurso de Alta Dirección Pública, que se iniciará en las próximas semanas.</p><h2 id="5-presupuesto-2027-de-gores-sigue-en-suspenso-empate-en-subcomision-abre-espacio-a-ultima-negociacion-con-hacienda"><strong>5.  Presupuesto 2027 de Gores sigue en suspenso: empate en subcomisión abre espacio a última negociación con Hacienda</strong></h2><p>La subcomisión mixta de Presupuestos empató 3 a 3 en la partida de los Gobiernos Regionales, pues el oficialismo respaldó la propuesta de Hacienda de recortar 7% ($ 250 mil millones) y la oposición la rechazó. Los gobernadores acusan que el ministro Quiroz no ha cedido y critica el incentivo de ejecución de 50% a mitad de año, mientras el gobierno asegura estar abierto al diálogo. Hacienda, Dipres y los Gore se reunirán antes de la sesión de desempate de este martes, y el ministro también dialoga con el Fiscal Nacional y el Servel por controles a sus presupuestos.</p><h2 id="6-comienza-la-cuenta-regresiva-sii-y-tesoreria-inician-la-implementacion-de-la-ley-de-reconstruccion"><strong>6.  Comienza la cuenta regresiva: SII y Tesorería inician la implementación de la Ley de Reconstrucción</strong></h2><p>La Ley para la Reconstrucción Nacional, publicada el sábado con 34 artículos permanentes y 24 transitorios, parte con las medidas de Tesorería: una ventana de 180 días para que MiPYME y personas naturales paguen deudas anteriores a 2025 con condonación de hasta 100% de intereses y 80% de multas, o convenios de hasta 48 cuotas con 95% de condonación de intereses y 75% de multas, y 90 días para repactar el CAE en hasta 48 cuotas. El SII creó un impuesto único sustitutivo de 10% para utilidades acumuladas y dictará 13 circulares y 17 resoluciones. Siguen en noviembre el crédito por remuneraciones, en diciembre la exención de IVA a viviendas nuevas, en 2027 siete medidas como repatriación de capitales, y desde 2029 la reintegración del sistema con baja de la tasa corporativa de 27% a 23%.</p><h2 id="7-ad-portas-del-debut-de-la-ley-de-reconstruccion-chile-sigue-en-la-parte-baja-de-los-sistemas-tributarios-mas-competitivos"><strong>7.  Ad portas del debut de la Ley de Reconstrucción, Chile sigue en la parte baja de los sistemas tributarios más competitivos</strong></h2><p>Tax Foundation ubicó a Chile en el puesto 24 de 38 en competitividad tributaria con datos de 2025, igual que el año anterior, pero con un puntaje que bajó de 65,6 a 65,2, bajo el promedio OCDE de 69,7, y con siete puestos perdidos desde 2014. El retroceso se concentra en el impuesto corporativo, donde cayó del lugar 13 al 32, y arrastra debilidades estructurales como pocos tratados (37 frente a una mediana de 79) y falta de exención general de dividendos extranjeros. Destacan en cambio la base del IVA (puesto 3), los impuestos al capital y las normas antielusión; la Ley de Reconstrucción, con baja de la tasa a 23% y reintegración, podría mejorar la posición en el futuro. Estonia lidera por decimotercer año.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-el-petroleo-alcanza-su-nivel-mas-alto-en-cinco-meses-ante-crecientes-riesgos-de-un-ataque-irani"><strong>1.  El petróleo alcanza su nivel más alto en cinco meses ante crecientes riesgos de un ataque iraní</strong></h2><p>El WTI subió 4,8% a US$ 108,6 y el Brent 1,9% a US$ 111,67, máximos desde mayo, por temores a nuevos ataques iraníes a petroleros en Ormuz. Aunque los flujos del Golfo se recuperaron a cerca de 80% de su nivel prebélico, los inventarios de refinados siguen agotados y el diésel europeo ya duplica su precio de inicios de año, con protestas por el costo de vida en Francia y la presión de precios récord antes de las elecciones legislativas en Estados Unidos. Reino Unido enviará cazas Typhoon y asesores para defender a Arabia Saudita de los hutíes, cuyos ataques golpearon el aeropuerto de Riad y Aramco, y Riad postergó hasta 2027 su conferencia de inversión FII.</p><h2 id="2-aix-vendio-a-los-inversionistas-el-sueno-de-dubai-pero-ahora-tiene-dificultades-para-devolverles-su-dinero"><strong>2.  AIX vendió a los inversionistas el "sueño de Dubái", pero ahora tiene dificultades para devolverles su dinero</strong></h2><p>AIX Investment Group, que prometía rentabilidades de hasta 30% anual y operaba desde el Burj Khalifa, dejó de pagar rendimientos hace 11 meses mientras seguía captando depósitos, dejando a miles de clientes ante posibles pérdidas, como un inversionista que puso US$ 39 millones y reclama dividendos pendientes. La firma vendió un equipo de automovilismo y usa propiedades y un avión como garantía, y propuso a sus clientes una reestructuración supervisada por un tribunal con un cupón de 16% y devolución del capital en 2031. Reguladores de Dubái y de Islas Caimán la escrutan, un inversionista pidió liquidar su división caimanesa, y el caso expone la fragmentación regulatoria del emirato, similar a lo ocurrido con Hedge and Sachs.</p><h2 id="3-francia-entra-en-un-circulo-de-crisis-fiscal-protestas-y-paralisis-politica-que-amenaza-a-europa"><strong>3.  Francia entra en un círculo de crisis fiscal, protestas y parálisis política que amenaza a Europa</strong></h2><p>Las protestas, con entre 550.000 y 800.000 manifestantes y disturbios en París, presionan al gobierno de Macron justo cuando el bono francés a 10 años llegó a 4,935%, su nivel más alto desde 2002, con un diferencial sobre el alemán de hasta 153 puntos base. El gobierno busca un presupuesto 2027 con ajustes por 43.000 millones de euros ante una Asamblea fragmentada, con deuda cercana a 119% del PIB, déficit de 5,4% y gasto público de 57,3% del PIB, mientras los intereses subirían de 79.200 a 91.200 millones de euros. Analistas y Krugman advierten que Francia podría pasar de demasiado grande para quebrar a demasiado grande para ser rescatada, aunque la eurozona está hoy mejor equipada que en 2010-2012 y los mercados aún no descuentan una crisis mayor.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-eeuu-busca-prohibir-el-uso-de-deepseek-en-los-sistemas-de-las-agencias-federales"><strong>1.  EEUU busca prohibir el uso de DeepSeek en los sistemas de las agencias federales</strong></h2><p>El Departamento de Seguridad Nacional prohibió a las agencias civiles usar productos de la china DeepSeek y vetó su participación en contratos federales, por el riesgo de que datos sensibles de usuarios sean accesibles al gobierno chino. China respondió que se opone a politizar la tecnología y el comercio. La medida refleja la competencia tecnológica entre ambos países, con modelos de pesos abiertos chinos más baratos frente a alternativas estadounidenses incipientes como Beam de Reflection AI y Nemotron de Nvidia, acusaciones de destilación de modelos de OpenAI y una propuesta china de controlar exportaciones de 23 tecnologías de IA.</p><h2 id="2-chile-mantiene-liderazgo-regional-en-ia-pero-enfrenta-brechas-en-computo-y-talento"><strong>2.  Chile mantiene liderazgo regional en IA, pero enfrenta brechas en cómputo y talento</strong></h2><p>Por cuarto año consecutivo Chile lidera el Índice Latinoamericano de IA con 71,4 puntos, seguido de Brasil (68,4) y Uruguay (67), gracias a conectividad y a investigación, desarrollo y adopción, aunque es cuarto en gobernanza. Pese a ello es quinto en cómputo (27,8 puntos, frente a 83,4 de Brasil), séptimo en formación profesional y solo 13,5% de sus empresas usa IA, con fuerte brecha por tamaño: 42,1% de las grandes y 10,3% de las pequeñas. El estudio advierte además que la falta de certeza jurídica para la minería de textos y datos limita el entrenamiento de modelos propios en la región.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-francia-y-lecciones-fiscales"><strong>1.  Francia y lecciones fiscales</strong></h2><p>La columna sostiene que las protestas por el costo de la vida agravan los desequilibrios de Francia, con deuda de 119% del PIB, déficit de 5,4% y crecimiento de apenas 0,5%, mientras el rendimiento a diez años subió a 4,85% y los intereses crecerían 12 mil millones de euros el próximo año. El déficit de la Seguridad Social alcanzó 21.600 millones de euros en 2025, y se argumenta que la solución exige eficiencia administrativa e inversión privada y no solo recortes sociales. Aunque el BCE cuenta hoy con herramientas, su respaldo depende de la sostenibilidad fiscal, y la experiencia francesa es una advertencia para otras economías europeas muy endeudadas.</p><h2 id="2-la-vida-de-un-trabajador-del-sur-vale-menos"><strong>2.  ¿La vida de un trabajador del sur vale menos?</strong></h2><p>El presidente de la Multisindical de Trabajadores Salmoneros contrasta la mesa de seguridad convocada tras 13 muertes en minería con los 12 trabajadores fallecidos en 2026 en la salmonicultura, incluidos buzos. Exige una instancia técnica en el sur con empresas, proveedores y trabajadores para fijar estándares comunes de seguridad, mejor gestión de riesgos y competencias específicas de buceo acuícola. Los sindicatos ya realizaron un foro en Coyhaique y organizarán otros en Magallanes, Biobío y Los Lagos, y piden resultados concretos antes de otra tragedia.</p><h2 id="3-el-precio-del-aluvion"><strong>3.  El precio del aluvión</strong></h2><p>A partir del aluvión de Las Condes, con 384 damnificados, 56 viviendas destruidas y 2.056 inmuebles dañados, el autor plantea que el mercado no incorpora el riesgo si no hay información pública: las viviendas en zonas inundables se venden con 4,6% de descuento promedio, y 9,7% en Estados Unidos cuando se informa el riesgo. Propone evaluar los US$ 18 millones previstos para aguas lluvias en Santiago contra los daños evitados, citando que en Copenhague combinar parques y colectores arrojó un beneficio neto de US$ 468 millones. Sugiere además vincular el cobro de las obras al área impermeabilizada de cada propiedad, con descuentos para quienes infiltren agua, ya que cerca de 80% de Santiago está sellado.</p><h2 id="4-dime-quien-te-aconseja-y-te-dire-que-quiere"><strong>4.  Dime quién te aconseja y te diré qué quiere</strong></h2><p>La columna defiende los recortes del gobierno en cuidados alternativos de niñez, argumentando que apuestan por familias de acogida, un modelo con mejores resultados y más económico que las residencias. Recuerda que críticas previas sobre ajuares y diagnósticos resultaron en exceso de stock, con más de 8 mil ajuares disponibles y subejecución proyectada, y que el presupuesto de niñez 2027 suma casi $ 50 mil millones para reducir listas de espera. Concluye que un menor presupuesto no implica peor política y que se debe distinguir la crítica legítima de la instrumentalización política.</p><h2 id="5-te-lo-dejo-a-ti-que-lo-haces-tan-bien"><strong>5.  “Te lo dejo a ti, que lo haces tan bien”</strong></h2><p>A partir de la nueva cláusula del contrato colectivo de Escondida, que paga un porcentaje a quien asume transitoriamente un cargo superior, la columna plantea que la subrogancia es el trabajo no remunerado más extendido en las organizaciones chilenas. Según la investigación sobre demandas y recursos laborales, una mayor responsabilidad con apoyo, autonomía y reconocimiento aumenta el compromiso, y sin ellos produce agotamiento. Propone que cualquier empresa defina qué es una suplencia, su duración y su contrapartida, algo implementable en una semana.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

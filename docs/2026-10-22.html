@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>22 de octubre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-10-22.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">22 de octubre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-corredora-de-bci-venta-de-bosques-de-cmpc-es-una-via-para-reducir-eventual-aumento-de-capital-para-financiar-natureza">1.  Corredora de Bci: venta de bosques de CMPC es una vía para reducir eventual aumento de capital para financiar Natureza</a></li><li class="toc-l2"><a href="#2-dolar-abre-con-fuerte-alza-a-cerca-de-990-mientras-el-petroleo-brent-salta-a-su-mayor-nivel-en-mas-de-cinco-meses">2.  Dólar abre con fuerte alza a cerca de $ 990 mientras el petróleo Brent salta a su mayor nivel en más de cinco meses</a></li><li class="toc-l2"><a href="#3-fondo-e-lidera-salida-netas-con-casi-40-mil-entre-enero-y-agosto">3.  Fondo E lidera salida netas con casi 40 mil entre enero y agosto</a></li><li class="toc-l2"><a href="#4-mauricio-larrain-exvicepresidente-de-la-cmf-y-academico-de-la-u-andes-efecto-negativo-por-us-7-mil-millones-ya-se-materializo">4.  Mauricio Larraín, exvicepresidente de la CMF y académico de la U. Andes: Efecto negativo por US$ 7 mil millones “ya se materializó”</a></li><li class="toc-l2"><a href="#5-comision-de-hacienda-de-la-camara-despacha-reforma-al-mercado-de-capitales">5.  Comisión de Hacienda de la Cámara despacha reforma al mercado de capitales</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-produccion-de-cobre-en-chile-cerrara-2026-en-su-nivel-mas-bajo-en-23-anos-y-sector-preve-repunte-desde-2027">1.  Producción de cobre en Chile cerrará 2026 en su nivel más bajo en 23 años y sector prevé repunte desde 2027</a></li><li class="toc-l2"><a href="#2-encuentro-del-agro-2026-industria-reconoce-menor-crecimiento-pero-apuesta-por-las-medidas-del-gobierno">2.  Encuentro del agro 2026: industria reconoce menor crecimiento, pero apuesta por las medidas del gobierno</a></li><li class="toc-l2"><a href="#3-magnar-y-la-universidad-de-chile-sellan-alianza-para-incorporar-ia-en-la-formacion-de-abogados">3.  Magnar y la Universidad de Chile sellan alianza para incorporar IA en la formación de abogados</a></li><li class="toc-l2"><a href="#4-expertos-hacen-balance-del-primer-ano-de-la-ley-de-permisos-sectoriales-y-sinceran-dudas-sobre-su-implementacion">4.  Expertos hacen balance del primer año de la Ley de Permisos Sectoriales y sinceran dudas sobre su implementación</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-camioneros-estarian-vendiendo-sus-maquinas-los-transportistas-entran-en-alerta-por-el-alza-del-diesel">1.  Camioneros estarían vendiendo sus máquinas: los transportistas entran en alerta por el alza del diésel</a></li><li class="toc-l2"><a href="#2-el-mensaje-que-prepara-kast-con-quiroz-y-sus-principales-asesores-para-su-debut-en-enade-llamado-a-aprovechar-oportunidad-historica-para-recuperar-el-crecimiento-y-el-empleo">2.  El mensaje que prepara Kast con Quiroz y sus principales asesores para su debut en Enade: llamado a aprovechar “oportunidad histórica” para recuperar el crecimiento y el empleo</a></li><li class="toc-l2"><a href="#3-que-hacemos-con-codelco-con-informe-unitario-y-critico-comision-investigadora-concluye-su-fiscalizacion">3.  ¿Qué hacemos con Codelco? Con informe unitario y crítico, comisión investigadora concluye su fiscalización</a></li><li class="toc-l2"><a href="#4-operadores-financieros-suben-pronosticos-para-el-ipc-en-octubre-y-anticipan-que-el-banco-central-mantendra-la-tasa-la-proxima-semana">4.  Operadores financieros suben pronósticos para el IPC en octubre y anticipan que el Banco Central mantendrá la tasa la próxima semana</a></li><li class="toc-l2"><a href="#5-integridad-empresarial-cae-por-tercer-ano-y-companias-prefieren-autorregulacion-a-nuevas-exigencias">5.  Integridad empresarial cae por tercer año y compañías prefieren autorregulación a nuevas exigencias</a></li><li class="toc-l2"><a href="#6-presupuesto-2027-avanzan-los-recursos-para-salud-y-se-abre-negociacion-en-vivienda">6.  Presupuesto 2027: avanzan los recursos para Salud y se abre negociación en Vivienda</a></li><li class="toc-l2"><a href="#7-banco-central-designa-a-nueva-gerenta-de-la-division-de-riesgo-corporativo">7.  Banco Central designa a nueva gerenta de la División de Riesgo Corporativo</a></li><li class="toc-l2"><a href="#8-gasolinas-suben-por-quinta-vez-consecutiva-y-podrian-explicar-la-mitad-de-la-inflacion-de-octubre">8.  Gasolinas suben por quinta vez consecutiva y podrían explicar la mitad de la inflación de octubre</a></li><li class="toc-l2"><a href="#9-metas-del-gobierno-dificiles-de-cumplir-e-impacto-del-alza-de-las-bencinas-en-las-expectativas-la-mirada-de-vergara-y-marcel-a-la-situacion-macro">9.  Metas del gobierno difíciles de cumplir e impacto del alza de las bencinas en las expectativas: la mirada de Vergara y Marcel a la situación macro</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-sube-la-tension-en-medio-oriente-con-evacuaciones-en-arabia-saudita-y-posibles-nuevos-ataques-de-eeuu-e-israel-contra-iran">1.  Sube la tensión en Medio Oriente con evacuaciones en Arabia Saudita y posibles nuevos ataques de EEUU e Israel contra Irán</a></li><li class="toc-l2"><a href="#2-los-sitios-web-de-todo-el-mundo-corren-para-corregir-una-falla-de-seguridad-en-php">2.  Los sitios web de todo el mundo corren para corregir una falla de seguridad en PHP</a></li><li class="toc-l2"><a href="#3-israel-enfrenta-unas-elecciones-inciertas-entre-la-recuperacion-economica-y-el-peso-de-las-guerras">3.  Israel enfrenta unas elecciones inciertas entre la recuperación económica y el peso de las guerras</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-subcomision-rechaza-partida-presupuestaria-del-ministerio-de-ciencia-y-tecnologia-para-2027">1.  Subcomisión rechaza partida presupuestaria del Ministerio de Ciencia y Tecnología para 2027</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-rigor-tecnico-para-la-cmf">1.  Rigor técnico para la CMF</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>22 De Octubre De 2026</p><p>6 secciones  ·  23 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-corredora-de-bci-venta-de-bosques-de-cmpc-es-una-via-para-reducir-eventual-aumento-de-capital-para-financiar-natureza"><strong>1.  Corredora de Bci: venta de bosques de CMPC es una vía para reducir eventual aumento de capital para financiar Natureza</strong></h2><p>Bci Corredor de Bolsa estima que la venta de cerca del 5% de los activos forestales de CMPC, por US$ 365,5 millones a Bosques San Pedro (JPMorgan Natural Capital), ayudaría a acotar un eventual aumento de capital para financiar Natureza, proyecto en Brasil de unos US$ 4.600 millones. La corredora prevé nuevos anuncios que llevarían las desinversiones totales a entre US$ 1.300 y 1.500 millones, y con la venta de corrugados a Smurfit Westrock el acumulado ya ronda los US$ 785 millones. Tras la operación, la deuda financiera neta sobre Ebitda bajaría de 4,2 veces a junio a menos de 3,5 veces, dando más liquidez. Bci califica la noticia como favorable para la acción y fija un precio objetivo de $ 1.150, aunque advierte que el riesgo de dilución no desaparece del todo.</p><h2 id="2-dolar-abre-con-fuerte-alza-a-cerca-de-990-mientras-el-petroleo-brent-salta-a-su-mayor-nivel-en-mas-de-cinco-meses"><strong>2.  Dólar abre con fuerte alza a cerca de $ 990 mientras el petróleo Brent salta a su mayor nivel en más de cinco meses</strong></h2><p>El dólar abrió con un alza de $ 7,9 hasta cerca de $ 988 en Chile, empujado por el agravamiento de las tensiones geopolíticas en Medio Oriente. El Brent subía 2,6% a US$ 111,6 por barril, su mayor nivel desde mayo, mientras el cobre caía 1,7% a US$ 6,39 la libra. Los bonos del Tesoro de EEUU funcionaban como refugio y su rendimiento a 10 años bajaba 8,5 puntos base, quedando apenas sobre 5%, en un contexto de menor apetito por la inteligencia artificial. El trasfondo es la salida de diplomáticos estadounidenses de Arabia Saudita, los ataques hutíes a instalaciones petroleras y la posible escalada de EEUU e Israel contra Irán.</p><h2 id="3-fondo-e-lidera-salida-netas-con-casi-40-mil-entre-enero-y-agosto"><strong>3.  Fondo E lidera salida netas con casi 40 mil entre enero y agosto</strong></h2><p>El fondo E de las AFP, el más conservador, perdió 10,39% en los primeros nueve meses de 2026 y registró 39.388 salidas netas de afiliados entre enero y agosto, la mayor fuga del sistema, por sobre el B (21.260), C (14.208) y D (7.241). El fondo A fue el único con entradas netas, 82.097, liderando por quinto mes consecutivo y con un saldo más de tres veces superior al de 2025, según MMDV Consultores. Su economista jefe, Christopher Clavero, habla de una rotación persistente hacia más riesgo y advierte que cambiarse tras una caída consolida la pérdida y deja al afiliado fuera de una posible recuperación. Por administradora, ProVida acumula la mayor salida neta del año (18.087) y PlanVital las mayores incorporaciones (12.162).</p><h2 id="4-mauricio-larrain-exvicepresidente-de-la-cmf-y-academico-de-la-u-andes-efecto-negativo-por-us-7-mil-millones-ya-se-materializo"><strong>4.  Mauricio Larraín, exvicepresidente de la CMF y académico de la U. Andes: Efecto negativo por US$ 7 mil millones “ya se materializó”</strong></h2><p>Mauricio Larraín sostiene que el debate sobre las pérdidas del fondo E se ha centrado solo en el saldo ahorrado y no en la cantidad de unidades de pensión que obtendrá el jubilado. Explica que las AFP usaron derivados contra la tasa de EEUU, con duración de hasta 18 años, que alargaron los activos por sobre la duración de los pasivos, es decir, rentas vitalicias y retiros programados. Ese descalce hizo que al subir la tasa los activos cayeran más que el costo de la pensión, reduciendo la pensión finalmente comprable. Mientras en 2025 los derivados aportaron hasta US$ 1.500 millones, este año la posición en swaps quedó negativa en US$ 7.700 millones y ese efecto ya fue descontado de los fondos.</p><h2 id="5-comision-de-hacienda-de-la-camara-despacha-reforma-al-mercado-de-capitales"><strong>5.  Comisión de Hacienda de la Cámara despacha reforma al mercado de capitales</strong></h2><p>La Comisión de Hacienda de la Cámara despachó tras dos jornadas de votación la reforma al mercado de capitales (MK4), que ahora pasa a la Sala. Se aprobó con respaldo del Ejecutivo una indicación que crea un tramo especial de tasa máxima convencional para créditos de hasta UF 20 a personas sin créditos en los últimos 12 meses, con interés máximo de la tasa corriente más 29 puntos porcentuales y evaluación de solvencia simplificada. El ministro Jorge Quiroz estima que entre 250 mil y 500 mil personas están fuera del crédito formal por las restricciones de la TMC y dejó pendiente discutir una flexibilización más general. El tramo no modifica las categorías vigentes de la TMC.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-produccion-de-cobre-en-chile-cerrara-2026-en-su-nivel-mas-bajo-en-23-anos-y-sector-preve-repunte-desde-2027"><strong>1.  Producción de cobre en Chile cerrará 2026 en su nivel más bajo en 23 años y sector prevé repunte desde 2027</strong></h2><p>La producción chilena de cobre cerraría 2026 en torno a 5,1-5,15 millones de toneladas, el menor nivel desde 2003, tras caer 7,7% entre enero y agosto según Cochilco, por bajas leyes, mantenciones y clima. Cerca del 80% de la baja se concentra en BHP y Codelco, y el sector advierte un problema estructural pese a US$ 234 mil millones invertidos entre 2006 y 2025. Se proyecta un repunte en 2027 de hasta unas 300 mil toneladas (5,2 a 5,5 millones) y llegar a 6 millones hacia 2033, para lo cual se piden certeza jurídica y menos burocracia ambiental. El aporte fiscal de la minería sería de unos US$ 10.800 millones este año, con un récord de US$ 8.800 millones de la minería privada, y Dipres prevé cerca de US$ 12.100 millones en 2027.</p><h2 id="2-encuentro-del-agro-2026-industria-reconoce-menor-crecimiento-pero-apuesta-por-las-medidas-del-gobierno"><strong>2.  Encuentro del agro 2026: industria reconoce menor crecimiento, pero apuesta por las medidas del gobierno</strong></h2><p>En la XXII versión de Enagro, organizada por la SNA y con más de mil asistentes, el sector agrícola reconoció un 2026 de menor crecimiento tras dos años por sobre el promedio nacional. Entre las preocupaciones figuran los aranceles de Estados Unidos y los efectos de El Niño, aunque hubo confianza en las medidas del gobierno. Expusieron el ministro de Hacienda Jorge Quiroz, el presidente de la SNA Antonio Walker, quien se despide del cargo mientras postula a la presidencia de la CPC, y el Presidente José Antonio Kast. El principal tema fue cómo recuperar el dinamismo de la industria.</p><h2 id="3-magnar-y-la-universidad-de-chile-sellan-alianza-para-incorporar-ia-en-la-formacion-de-abogados"><strong>3.  Magnar y la Universidad de Chile sellan alianza para incorporar IA en la formación de abogados</strong></h2><p>La startup legal Magnar y el Departamento de Derecho Privado de la Facultad de Derecho de la U. de Chile firmaron una alianza para integrar inteligencia artificial en la formación de abogados. Contempla usar la plataforma en talleres de resolución de casos y capacitar a docentes, buscando un uso responsable que no reemplace el razonamiento jurídico. El acuerdo da inicio a Magnar Campus, programa con el que la firma aspira a llegar a otras escuelas de derecho de Latinoamérica.</p><h2 id="4-expertos-hacen-balance-del-primer-ano-de-la-ley-de-permisos-sectoriales-y-sinceran-dudas-sobre-su-implementacion"><strong>4.  Expertos hacen balance del primer año de la Ley de Permisos Sectoriales y sinceran dudas sobre su implementación</strong></h2><p>A un año de su publicación el 29 de septiembre, la Ley Marco de Autorizaciones Sectoriales, que busca reducir entre 30% y 70% los tiempos de tramitación de permisos, aún no muestra resultados palpables y su implementación va lenta. Según el jefe de la OASI, Pablo Eguiguren, se trabaja en cerca de 40 reglamentos, DFL y resoluciones, y el decreto de clasificación de permisos, que fija plazos y silencio administrativo, está en Contraloría y podría ser tomado de razón antes de fin de año, con normas de procedimiento vigentes hacia el segundo semestre de 2027. El Consejo Minero valora el avance pero tiene solo información anecdótica y lamentó que el instrumento de modernización continua tuviera pocos dientes. Se abre la puerta a mejoras o una LMAS 2.0, especialmente en materia de recursos.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-camioneros-estarian-vendiendo-sus-maquinas-los-transportistas-entran-en-alerta-por-el-alza-del-diesel"><strong>1.  Camioneros estarían vendiendo sus máquinas: los transportistas entran en alerta por el alza del diésel</strong></h2><p>Con el alza de $ 91,5 por litro del diésel y $ 41,3 en las gasolinas desde este jueves, la Confederación de Dueños de Camiones advirtió que los costos se volvieron inalcanzables y que algunos transportistas ya venden sus camiones, por la dificultad de traspasar sobrecostos a los mandantes. Su presidente, Juan Araya, se reunió con el subsecretario de Economía para pedir aplicar el mecanismo de traspaso de sobrecostos o fuel surcharge, propuesto junto a la CNTC y considerado prioritario entre los compromisos del Ejecutivo. El gremio realizará un consultivo nacional el 4 de noviembre en Santiago para definir acciones.</p><h2 id="2-el-mensaje-que-prepara-kast-con-quiroz-y-sus-principales-asesores-para-su-debut-en-enade-llamado-a-aprovechar-oportunidad-historica-para-recuperar-el-crecimiento-y-el-empleo"><strong>2.  El mensaje que prepara Kast con Quiroz y sus principales asesores para su debut en Enade: llamado a aprovechar “oportunidad histórica” para recuperar el crecimiento y el empleo</strong></h2><p>Kast debutará en Enade el 28 de octubre bajo el lema Tiempo de Invertir, con un discurso que llama a aprovechar una oportunidad histórica para recuperar crecimiento y empleo mediante un Estado facilitador, menos regulación y más seguridad. Destacará la Ley de Reconstrucción, con certeza jurídica, rebaja gradual del impuesto corporativo de 27% a 23% e invariabilidad tributaria, y la reforma de mercado de capitales en trámite. Reconocerá el desempleo como principal desafío y reafirmará metas de 6% de desocupación, 4% de crecimiento en el último año y déficit estructural de 1,5% del PIB hacia 2030, desde 2,6% actual. También repasará su agenda internacional, con APEC en China, y el plan Choose Chile para atraer inversión extranjera.</p><h2 id="3-que-hacemos-con-codelco-con-informe-unitario-y-critico-comision-investigadora-concluye-su-fiscalizacion"><strong>3.  ¿Qué hacemos con Codelco? Con informe unitario y crítico, comisión investigadora concluye su fiscalización</strong></h2><p>La comisión investigadora sobre las discrepancias en las cifras de producción de Codelco de 2025 cerró su trabajo con un informe único y transversal, aún en redacción y que se votaría la próxima semana en la Sala. Su presidente, Cristián Tapia, afirma que los responsables son los ejecutivos que autorizaron la sobreestimación, planificada desde junio de 2025. Entre las propuestas están fortalecer a Cochilco como fiscalizador, revisar atribuciones de la Contraloría, intensificar auditorías incluso forenses, mejorar controles y asegurar la correlación entre balances metalúrgicos y financieros. Se espera además el informe final de Contraloría en diciembre y hay parlamentarios que impulsarán un proyecto de ley para mejor fiscalización.</p><h2 id="4-operadores-financieros-suben-pronosticos-para-el-ipc-en-octubre-y-anticipan-que-el-banco-central-mantendra-la-tasa-la-proxima-semana"><strong>4.  Operadores financieros suben pronósticos para el IPC en octubre y anticipan que el Banco Central mantendrá la tasa la próxima semana</strong></h2><p>La Encuesta de Operadores Financieros anticipa que el Banco Central mantendrá la TPM en 4,5% en la reunión que termina el 27 de octubre y durante los próximos 24 meses, aunque crecen quienes prevén un alza: seis para diciembre y 14 para enero. Los agentes proyectan un IPC de 0,5% mensual tanto en octubre como noviembre, y subieron a 3,7% la inflación a 12 meses y a 3,2% a 24 meses. Las mayores presiones se vinculan al alza del dólar, que rozó los $ 1.000 en semanas recientes, y su proyección promedio a siete y 28 días subió a $ 980.</p><h2 id="5-integridad-empresarial-cae-por-tercer-ano-y-companias-prefieren-autorregulacion-a-nuevas-exigencias"><strong>5.  Integridad empresarial cae por tercer año y compañías prefieren autorregulación a nuevas exigencias</strong></h2><p>El Índice de Integridad en Gobiernos Corporativos de FGE y la UAI, con 131 organizaciones, promedió 53,1 puntos sobre 100, siete menos que en 2025 y unos 13 menos que en 2024, con 64% de las entidades en nivel bajo y solo 11% en nivel alto. Las sociedades abiertas promedian 63,9 puntos frente a 48,2 de las cerradas, y la dimensión más débil es entorno, evaluación y seguimiento. Un 38% prefiere fortalecer la autorregulación y solo 14% más exigencias de la CMF, aunque los autores advierten que debe traducirse en compromisos verificables. La Ley de Delitos Económicos fue la mejor evaluada, con 54,8%, y la de Más Mujeres en Directorios la peor, con 11,1%.</p><h2 id="6-presupuesto-2027-avanzan-los-recursos-para-salud-y-se-abre-negociacion-en-vivienda"><strong>6.  Presupuesto 2027: avanzan los recursos para Salud y se abre negociación en Vivienda</strong></h2><p>En la tramitación del Presupuesto 2027, la tercera subcomisión aprobó la partida de Salud, con más de $ 18,3 billones y un alza de 4,7% respecto de 2026. La cuarta subcomisión acordó por unanimidad postergar la votación de Vivienda a la espera de un acuerdo con el ministro Iván Poduje, especialmente sobre el plan de emergencia habitacional y la generación de empleo. La oposición entregó propuestas al ministro y el Ejecutivo se abrió a modificar algunas partidas, como la de Gobiernos Regionales.</p><h2 id="7-banco-central-designa-a-nueva-gerenta-de-la-division-de-riesgo-corporativo"><strong>7.  Banco Central designa a nueva gerenta de la División de Riesgo Corporativo</strong></h2><p>El Consejo del Banco Central nombró a Carla Lagos Ioohs como gerenta de la División de Riesgo Corporativo. Ingeniera civil industrial con posgrados en gestión tecnológica y auditoría de TI, venía de ser contralora y gerenta de Auditoría Interna de Tanner Banco Digital y tiene trayectoria en BancoEstado, Banco Falabella, Banchile Inversiones y CMR Falabella. Supervisará los riesgos financieros y no financieros y evaluará la efectividad de los controles.</p><h2 id="8-gasolinas-suben-por-quinta-vez-consecutiva-y-podrian-explicar-la-mitad-de-la-inflacion-de-octubre"><strong>8.  Gasolinas suben por quinta vez consecutiva y podrían explicar la mitad de la inflación de octubre</strong></h2><p>ENAP informó la quinta alza consecutiva: las gasolinas suben $ 41,3 por litro, el diésel $ 91,5, el kerosene $ 24,8 y el GLP vehicular $ 13,9. El ministro Quiroz dice que son el mínimo legal posible, que la contención de las últimas tres semanas costó cerca de US$ 300 millones y que el diésel mantiene un subsidio de unos $ 200 por litro. Economistas estiman que los combustibles aportarían entre 0,1 y 0,2 puntos porcentuales a un IPC de octubre de 0,4% a 0,6%, con inflación anual entre 4,4% y 4,7%. BICE prevé alzas acumuladas de 7% en bencinas y 10% en diésel a fin de año, y el diésel mayorista acumula $ 391 por litro desde fines de julio, presionando los costos de transporte.</p><h2 id="9-metas-del-gobierno-dificiles-de-cumplir-e-impacto-del-alza-de-las-bencinas-en-las-expectativas-la-mirada-de-vergara-y-marcel-a-la-situacion-macro"><strong>9.  Metas del gobierno difíciles de cumplir e impacto del alza de las bencinas en las expectativas: la mirada de Vergara y Marcel a la situación macro</strong></h2><p>Rodrigo Vergara considera extraordinariamente difícil pasar de 2% a 4% de crecimiento en cuatro años y bajar el desempleo, hoy 9,6%, casi tres puntos, aunque ve más factible la meta fiscal, con un déficit de 1,8% del PIB el próximo año. Mario Marcel atribuye el sobrecumplimiento de la meta fiscal de 2026 a cambios metodológicos, una meta estructural ajustada a 2,5%, mayores ingresos por cobre y litio y la brecha del PIB, y sostiene que el gasto se sobreejecutará en unos US$ 1.000 millones en vez de recortarse US$ 4.000 millones. Agrega que el alza de bencinas deterioró las expectativas de los consumidores tanto como el estallido social, y que habría duplicado el límite de ajuste del Mepco de $ 30 por litro para suavizar las alzas.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-sube-la-tension-en-medio-oriente-con-evacuaciones-en-arabia-saudita-y-posibles-nuevos-ataques-de-eeuu-e-israel-contra-iran"><strong>1.  Sube la tensión en Medio Oriente con evacuaciones en Arabia Saudita y posibles nuevos ataques de EEUU e Israel contra Irán</strong></h2><p>EEUU ordenó salir a parte de su personal diplomático de Arabia Saudita y Saudi Aramco evacuó su sede en Dhahran, tras ataques hutíes respaldados por Irán a instalaciones petroleras y aeropuertos que dejaron al menos cuatro muertos. El New York Times reveló que EEUU e Israel preparan ataques contra Irán, con objetivos nucleares, energéticos y militares, después de las elecciones del 3 de noviembre, aunque Trump aún no los autoriza. El Brent subió cerca de 2,7% sobre US$ 111 por barril, su máximo en cinco meses, mientras Irán dice haber atacado cuatro petroleros y las negociaciones mediadas por Catar y Pakistán no avanzan.</p><h2 id="2-los-sitios-web-de-todo-el-mundo-corren-para-corregir-una-falla-de-seguridad-en-php"><strong>2.  Los sitios web de todo el mundo corren para corregir una falla de seguridad en PHP</strong></h2><p>Empresas y gobiernos se apresuran a parchar dos vulnerabilidades críticas en PHP, descubiertas con ayuda de modelos de IA de OpenAI y Google por Calif y Wiz tras más de una década inadvertidas, que permiten tomar control de sitios y servidores sin credenciales. PHP respalda cerca del 70% de internet, en gran parte vía WordPress, y tras una filtración adelantó los parches, dejando una ventana de riesgo. Amazon y Cloudflare reportan explotación generalizada y millones de intentos, hubo sitios desconectados preventivamente como ANA y webs gubernamentales, y agencias como la NSA, junto con Japón y Corea del Sur, pidieron actualizar de inmediato.</p><h2 id="3-israel-enfrenta-unas-elecciones-inciertas-entre-la-recuperacion-economica-y-el-peso-de-las-guerras"><strong>3.  Israel enfrenta unas elecciones inciertas entre la recuperación económica y el peso de las guerras</strong></h2><p>Netanyahu llega a las elecciones del 27 de octubre en un escenario incierto: Polymarket da cerca de 50% de opciones a Gadi Eisenkot y 29% a Netanyahu, y las encuestas muestran 52 escaños para la oposición y 51 para el oficialismo, ambos lejos de la mayoría de 61. La economía se recupera: el FMI subió su pronóstico de 2026 de 3,5% a 4,5% y el Banco de Israel proyecta 5,6% este año y 7,5% en 2027, o 3,4% y 5,1% sin empresas en el exterior, con tasa de 3,25%. El desafío es el costo de la guerra, con déficit proyectado de 4,4% del PIB en 2026 y 4,6% en 2027, deuda de 68% y reasignaciones de 3.600 millones de shekels para compras militares, además de riesgos de un resultado inconcluso y una nueva intensificación del conflicto.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-subcomision-rechaza-partida-presupuestaria-del-ministerio-de-ciencia-y-tecnologia-para-2027"><strong>1.  Subcomisión rechaza partida presupuestaria del Ministerio de Ciencia y Tecnología para 2027</strong></h2><p>La Cuarta Subcomisión Mixta rechazó, por tres votos contra dos y una abstención, la partida del Ministerio de Ciencia para 2027, que ahora irá a la Comisión Mixta. El presupuesto propuesto es de $ 545.355 millones, 6,4% menos que la base comparable de 2026 (ANID baja 5%), con recortes de casi 80% en Fondequip y rebajas en Fondef y becas. La ministra Lincolao justificó la estrechez fiscal y dijo que 70% corresponde a arrastre. Rectores y la Academia de Ciencias advirtieron fuga de investigadores y pidieron reponer unos $ 37.600 millones; proyectan que la inversión en I+D podría caer de 0,41% a 0,31% del PIB, lejos de la meta de 1%.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-rigor-tecnico-para-la-cmf"><strong>1.  Rigor técnico para la CMF</strong></h2><p>La columna valora la ratificación por el Senado, con 31 votos a favor, de Macarena Lobos y Juan Esteban Laval como comisionados de la CMF, por su competencia y continuidad técnica. Reconoce como legítimos los reparos por la puerta giratoria derivada del pasado de Laval en la Asociación de Bancos, pero plantea que las normas de probidad y abstención bastan para manejar conflictos. Señala como gran desafío la implementación de finanzas abiertas, cuya normativa entra en vigor en julio de 2027, con exigencias proporcionales al riesgo, y pide a ambos independencia de criterio frente a los sectores con que tuvieron vínculos.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

@@ -674,11 +674,20 @@ def push_a_github():
         print("📭 Sin cambios en docs/ y sin commits pendientes de push.")
         return
 
-    r = git("push", check=False)
-    if r.returncode != 0:
-        print(f"❌ git push falló (intentaba pushear {n_ahead} commit(s)):\n{r.stderr}")
-        sys.exit(1)
-    print(f"✅ {n_ahead} commit(s) pusheado(s) a GitHub.")
+    intentos = 3
+    espera_seg = 30
+    for intento in range(1, intentos + 1):
+        r = git("push", check=False)
+        if r.returncode == 0:
+            print(f"✅ {n_ahead} commit(s) pusheado(s) a GitHub.")
+            return
+        print(f"⚠️  git push falló (intento {intento}/{intentos}):\n{r.stderr}")
+        if intento < intentos:
+            print(f"   Reintentando en {espera_seg}s (puede ser que la red no esté lista aún)...")
+            time.sleep(espera_seg)
+
+    print(f"❌ git push falló tras {intentos} intentos (intentaba pushear {n_ahead} commit(s)).")
+    sys.exit(1)
 
 
 # ─── FLUJO PRINCIPAL ──────────────────────────────────────────────────────────

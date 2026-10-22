@@ -1,3 +1,0 @@
-@echo off
-echo Recuperando dias perdidos (ultimos 30 dias habiles sin archivo)...
-python "%~dp0scraper_df.py" --modo recuperar

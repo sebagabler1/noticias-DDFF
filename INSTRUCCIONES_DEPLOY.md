@@ -67,7 +67,8 @@ Cambia `TU-USUARIO` por tu usuario real de GitHub.
 > **Si nunca configuraste git en este PC**, primero corre:
 > ```bash
 > git config --global user.name "Tu Nombre"
-> git config --global user.email "sebagabler1@gmail.com"
+> git config --global user.email "tu-email@ejemplo.com"
+> (usa tu email con el que te registraste en GitHub)
 > ```
 >
 > **Para autenticarte con GitHub** la primera vez que hagas `git push`,

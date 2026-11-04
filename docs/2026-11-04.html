@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-04.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">4 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-elon-musk-paga-el-costo-de-la-victoria-democrata-tesla-y-spacex-caen-tras-elecciones-de-eeuu">1.  Elon Musk paga el costo de la victoria demócrata: Tesla y SpaceX caen tras elecciones de EEUU</a></li><li class="toc-l2"><a href="#2-dolar-se-hunde-10-y-ronda-los-970-esta-manana-tras-la-victoria-democrata-en-las-elecciones-intermedias-de-eeuu">2.  Dólar se hunde $ 10 y ronda los $ 970 esta mañana tras la victoria demócrata en las elecciones intermedias de EEUU</a></li><li class="toc-l2"><a href="#3-ana-botin-de-santander-chile-esta-sentando-las-bases-para-acelerar-el-crecimiento-y-la-inversion">3.  Ana Botín de Santander: &quot;Chile está sentando las bases para acelerar el crecimiento y la inversión&quot;</a></li><li class="toc-l2"><a href="#4-la-paradoja-del-petroleo-las-refinerias-de-eeuu-se-dispararon-en-bolsa-en-plena-crisis-energetica">4.  La paradoja del petróleo: las refinerías de EEUU se dispararon en bolsa en plena crisis energética</a></li><li class="toc-l2"><a href="#5-cortez-y-caida-del-fondo-e-se-configuraron-carteras-con-duraciones-superiores-a-las-que-requerian-esos-afiliados">5.  Cortez y caída del fondo E: se configuraron carteras “con duraciones superiores a las que requerían esos afiliados”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-estado-recibe-nueva-donacion-de-fundacion-de-familia-tompkins-para-concretar-el-parque-nacional-cabo-froward">1.  Estado recibe nueva donación de fundación de familia Tompkins para concretar el Parque Nacional Cabo Froward</a></li><li class="toc-l2"><a href="#2-aquachile-negocia-la-compra-del-negocio-salmonero-de-blumar-y-multi-x-explora-adquirir-ventisqueros">2.  AquaChile negocia la compra del negocio salmonero de Blumar y Multi X explora adquirir Ventisqueros</a></li><li class="toc-l2"><a href="#3-grupo-hotelero-detras-de-nh-construye-resort-de-us-22-millones-en-ushuaia-y-pone-la-mira-en-chile">3.  Grupo hotelero detrás de NH construye resort de US$ 22 millones en Ushuaia y pone la mira en Chile</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-los-detalles-del-encuentro-de-kast-con-el-papa-leon-xiv-regalos-chilenos-una-bendicion-familiar-y-un-cumpleanos-inesperado">1.  Los detalles del encuentro de Kast con el Papa León XIV: regalos chilenos, una bendición familiar y un cumpleaños inesperado</a></li><li class="toc-l2"><a href="#2-encuesta-del-banco-central-las-empresas-vuelven-a-aumentar-sus-expectativas-de-inflacion-a-dos-anos-a-35">2.  Encuesta del Banco Central: las empresas vuelven a aumentar sus expectativas de inflación a dos años, a 3,5%</a></li><li class="toc-l2"><a href="#3-consejeros-del-banco-central-plantearon-que-era-plausible-evaluar-un-alza-de-25-puntos-en-la-tasa-en-su-reunion-de-octubre">3.  Consejeros del Banco Central plantearon que era &quot;plausible evaluar” un alza de 25 puntos en la tasa en su reunión de octubre</a></li><li class="toc-l2"><a href="#4-sii-acelera-la-implementacion-de-la-ley-de-reconstruccion-publica-seis-circulares-a-consulta-e-incluye-la-rebaja-al-impuesto-a-las-donaciones">4.  SII acelera la implementación de la Ley de Reconstrucción: publica seis circulares a consulta e incluye la rebaja al impuesto a las donaciones</a></li><li class="toc-l2"><a href="#5-copago-tensiona-debate-de-sala-cuna-oposicion-acusa-falta-de-acuerdo-en-financiamiento-y-apunta-a-hacienda">5.  Copago tensiona debate de sala cuna: oposición acusa falta de acuerdo en financiamiento y apunta a Hacienda</a></li><li class="toc-l2"><a href="#6-frutas-de-chile-se-resta-de-lanzamiento-de-temporada-de-cerezas-en-san-antonio">6.  Frutas de Chile se resta de lanzamiento de temporada de cerezas en San Antonio</a></li><li class="toc-l2"><a href="#7-son-mas-de-24-millones-de-trabajadores-la-tasa-de-ocupacion-informal-sube-en-el-pais">7.  Son más de 2,4 millones de trabajadores: la tasa de ocupación informal sube en el país</a></li><li class="toc-l2"><a href="#8-pedidos-industriales-eeuu-superan-expectativas-en-septiembre-en-contexto-de-fortaleza-generalizada">8.  Pedidos industriales EEUU superan expectativas en septiembre en contexto de fortaleza generalizada</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-democratas-logran-una-victoria-historica-en-elecciones-de-eeuu-trump-aceptara-resultados-pero-amenaza-con-activar-vetos">1.  Demócratas logran una victoria histórica en elecciones de EEUU: Trump aceptará resultados, pero amenaza con activar vetos</a></li><li class="toc-l2"><a href="#2-trump-resta-importancia-a-la-posibilidad-de-ataques-contra-iran-tras-la-derrota-en-las-elecciones-de-mitad-de-mandato">2.  Trump resta importancia a la posibilidad de ataques contra Irán tras la derrota en las elecciones de mitad de mandato</a></li><li class="toc-l2"><a href="#3-triunfo-de-la-oposicion-no-garantizaria-alivio-arancelario-y-podria-complicar-negociacion-con-chile">3.  Triunfo de la oposición no garantizaría alivio arancelario y podría complicar negociación con Chile</a></li><li class="toc-l2"><a href="#4-la-casa-blanca-anuncia-fin-de-ayuda-militar-a-israel-tras-acuerdo-con-netanyahu">4.  La Casa Blanca anuncia fin de ayuda militar a Israel tras acuerdo con Netanyahu</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-las-definiciones-de-la-recien-creada-asociacion-de-ia-agentica-en-chile">1.  Las definiciones de la recién creada asociación de IA agéntica en Chile</a></li><li class="toc-l2"><a href="#2-chile-firma-la-declaracion-de-madrid-para-impulsar-la-alianza-iberoamericana-de-inteligencia-artificial">2.  Chile firma la Declaración de Madrid para impulsar la Alianza Iberoamericana de Inteligencia Artificial</a></li><li class="toc-l2"><a href="#3-centro-de-supercomputo-de-ia-en-vina-del-mar-nombra-a-su-primer-gerente-general-y-define-hoja-de-ruta">3.  Centro de supercómputo de IA en Viña del Mar nombra a su primer gerente general y define hoja de ruta</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-salmonicultura-bajo-presion">1.  Salmonicultura bajo presión</a></li><li class="toc-l2"><a href="#2-12contrato-por-hora">2.  12Contrato por hora</a></li><li class="toc-l2"><a href="#3-el-nino-en-el-sur-de-chile">3.  El Niño en el sur de Chile</a></li><li class="toc-l2"><a href="#4-la-ciberseguridad-es-una-responsabilidad-estrategica">4.  La ciberseguridad es una responsabilidad estratégica</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>4 De Noviembre De 2026</p><p>6 secciones  ·  27 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-elon-musk-paga-el-costo-de-la-victoria-democrata-tesla-y-spacex-caen-tras-elecciones-de-eeuu"><strong>1.  Elon Musk paga el costo de la victoria demócrata: Tesla y SpaceX caen tras elecciones de EEUU</strong></h2><p>La victoria demócrata en las elecciones de mitad de mandato, con control del Congreso y un resultado especialmente adverso en Texas, golpeó a las empresas de Elon Musk: Tesla caía cerca de 5% y SpaceX 6,9% antes de la apertura. Musk había aportado casi US$ 450 millones a los republicanos, y los inversionistas temen una regulación más dura de la IA y mayores obstáculos a una eventual fusión entre ambas compañías, que se buscaba anunciar en el primer semestre de 2027. Tesla había subido 34% desde su mínimo de fines de julio y SpaceX conserva una valoración de US$ 1,9 billones, con ingresos relevantes por contratos con el gobierno. Los analistas advierten que persiste mucha incertidumbre, pues los fundamentos y los productos de largo plazo aún no aportan a los resultados.</p><h2 id="2-dolar-se-hunde-10-y-ronda-los-970-esta-manana-tras-la-victoria-democrata-en-las-elecciones-intermedias-de-eeuu"><strong>2.  Dólar se hunde $ 10 y ronda los $ 970 esta mañana tras la victoria demócrata en las elecciones intermedias de EEUU</strong></h2><p>El dólar cayó cerca de $ 10 hasta unos $ 972 en Chile tras el triunfo demócrata en EEUU, mientras el índice dólar global retrocedía 0,5% a 101,3 puntos, su menor nivel en cinco semanas, y el rendimiento del Tesoro a 10 años bajaba a 4,92%. Analistas como MUFG estiman que la debilidad del dólar podría prolongarse si Trump no ataca a Irán y se abre a un acuerdo, y que un Congreso opositor podría reducir riesgos inflacionarios. A nivel local, las tasas swap subían hasta 6,3 puntos base tras las minutas del Banco Central, que consideró plausible subir la tasa, lo que amplía los diferenciales frente a EEUU y apoya al peso. El cobre subía 0,4% y el Brent bajaba 1,4%.</p><h2 id="3-ana-botin-de-santander-chile-esta-sentando-las-bases-para-acelerar-el-crecimiento-y-la-inversion"><strong>3.  Ana Botín de Santander: "Chile está sentando las bases para acelerar el crecimiento y la inversión"</strong></h2><p>La presidenta de Santander, Ana Botín, visitará Chile por dos días la próxima semana para conocer al equipo local, clientes y autoridades, y valoró la invitación a invertir hecha por el Presidente Kast. Afirmó que el país está construyendo bases sólidas para acelerar crecimiento e inversión y que el banco acompañará a Chile en los buenos y malos momentos. Su estrategia regional consiste en ser la mejor plataforma global de servicios financieros, aprovechando la escala para reducir costos unitarios y ofrecer más productos. Destacó la creación de Santander Rentas Vitalicias en Chile tras adquirir la cartera de Principal, modelo que el grupo planea replicar en otros países.</p><h2 id="4-la-paradoja-del-petroleo-las-refinerias-de-eeuu-se-dispararon-en-bolsa-en-plena-crisis-energetica"><strong>4.  La paradoja del petróleo: las refinerías de EEUU se dispararon en bolsa en plena crisis energética</strong></h2><p>La guerra en Irán encareció el crudo, pero los combustibles refinados, sobre todo el diésel, subieron aún más, ampliando el crack spread y beneficiando a las refinerías estadounidenses: desde febrero Marathon Petroleum llegó a subir 117%, Valero 91% y Phillips 66 78%. El Brent pasó de US$ 63 a promediar US$ 114 en septiembre, mientras el margen del diésel en la costa del Golfo saltó de US$ 27,7 a unos US$ 104 por barril, y las plantas operaron sobre 95% de su capacidad, un récord desde 1998. El efecto llegó a Chile, donde ENAP duplicó sus utilidades a US$ 1.112 millones entre enero y septiembre (+119,7%), favorecida por inventarios comprados a menor costo y por mayores márgenes internacionales. El Brent cerró el martes en US$ 104,38.</p><h2 id="5-cortez-y-caida-del-fondo-e-se-configuraron-carteras-con-duraciones-superiores-a-las-que-requerian-esos-afiliados"><strong>5.  Cortez y caída del fondo E: se configuraron carteras “con duraciones superiores a las que requerían esos afiliados”</strong></h2><p>El superintendente de Pensiones, Joaquín Cortez, sostuvo que la caída del fondo E, de más de 10% entre enero y septiembre, no fue una crisis de derivados sino el resultado de carteras con duraciones mayores a las que necesitaban los afiliados. La Superintendencia inició el 20 de octubre un proceso sancionatorio contra las AFP por sus decisiones de inversión en los fondos D y E, y Cortez aclaró que no puede opinar porque debe resolver el caso. Advirtió además que los futuros fondos generacionales, vigentes desde abril de 2027, tampoco estarán exentos de pérdidas. En octubre el fondo E rentó 3,16% real, moderando su baja anual a 7,56%; el D subió 1,76% (acumula -4,73%), el C 0,97% y los A y B cayeron levemente.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-estado-recibe-nueva-donacion-de-fundacion-de-familia-tompkins-para-concretar-el-parque-nacional-cabo-froward"><strong>1.  Estado recibe nueva donación de fundación de familia Tompkins para concretar el Parque Nacional Cabo Froward</strong></h2><p>El Estado recibirá una donación adicional de 22.333 hectáreas de la Fundación Rewilding Chile, ligada a la familia Tompkins, que llevará el futuro Parque Nacional Cabo Froward, en Punta Arenas, a cerca de 183 mil hectáreas. Los ministerios de Bienes Nacionales y Medio Ambiente, el SBAP y la fundación firmarán un protocolo de acuerdo complementario para avanzar en su creación. La iniciativa consolida uno de los proyectos de conservación más relevantes del extremo austral del país.</p><h2 id="2-aquachile-negocia-la-compra-del-negocio-salmonero-de-blumar-y-multi-x-explora-adquirir-ventisqueros"><strong>2.  AquaChile negocia la compra del negocio salmonero de Blumar y Multi X explora adquirir Ventisqueros</strong></h2><p>AquaChile, controlada por Agrosuper, estaría en negociaciones avanzadas para comprar todo el negocio salmonero de Blumar, mientras Multi X exploraría adquirir Ventisqueros, de la alemana Schörghuber, lo que podría reconfigurar la industria; AquaChile y Blumar sumarían casi 350 mil toneladas cosechadas en 2025 y Multi X, con más de 118 mil, agregaría unas 50 mil. Blumar enfrenta una deuda cercana a US$ 319 millones, pasivos de US$ 488 millones en su división salmonera y pérdidas de US$ 17,3 millones en 2024 y US$ 15,6 millones en 2025, por lo que vender le permitiría enfocarse en la pesca, que generó US$ 57,7 millones de Ebitda en el primer semestre. Ventisqueros recuperó rentabilidad en 2025, con ventas de US$ 272,5 millones, Ebitda de US$ 39,7 millones y utilidad de US$ 9,8 millones. Ambas operaciones convergen en BluGlacier, comercializadora que facturó US$ 462,6 millones y cuyo gerente general renunció tras casi 12 años.</p><h2 id="3-grupo-hotelero-detras-de-nh-construye-resort-de-us-22-millones-en-ushuaia-y-pone-la-mira-en-chile"><strong>3.  Grupo hotelero detrás de NH construye resort de US$ 22 millones en Ushuaia y pone la mira en Chile</strong></h2><p>Minor Hotels, dueño de NH, participa en el desarrollo del Anantara Ushuaia Patagonia Resort, un proyecto de lujo de US$ 22 millones y 60 habitaciones que abriría en 2028, con socios locales a cargo de la construcción. Su director para el Cono Sur, Diego Chourrout, indicó que el grupo, que opera seis hoteles en Chile, busca expandirse con nuevos desarrollos o conversiones, mirando Santiago, Puerto Varas, Viña del Mar y especialmente la Patagonia chilena. Para ello necesita socios inversionistas y contará con una persona dedicada al crecimiento regional. Valoró que los gobiernos de Chile y Argentina buscan inversión y espera una recuperación del movimiento en el norte minero el próximo año, aunque advierte que el desarrollo hotelero depende también de políticas turísticas y de conectividad.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-los-detalles-del-encuentro-de-kast-con-el-papa-leon-xiv-regalos-chilenos-una-bendicion-familiar-y-un-cumpleanos-inesperado"><strong>1.  Los detalles del encuentro de Kast con el Papa León XIV: regalos chilenos, una bendición familiar y un cumpleaños inesperado</strong></h2><p>El Presidente Kast se reunió con el Papa León XIV en el Vaticano, acompañado por una delegación que representaba a los tres Poderes del Estado. Según el mandatario, el Papa expresó preocupación por la paz en el mundo y por la familia y la natalidad, y también se abordó la política latinoamericana y las relaciones internacionales. Kast y la Primera Dama obsequiaron una imagen de la Virgen del Carmen y un libro sobre la Iglesia en Chile, y luego se reunió con monseñor Paul Gallagher para conversar sobre la modernización de Naciones Unidas y la confianza en las instituciones. Tras ello viajó a España para la Cumbre Iberoamericana.</p><h2 id="2-encuesta-del-banco-central-las-empresas-vuelven-a-aumentar-sus-expectativas-de-inflacion-a-dos-anos-a-35"><strong>2.  Encuesta del Banco Central: las empresas vuelven a aumentar sus expectativas de inflación a dos años, a 3,5%</strong></h2><p>La encuesta EDEP del Banco Central muestra que las empresas mantienen en 4% su expectativa de inflación a 12 meses, igual que desde abril, pero elevaron la de 24 meses de 3,3% a 3,5%. Los factores de costos se moderan levemente aunque siguen por sobre los de inicios de año, las ventas disminuyen nuevamente y los márgenes continúan deteriorados. La mayoría de los factores que influyen en los precios de venta se moderan, salvo el tipo de cambio, cuya presión sigue aumentando. Sube además el porcentaje de empresas que espera mayores costos de insumos, mientras se mantiene el de las que anticipan subir precios.</p><h2 id="3-consejeros-del-banco-central-plantearon-que-era-plausible-evaluar-un-alza-de-25-puntos-en-la-tasa-en-su-reunion-de-octubre"><strong>3.  Consejeros del Banco Central plantearon que era "plausible evaluar” un alza de 25 puntos en la tasa en su reunión de octubre</strong></h2><p>Las minutas de la reunión de octubre revelan que, aunque el Banco Central mantuvo la tasa en 4,5%, los consejeros consideraron plausible tanto mantenerla como subirla 25 puntos base a 4,75%. Todos coincidieron en que el alza de presiones de costos aumentó el riesgo de que el shock acumulado desde marzo se propague a otros precios con mayor persistencia, y que restablecer la convergencia podría resultar más caro si se desajustan las expectativas. El debate se dividió entre quienes temían que una demanda más débil contuviera la inflación y quienes veían una recuperación de la demanda que exigiría una política monetaria más restrictiva.</p><h2 id="4-sii-acelera-la-implementacion-de-la-ley-de-reconstruccion-publica-seis-circulares-a-consulta-e-incluye-la-rebaja-al-impuesto-a-las-donaciones"><strong>4.  SII acelera la implementación de la Ley de Reconstrucción: publica seis circulares a consulta e incluye la rebaja al impuesto a las donaciones</strong></h2><p>El SII publicó seis borradores de circulares para implementar la Ley de Reconstrucción, vigente desde el 17 de octubre, que estarán en consulta hasta el 17 de noviembre. Entre ellos figuran la rebaja de 50% por un año al impuesto a las donaciones (con una recaudación esperada de unos US$ 300 millones), la eliminación del impuesto de 10% a las ganancias de capital bursátiles, la baja del impuesto corporativo de 27% a 23% en 2029 con 25,5% en 2027 y 24% en 2028, y la reintegración total del sistema. También se regulan el DFL-2, que extiende beneficios a una tercera vivienda de hasta 90 m2 con un impuesto único opcional de 5% a los arriendos desde 2027, y la suspensión por un año del IVA a viviendas nuevas, con devolución para ventas escrituradas entre el 23 de abril y el 30 de noviembre de 2026. Además, el gobierno ingresará una reforma para mantener en 12,5% el impuesto a las pymes.</p><h2 id="5-copago-tensiona-debate-de-sala-cuna-oposicion-acusa-falta-de-acuerdo-en-financiamiento-y-apunta-a-hacienda"><strong>5.  Copago tensiona debate de sala cuna: oposición acusa falta de acuerdo en financiamiento y apunta a Hacienda</strong></h2><p>La discusión de la sala cuna universal en la comisión de Trabajo se tensionó por el copago: el ministro Tomás Rau mantuvo la propuesta de subsidiar el 50% del copago al 40% más vulnerable del Registro Social de Hogares, mientras la oposición pedía financiar íntegramente matrícula y mensualidad con un tope al copago y apuntó a Hacienda por frenar el acuerdo. Una indicación para asegurar la suficiencia del aporte y eliminar el copago fue declarada inadmisible por afectar la iniciativa exclusiva del Presidente. Un informe de la Superintendencia de Pensiones concluyó que redestinar 0,15 puntos de cotización a cada uno de los fondos del Seguro de Cesantía no compromete su sustentabilidad hasta 2035, aunque el patrimonio del Fondo Solidario quedaría 24,2% menor y las cuentas individuales 5,6% menores.</p><h2 id="6-frutas-de-chile-se-resta-de-lanzamiento-de-temporada-de-cerezas-en-san-antonio"><strong>6.  Frutas de Chile se resta de lanzamiento de temporada de cerezas en San Antonio</strong></h2><p>Frutas de Chile decidió no participar en el lanzamiento de la temporada de cerezas 2026-27 en San Antonio por el paro indefinido de camioneros independientes, que mantiene 33 camiones bloqueando terminales extraportuarios. El gremio calificó la situación de extrema gravedad porque casi la mitad de la fruta chilena sale por ese puerto y el primer Cherry Express zarpa el lunes, con carga desde el sábado, en una temporada ya incierta por El Niño. Pidió a las autoridades resguardar la continuidad operacional, recordando que la fruticultura es el segundo sector exportador, con US$ 8.199 millones y más de 3 millones de toneladas la temporada anterior.</p><h2 id="7-son-mas-de-24-millones-de-trabajadores-la-tasa-de-ocupacion-informal-sube-en-el-pais"><strong>7.  Son más de 2,4 millones de trabajadores: la tasa de ocupación informal sube en el país</strong></h2><p>La tasa de ocupación informal llegó a 26,4% en el trimestre julio-septiembre, 0,2 puntos más que un año antes, porque los ocupados informales cayeron 0,3% frente a una baja de 1,1% de la población ocupada total. El número de informales alcanzó 2.451.443, con 6.909 menos en doce meses, caída explicada solo por los hombres, mientras la tasa femenina subió a 25,1%. El sector agricultura y pesca mantiene el mayor nivel de informalidad (52%), los jóvenes de 15 a 24 años registran 34,7% y los mayores de 65 años 56%. Cuenta propia y asalariados privados concentran 85,6% de los informales.</p><h2 id="8-pedidos-industriales-eeuu-superan-expectativas-en-septiembre-en-contexto-de-fortaleza-generalizada"><strong>8.  Pedidos industriales EEUU superan expectativas en septiembre en contexto de fortaleza generalizada</strong></h2><p>Los nuevos pedidos industriales de EEUU subieron 1,8% en septiembre, por sobre el 1,2% esperado y tras un alza revisada de 0,3% en agosto, impulsados por aviones y otros productos, con un avance anual de 7,2%. El sector manufacturero, que pesa cerca de 9,4% de la economía, se sostiene por la expansión de infraestructura de IA y el gasto de los consumidores. Los economistas advierten que mayores tasas de interés y menores ingresos reales de los hogares podrían frenar la actividad el próximo año.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-democratas-logran-una-victoria-historica-en-elecciones-de-eeuu-trump-aceptara-resultados-pero-amenaza-con-activar-vetos"><strong>1.  Demócratas logran una victoria histórica en elecciones de EEUU: Trump aceptará resultados, pero amenaza con activar vetos</strong></h2><p>Los demócratas ganaron el control de la Cámara de Representantes y del Senado, según proyecciones de AP, impulsados por el descontento por el costo de la vida y la guerra con Irán, con triunfos como el de Roy Cooper en Carolina del Norte y avances en Texas, Kansas e Iowa. Trump aceptó el resultado, pero afirmó que su poder de veto le permitirá bloquear legislación y que no considera esto una derrota personal; su aprobación rondaba 39%. Un informe de GeoGig advierte que revertir los aranceles requeriría 290 votos en la Cámara y 67 en el Senado, por lo que no se espera alivio arancelario y Chile enfrentaría una negociación con posibles mayores exigencias. Trump anunció además el fin de la ayuda militar a Israel, y XTB plantea escenarios sectoriales según el control del Congreso: favorables a salud, renovables y retail con mayoría demócrata, a defensa, energía y banca con mayoría republicana, y a tecnología y consumo defensivo con un Congreso dividido.</p><h2 id="2-trump-resta-importancia-a-la-posibilidad-de-ataques-contra-iran-tras-la-derrota-en-las-elecciones-de-mitad-de-mandato"><strong>2.  Trump resta importancia a la posibilidad de ataques contra Irán tras la derrota en las elecciones de mitad de mandato</strong></h2><p>Trump afirmó que no tiene planes inmediatos de atacar a Irán tras la derrota electoral y que la guerra, que lleva nueve meses, no fue la razón principal de la derrota, aunque dejó abierta una escalada si fuera necesario. Irán advirtió de una pesadilla si se reanudan los ataques, y las negociaciones mediadas por Qatar y Pakistán avanzan poco: Teherán exige el fin del bloqueo naval y Washington concesiones nucleares. El Brent cotiza en torno a US$ 104, bajo los US$ 118 de la semana pasada pero 70% sobre el inicio del año por el impacto en el estrecho de Ormuz. El alza de combustibles, con diésel récord y gasolina sobre US$ 4 por galón, pesó en la opinión pública contra el conflicto.</p><h2 id="3-triunfo-de-la-oposicion-no-garantizaria-alivio-arancelario-y-podria-complicar-negociacion-con-chile"><strong>3.  Triunfo de la oposición no garantizaría alivio arancelario y podría complicar negociación con Chile</strong></h2><p>Un informe de GeoGig Consulting advierte que, aunque los demócratas controlen ambas cámaras, difícilmente revertirán los aranceles de Trump por su poder de veto y por las facultades comerciales del Ejecutivo; superar un veto exigiría 290 votos en la Cámara y 67 en el Senado, y los gravámenes de las secciones 232 y 301 no requieren aprobación del Congreso. Para Chile, que enfrenta un arancel de 12,5%, un Congreso opositor podría incentivar a Trump a buscar acuerdos bilaterales, pero con mayores exigencias, como ocurrió con Argentina y Ecuador. El autor recomienda a las empresas chilenas no basar inversiones ni contratos en una eliminación generalizada de aranceles, pues persiste el consenso bipartidista sobre China y minerales críticos.</p><h2 id="4-la-casa-blanca-anuncia-fin-de-ayuda-militar-a-israel-tras-acuerdo-con-netanyahu"><strong>4.  La Casa Blanca anuncia fin de ayuda militar a Israel tras acuerdo con Netanyahu</strong></h2><p>Trump anunció un acuerdo con Netanyahu para terminar este año la ayuda militar de cerca de US$ 4.000 millones anuales a Israel, medida que busca neutralizar una crítica electoral de los demócratas. El acuerdo vigente de diez años, por US$ 3.800 millones anuales, rige hasta 2028 y su suspensión probablemente requeriría respaldo del Congreso; funcionarios israelíes dijeron desconocer la decisión y el opositor Eisenkot criticó a Netanyahu. Trump aclaró que EEUU seguirá vendiendo armas a Israel y descartó ataques inmediatos contra Irán, pese a la presión de Netanyahu por reanudarlos.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-las-definiciones-de-la-recien-creada-asociacion-de-ia-agentica-en-chile"><strong>1.  Las definiciones de la recién creada asociación de IA agéntica en Chile</strong></h2><p>La Asociación Chilena de Inteligencia Artificial Agéntica (Achiag), con 13 socios fundadores, fue lanzada en el TechAI Summit 2026 para promover el uso responsable de agentes de IA en empresas. Su presidente, Sebastián Figueroa, definió cuatro ejes: vincular desarrolladores con sectores como banca, retail y minería, establecer estándares de seguridad como un sello de agente seguro, capacitar a directorios y gerencias, y participar en la regulación. Trabajan en un manual de normas para empresas que esperan tener a fin de año y buscarán mesas técnicas con el Ministerio de Ciencia para incorporar disposiciones sobre agentes autónomos en el proyecto de ley de IA, hoy en segundo trámite en el Senado.</p><h2 id="2-chile-firma-la-declaracion-de-madrid-para-impulsar-la-alianza-iberoamericana-de-inteligencia-artificial"><strong>2.  Chile firma la Declaración de Madrid para impulsar la Alianza Iberoamericana de Inteligencia Artificial</strong></h2><p>Ministros de 22 países, incluido Chile, firmaron la Declaración de Madrid, que crea la Alianza Iberoamericana de IA, como antesala de la Cumbre Iberoamericana del 4 y 5 de noviembre. La alianza se articula en un espacio de datos e interoperabilidad con control nacional, el desarrollo conjunto de modelos en español, portugués y lenguas indígenas, y la cooperación en supercómputo. La ministra Ximena Lincolao planteó reglas proporcionales que no frenen a startups, estándares comunes, homologación de certificaciones y sandboxes regulatorios, para facilitar el acceso de las empresas chilenas a mercados globales.</p><h2 id="3-centro-de-supercomputo-de-ia-en-vina-del-mar-nombra-a-su-primer-gerente-general-y-define-hoja-de-ruta"><strong>3.  Centro de supercómputo de IA en Viña del Mar nombra a su primer gerente general y define hoja de ruta</strong></h2><p>El Centro Nacional Talasa, proyecto de US$ 10 millones a cinco años (US$ 7 millones de Corfo) para crear capacidad de cómputo e IA en la Región de Valparaíso, nombró a Javier Brard como su primer gerente general. Su objetivo es ofrecer infraestructura de IA soberana en territorio chileno para el Estado, la academia y las empresas, con servicios de inferencia y capacidad reservada, y 10% de la capacidad destinada al Estado. En octubre se enviaron bases de cotización a 14 empresas, con órdenes de compra previstas para diciembre de 2026, equipos (principalmente GPU) entre julio y agosto de 2027 e infraestructura completa en octubre-noviembre de ese año. Entre las metas figuran capacitar a más de 5 mil personas y acompañar a 500 compañías.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-salmonicultura-bajo-presion"><strong>1.  Salmonicultura bajo presión</strong></h2><p>El editorial plantea que la mortandad de casi 918 toneladas de salmones por floración de algas nocivas en centros de Multi X en Magallanes evidencia los riesgos permanentes de la industria. El sector exportó US$ 6.552 millones en 2025 (6% de los envíos nacionales y 17% de los no mineros), aporta 2,6% del PIB con cerca de 338 mil empleos vinculados y pesa 21,4% del PIB de Aysén. Señala que el consumo de antimicrobianos subió 5,88% en 2025, que los envíos a EEUU crecieron 9,3% en volumen y 4,5% en valor entre enero y septiembre sin mejorar necesariamente la rentabilidad, y que la campaña Off the Table añade presión reputacional. Concluye que se requiere una estrategia coordinada público-privada, con prevención sanitaria y mejoras verificables, pues el peso económico no basta para defender la industria.</p><h2 id="2-12contrato-por-hora"><strong>2.  12Contrato por hora</strong></h2><p>La columna defiende el contrato por hora como puerta al empleo formal para jóvenes y como alternativa para las más de 660 mil personas que trabajan menos horas de las que desean, con acceso a contrato y cotizaciones. Destaca que su diseño es clave y que las experiencias de Reino Unido e Italia muestran cómo proteger al trabajador de la flexibilidad unilateral. Sobre la inquietud tributaria planteada, estima que la mayoría de los usuarios seguirá en el tramo exento y que para quienes lo superen basta informar oportunamente y facilitar el cumplimiento para evitar sorpresas en abril.</p><h2 id="3-el-nino-en-el-sur-de-chile"><strong>3.  El Niño en el sur de Chile</strong></h2><p>La columna, desde la perspectiva de la industria de la macrozona sur, señala que el fenómeno de El Niño de alta intensidad de este año afectó ciudades, infraestructura y sectores productivos, y que las señales globales y oceánicas son preocupantes también para la fauna nativa y los recursos hidrobiológicos. Describe las inversiones del sector en monitoreo, mitigación, almacenamiento y logística, y su coordinación con servicios públicos y Fuerzas Armadas. Propone fortalecer la coordinación público-privada y la entrega de información basada en evidencia científica, porque estos eventos no pueden evitarse pero sí reducirse sus impactos mediante la prevención.</p><h2 id="4-la-ciberseguridad-es-una-responsabilidad-estrategica"><strong>4.  La ciberseguridad es una responsabilidad estratégica</strong></h2><p>La columna recuerda que hace tres semanas un ciberataque a proveedores de sistemas de refrigeración permitió manipular equipos de cientos de supermercados en Francia, con pérdidas millonarias, y que nuevos ataques afectaron a supermercados de otros siete países europeos. Aunque no eran el blanco directo, sufrieron daños económicos, operativos y reputacionales, lo que muestra el riesgo de las vulnerabilidades de proveedores críticos. Plantea que en Chile las empresas y sus directivos deben integrar este riesgo en su gestión estratégica, pues lo que no se ve difícilmente se puede gobernar.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

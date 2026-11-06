@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-06.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">6 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-bolsa-de-santiago-sube-con-el-liderazgo-de-cencosud-tras-el-repunte-de-las-ventas-del-gigante-minorista">1.  Bolsa de Santiago sube con el liderazgo de Cencosud tras el repunte de las ventas del gigante minorista</a></li><li class="toc-l2"><a href="#2-dolar-abre-con-leve-alza-tras-ipc-un-poco-mas-debil-de-lo-esperado-en-chile-y-previo-a-un-reporte-laboral-clave-en-eeuu">2.  Dólar abre con leve alza tras IPC un poco más débil de lo esperado en Chile y previo a un reporte laboral clave en EEUU</a></li><li class="toc-l2"><a href="#3-wall-street-revierte-el-rally-post-electoral-y-sufre-su-peor-caida-desde-los-aranceles-de-trump">3.  Wall Street revierte el rally post electoral y sufre su peor caída desde los aranceles de Trump</a></li><li class="toc-l2"><a href="#4-banco-central-alista-regulacion-para-impulsar-el-pix-chileno-y-stablecoins">4.  Banco Central alista regulación para impulsar el “Pix chileno” y stablecoins</a></li><li class="toc-l2"><a href="#5-la-ultima-operacion-de-linzor-capital-en-uno-salud-pone-en-venta-la-mayor-red-de-clinicas-odontologicas-del-pais">5.  La última operación de Linzor Capital en Uno Salud: pone en venta la mayor red de clínicas odontológicas del país</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-biobio-rechaza-concesiones-para-proyectos-eolicos-marinos-de-espanola-acciona-por-9-mil-millones-de-euros">1.  Biobío rechaza concesiones para proyectos eólicos marinos de española Acciona por 9 mil millones de euros</a></li><li class="toc-l2"><a href="#2-frutos-secos-ganan-terreno-en-chile-liderados-por-avellanas-europeas-y-ya-representan-mas-de-un-cuarto-de-la-superficie-fruticola-plantada-del-pais">2.  Frutos secos ganan terreno en Chile liderados por avellanas europeas y ya representan más de un cuarto de la superficie frutícola plantada del país</a></li><li class="toc-l2"><a href="#3-musk-apuesta-todo-al-cybercab-tesla-reducira-gradualmente-la-produccion-del-cybertruck-en-su-fabrica-de-texas">3.  Musk apuesta todo al Cybercab: Tesla reducirá gradualmente la producción del Cybertruck en su fábrica de Texas</a></li><li class="toc-l2"><a href="#4-como-quedaria-el-negocio-salmonero-de-agrosuper-si-se-concreta-la-compra-de-salmones-blumar">4.  ¿Cómo quedaría el negocio salmonero de Agrosuper si se concreta la compra de Salmones Blumar?</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-biministro-mas-y-el-alza-del-ipc-en-octubre-estamos-siguiendo-de-cerca-la-evolucion-de-los-precios">1.  Biministro Mas y el alza del IPC en octubre: &quot;Estamos siguiendo de cerca la evolución de los precios&quot;</a></li><li class="toc-l2"><a href="#2-felix-de-vicente-baja-su-candidatura-a-la-presidencia-de-la-cpc-tras-su-polemica-declaracion-sobre-la-acusacion-contra-el-ministro-de-justicia">2.  Félix de Vicente baja su candidatura a la presidencia de la CPC tras su polémica declaración sobre la acusación contra el ministro de Justicia</a></li><li class="toc-l2"><a href="#3-ipc-sube-05-en-octubre-e-inflacion-se-acelera-a-45-en-12-meses">3.  IPC sube 0,5% en octubre e inflación se acelera a 4,5% en 12 meses</a></li><li class="toc-l2"><a href="#4-richard-von-appen-se-reunio-con-la-cut-y-abordo-desafios-sobre-el-desempleo-y-dialogo-social">4.  Richard von Appen se reunió con la CUT y abordó desafíos sobre el desempleo y diálogo social</a></li><li class="toc-l2"><a href="#5-embajador-chino-suma-reuniones-con-sector-empresarial-y-exautoridades-ad-portas-del-termino-de-su-mision-en-chile">5.  Embajador chino suma reuniones con sector empresarial y exautoridades ad portas del término de su misión en Chile</a></li><li class="toc-l2"><a href="#6-mas-del-71-de-personas-estuvo-exenta-de-impuesto-a-la-renta-en-2025-y-venezolanos-lideran-entre-extranjeros-declarantes">6.  Más del 71% de personas estuvo exenta de impuesto a la renta en 2025 y venezolanos lideran entre extranjeros declarantes</a></li><li class="toc-l2"><a href="#7-presupuesto-2027-supera-una-nueva-etapa-en-el-congreso-y-comienzan-a-perfilarse-los-temas-que-se-resolveran-en-una-comision-mixta">7.  Presupuesto 2027 supera una nueva etapa en el Congreso y comienzan a perfilarse los temas que se resolverán en una comisión mixta</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-el-papa-leon-xiv-ya-viaja-con-direccion-a-sudamerica-para-su-gira-por-uruguay-argentina-y-peru">1.  El papa León XIV ya viaja con dirección a Sudamérica para su gira por Uruguay, Argentina y Perú</a></li><li class="toc-l2"><a href="#2-frenaran-los-democratas-el-auge-de-la-ia">2.  ¿Frenarán los demócratas el auge de la IA?</a></li><li class="toc-l2"><a href="#3-openai-inicia-ofensiva-para-cambiar-la-percepcion-de-los-votantes-sobre-los-data-centers">3.  OpenAI inicia ofensiva para cambiar la percepción de los votantes sobre los data centers</a></li><li class="toc-l2"><a href="#4-la-carrera-presidencial-de-estados-unidos-ya-comenzo">4.  La carrera presidencial de Estados Unidos ya comenzó</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-impact-centro-de-medicina-y-terapia-celular-adopta-modelo-de-venture-studio-para-cocrear-startups">1.  Impact, centro de medicina y terapia celular, adopta modelo de venture studio para cocrear startups</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-gira-por-europa-senales-de-confianza">1.  Gira por Europa: señales de confianza</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>6 De Noviembre De 2026</p><p>6 secciones  ·  22 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-bolsa-de-santiago-sube-con-el-liderazgo-de-cencosud-tras-el-repunte-de-las-ventas-del-gigante-minorista"><strong>1.  Bolsa de Santiago sube con el liderazgo de Cencosud tras el repunte de las ventas del gigante minorista</strong></h2><p>El MSCI IPSA avanzaba 1,4% hasta los 10.611 puntos este viernes, recuperando parte de la caída previa y extendiendo el rebote desde los mínimos de cinco meses de fines de octubre, en un contexto de fuerte volatilidad global tras el mayor desplome del Nasdaq 100 desde 2020 y la caída de 6% del Nikkei y el Kospi. Cencosud lideraba con un alza de 4,7% luego de reportar ingresos 9,2% mayores en el año y ventas en mismas tiendas al alza en la mayoría de sus geografías, mientras Copec (+1,9%) superaba proyecciones con un Ebitda 27% superior, de US$ 889 millones. CMPC se mantuvo estable pese a pérdidas explicadas por impuestos diferidos ligados a la venta de su negocio de corrugados, y SQM subía 3,2% por un leve repunte del litio y una recomendación de sobreponderar de JPMorgan. En EEUU, el empleo de octubre sorprendió con 165 mil nóminas frente a 70 mil esperadas y el desempleo bajó a 4,1%, lo que empujó al alza los rendimientos del Tesoro.</p><h2 id="2-dolar-abre-con-leve-alza-tras-ipc-un-poco-mas-debil-de-lo-esperado-en-chile-y-previo-a-un-reporte-laboral-clave-en-eeuu"><strong>2.  Dólar abre con leve alza tras IPC un poco más débil de lo esperado en Chile y previo a un reporte laboral clave en EEUU</strong></h2><p>El dólar en Chile subía $ 2,1 hasta $ 981,7 en los primeros negocios del viernes, tras revertir casi por completo la fuerte caída de mitad de semana, mientras el mercado digería la victoria demócrata en las elecciones de medio término y la peor sesión de Wall Street desde abril de 2025. El cobre en Londres bajaba 0,9% y el dólar index avanzaba 0,4%, con rendimientos del Tesoro al alza. El IPC de octubre en Chile subió 0,5% mensual y 4,5% anual, una décima bajo lo esperado, en un escenario donde se anticipa que el Banco Central podría subir la tasa clave. La atención dominante estaba en el informe de nóminas no agrícolas de EEUU, que el consenso esperaba en 70 mil empleos y desempleo de 4,2%.</p><h2 id="3-wall-street-revierte-el-rally-post-electoral-y-sufre-su-peor-caida-desde-los-aranceles-de-trump"><strong>3.  Wall Street revierte el rally post electoral y sufre su peor caída desde los aranceles de Trump</strong></h2><p>El optimismo bursátil tras la victoria demócrata en las midterms duró una sola sesión: el jueves el S&amp;P 500 cayó 4,36%, el Dow Jones 3,44% (1.830 puntos) y el Nasdaq Composite 5,52%, entrando en zona de corrección y marcando su peor jornada desde abril de 2025. Los semiconductores y las empresas ligadas a centros de datos fueron los más golpeados, con Nvidia cayendo 9%, AMD más de 17% y Tesla y SpaceX 10,7% y 9%, ante el temor de que los demócratas, críticos de la expansión de data centers y con la gobernadora electa de Texas prometiendo una moratoria, frenen la inversión en infraestructura de IA. En Chile el MSCI IPSA retrocedió 1,5% a 10.465 puntos, con Cencosud, Copec y Latam entre las bajas, mientras el Brent subía 4,7% a US$ 99 por barril.</p><h2 id="4-banco-central-alista-regulacion-para-impulsar-el-pix-chileno-y-stablecoins"><strong>4.  Banco Central alista regulación para impulsar el “Pix chileno” y stablecoins</strong></h2><p>El Banco Central prepara una modernización de las normas de pagos de bajo valor para ampliar las transferencias inmediatas entre personas y comercios, iniciativa conocida como el "Pix chileno". Su presidenta, Rosanna Costa, anunció que pronto se publicarán lineamientos a consulta pública sobre gobernanza, acceso, interoperabilidad, seguridad y aspectos técnicos como alias y códigos QR, con una implementación a cargo del sector privado pero guiada por el instituto emisor. La regulación de stablecoins se publicará por etapas, partiendo por las condiciones de emisión en Chile y luego otros usos, incluidos los cambiarios, con nuevas mesas de trabajo con la industria. Costa añadió que casi cuatro de cada cinco empresas descartan aceptar criptoactivos como medio de pago y solo una de cada 20 consideraría aceptar únicamente stablecoins.</p><h2 id="5-la-ultima-operacion-de-linzor-capital-en-uno-salud-pone-en-venta-la-mayor-red-de-clinicas-odontologicas-del-pais"><strong>5.  La última operación de Linzor Capital en Uno Salud: pone en venta la mayor red de clínicas odontológicas del país</strong></h2><p>Linzor Capital Partners entregó a Banco Santander el mandato para vender su participación en UnoSalud, la mayor cadena dental de Chile, en una operación que rondaría los US$ 80 millones. El fondo tomó el control a fines de 2020 por unos US$ 68,1 millones, y desde entonces la red pasó de 59 a más de 100 clínicas, con más de 2 millones de pacientes atendidos y más de 1.600 profesionales. Hacia fines de 2022, los vehículos de Linzor concentraban 94,5% de la matriz y los minoritarios, incluidos los hermanos Duch, el 5,5%. La salida coincide con la participación minoritaria de Linzor, vía su cuarto fondo, en la compra de Banmédica liderada por Patria, operación en la que la FNE descartó riesgos significativos de competencia en el segmento dental.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-biobio-rechaza-concesiones-para-proyectos-eolicos-marinos-de-espanola-acciona-por-9-mil-millones-de-euros"><strong>1.  Biobío rechaza concesiones para proyectos eólicos marinos de española Acciona por 9 mil millones de euros</strong></h2><p>La Comisión Regional de Uso de Borde Costero del Biobío rechazó por unanimidad las concesiones marítimas para los proyectos eólicos offshore "Brisas Marinas" y "Espejo de Agua" de Acciona Energía, con una inversión cercana a los 9 mil millones de euros frente a Coronel, Lota y Arauco. La instancia argumentó falta de información sobre los efectos en la economía del Golfo de Arauco, el bloqueo de 111 kilómetros de costa por ocho años y dudas sobre la madurez tecnológica, algo que la propia empresa reconoció. Se estima que el despliegue eólico marino en la región podría sumar US$ 19 mil millones, y un tercer proyecto, "Santa María" de Deep Wind, fue retirado antes de la sesión. El rechazo no es vinculante, la decisión final involucra a la Subsecretaría de las Fuerzas Armadas, y los gremios de pesca artesanal lo valoraron pero piden cautela.</p><h2 id="2-frutos-secos-ganan-terreno-en-chile-liderados-por-avellanas-europeas-y-ya-representan-mas-de-un-cuarto-de-la-superficie-fruticola-plantada-del-pais"><strong>2.  Frutos secos ganan terreno en Chile liderados por avellanas europeas y ya representan más de un cuarto de la superficie frutícola plantada del país</strong></h2><p>Según Tattersall Campos, la superficie conjunta de almendras, nueces y avellanas europeas creció 74%, de 56.700 a 98.600 hectáreas entre 2015-2017 y 2024-2025, elevando su peso en la superficie frutícola nacional de 18% a 25,7%. El avellano europeo lidera con 49.300 hectáreas y exportaciones de 57.400 toneladas en 2025 (+144%) por US$ 505 millones FOB, lo que posiciona a Chile como segundo productor mundial con 12% de la oferta; sin embargo, sus rendimientos muestran caídas recientes en varias regiones. Las nueces exportaron US$ 640,8 millones, un récord impulsado por precios, con India como principal comprador, y las almendras US$ 55,9 millones (+44%). El Maule concentra 44,4% de la superficie de avellanos, y el informe advierte que expandir superficie no garantiza proporcionalmente más producción.</p><h2 id="3-musk-apuesta-todo-al-cybercab-tesla-reducira-gradualmente-la-produccion-del-cybertruck-en-su-fabrica-de-texas"><strong>3.  Musk apuesta todo al Cybercab: Tesla reducirá gradualmente la producción del Cybertruck en su fábrica de Texas</strong></h2><p>Elon Musk anunció que Tesla reducirá gradualmente la producción del Cybertruck en su gigafábrica de Texas a mediados del próximo año para dar espacio al aumento de producción del Cybercab, su vehículo autónomo. No está claro si el Cybertruck se trasladará a otra planta o se suspenderá, ya que Austin es la única instalación equipada para sus componentes especializados. El modelo, lanzado en 2023, no alcanzó el éxito masivo que Musk proyectó y ha enfrentado retiradas del mercado, problemas de calidad y múltiples ajustes de precio. La decisión refuerza la apuesta de Musk por transformar a Tesla en una empresa de robótica y conducción autónoma con el Cybercab como pieza central de su red de robotaxis.</p><h2 id="4-como-quedaria-el-negocio-salmonero-de-agrosuper-si-se-concreta-la-compra-de-salmones-blumar"><strong>4.  ¿Cómo quedaría el negocio salmonero de Agrosuper si se concreta la compra de Salmones Blumar?</strong></h2><p>De concretarse la compra del negocio salmonero de Blumar por hasta US$ 540 millones, AquaChile (Agrosuper) sumaría 65.570 toneladas a sus 282.903 cosechadas en 2025, para alcanzar cerca de 350 mil toneladas, un aumento de 23,2% y cerca del 30% de la cosecha nacional frente al 24,2% actual, casi el triple de Multi X, su seguidor. A nivel global produciría cerca de 11% del salmón mundial, superando a SalMar y quedando solo detrás de Mowi. Además ganaría 55 concesiones y 29 centros, y llegaría a Magallanes con siete solicitudes pendientes que podrían aportar unas 16 mil toneladas anuales. La operación sigue sujeta a revisión de antecedentes, acuerdos definitivos y aprobaciones regulatorias, incluida la FNE, y el salmón aportó 48% del EBITDA de Agrosuper en el tercer trimestre, frente a 31% un año antes.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-biministro-mas-y-el-alza-del-ipc-en-octubre-estamos-siguiendo-de-cerca-la-evolucion-de-los-precios"><strong>1.  Biministro Mas y el alza del IPC en octubre: "Estamos siguiendo de cerca la evolución de los precios"</strong></h2><p>El biministro de Economía y Minería, Daniel Mas, comentó el alza de 0,5% mensual del IPC de octubre, impulsada por transporte (2%) y alimentos (1%), señalando que el dato golpea el bolsillo de las familias y eleva los costos de las pymes. Afirmó que el gobierno del Presidente Kast sigue de cerca la evolución de los precios y trabaja con urgencia para recuperar el crecimiento, generar empleo y mejorar el poder adquisitivo. El mensaje busca transmitir sensibilidad frente al impacto de la inflación en los hogares sin anunciar medidas concretas.</p><h2 id="2-felix-de-vicente-baja-su-candidatura-a-la-presidencia-de-la-cpc-tras-su-polemica-declaracion-sobre-la-acusacion-contra-el-ministro-de-justicia"><strong>2.  Félix de Vicente baja su candidatura a la presidencia de la CPC tras su polémica declaración sobre la acusación contra el ministro de Justicia</strong></h2><p>El exministro de Economía Félix de Vicente retiró su candidatura a presidir la CPC tras la polémica por sus dichos en radio sobre la acusación constitucional contra el ministro de Justicia, Fernando Rabat, en el marco de la discusión por rebajas de condena a delitos sexuales contra menores. Aseguró que sus palabras fueron sacadas de contexto, pidió disculpas y dijo querer evitar que la controversia distraiga del debate sobre los desafíos empresariales. Era la carta de la banca para suceder a Susana Jiménez en la elección del 17 de diciembre, por lo que su salida deja al sector sin candidato y abre incertidumbre sobre cómo se reordenarán los apoyos entre los aspirantes restantes, Richard von Appen y Antonio Walker.</p><h2 id="3-ipc-sube-05-en-octubre-e-inflacion-se-acelera-a-45-en-12-meses"><strong>3.  IPC sube 0,5% en octubre e inflación se acelera a 4,5% en 12 meses</strong></h2><p>El INE informó que el IPC de octubre subió 0,5% mensual y la inflación anual se aceleró a 4,5% desde 4,1% en septiembre, en línea con las expectativas de la Encuesta de Operadores Financieros. Destacaron las alzas en transporte (2,0%) y alimentos y bebidas no alcohólicas (1,0%), con la gasolina subiendo 4,5% en el mes y 26,2% en el año, el transporte aéreo internacional 13%, el diésel 12,3% mensual y 53,5% en 2026, y los gastos comunes 3,9%. Entre las bajas sobresalieron la conexión a internet (-14,7%) y el transporte aéreo nacional (-11,8%). Seis de las trece divisiones aportaron incidencias positivas, cinco negativas y dos nulas.</p><h2 id="4-richard-von-appen-se-reunio-con-la-cut-y-abordo-desafios-sobre-el-desempleo-y-dialogo-social"><strong>4.  Richard von Appen se reunió con la CUT y abordó desafíos sobre el desempleo y diálogo social</strong></h2><p>El candidato a la presidencia de la CPC, Richard von Appen, sostuvo una reunión de más de dos horas con el Comité Ejecutivo de la CUT, encabezada por José Manuel Díaz, para intercambiar visiones sobre el escenario económico y político. Ambos coincidieron en la preocupación por el deterioro del mercado laboral y la necesidad de medidas para recuperar el empleo, además de fortalecer el diálogo entre empresarios y sindicatos. Von Appen planteó que estos encuentros deberían proyectarse en el tiempo y apuntar a un proyecto de país con oportunidades para los jóvenes, mientras Díaz valoró la instancia y enfatizó la necesidad de compatibilizar crecimiento con una distribución justa de sus beneficios.</p><h2 id="5-embajador-chino-suma-reuniones-con-sector-empresarial-y-exautoridades-ad-portas-del-termino-de-su-mision-en-chile"><strong>5.  Embajador chino suma reuniones con sector empresarial y exautoridades ad portas del término de su misión en Chile</strong></h2><p>El embajador de China en Chile, Niu Qingbao, quien dejaría el país el 28 de noviembre tras casi seis años, participó en un almuerzo de despedida organizado por Sofofa con representantes de gremios exportadores como Frutas de Chile, Vinos de Chile y ChileCarnes, donde se destacó su rol colaborativo y su apoyo para obtener insumos y vacunas en 2021. Días antes se había reunido con exembajadores y exautoridades chilenas como Heine, Reyes Matta, Ominami, Rosales y Bitar. Durante su gestión defendió las relaciones comerciales e inversiones chinas frente a presiones de EEUU en temas como el cable submarino, el proyecto astronómico TOM y las sobretasas al acero chino que afectaron a Huachipato.</p><h2 id="6-mas-del-71-de-personas-estuvo-exenta-de-impuesto-a-la-renta-en-2025-y-venezolanos-lideran-entre-extranjeros-declarantes"><strong>6.  Más del 71% de personas estuvo exenta de impuesto a la renta en 2025 y venezolanos lideran entre extranjeros declarantes</strong></h2><p>Según el SII, en la Operación Renta 2026 declararon 11,8 millones de personas (+1,4%), de las cuales 8,5 millones, un 71,7%, estuvieron en el tramo exento del Global Complementario, ligeramente menos que el 72,4% de 2024. El umbral de exención equivale a 13,5 UTA anuales, unos $ 968 mil mensuales, y el tramo de 4% es el más numeroso entre quienes pagan, con 2,2 millones de personas, seguido por el de 8% con 629.736; apenas 9.887 contribuyentes pagan la tasa máxima de 40%. Los extranjeros representaron 7,2% de los declarantes, unos 861.609, y los venezolanos lideraron con 316.688 personas, el 36,7% de ese grupo.</p><h2 id="7-presupuesto-2027-supera-una-nueva-etapa-en-el-congreso-y-comienzan-a-perfilarse-los-temas-que-se-resolveran-en-una-comision-mixta"><strong>7.  Presupuesto 2027 supera una nueva etapa en el Congreso y comienzan a perfilarse los temas que se resolverán en una comisión mixta</strong></h2><p>El proyecto de Presupuesto 2027 superó la comisión especial mixta tras cuatro jornadas y pasa a la Sala de la Cámara la próxima semana, luego al Senado y eventualmente a una comisión mixta final. Hacienda y Dipres lograron acuerdos para reponer recursos de los gobiernos regionales, Contraloría, Poder Judicial, Servel y la Ley Ricarte Soto, pero el Ejecutivo sufrió rechazos en Ciencia, toda la partida de Educación (marcada por la eliminación del programa Yo Elijo mi PC), la atención primaria en Salud, subsidios al empleo de mujeres y jóvenes, y fondos para Directemar, DGAC, Aduanas, Senapred y Patrimonio Cultural, entre otros. El ministro de Hacienda, Jorge Quiroz, destacó que prácticamente todas las partidas fueron aprobadas y que el diálogo ha sido positivo.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-el-papa-leon-xiv-ya-viaja-con-direccion-a-sudamerica-para-su-gira-por-uruguay-argentina-y-peru"><strong>1.  El papa León XIV ya viaja con dirección a Sudamérica para su gira por Uruguay, Argentina y Perú</strong></h2><p>El papa León XIV inició un viaje de 12 días por Uruguay, Argentina y Perú, con 14 vuelos y cerca de 40 discursos, menos de un mes después de una operación en que le extirparon parte de un pulmón por un cáncer; el Vaticano indica que goza de buena salud y no se han adoptado medidas médicas adicionales. Aterrizará en Montevideo tras unas 13 horas de vuelo para recibir la bienvenida del presidente Yamandú Orsi y luego viajará a Paysandú para una misa. El cardenal Parolin explicó que la gira busca superar las polarizaciones sociales, acompañar a una Iglesia uruguaya pequeña en un país con más de 40% de población sin religión, rendir homenaje a Francisco en Argentina y volver a Perú, donde vivió 20 años.</p><h2 id="2-frenaran-los-democratas-el-auge-de-la-ia"><strong>2.  ¿Frenarán los demócratas el auge de la IA?</strong></h2><p>Tras la victoria demócrata en las midterms, los inversionistas temen que el partido frene la expansión de centros de datos que ha impulsado a la bolsa y al crecimiento económico de EEUU. Goldman Sachs estima que los estados donde se esperan mayores restricciones concentran cerca de 45% de la capacidad proyectada, y los demócratas ganaron gobernaciones en Texas, Ohio, Georgia, Michigan, Pensilvania, Nevada y Arizona con promesas de endurecer la regulación; en Texas, la gobernadora electa Gina Hinojosa prometió frenar nuevas autorizaciones, poniendo en riesgo unos 18 GW proyectados según UBS. El veto de Trump limita los cambios federales, pero las moratorias estatales y locales amenazan a neoclouds, proveedores de energía y fabricantes de chips, y el analista Dan Ives anticipa que el capex tecnológico alcanzaría su máximo el próximo año, con hasta 20% de la capacidad proyectada en riesgo, aunque ejecutivos como Lisa Su de AMD mantienen sus proyecciones hasta 2030.</p><h2 id="3-openai-inicia-ofensiva-para-cambiar-la-percepcion-de-los-votantes-sobre-los-data-centers"><strong>3.  OpenAI inicia ofensiva para cambiar la percepción de los votantes sobre los data centers</strong></h2><p>OpenAI anunció políticas para generar confianza en las comunidades donde construye centros de datos: dejará de usar acuerdos de confidencialidad con funcionarios públicos al negociar ubicaciones y permitirá a los residentes acceder a los planes de construcción y sus efectos en tráfico, ruido e iluminación. La compañía afirma que sus instalaciones generarán empleo permanente, con un proyecto en el sur de Ohio que crearía 2.500 puestos con un salario promedio de US$ 80 mil. La ofensiva responde al rechazo electoral, pues los demócratas arrebataron Texas, Georgia y Ohio con promesas de frenar permisos y 40 de las 41 propuestas sobre centros de datos votadas esta semana tuvieron resultados contrarios a estas instalaciones, lo que además golpeó las acciones de operadores y eléctricas.</p><h2 id="4-la-carrera-presidencial-de-estados-unidos-ya-comenzo"><strong>4.  La carrera presidencial de Estados Unidos ya comenzó</strong></h2><p>Con Trump impedido de un tercer mandato y tras los malos resultados republicanos en las midterms, ambos partidos comienzan a posicionarse para 2028. En el bando republicano, el vicepresidente JD Vance lidera las encuestas pero carga con la impopular guerra con Irán y la inflación, seguido por el secretario de Estado Marco Rubio, Donald Trump Jr., Ron DeSantis y Ted Cruz. Entre los demócratas, Gavin Newsom busca consolidarse como antagonista de Trump sin ser aún favorito, Jon Ossoff emerge como favorito de las casas de apuestas pese a negar interés, y también figuran Kamala Harris, Alexandria Ocasio-Cortez por el ala progresista y Josh Shapiro por el centro, fortalecido tras su fácil reelección en Pensilvania.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-impact-centro-de-medicina-y-terapia-celular-adopta-modelo-de-venture-studio-para-cocrear-startups"><strong>1.  Impact, centro de medicina y terapia celular, adopta modelo de venture studio para cocrear startups</strong></h2><p>Tras cinco años, el centro Impact de la U. de los Andes inicia su segunda etapa con financiamiento basal de ANID para 2026-2031, adoptando un modelo de venture studio donde actuará como cofundador de startups, aportando equipos de negocios, capacidades regulatorias y de manufactura. En su primer quinquenio presentó 42 solicitudes de patentes (siete concedidas), coordinó 34 proyectos clínicos y logró hitos como la primera administración en humanos de una terapia con exosomas para artrosis de rodilla; ya tiene spin offs como Avantiss y EVast Bio. Las metas a 2031 son crear tres spin offs, firmar dos licenciamientos internacionales, solicitar cinco patentes prioritarias y madurar al menos 10 tecnologías, diversificando ingresos con licencias, codesarrollo y participación accionaria para depender menos de fondos concursables, además de construir un laboratorio de microbiota con Liva Company y la Clínica Universidad de los Andes.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-gira-por-europa-senales-de-confianza"><strong>1.  Gira por Europa: señales de confianza</strong></h2><p>La columna sostiene que la gira europea del Presidente Kast mostró que Chile conserva atributos institucionales valorados por inversionistas, como destacó la presidenta de Santander, Ana Botín, y que profundizar el vínculo con Europa debe ser política de Estado. Recuerda que España, Países Bajos, Italia, Bélgica y el Reino Unido concentran un stock de inversión extranjera superior a US$ 74 mil millones, cerca de 26% del total, y que el acuerdo interino con la UE, vigente desde febrero de 2025, amplió la cobertura de preferencias arancelarias de 94,7% a 99,6% de las líneas. Plantea que diversificar destinos reduce la exposición a shocks de Estados Unidos y China, pero que la confianza institucional no basta si persisten obstáculos que elevan costos e incertidumbre para invertir.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

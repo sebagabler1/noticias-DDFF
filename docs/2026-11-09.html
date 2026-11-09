@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-09.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">9 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-abre-a-la-baja-y-pierde-los-975-mientras-trump-considera-poco-probable-escalar-la-guerra-contra-iran">1.  Dólar abre a la baja y pierde los $ 975 mientras Trump considera poco probable escalar la guerra contra Irán</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-asi-va-la-temporada-de-resultados-ipsa-alta-dispersion-y-sorpresas-positivas-fuera-del-sector-bancario-en-el-tercer-trimestre">1.  Así va la temporada de resultados IPSA: alta dispersión y sorpresas positivas fuera del sector bancario en el tercer trimestre</a></li><li class="toc-l2"><a href="#2-las-nuevas-estrategias-de-las-inmobiliarias-en-chile-desde-mayor-diversificacion-a-evitar-sectores-con-exposicion-a-riesgos-aluvionales">2.  Las nuevas estrategias de las inmobiliarias en Chile: Desde mayor diversificación a evitar sectores con exposición a riesgos aluvionales</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-claves-del-congreso-el-presupuesto-2027-aterriza-en-la-camara-baja">1.  Claves del Congreso: el Presupuesto 2027 aterriza en la Cámara Baja</a></li><li class="toc-l2"><a href="#2-las-exportaciones-chilenas-apenas-crecieron-en-octubre-y-los-envios-de-cobre-sufrieron-su-segunda-caida-en-el-ano">2.  Las exportaciones chilenas apenas crecieron en octubre y los envíos de cobre sufrieron su segunda caída en el año</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-las-acciones-de-nvidia-caen-mientras-investiga-si-su-ceo-fue-objetivo-de-inteligencia-extranjera">1.  Las acciones de Nvidia caen mientras investiga si su CEO fue objetivo de inteligencia extranjera</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-g-strata-la-startup-chilena-que-busca-agua-subterranea-con-ia-alista-su-expansion-a-peru-y-uruguay">1.  G-Strata, la startup chilena que busca agua subterránea con IA, alista su expansión a Perú y Uruguay</a></li><li class="toc-l2"><a href="#2-df-lab-opinion-alquimia-a-escala-industrial">2.  DF Lab Opinión/ Alquimia a escala industrial</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>9 De Noviembre De 2026</p><p>5 secciones  ·  8 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-abre-a-la-baja-y-pierde-los-975-mientras-trump-considera-poco-probable-escalar-la-guerra-contra-iran"><strong>1.  Dólar abre a la baja y pierde los $ 975 mientras Trump considera poco probable escalar la guerra contra Irán</strong></h2><p>El dólar inició la semana a la baja en Chile, cediendo cerca de $ 5,6 hasta unos $ 973,5, tras acumular una caída de $ 15 la semana previa en sesiones muy volátiles posteriores a las elecciones intermedias de EEUU. El retroceso del índice dólar (0,5%) permitió que el cobre subiera 0,5% a US$ 6,28 la libra, mientras el Brent bajaba 3,6% a US$ 94,7 por barril luego de que Trump descartara como muy improbable un ataque a gran escala contra Irán, condicionado a un acuerdo sólido. Las señales siguen mixtas por una ofensiva limitada sobre la isla de Qeshm y los duros reparos de Rubio a las demandas iraníes. El mercado mira el IPC de octubre en EEUU, que se espera suba 0,3% mensual, la mitad que el mes anterior, sin lectura interanual por el cierre de gobierno de 2025.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-asi-va-la-temporada-de-resultados-ipsa-alta-dispersion-y-sorpresas-positivas-fuera-del-sector-bancario-en-el-tercer-trimestre"><strong>1.  Así va la temporada de resultados IPSA: alta dispersión y sorpresas positivas fuera del sector bancario en el tercer trimestre</strong></h2><p>Con cerca de dos tercios de las 31 empresas del MSCI IPSA reportadas, las compañías del sector real muestran resultados mayormente positivos: 11 de 16 superaron el consenso en resultado operacional, aunque solo ocho lo hicieron en la última línea. El Ebitda promedio sube 6,3% interanual (mediana 10,3%, afectada por la caída de 83% de CAP) y suma unos $ 5,1 billones, equivalentes a casi US$ 5.700 millones, con un alza de 13,5% en dólares por el menor tipo de cambio promedio. La utilidad agregada del sector real crece 29,3% a $ 1,59 billón, excluyendo las pérdidas de CMPC y CAP. Al sumar los cuatro bancos, cuyas ganancias cayeron 40%, el beneficio de las 19 empresas es de $ 2,12 billones, prácticamente sin variación anual, y de unos US$ 2.400 millones, con alza de 5,3% en dólares.</p><h2 id="2-las-nuevas-estrategias-de-las-inmobiliarias-en-chile-desde-mayor-diversificacion-a-evitar-sectores-con-exposicion-a-riesgos-aluvionales"><strong>2.  Las nuevas estrategias de las inmobiliarias en Chile: Desde mayor diversificación a evitar sectores con exposición a riesgos aluvionales</strong></h2><p>Al cierre del tercer trimestre, Ingevec, Paz Corp y Besalco actualizaron en sus estados financieros los riesgos que enfrentan y sus estrategias de mitigación. Paz Corp excluye de su compra de terrenos las zonas costeras, inundables o con riesgo aluvional, y se concentra en ubicaciones urbanas con factibilidad consolidada de agua y energía en Chile y Perú. Ingevec enfatiza la dependencia del ciclo económico y responde con diversificación por tipo de obra, mandante y región, oferta inmobiliaria en tramos con subsidio y expansión regional; espera que la Ley de Reconstrucción Nacional, con exención transitoria de IVA por 12 meses, acelere la absorción del stock y sume cerca de 0,5 pp de crecimiento en 2027 y 2028 según el Banco Central. Besalco mantiene confianza en su backlog diversificado, pero advierte que la permisología ha causado demoras relevantes, sobre todo en proyectos de energía y transmisión.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-claves-del-congreso-el-presupuesto-2027-aterriza-en-la-camara-baja"><strong>1.  Claves del Congreso: el Presupuesto 2027 aterriza en la Cámara Baja</strong></h2><p>El proyecto de Presupuesto 2027 llega a la Cámara de Diputados desde la Comisión Especial Mixta con las partidas de Educación y Ciencia rechazadas, que el ministro de Hacienda Jorge Quiroz anunció que se repondrán en esta etapa. La Cámara dedicará toda la semana a despacharlo, con sesiones extensas hasta el jueves, lo que posterga otras iniciativas como el aplazamiento de la entrada en vigencia de la ley de datos personales. En el Senado se retoma la agenda ordinaria: la Comisión de Economía ve las apuestas en línea, la de Hacienda continúa la reforma al mercado de capitales y la de Trabajo el contrato por horas. También se revisan la fiscalización ambiental de la SMA y la designación de ministros suplentes del Tribunal Constitucional propuestos por el Presidente Kast.</p><h2 id="2-las-exportaciones-chilenas-apenas-crecieron-en-octubre-y-los-envios-de-cobre-sufrieron-su-segunda-caida-en-el-ano"><strong>2.  Las exportaciones chilenas apenas crecieron en octubre y los envíos de cobre sufrieron su segunda caída en el año</strong></h2><p>Las exportaciones de octubre sumaron US$ 10.287 millones, apenas 1,2% más que un año atrás, con minería a la baja (3,2%, US$ 6.359 millones) por una caída de 5,4% en cobre, donde los cátodos subieron 20,5% y los concentrados cayeron 15%. El litio destacó con US$ 336 millones (+52,7%), mientras el sector agropecuario cayó 19,6% por la fruta (cerezas -83,9%, arándanos -64,1%) y la industria creció 14% hasta US$ 3.500 millones, impulsada por alimentos. Las importaciones bajaron 5,3% a US$ 7.735 millones, con lo que la balanza comercial arrojó un superávit de US$ 2.552 millones, 27,5% mayor. Los bienes de capital cayeron por sexto mes consecutivo (-29,3%, US$ 1.581 millones), señal débil para la inversión, mientras los bienes de consumo subieron 6,3% y los intermedios 3,2%, con fuerte alza en energéticos.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-las-acciones-de-nvidia-caen-mientras-investiga-si-su-ceo-fue-objetivo-de-inteligencia-extranjera"><strong>1.  Las acciones de Nvidia caen mientras investiga si su CEO fue objetivo de inteligencia extranjera</strong></h2><p>Las acciones de Nvidia caían cerca de 4% antes de la apertura, luego de que la compañía anunciara una investigación interna sobre si su CEO, Jensen Huang, fue blanco de una operación de inteligencia extranjera, a raíz de reportes sobre su relación con una empresaria vinculada a Megaspeed que supuestamente colaboraba con servicios chinos. El episodio pone en duda el futuro de Huang en la mayor fabricante de chips del mundo por valor bursátil, aunque analistas como Chris Weston creen que no será reemplazado, pues una salida haría desplomar el título. Los proveedores asiáticos rebotaban tras las ventas de la semana previa: TSMC subía 6,5%, Samsung 2,9% y SK Hynix 4,7%. Figuras como Ackman y Musk comentaron el caso, y Trump respaldó a Huang, aunque se informó que fue advertido de los hallazgos hace un año.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-g-strata-la-startup-chilena-que-busca-agua-subterranea-con-ia-alista-su-expansion-a-peru-y-uruguay"><strong>1.  G-Strata, la startup chilena que busca agua subterránea con IA, alista su expansión a Perú y Uruguay</strong></h2><p>La startup chilena G-Strata, que combina un equipo geofísico propio con IA para ubicar agua subterránea, prepara su llegada a Perú y Uruguay durante el primer semestre de 2027, con oficinas en ambos países y miras a Texas. En Perú ya tiene su primer cliente, la Universidad Nacional de San Agustín, a la que vende un dispositivo más una licencia de software, mientras que en Uruguay se enfocará en servicios. Declara una tasa de éxito de 90% y ventas acumuladas cercanas a US$ 1 millón, con clientes como la DGA, Esval y Aguas Andinas; su modelo combina consultoría, suscripción a la plataforma Waterlink y arriendo del equipo, y para 2027 proyecta una línea de huella hídrica para grandes empresas. Opera con capital propio, fue apoyada por Corfo y busca levantar capital en los próximos meses.</p><h2 id="2-df-lab-opinion-alquimia-a-escala-industrial"><strong>2.  DF Lab Opinión/ Alquimia a escala industrial</strong></h2><p>La columna plantea que la fusión nuclear podría convertir al neutrón, antes visto como un problema, en un producto con valor económico. Marathon Fusion afirma haber transmutado mercurio en oro estable, además de producir isótopos de cobre para medicina nuclear y enriquecer litio 6, aunque los resultados aún no están verificados y su estimación de unas dos toneladas de oro al año por planta es una simulación. Para Chile, segundo productor de litio y primero de cobre que exporta casi sin procesar, la oportunidad estaría en enriquecer litio 6, que vale mucho más por kilo que el carbonato y que una planta comercial requeriría en gran escala. El autor concluye, con la analogía del aluminio en el siglo XIX, que la escasez depende del conocimiento y no del recurso.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

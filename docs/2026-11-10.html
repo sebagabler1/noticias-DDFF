@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-10.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Martes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">10 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-bolsa-chilena-revierte-alza-inicial-mientras-las-tasas-cortas-de-eeuu-se-disparan-tras-un-ipc-de-octubre-que-supero-los-pronosticos">1.  Bolsa chilena revierte alza inicial mientras las tasas cortas de EEUU se disparan tras un IPC de octubre que superó los pronósticos</a></li><li class="toc-l2"><a href="#2-dolar-pierde-los-970-en-apertura-mientras-agentes-esperan-los-precios-al-consumidor-de-octubre-en-eeuu">2.  Dólar pierde los $ 970 en apertura mientras agentes esperan los precios al consumidor de octubre en EEUU</a></li><li class="toc-l2"><a href="#3-el-brent-desciende-bajo-us-90-el-barril-en-medio-de-un-alivio-luego-que-trump-resta-importancia-a-la-posibilidad-de-una-escalada-con-iran">3.  El Brent desciende bajo US$ 90 el barril en medio de un alivio luego que Trump resta importancia a la posibilidad de una escalada con Irán</a></li><li class="toc-l2"><a href="#4-estudio-udp-nuevo-esquema-de-inversion-de-las-afp-habria-acotado-una-caida-como-la-del-fondo-e">4.  Estudio UDP: nuevo esquema de inversión de las AFP habría acotado una caída como la del fondo E</a></li><li class="toc-l2"><a href="#5-confuturo-credicorp-ameris-y-alianza-falcom-territoria-compiten-por-la-compra-del-edificio-isidora-3000">5.  Confuturo, Credicorp, Ameris y alianza Falcom-Territoria compiten por la compra del edificio Isidora 3000</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-tvn-apuesta-por-modelo-mixto-de-financiamiento-para-pagar-deuda-de-58500-millones-que-vence-en-abril-de-2027">1.  TVN apuesta por modelo mixto de financiamiento para pagar deuda de $ 58.500 millones que vence en abril de 2027</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-paro-de-camioneros-se-extiende-por-las-regiones-con-bloqueos-en-rutas-y-acceso-a-terminales-portuarios">1.  Paro de camioneros se extiende por las regiones con bloqueos en rutas y acceso a terminales portuarios</a></li><li class="toc-l2"><a href="#2-mercado-vuelve-a-recortar-proyeccion-de-pib-y-ahora-anticipa-que-la-economia-chilena-no-crecera-este-ano">2.  Mercado vuelve a recortar proyección de PIB y ahora anticipa que la economía chilena no crecerá este año</a></li><li class="toc-l2"><a href="#3-walker-y-von-appen-marcan-diferencias-sobre-empleo-crecimiento-y-liderazgo-en-el-primer-debate-por-presidir-la-cpc">3.  Walker y Von Appen marcan diferencias sobre empleo, crecimiento y liderazgo en el primer debate por presidir la CPC</a></li><li class="toc-l2"><a href="#4-exportaciones-a-dos-ritmos-superan-us-100000-millones-pero-bajan-embarques-de-cobre-hacia-china">4.  Exportaciones a dos ritmos: superan US$ 100.000 millones, pero bajan embarques de cobre hacia China</a></li><li class="toc-l2"><a href="#5-deberia-salir-el-ministro-rabat-senal-importante-y-le-hubiera-hecho-un-gran-favor-al-presidente-respondieron-los-aspirantes-a-liderar-la-cpc">5.  ¿Debería salir el ministro Rabat? “Señal importante” y “le hubiera hecho un gran favor al Presidente”, respondieron los aspirantes a liderar la CPC</a></li><li class="toc-l2"><a href="#6-hacienda-repone-partidas-del-erario-para-el-proximo-ano-en-medio-de-una-tensa-sesion-en-la-camara-de-diputados">6.  Hacienda repone partidas del erario para el próximo año en medio de una tensa sesión en la Cámara de Diputados</a></li><li class="toc-l2"><a href="#7-sebastian-izquierdo-vicepresidente-del-cfa-la-deuda-a-septiembre-no-es-una-alerta-pero-si-muestra-que-queda-poco-margen">7.  Sebastián Izquierdo, vicepresidente del CFA: “La deuda a septiembre no es una alerta, pero sí muestra que queda poco margen”</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-inflacion-de-estados-unidos-entrega-nuevas-senales-de-alerta-para-la-reserva-federal">1.  Inflación de Estados Unidos entrega nuevas señales de alerta para la Reserva Federal</a></li><li class="toc-l2"><a href="#2-la-ultima-de-los-botin-al-frente-del-santander">2.  La última de los Botín al frente del Santander</a></li><li class="toc-l2"><a href="#3-una-presunta-espia-un-romance-y-secretos-tecnologicos-la-trama-que-sacude-a-nvidia">3.  Una presunta espía, un romance y secretos tecnológicos: la trama que sacude a Nvidia</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-anthropic-busca-recaudar-hasta-us-64-mil-millones-en-su-apertura-a-bolsa-y-reduce-su-valorizacion">1.  Anthropic busca recaudar hasta US$ 64 mil millones en su apertura a bolsa y reduce su valorización</a></li><li class="toc-l2"><a href="#2-con-espana-como-pais-invitado-y-400-expositores-las-novedades-del-etm-2026">2.  Con España como país invitado y 400 expositores: las novedades del EtM 2026</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-chile-tambien-debe-competir-por-el-capital-de-sus-empresas">1.  Chile también debe competir por el capital de sus empresas</a></li><li class="toc-l2"><a href="#2-frente-al-espejo">2.  Frente al espejo</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>10 De Noviembre De 2026</p><p>6 secciones  ·  20 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-bolsa-chilena-revierte-alza-inicial-mientras-las-tasas-cortas-de-eeuu-se-disparan-tras-un-ipc-de-octubre-que-supero-los-pronosticos"><strong>1.  Bolsa chilena revierte alza inicial mientras las tasas cortas de EEUU se disparan tras un IPC de octubre que superó los pronósticos</strong></h2><p>La bolsa local perdió el impulso de la mañana y el MSCI IPSA quedó prácticamente plano en torno a 10.588 puntos, después de que la inflación estadounidense de octubre sorprendiera al alza: 0,4% mensual en la serie general y 0,3% en la subyacente, ambas una décima sobre lo previsto. El rendimiento del Tesoro a dos años subió más de 12 puntos base y los mercados pasaron a descontar con certeza un alza de 25 pb de la Fed en diciembre y otra en el primer trimestre de 2027, mientras Waller ya había planteado la opción de 50 pb. Entre las acciones locales destacó la caída de SMU (-1,7%) tras reportar pérdidas trimestrales mayores a las esperadas, y SQM-B retrocedió 1,1%. En el plano global, el Brent cedió 2,6% a US$ 90,2, su menor nivel desde fines de agosto, por las expectativas de una salida diplomática al conflicto entre EEUU e Irán, mientras Europa y Asia cerraban con avances.</p><h2 id="2-dolar-pierde-los-970-en-apertura-mientras-agentes-esperan-los-precios-al-consumidor-de-octubre-en-eeuu"><strong>2.  Dólar pierde los $ 970 en apertura mientras agentes esperan los precios al consumidor de octubre en EEUU</strong></h2><p>El dólar abrió a la baja en Chile, cayendo $ 3,3 hasta $ 967,9, a la espera del IPC estadounidense de octubre, para el cual se anticipaba un alza de 0,3% mensual y de 0,2% en la subyacente. El movimiento acompañó la baja de la energía, con el Brent en US$ 91,2 (-1,5%) por las señales de distensión entre EEUU e Irán tras los dichos de Trump, y un cobre en Londres con leve retroceso de 0,3%. Los rendimientos del Tesoro a dos años subían 4,4 pb tras el discurso de Waller, quien dijo que con un IPC similar a los dos anteriores consideraría un alza de 50 pb en diciembre, y de 25 pb si la inflación mejora.</p><h2 id="3-el-brent-desciende-bajo-us-90-el-barril-en-medio-de-un-alivio-luego-que-trump-resta-importancia-a-la-posibilidad-de-una-escalada-con-iran"><strong>3.  El Brent desciende bajo US$ 90 el barril en medio de un alivio luego que Trump resta importancia a la posibilidad de una escalada con Irán</strong></h2><p>El crudo Brent cayó por debajo de US$ 90 por primera vez desde el 31 de agosto, cotizando a US$ 90,18 (-2,58%), mientras el WTI bajaba a US$ 84,74, tras haber cerrado la sesión previa con una baja de 5,85%. El mercado priorizó el tono conciliador de Trump, que descartó nuevos ataques contra Irán a pedido de líderes regionales, aunque persisten incidentes con buques en Ormuz. A ello se suma el temor a un exceso de oferta: JPMorgan estima un excedente de 1,4 millones de barriles diarios en octubre y la producción de la OPEP aumentó. El Brent acumula una caída cercana a 23% desde el máximo de US$ 118 del 30 de octubre, y además se esperaban conversaciones entre Rusia y Ucrania mediadas por EEUU.</p><h2 id="4-estudio-udp-nuevo-esquema-de-inversion-de-las-afp-habria-acotado-una-caida-como-la-del-fondo-e"><strong>4.  Estudio UDP: nuevo esquema de inversión de las AFP habría acotado una caída como la del fondo E</strong></h2><p>Un estudio de Miguel Lorca (OCEC-UDP) simuló cómo habrían respondido los fondos generacionales ante un shock como el del fondo E, que cayó más de 10% entre enero y septiembre de 2026. Con el peor desempeño histórico de seis meses del fondo E, el impacto se habría reducido para 88% de los afiliados a 10 años del retiro, proporción que baja a 81,5% a cinco años y a 73,4% en los últimos seis meses. Además, con las historias de 22.281 afiliados, 66,6% habría terminado con mayor saldo, con +0,36 punto porcentual de rentabilidad anual, +UF 22,15 de ahorro y +3,15% de pensión, aunque con más volatilidad y riesgo de pérdidas extremas. El informe concluye que la calibración del de-risking, es decir cuándo y cuán rápido se reduce el riesgo, será decisiva, y que no existe una trayectoria superior para todos.</p><h2 id="5-confuturo-credicorp-ameris-y-alianza-falcom-territoria-compiten-por-la-compra-del-edificio-isidora-3000"><strong>5.  Confuturo, Credicorp, Ameris y alianza Falcom-Territoria compiten por la compra del edificio Isidora 3000</strong></h2><p>Cuatro postores con ofertas vinculantes, Confuturo, Credicorp Capital, Ameris y la alianza Falcom-Territoria, compiten por la placa comercial, las oficinas y los estacionamientos de Isidora 3000, activo de la alemana BVK que CBRE vende desde mayo. La adjudicación se espera en las próximas semanas y el cierre antes de fin de año, con un precio que, según conocedores, superaría los US$ 130 millones. El activo tiene 21.229 m² arrendables (unos 12 mil de oficinas y 7.650 de retail) y 594 estacionamientos, con inquilinos como Santander, BlackRock y Stellantis, contratos indexados en UF y ningún arrendatario sobre 7% de los ingresos. Para Falcom sería un activo insignia de su nueva estrategia inmobiliaria, para Credicorp y Ameris una apuesta por oficinas, y Confuturo, gran comprador del sector, ha privilegiado hasta ahora logística y bodegas.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-tvn-apuesta-por-modelo-mixto-de-financiamiento-para-pagar-deuda-de-58500-millones-que-vence-en-abril-de-2027"><strong>1.  TVN apuesta por modelo mixto de financiamiento para pagar deuda de $ 58.500 millones que vence en abril de 2027</strong></h2><p>TVN debe pagar el 21 de abril de 2027 una deuda de $ 58.500 millones con aval estatal, monto que excede con holgura su liquidez de unos $ 14.346 millones, y la propia empresa advierte incertidumbre sobre sus flujos operacionales en 2027. La administración y el directorio, presidido por Patricio Dussaillant, buscan un modelo mixto que permita aportes recurrentes del Estado, lo que exige modificar la Ley 19.132 con un proyecto que debería ingresar al Congreso a más tardar en diciembre. Un estudio de Compass Lexecon, ya en manos del ministro Alvarado, estima en cerca de $ 12 mil millones anuales el costo de su misión pública. Mientras tanto, TVN avanza en vender inmuebles regionales (ya cerró Punta Arenas y Copiapó, y Talcahuano tiene promesa de compraventa), tras pérdidas de $ 15.529 millones en 2025 y $ 7.926 millones en el primer semestre de 2026; el edificio de Bellavista sigue sin interesados.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-paro-de-camioneros-se-extiende-por-las-regiones-con-bloqueos-en-rutas-y-acceso-a-terminales-portuarios"><strong>1.  Paro de camioneros se extiende por las regiones con bloqueos en rutas y acceso a terminales portuarios</strong></h2><p>Un paro de camioneros convocado por agrupaciones menores, sin respaldo de la CNDC ni la CNTC, se extendió desde Tarapacá hasta La Araucanía con bloqueos en la Ruta 5 y en accesos portuarios como Iquique y San Vicente en Talcahuano, pese a las medidas del Gobierno por el alza de combustibles. Solo en Tarapacá se reportaban unos 600 camiones movilizados, y en otras zonas se proyectaban más de 500. La principal demanda es rebajar el impuesto específico a los combustibles por el efecto del diésel en los costos de los pequeños y medianos transportistas, según el dirigente Cristian Sandoval. Los gremios productivos del Biobío advirtieron que interrumpir puertos y logística dañará a las empresas y al empleo, y pidieron una mesa público-privada.</p><h2 id="2-mercado-vuelve-a-recortar-proyeccion-de-pib-y-ahora-anticipa-que-la-economia-chilena-no-crecera-este-ano"><strong>2.  Mercado vuelve a recortar proyección de PIB y ahora anticipa que la economía chilena no crecerá este año</strong></h2><p>La Encuesta de Expectativas Económicas del Banco Central recortó en tres décimas el crecimiento 2026 a 0%, por debajo del 0,7% que proyecta Hacienda, con PIB no minero de 0,8%, consumo de 1,4% e inversión de apenas 0,1%. Para el Imacec de octubre se prevé variación nula y para el cuarto trimestre un avance de 0,9%. Para 2027 se mantiene un crecimiento de 3% (frente a 3,3% del Ejecutivo), con consumo de 2,6% e inversión de 6,2%, y para 2028 de 2,7%. Se espera una inflación mensual de 0,4% en noviembre y 0% en diciembre, 3,5% a 11 meses y 3% a más plazo, con la TPM estable en 4,5% por al menos 23 meses antes de bajar a 4,25%.</p><h2 id="3-walker-y-von-appen-marcan-diferencias-sobre-empleo-crecimiento-y-liderazgo-en-el-primer-debate-por-presidir-la-cpc"><strong>3.  Walker y Von Appen marcan diferencias sobre empleo, crecimiento y liderazgo en el primer debate por presidir la CPC</strong></h2><p>En su primer debate de cara a la elección del 17 de diciembre en la CPC, Richard von Appen y Antonio Walker coincidieron en que la prioridad es recuperar crecimiento, inversión y empleo, con permisología, certeza jurídica y adaptabilidad laboral como ejes, y ambos criticaron la sobrerregulación. Las diferencias estuvieron en el estilo: Von Appen plantea una visión de largo plazo con foco en regiones y defiende la rotación de presidentes y que Sofofa repita en el cargo, mientras Walker destaca la articulación política y se abre a discutir la reelección por la brevedad del mandato de dos años. Von Appen cuestionó el uso de la Ley Karin y el alto costo de despedir, y Walker mencionó la caída de 9% de la producción minera y proyectos detenidos. Ambos respaldaron el rumbo económico del ministro Quiroz, con matices sobre el bencinazo, y aún no definen a sus vicepresidentes.</p><h2 id="4-exportaciones-a-dos-ritmos-superan-us-100000-millones-pero-bajan-embarques-de-cobre-hacia-china"><strong>4.  Exportaciones a dos ritmos: superan US$ 100.000 millones, pero bajan embarques de cobre hacia China</strong></h2><p>Las exportaciones de octubre sumaron US$ 10.287 millones (+1,2% anual) y en lo que va del año acumulan US$ 104.124 millones, un 15,9% más. Los envíos de cobre cayeron 5,4% a US$ 5.409 millones, con embarques a China desplomándose 44,7% y a EEUU creciendo 50,6%, mientras el sector agropecuario cayó 19,6% por El Niño (cerezas -83,9%) y las exportaciones industriales subieron 14%, impulsadas por salmón y aceite de pescado. Las importaciones bajaron 5,3% a US$ 7.735 millones, con un superávit comercial mensual de US$ 2.552 millones. Los bienes de capital, termómetro de la inversión, cayeron 29,3% por sexto mes consecutivo, mientras las compras de energía subieron 33,2%.</p><h2 id="5-deberia-salir-el-ministro-rabat-senal-importante-y-le-hubiera-hecho-un-gran-favor-al-presidente-respondieron-los-aspirantes-a-liderar-la-cpc"><strong>5.  ¿Debería salir el ministro Rabat? “Señal importante” y “le hubiera hecho un gran favor al Presidente”, respondieron los aspirantes a liderar la CPC</strong></h2><p>Consultados en el debate por la crisis política derivada de las rebajas de penas a condenados por delitos sexuales contra menores, Von Appen opinó que el ministro de Justicia, Fernando Rabat, debiera salir por la señal que se entrega a la ciudadanía. Walker dijo que no corresponde pautear al Presidente, pero afirmó que una renuncia habría sido un favor a Kast al evitarle una decisión por un error político grave. Ambos subrayaron que a un gremio le es incómodo opinar y que la estabilidad política es tan importante como la económica, y Von Appen valoró las medidas económicas del gobierno con resultados esperables en 2027 y 2028. En el intercambio de preguntas, Walker planteó ampliar las concesiones a puertos, aeropuertos, carreteras e infraestructura hídrica, y Von Appen priorizó la unidad de las seis ramas y el despliegue territorial.</p><h2 id="6-hacienda-repone-partidas-del-erario-para-el-proximo-ano-en-medio-de-una-tensa-sesion-en-la-camara-de-diputados"><strong>6.  Hacienda repone partidas del erario para el próximo año en medio de una tensa sesión en la Cámara de Diputados</strong></h2><p>La Cámara aprobó la idea de legislar del Presupuesto 2027 por 80 votos a favor, 63 en contra y una abstención, lo que habilita la discusión de las 33 partidas. La sesión fue muy tensa y el ministro Quiroz fue reprendido por el presidente de la Cámara tras un discurso en que acusó a los parlamentarios de hablar por las redes. Antes, el Ejecutivo repuso las partidas rechazadas en subcomisiones, como Educación completa, Ciencia y partidas parciales de Interior, Agricultura, Salud y Desarrollo Social. Quiroz pidió un acuerdo para mejorar gradualmente las finanzas públicas, y el director de Presupuestos no pudo ingresar a la Sala por falta de unanimidad.</p><h2 id="7-sebastian-izquierdo-vicepresidente-del-cfa-la-deuda-a-septiembre-no-es-una-alerta-pero-si-muestra-que-queda-poco-margen"><strong>7.  Sebastián Izquierdo, vicepresidente del CFA: “La deuda a septiembre no es una alerta, pero sí muestra que queda poco margen”</strong></h2><p>Izquierdo señala que el CFA ve probable el cumplimiento de la meta de balance estructural en 2026, explicado por recortes de gasto acotados (compensados en parte por unos US$ 1.000 millones de nuevos gastos), menor PIB no minero y mayores ingresos de cobre y litio. Para 2027 advierte riesgos porque los ingresos suponen un crecimiento no minero de 3,3%, sobre lo que prevén las encuestas, y de 2028 a 2030 ve brechas de gasto de unos US$ 4.000 millones anuales frente a lo compatible con las metas. La deuda llegó a 44,7% del PIB en septiembre, cerca del techo prudente de 45%, y aunque Dipres proyecta 42,7% a fin de año, el CFA ve una probabilidad relevante de superarlo en 2029, con un tercio en moneda extranjera y vencimientos por unos US$ 52.000 millones entre 2027 y 2030 a refinanciar a tasas mayores. Sostiene que no hay contradicción con las clasificadoras, que mantienen la nota pero advierten que la consolidación tomará más tiempo.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-inflacion-de-estados-unidos-entrega-nuevas-senales-de-alerta-para-la-reserva-federal"><strong>1.  Inflación de Estados Unidos entrega nuevas señales de alerta para la Reserva Federal</strong></h2><p>El IPC estadounidense de octubre subió 0,4% mensual, sobre el 0,3% esperado, y el subyacente avanzó 0,3%, una décima sobre lo previsto, sin cifra anual por el cierre de gobierno de 2025. El rendimiento del Tesoro a dos años subió más de 15 pb a 4,698% y el de 30 años superó 5,29%. La inflación ha sido empujada por el conflicto con Irán y el auge de la IA, y la Fed ya subió tasas en septiembre a 3,75%-4%, con Waller planteando incluso un alza de 50 pb, la mayor desde 2022. El mercado descuenta en gran medida un aumento de 25 pb en la reunión del 8 y 9 de diciembre.</p><h2 id="2-la-ultima-de-los-botin-al-frente-del-santander"><strong>2.  La última de los Botín al frente del Santander</strong></h2><p>En una entrevista al Financial Times, Ana Botín afirma que no habrá otro Botín al frente del Santander, ya que ninguno de sus tres hijos quiere sucederla, aunque no planea dejar el cargo pronto y se plantea llevar al banco a 500 millones de clientes, frente a 190 millones actuales. Tras una década difícil, el banco es hoy el más valioso de la Europa continental, con acciones que subieron casi 150% en dos años y operaciones como la compra de TSB y Webster Financial y la venta de Polonia, y asegura que no habrá grandes adquisiciones en los próximos dos años. Se evalúa un escenario de separar presidencia no ejecutiva y consejero delegado, y Botín pasaría a presidenta no ejecutiva en cinco años. Persisten el desafío de rentabilizar Estados Unidos, el litigio con Andrea Orcel (condena de 43,4 millones de euros en apelación) y críticas por su gobierno corporativo concentrado.</p><h2 id="3-una-presunta-espia-un-romance-y-secretos-tecnologicos-la-trama-que-sacude-a-nvidia"><strong>3.  Una presunta espía, un romance y secretos tecnológicos: la trama que sacude a Nvidia</strong></h2><p>Nvidia investiga si la relación de Jensen Huang con Alice Huang, ejecutiva de Megaspeed, permitió acceso a información confidencial, luego de que un memorando de inteligencia de EEUU advirtiera que ella habría sido reclutada por el espionaje chino. Megaspeed importó más de US$ 4.600 millones en tecnología de Nvidia entre 2024 y 2025 y se detectaron unos 50.000 procesadores no verificados, sin pruebas de contrabando. Huang admitió su infidelidad en una carta a los empleados y legisladores republicanos pidieron que comparezca ante tres comités el 18 de noviembre, mientras Trump lo defendió y Beijing negó las acusaciones. La acción de Nvidia cayó 4,3% el lunes, tras ceder más de 7% en la apertura, en una jornada en que el Nasdaq subió 2,7%.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-anthropic-busca-recaudar-hasta-us-64-mil-millones-en-su-apertura-a-bolsa-y-reduce-su-valorizacion"><strong>1.  Anthropic busca recaudar hasta US$ 64 mil millones en su apertura a bolsa y reduce su valorización</strong></h2><p>Anthropic actualizó su prospecto ante la SEC para debutar en el Nasdaq con el símbolo ANT: ofrecerá 825 millones de acciones a entre US$ 70 y US$ 78, recaudando entre US$ 57 mil y US$ 64 mil millones, con una valorización cercana a US$ 1,3 billones, menor a los US$ 2 billones que circulaban y al récord de SpaceX. Planea captar unos US$ 26 mil millones de inversionistas como Google, Nvidia, AMD y Microsoft, y sus siete cofundadores venderán acciones por unos US$ 250 millones cada uno. Los ingresos a septiembre superaron los US$ 33 mil millones, y en el tercer trimestre las ventas crecieron 46,7% frente al anterior mientras el gasto en cómputo subió 77,5%. La pérdida operativa bajó a US$ 1.260 millones, pero la pérdida neta subió a más de US$ 104 mil millones por ajustes de valorización de instrumentos financieros, no por caja consumida.</p><h2 id="2-con-espana-como-pais-invitado-y-400-expositores-las-novedades-del-etm-2026"><strong>2.  Con España como país invitado y 400 expositores: las novedades del EtM 2026</strong></h2><p>El EtM Day 2026 se realizará del 19 al 21 de noviembre en el Parque Bicentenario de Vitacura, con España como país invitado, unos 400 expositores, cerca de 100 alcaldes y una meta de 60 mil asistentes (56 mil el año pasado). Contará con fundadores de Cabify, Platzi y Tiendanube, un pabellón español de 500 m², formatos como el Parrilla Pitch con ejecutivos de Agrosuper y la coorganización de la Chile Tech Week. Daniel Daccarett señaló que el ecosistema emprendedor está escaso de liquidez, pues los empresarios prefieren otros negocios antes que capital de riesgo. Respalda la agenda del gobierno, pese al desempleo, ve un 2027 y 2028 auspiciosos y considera ambiciosa la meta de crecer 4%.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-chile-tambien-debe-competir-por-el-capital-de-sus-empresas"><strong>1.  Chile también debe competir por el capital de sus empresas</strong></h2><p>La columna sostiene que, a partir de los planteamientos de Roberto Angelini (Copec) y Bernardo Larraín Matte (CMPC), Chile debe competir por el capital de sus propias compañías para que sigan creciendo desde el país. Copec desarrolla en Brasil el proyecto Sucuriú por unos US$ 4.600 millones, y Angelini contrasta los 11 años que tardó MAPA en Chile desde su aprobación con 18 meses para obtener permisos en Brasil. Larraín apunta a la incertidumbre de permisos, la rigidez laboral y los costos regulatorios, por lo que se requiere reformar el SEIA y modernizar la legislación laboral. Se afirma que la rebaja del impuesto corporativo es un avance insuficiente sin reglas estables que trasciendan los ciclos políticos, y que el empresariado también debe asumir riesgos e innovar.</p><h2 id="2-frente-al-espejo"><strong>2.  Frente al espejo</strong></h2><p>La columna compara el endeudamiento de los hogares y del Fisco: los hogares deben 45,9% del PIB en deuda bruta y el gobierno general 41,1%. La deuda bruta del gobierno central pasó de 3,9% del PIB en 2007 a 42,5% en 2026, y la de los hogares subió de 38% a 78% de su ingreso disponible desde 2003. Ambos recurren a ahorros de largo plazo (retiros de pensiones por US$ 50 mil millones y retiros del fondo de estabilización, hoy 81% menor que en 2008), a pedir prestado para pagar deudas, a dejar cuentas impagas (3,86 millones de morosos y $ 2,8 billones del Fisco) y a avales, que suman hasta 8,9% del PIB. Concluye que el Estado se comporta como sus ciudadanos, por lo que cuesta exigirle austeridad.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

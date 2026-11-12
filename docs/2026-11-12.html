@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-12.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">12 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-se-dispara-casi-10-y-vuelve-a-arriesgar-los-1000-tras-comentarios-de-trump-no-necesitamos-un-acuerdo-con-iran">1.  Dólar se dispara casi $ 10 y vuelve a arriesgar los $ 1.000 tras comentarios de Trump: &quot;No necesitamos un acuerdo con Irán&quot;</a></li><li class="toc-l2"><a href="#2-ana-botin-vuelve-a-apostar-por-santander-y-sube-su-participacion-en-el-banco-tras-compra-de-acciones">2.  Ana Botín vuelve a apostar por Santander y sube su participación en el banco tras compra de acciones</a></li><li class="toc-l2"><a href="#3-entel-se-dispara-mas-de-7-en-bolsa-y-lidera-las-alzas-del-ipsa-por-inicio-de-proceso-para-venta-de-operacion-en-peru">3.  Entel se dispara más de 7% en bolsa y lidera las alzas del IPSA por inicio de proceso para venta de operación en Perú</a></li><li class="toc-l2"><a href="#4-eduardo-ebensperger-gerente-general-de-banco-de-chile-me-gustaria-seguir-ligado-a-este-mundo-todavia-no-me-voy-a-jubilar">4.  Eduardo Ebensperger, gerente general de Banco de Chile: “Me gustaría seguir ligado a este mundo, todavía no me voy a jubilar”</a></li><li class="toc-l2"><a href="#5-sondeo-de-santander-firmas-chilenas-apuestan-por-expansion-global-pese-a-la-incertidumbre">5.  Sondeo de Santander: firmas chilenas apuestan por expansión global pese a la incertidumbre</a></li><li class="toc-l2"><a href="#6-mercado-apuesta-por-repunte-del-retail-en-2027-con-la-accion-de-falabella-a-la-cabeza">6.  Mercado apuesta por repunte del retail en 2027 con la acción de Falabella a la cabeza</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-crisis-obliga-a-los-vinedos-chilenos-a-reinventar-sus-negocios">1.  Crisis obliga a los viñedos chilenos a reinventar sus negocios</a></li><li class="toc-l2"><a href="#2-bernardo-fontaine-no-esta-en-el-horizonte-la-privatizacion-de-codelco-y-nunca-lo-ha-estado-en-el-gobierno-del-presidente-kast">2.  Bernardo Fontaine: “No está en el horizonte la privatización de Codelco y nunca lo ha estado en el gobierno del Presidente Kast&quot;</a></li><li class="toc-l2"><a href="#3-nueva-falla-electrica-provoca-desconexion-de-pmgd-y-coordinador-limita-al-15-inyeccion-de-121-instalaciones">3.  Nueva falla eléctrica provoca desconexión de PMGD y coordinador limita al 15% inyección de 121 instalaciones</a></li><li class="toc-l2"><a href="#4-subtel-constata-incumplimiento-de-wom-en-hito-del-proyecto-5g-y-ejecuta-boletas-por-us-26-millones">4.  Subtel constata incumplimiento de WOM en hito del Proyecto 5G y ejecuta boletas por US$ 2,6 millones</a></li><li class="toc-l2"><a href="#5-precio-del-litio-se-duplica-y-chile-mantiene-el-tercer-lugar-como-productor-mundial-aunque-baja-su-participacion">5.  Precio del litio se duplica y Chile mantiene el tercer lugar como productor mundial aunque baja su participación</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-suspicacias-genera-en-la-dc-oficio-reservado-de-la-sp-pidiendo-mas-plazo-a-contraloria-para-responder">1.  Suspicacias genera en la DC oficio reservado de la SP pidiendo más plazo a Contraloría para responder</a></li><li class="toc-l2"><a href="#2-gobierno-ingresa-al-congreso-proyecto-que-congela-precios-de-los-combustibles-hasta-febrero-costara-al-fisco-us-547-millones">2.  Gobierno ingresa al Congreso proyecto que congela precios de los combustibles hasta febrero: costará al Fisco US$ 547 millones</a></li><li class="toc-l2"><a href="#3-el-peso-de-la-industria-camionera-en-chile-emplea-a-cerca-de-250-mil-personas-y-mueve-el-92-de-la-carga-nacional">3.  El peso de la industria camionera en Chile: emplea a cerca de 250 mil personas y mueve el 92% de la carga nacional</a></li><li class="toc-l2"><a href="#4-economistas-dudan-que-pib-crezca-4-en-2028-la-nueva-proyeccion-que-maneja-quiroz-tras-admitir-que-chile-se-encuentra-en-recesion-tecnica">4.  Economistas dudan que PIB crezca 4% en 2028, la nueva proyección que maneja Quiroz tras admitir que Chile se encuentra en recesión técnica</a></li><li class="toc-l2"><a href="#5-estudio-plantea-que-la-ia-podria-traducirse-en-trabajadores-mas-informales-y-de-menor-calidad">5.  Estudio plantea que la IA podría traducirse en trabajadores más informales y de menor calidad</a></li><li class="toc-l2"><a href="#6-df-tax-valoracion-tributaria-con-reglas-conocidas">6.  DF Tax | Valoración tributaria con reglas conocidas</a></li><li class="toc-l2"><a href="#7-df-tax-nuevas-reglas-para-el-traslado-de-mercaderias">7.  DF Tax | Nuevas reglas para el traslado de mercaderías</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-jensen-huang-renuncia-como-director-ejecutivo-de-nvidia-y-las-acciones-del-fabricante-de-chips-caen-mas-de-10">1.  Jensen Huang renuncia como director ejecutivo de Nvidia y las acciones del fabricante de chips caen más de 10%</a></li><li class="toc-l2"><a href="#2-musk-dice-que-seria-un-honor-contratar-a-jensen-huang-mientras-el-directorio-de-nvidia-evalua-su-futuro">2.  Musk dice que sería un honor contratar a Jensen Huang mientras el directorio de Nvidia evalúa su futuro</a></li><li class="toc-l2"><a href="#3-en-su-regreso-a-peru-leon-xiv-pone-el-foco-en-el-trabajo-y-llama-a-generar-oportunidades-reales-para-los-jovenes">3.  En su regreso a Perú, León XIV pone el foco en el trabajo y llama a generar oportunidades reales para los jóvenes</a></li><li class="toc-l2"><a href="#4-nuevo-escandalo-golpea-a-nvidia-firma-se-estaria-preparando-para-destituir-al-ceo-tras-conocerse-segunda-relacion-extramarital">4.  Nuevo escándalo golpea a Nvidia: firma se estaría preparando para destituir al CEO tras conocerse segunda relación extramarital</a></li><li class="toc-l2"><a href="#5-de-las-promesas-a-las-inversiones-la-cop31-pone-a-prueba-el-financiamiento-de-la-transicion-climatica">5.  De las promesas a las inversiones: la COP31 pone a prueba el financiamiento de la transición climática</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-anthropic-define-la-fecha-para-su-esperada-apertura-a-bolsa-en-el-nasdaq">1.  Anthropic define la fecha para su esperada apertura a bolsa en el Nasdaq</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-innovacion-para-el-liderazgo-minero">1.  Innovación para el liderazgo minero</a></li><li class="toc-l2"><a href="#2-mas-plazo-no-mas-espera">2.  Más plazo, no más espera</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>12 De Noviembre De 2026</p><p>6 secciones  ·  26 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-se-dispara-casi-10-y-vuelve-a-arriesgar-los-1000-tras-comentarios-de-trump-no-necesitamos-un-acuerdo-con-iran"><strong>1.  Dólar se dispara casi $ 10 y vuelve a arriesgar los $ 1.000 tras comentarios de Trump: "No necesitamos un acuerdo con Irán"</strong></h2><p>El dólar subió cerca de $ 9,4 hasta unos $ 994 en Chile y el peso fue la moneda emergente más golpeada, después de que Trump dijera en Truth Social que Estados Unidos no necesita un acuerdo con Irán, lo que reavivó temores sobre las negociaciones. El Brent avanzó 1,7% a US$ 94,2 el barril, mientras que en el mercado de bonos del Tesoro, de vuelta tras el feriado, la tasa a dos años subió 7,4 puntos base y la de 10 años 6 puntos base. Los futuros del cobre cayeron 1,5% a US$ 6,18 la libra en Londres, lo que sumó presión sobre la divisa local. El viernes se publicarán los precios al productor de octubre en EE.UU., con un alza esperada de 0,4% mensual en el índice general y 0,3% en el subyacente.</p><h2 id="2-ana-botin-vuelve-a-apostar-por-santander-y-sube-su-participacion-en-el-banco-tras-compra-de-acciones"><strong>2.  Ana Botín vuelve a apostar por Santander y sube su participación en el banco tras compra de acciones</strong></h2><p>La presidenta ejecutiva de Santander, Ana Botín, compró 500.000 acciones del banco a fines de octubre, con lo que su participación supera los 35 millones de títulos (0,24% del capital) y vale cerca de 400 millones de euros. La compañía lo presentó como una muestra de confianza en su estrategia, que apunta a más de 20.000 millones de euros de beneficios y un ROTE de 20% en 2028. Desde que asumió, el precio de la acción subió más de 50%, el banco es el más valioso de Europa continental con más de 160.000 millones de euros de capitalización y acumula cerca de 12% de alza en el año. Botín ha comprado casi 12 millones de acciones en una década y, aunque dijo que no habrá otro Botín al frente, el Financial Times informó que evalúa pasar algún día a presidenta no ejecutiva.</p><h2 id="3-entel-se-dispara-mas-de-7-en-bolsa-y-lidera-las-alzas-del-ipsa-por-inicio-de-proceso-para-venta-de-operacion-en-peru"><strong>3.  Entel se dispara más de 7% en bolsa y lidera las alzas del IPSA por inicio de proceso para venta de operación en Perú</strong></h2><p>La acción de Entel subió 7,42% a $ 4.361 y lideró el IPSA tras conocerse que contrató un banco de inversión para buscar compradores de su filial peruana, mientras Almendral avanzó 6,56%. Perú aporta 38% de los ingresos operacionales del grupo y entre enero y septiembre generó US$ 923,8 millones (+7% anual) con un Ebitda de US$ 246,7 millones (+12,6%) y un margen que subió de 25,4% a 26,7%. Millicom aparece entre los posibles interesados, aunque el proceso está en etapa preliminar y no hay certeza de que se concrete una transacción ni de su valorización. La eventual venta marcaría un giro estratégico justo cuando el negocio peruano empieza a mostrar mejores resultados tras años de fuertes inversiones.</p><h2 id="4-eduardo-ebensperger-gerente-general-de-banco-de-chile-me-gustaria-seguir-ligado-a-este-mundo-todavia-no-me-voy-a-jubilar"><strong>4.  Eduardo Ebensperger, gerente general de Banco de Chile: “Me gustaría seguir ligado a este mundo, todavía no me voy a jubilar”</strong></h2><p>Ebensperger explica que su salida de la gerencia general, el 2 de abril de 2027, es un cambio planificado con el directorio y los controladores, y que el banco necesita renovar liderazgos; durante su gestión las utilidades pasaron de $ 552 mil millones a $ 1,19 billones. Sostiene que Hernán Arellano era uno de varios candidatos preparados para sucederlo y que en los cinco meses de transición se cerrarán temas en curso, no nuevos proyectos. Respecto de Transbank, dice que el compromiso con la autoridad de pasar al modelo de cuatro partes sigue pendiente y que lo definirán los accionistas o su sucesor. Sobre el Fonavi, opina que con un deducible de 3,5% no resulta atractivo, pues el riesgo de la cartera hipotecaria es de apenas 0,2%-0,3%, y que el objetivo debe ser bajar el dividendo para aumentar la demanda; además espera que la banca impulse el empleo y el crecimiento el próximo año.</p><h2 id="5-sondeo-de-santander-firmas-chilenas-apuestan-por-expansion-global-pese-a-la-incertidumbre"><strong>5.  Sondeo de Santander: firmas chilenas apuestan por expansión global pese a la incertidumbre</strong></h2><p>El Santander Global Trade Barometer 2026, basado en más de 6.000 encuestas en nueve mercados, muestra a las empresas chilenas más optimistas que el promedio: 72% espera subir ingresos en los próximos 12 meses (59% global) y 62% ya lo hizo el último año (50% global). El 81% considera expandirse al exterior en tres años, con México (38%), Argentina (28%) y Canadá (27%) como destinos más atractivos. En el corto plazo preocupan los costos e inflación (31%) y el precio del transporte (24%), mientras que a 12-24 meses el mayor riesgo es el débil crecimiento mundial (33%) y los riesgos geopolíticos y regulatorios (31%). Para ganar resiliencia, 43% acercó sus cadenas de suministro al mercado nacional, frente a 28% del promedio global.</p><h2 id="6-mercado-apuesta-por-repunte-del-retail-en-2027-con-la-accion-de-falabella-a-la-cabeza"><strong>6.  Mercado apuesta por repunte del retail en 2027 con la acción de Falabella a la cabeza</strong></h2><p>Las corredoras prevén un cambio de ciclo para el retail en 2027 tras un 2026 de consumo estancado y alta base de comparación por el turismo de compras de 2025. El principal catalizador es un crecimiento esperado del PIB de 2,8% a 3%, apoyado en la Ley de Reconstrucción, una posible mejora del empleo (el desempleo está en 9,8%) y menores precios de combustibles que aliviarían el bolsillo de los hogares. Falabella destaca tras un alza de 18% en utilidades del tercer trimestre a US$ 196 millones; Bci Corredora la prefiere con precio objetivo de $ 8.100, pues su motor financiero explica 60% del crecimiento del Ebitda, además de Mallplaza y la recuperación del grado de inversión. LarrainVial AM la considera una de las más atractivas del mercado local, con mejoras operativas que se reflejarían hacia 2028 y 2029.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-crisis-obliga-a-los-vinedos-chilenos-a-reinventar-sus-negocios"><strong>1.  Crisis obliga a los viñedos chilenos a reinventar sus negocios</strong></h2><p>Según Bloomberg, la crisis del sector vitivinícola chileno lleva a que muchos viñedos valgan hoy más para proyectos inmobiliarios, turismo u otros cultivos que para seguir produciendo Cabernet Sauvignon. El artículo disponible solo incluye la bajada, por lo que no se conocen cifras ni detalles adicionales. El hecho de fondo es una reconversión de los negocios del rubro, hogar de la cepa Carménère, ante la menor rentabilidad del vino.</p><h2 id="2-bernardo-fontaine-no-esta-en-el-horizonte-la-privatizacion-de-codelco-y-nunca-lo-ha-estado-en-el-gobierno-del-presidente-kast"><strong>2.  Bernardo Fontaine: “No está en el horizonte la privatización de Codelco y nunca lo ha estado en el gobierno del Presidente Kast"</strong></h2><p>El presidente del directorio de Codelco rechazó que exista un plan de privatización y respondió a las críticas del PS y de la Federación de Trabajadores del Cobre, afirmando que las producciones falsas de 2024 y 2025 fueron detectadas por auditores internos y externos. Su prioridad es el plan de recuperación, que espera tener listo a fines de año, y luego modernizar la ley de asociaciones con privados, que considera engorrosa, para sumar socios solo en proyectos nuevos, como Pucobre en Tovaku o BHP en Anillos. Sostiene que las asociaciones son la única forma de mantener e incluso aumentar la producción, que este año será de 1,2 millones de toneladas (con una caída de 9% a septiembre) y similar en 2027, con riesgo de bajar después. Cita como ejemplo a El Abra, que ha dado más de US$ 2.400 millones en dividendos y ejecuta un proyecto de US$ 7.500 millones.</p><h2 id="3-nueva-falla-electrica-provoca-desconexion-de-pmgd-y-coordinador-limita-al-15-inyeccion-de-121-instalaciones"><strong>3.  Nueva falla eléctrica provoca desconexión de PMGD y coordinador limita al 15% inyección de 121 instalaciones</strong></h2><p>Una falla de 220 kV entre Chena y Cerro Navia el 8 de noviembre, despejada en unos 75 milisegundos, provocó la desconexión de numerosos PMGD, con una caída de frecuencia a 48,93 Hz y una pérdida de generación de unos 520 MW. El Coordinador Eléctrico exigió antecedentes técnicos a 121 instalaciones hasta el 13 de noviembre y, desde el 10, limitó su inyección al 15% de la capacidad instalada (85% de restricción), medida transitoria con efecto económico para los generadores. El episodio reabre el debate sobre el rol de los PMGD, ya cuestionados en el apagón de febrero de 2025, y podría tensar la relación con un Ministerio de Energía que busca corregir distorsiones del segmento. El coordinador busca verificar el comportamiento de las protecciones y resguardar la seguridad del sistema mientras avanzan los análisis.</p><h2 id="4-subtel-constata-incumplimiento-de-wom-en-hito-del-proyecto-5g-y-ejecuta-boletas-por-us-26-millones"><strong>4.  Subtel constata incumplimiento de WOM en hito del Proyecto 5G y ejecuta boletas por US$ 2,6 millones</strong></h2><p>Subtel determinó que WOM incumplió el hito del 30 de septiembre, que exigía tener operativo el 90% del proyecto 5G pendiente: logró 53,01% en 700 MHz, 68,21% en AWS y 67,55% en 3,5 GHz. Por ello ejecutó boletas por 62.749 UF (unos US$ 2,6 millones), que se suman a 950.000 UF (cerca de US$ 38 millones) que la empresa debe pagar en cuotas anuales entre 2027 y 2030. El próximo y último hito es el 31 de diciembre, cuando debe tener el 100% de la infraestructura comprometida operativa y recepcionada, so pena de sanciones adicionales. WOM afirma que 92% de las antenas del proyecto de más de 5.000 sitios ya está operativo y atribuye los retrasos a emergencias climáticas, mientras la subsecretaria Romina Garrido dice que el acuerdo con el CDE fue favorable a la empresa y que fiscalizaciones del regulador subieron más de 73% entre 2025 y 2026.</p><h2 id="5-precio-del-litio-se-duplica-y-chile-mantiene-el-tercer-lugar-como-productor-mundial-aunque-baja-su-participacion"><strong>5.  Precio del litio se duplica y Chile mantiene el tercer lugar como productor mundial aunque baja su participación</strong></h2><p>Según Cochilco, el carbonato de litio llegó a US$ 18.950 por tonelada el 24 de septiembre, un alza de 102,7% desde enero de 2025, impulsada por restricciones de oferta (prohibición de exportaciones de Zimbabue y paralización de una mina de CATL) y por la demanda de almacenamiento en baterías ligado a centros de datos. La demanda mundial llegaría a 2,08 millones de toneladas LCE en 2026 (+25%) y 2,25 millones en 2027 (+8%), con una oferta que crecería 14,4% en 2027 y llevaría el mercado a superávit, con un precio promedio estimado de US$ 18.500. Chile baja de 19% a 17% de la oferta mundial en 2026, tercero tras Australia (28%) y China (23%), pero lidera en reservas con 25% del total y está en el primer cuartil de costos. Entre los riesgos se mencionan más oferta de mina, una desaceleración de los data centers y un menor crecimiento de China, que retira subsidios a baterías y vehículos eléctricos.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-suspicacias-genera-en-la-dc-oficio-reservado-de-la-sp-pidiendo-mas-plazo-a-contraloria-para-responder"><strong>1.  Suspicacias genera en la DC oficio reservado de la SP pidiendo más plazo a Contraloría para responder</strong></h2><p>La Contraloría, a solicitud de diputados de la DC, FRVS e independientes, pidió a la Superintendencia de Pensiones informar si adoptó medidas para evitar casos como el de los fondos D y E. La SP solicitó más plazo mediante un oficio reservado y el órgano contralor le concedió una prórroga de cinco días hábiles. En la DC generó suspicacias el carácter reservado, y el diputado Patricio Pinilla pidió que la respuesta sea totalmente transparente, pues la ciudadanía necesita saber cómo ejerció su rol de control el regulador cuando se hicieron las malas inversiones que dañaron las pensiones. La bancada teme que la SP invoque reserva para su respuesta definitiva.</p><h2 id="2-gobierno-ingresa-al-congreso-proyecto-que-congela-precios-de-los-combustibles-hasta-febrero-costara-al-fisco-us-547-millones"><strong>2.  Gobierno ingresa al Congreso proyecto que congela precios de los combustibles hasta febrero: costará al Fisco US$ 547 millones</strong></h2><p>El gobierno ingresó con discusión inmediata un proyecto de 19 páginas que revierte el último alza de ENAP ($ 38,7 por litro en gasolinas y $ 41,9 en diésel) y congela los precios hasta el 3 de febrero de 2027 mediante límites al Mepco, en respuesta al paro de camioneros. Además permite a los transportistas diferir montos negativos de recuperación del impuesto específico como débito fiscal y fija una escala excepcional de recuperación del impuesto al diésel según ingresos: 80%, 70%, 52,5% y 31% de menor a mayor tramo. El costo fiscal es de US$ 547 millones (US$ 405 millones en menores ingresos durante dos años y US$ 141 millones en mayor gasto del Mepco), financiado con venta de activos del Tesoro. El mensaje recuerda que el diésel internacional subió cerca de 80% y las gasolinas 40% por la guerra en Medio Oriente, y que el Fisco ya gastó más de US$ 1.400 millones en contener precios desde el inicio del conflicto.</p><h2 id="3-el-peso-de-la-industria-camionera-en-chile-emplea-a-cerca-de-250-mil-personas-y-mueve-el-92-de-la-carga-nacional"><strong>3.  El peso de la industria camionera en Chile: emplea a cerca de 250 mil personas y mueve el 92% de la carga nacional</strong></h2><p>En medio del paro de camioneros por el alza de los combustibles, el artículo dimensiona el sector: unas 250 mil personas empleadas directamente, equivalentes a cerca del 82% del empleo minero, y un parque de 230 mil camiones más 100 mil equipos de arrastre. Los contribuyentes del rubro ante el SII pasaron de 33.555 en 2005 a 81.570, con 76,4% de micro y pequeñas empresas y solo 2,4% medianas y grandes. El gremio estima que representa cerca del 6% del PIB, comparable a la construcción, y que mueve 92% de la carga nacional, unos 370 millones de toneladas al año, con minería y construcción como grandes demandantes. Esto explica la preocupación por los efectos de la paralización sobre el abastecimiento y la actividad productiva.</p><h2 id="4-economistas-dudan-que-pib-crezca-4-en-2028-la-nueva-proyeccion-que-maneja-quiroz-tras-admitir-que-chile-se-encuentra-en-recesion-tecnica"><strong>4.  Economistas dudan que PIB crezca 4% en 2028, la nueva proyección que maneja Quiroz tras admitir que Chile se encuentra en recesión técnica</strong></h2><p>El ministro Quiroz admitió por primera vez que Chile está en recesión técnica por shocks de oferta, sobre todo la caída del cobre, y adelantó a 2028 la meta de crecimiento de 4%; la actividad cayó 0,3%, 0,2% y 0,8% en los tres primeros trimestres y el mercado espera variación nula del PIB en 2026. Los economistas dudan de la meta: Pacífico Research proyecta 2,8% para 2028 y Coopeuch 2,3%, mientras Montero ve hasta 3%, y para 2027 las estimaciones van de 2,5% a 3,2%, en torno al 3,3% del gobierno. Recomiendan agilizar permisos de inversión, crear empleo y abordar la productividad, y advierten que la debilidad de la confianza y el mercado laboral podría frenar la recuperación, aunque el Imacec no minero de septiembre creció 2,0%. Solo Gemines ve posible el 4% con una resolución de la guerra en Irán y los efectos de la ley de reconstrucción, aunque advierte que apostar tan alto es arriesgado.</p><h2 id="5-estudio-plantea-que-la-ia-podria-traducirse-en-trabajadores-mas-informales-y-de-menor-calidad"><strong>5.  Estudio plantea que la IA podría traducirse en trabajadores más informales y de menor calidad</strong></h2><p>Un estudio de la UAI proyecta que la IA no elevaría mucho el desempleo, pero sí deterioraría la calidad del empleo, desplazando trabajadores administrativos, profesionales y técnicos hacia labores menos expuestas pero más informales (37,1% de informalidad frente a 10,2% en los cargos cognitivos). Hacia 2030, el PIB no minero quedaría 1,0%, 4,1% o 14,4% sobre su trayectoria sin IA según el escenario de adopción, siempre menos que en EE.UU. En el escenario extremo habría unos 220 mil desempleados adicionales y 520 mil puestos cognitivos menos, con desempleo total de 10,1% en 2030 y salarios cognitivos 5,9% bajo su trayectoria. El informe recomienda que cada inversión en IA incluya un plan de reubicación de personas, y Andrés Velasco agregó que el empleo debe ser prioridad, con el desempleo en 9,8%, y que la IA ofrece oportunidades a quienes no tienen formación tradicional.</p><h2 id="6-df-tax-valoracion-tributaria-con-reglas-conocidas"><strong>6.  DF Tax | Valoración tributaria con reglas conocidas</strong></h2><p>El presidente de la Comisión Tributaria del Colegio de Contadores defiende los lineamientos de valoración que prepara el SII tras la modificación del artículo 64 del Código Tributario por la Ley 21.713. Cita que, en 539 fallos entre 2012 y 2026, 47,5% confirmó íntegramente las liquidaciones del SII, 32,3% acogió los reclamos y 20,2% lo hizo parcialmente, lo que muestra la alta litigiosidad en materia de valoración. Sostiene que el borrador no crea obligaciones ni métodos nuevos, sino que ordena la labor del fiscalizador y entrega un marco conocido basado en estándares internacionales, similar a lo hecho en precios de transferencia, Australia y Perú. Propone avanzar hacia estándares mínimos de contenido para los informes, algo relevante también para la norma transitoria de donaciones de la Ley 21.850.</p><h2 id="7-df-tax-nuevas-reglas-para-el-traslado-de-mercaderias"><strong>7.  DF Tax | Nuevas reglas para el traslado de mercaderías</strong></h2><p>Desde el 1 de noviembre de 2026 rige la resolución N° 144 del SII, que reemplaza a la N° 154 de 2025 y exige que facturas y guías de despacho incluyan más detalle: origen y destino efectivo, conductor, cédula, RUT del transportista, patente y descripción de los bienes. Se permite marcar datos como diferidos o sin dato y complementarlos después, y se crea la Guía de Despacho Tercerizada (GDT) y la interoperabilidad, con régimen transitorio hasta el 1 de mayo de 2027. Las empresas deben informar al SII su modelo de transporte y logística a más tardar el 31 de enero de 2027 y mantenerlo al menos seis meses; si no lo hacen se asume transporte autogestionado. Se recomienda revisar desde ya los procesos de facturación, la información de los transportistas y la coordinación entre sistemas.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-jensen-huang-renuncia-como-director-ejecutivo-de-nvidia-y-las-acciones-del-fabricante-de-chips-caen-mas-de-10"><strong>1.  Jensen Huang renuncia como director ejecutivo de Nvidia y las acciones del fabricante de chips caen más de 10%</strong></h2><p>Jensen Huang renunció como CEO de Nvidia tras revelarse dos relaciones extramatrimoniales, una de ellas con una mujer considerada por autoridades estadounidenses como posible espía china, y será reemplazado por la directora financiera Colette Kress. La acción cayó más de 10% antes de la apertura, profundizando las pérdidas previas, en una crisis para la empresa clave del auge global de la IA, que hasta hace poco fue la más valiosa del mundo. Huang, de 63 años y cofundador en 1993, lideró por más de 33 años la transformación de Nvidia desde chips para videojuegos hasta el eje de la infraestructura de inteligencia artificial.</p><h2 id="2-musk-dice-que-seria-un-honor-contratar-a-jensen-huang-mientras-el-directorio-de-nvidia-evalua-su-futuro"><strong>2.  Musk dice que sería un honor contratar a Jensen Huang mientras el directorio de Nvidia evalúa su futuro</strong></h2><p>Elon Musk respondió en X que sería un honor contratar a Jensen Huang, quien enfrenta el riesgo de ser destituido por reportes de relaciones extramaritales, incluida una con una presunta espía de China y otra con una subordinada directa según el New York Times. El directorio de Nvidia se reunía para evaluar un futuro sin su fundador. Musk y Huang se conocen desde hace al menos una década y viajaron juntos con Trump a China; además, Nvidia es proveedor clave de GPU para Tesla, que las usa para entrenar modelos de conducción autónoma y robótica aunque desarrolla chips propios.</p><h2 id="3-en-su-regreso-a-peru-leon-xiv-pone-el-foco-en-el-trabajo-y-llama-a-generar-oportunidades-reales-para-los-jovenes"><strong>3.  En su regreso a Perú, León XIV pone el foco en el trabajo y llama a generar oportunidades reales para los jóvenes</strong></h2><p>En su visita a Perú, el papa León XIV destacó ante la presidenta Keiko Fujimori la dignidad del trabajo de agricultores, pescadores y pequeños comerciantes, y pidió generar oportunidades reales de empleo para los jóvenes tras su paso por la educación. Pidió garantías jurídicas frente a los riesgos de la inteligencia artificial, orientar la tecnología al bien común y cuidar la naturaleza y a las comunidades en la explotación de recursos como la minería. Fujimori planteó la reconciliación nacional como tarea urgente y señaló que la inversión solo es sostenible si genera prosperidad compartida, y defendió preparar a los jóvenes frente a la IA con pensamiento crítico. El Papa continuará con un discurso en Lima y una vigilia con jóvenes y universitarios.</p><h2 id="4-nuevo-escandalo-golpea-a-nvidia-firma-se-estaria-preparando-para-destituir-al-ceo-tras-conocerse-segunda-relacion-extramarital"><strong>4.  Nuevo escándalo golpea a Nvidia: firma se estaría preparando para destituir al CEO tras conocerse segunda relación extramarital</strong></h2><p>El New York Times informó que Huang también mantuvo una relación con Kimberly Powell, vicepresidenta de salud de Nvidia, lo que se suma a su vínculo con Alice Huang, ejecutiva de Megaspeed, cliente en el sudeste asiático investigado por posible contrabando de chips avanzados. El directorio convocó una reunión de emergencia y abrió una investigación independiente para determinar si se expuso información sensible, aunque no se ha establecido que Huang entregara secretos; Nvidia y Megaspeed niegan irregularidades y China rechaza las acusaciones. La acción caía 6,8% antes de la apertura, y el caso expone el riesgo de gobierno corporativo por la fuerte dependencia de Huang y la falta de un sucesor claro, en un momento de restricciones de EE.UU. a las exportaciones de chips a China.</p><h2 id="5-de-las-promesas-a-las-inversiones-la-cop31-pone-a-prueba-el-financiamiento-de-la-transicion-climatica"><strong>5.  De las promesas a las inversiones: la COP31 pone a prueba el financiamiento de la transición climática</strong></h2><p>En la cumbre de líderes de la COP31 en Antalya, Lula pidió asegurar la meta de US$ 1,3 billones anuales de financiamiento climático, mientras ODI Global estima que solo la adaptación de países en desarrollo requerirá US$ 305 mil millones al año a 2035. Los países en desarrollo exigen más aportes públicos de las economías avanzadas, que prefieren ampliar fuentes; la UE dice haber aportado más de 32 mil millones de euros el último año y Turquía impulsa el Climate Implementation Bridge para atraer inversión. La seguridad energética, agravada por la crisis en Ormuz, y la ausencia de líderes de EE.UU., China, Francia y Alemania complican la coordinación. La OMM informó que entre enero y septiembre la temperatura global estuvo 1,47 °C sobre niveles preindustriales.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-anthropic-define-la-fecha-para-su-esperada-apertura-a-bolsa-en-el-nasdaq"><strong>1.  Anthropic define la fecha para su esperada apertura a bolsa en el Nasdaq</strong></h2><p>Anthropic fijó el calendario de su salida a bolsa en el Nasdaq con el símbolo ANT: precio final previsto el 18 de noviembre y primera cotización el 19, con colocación a través de Schwab, E-Trade, Fidelity, Robinhood y SoFi. Ofrecerá 825 millones de acciones entre US$ 70 y US$ 78, para recaudar entre US$ 57 mil y US$ 64 mil millones y una valorización cercana a US$ 1,3 billones, que según el Financial Times podría subir a US$ 1,5 billones o más por la alta demanda. Sus ingresos a septiembre superan US$ 33 mil millones (más de 1.200% sobre 2025), con ventas del tercer trimestre 46,7% sobre el trimestre previo, aunque el gasto en cómputo creció 77,5%; la pérdida operativa bajó de unos US$ 5.200 millones a US$ 1.260 millones.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-innovacion-para-el-liderazgo-minero"><strong>1.  Innovación para el liderazgo minero</strong></h2><p>El editorial plantea que la caída de 12,1% anual de la actividad minera en septiembre, la peor del acumulado en dos décadas, muestra la dificultad estructural de Chile para recuperar su principal industria exportadora, justo cuando la IA y la electrificación elevan la demanda de cobre. Para mantener el liderazgo se requiere reponer reservas, destrabar proyectos, aumentar la productividad e incorporar tecnología, con espacios de pilotaje de las mineras y proveedores que cumplan estándares exigentes. Cita a KoBold Metals, cuyo CTO dijo que Chile está subexplorado, y destaca el encuentro Mining MAS Pitch como instancia para acercar innovación a los problemas operacionales, con potencial de crear proveedores tecnológicos de proyección internacional.</p><h2 id="2-mas-plazo-no-mas-espera"><strong>2.  Más plazo, no más espera</strong></h2><p>El proyecto que posterga la entrada en vigencia de la Ley 21.719 de protección de datos personales ya fue aprobado por el Senado y está en la Cámara, con nueva fecha propuesta del 15 de octubre de 2027; mientras no se publique, sigue vigente el 1 de diciembre de 2026. El editorial considera razonable ampliar el plazo para instalar la Agencia de Protección de Datos, pero advierte que las empresas no deben usarlo para seguir esperando. La protección de datos es un tema de compliance y gobierno corporativo que exige identificar riesgos, responsables, proveedores, controles y evidencia, por lo que el tiempo adicional debe servir para prepararse mejor.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

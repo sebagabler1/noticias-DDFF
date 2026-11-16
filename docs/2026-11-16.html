@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-16.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Lunes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">16 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-abre-al-alza-y-retoma-los-niveles-de-1000-mientras-agentes-esperan-los-comentarios-del-presidente-de-la-fed">1.  Dólar abre al alza y retoma los niveles de $ 1.000 mientras agentes esperan los comentarios del presidente de la Fed</a></li><li class="toc-l2"><a href="#2-goldman-sachs-anticipa-una-normalizacion-de-los-precios-del-petroleo-y-preve-que-el-brent-baje-hasta-los-us-78-por-barril-a-fines-de-2027">2.  Goldman Sachs anticipa una normalización de los precios del petróleo y prevé que el Brent baje hasta los US$ 78 por barril a fines de 2027</a></li><li class="toc-l2"><a href="#3-el-cobre-toca-un-minimo-de-cuatro-meses-en-londres-ante-el-fortalecimiento-del-dolar">3.  El cobre toca un mínimo de cuatro meses en Londres ante el fortalecimiento del dólar</a></li><li class="toc-l2"><a href="#4-presidente-de-nuevo-gremio-de-corredoras-de-bolsa-y-reforma-de-mk4-se-esta-mejorando-la-carretera-para-que-vengan-a-transitar-distintos-actores">4.  Presidente de nuevo gremio de corredoras de bolsa y reforma de MK4: “Se está mejorando la carretera para que vengan a transitar distintos actores”</a></li><li class="toc-l2"><a href="#5-bernardita-piedrabuena-excomisionada-la-cmf-tiene-menos-herramientas-de-las-que-son-necesarias-para-enfrentar-una-crisis-bancaria">5.  Bernardita Piedrabuena, excomisionada: “La CMF tiene menos herramientas de las que son necesarias para enfrentar una crisis bancaria”</a></li><li class="toc-l2"><a href="#6-apuesta-por-el-lujo-en-espana-sigue-al-alza-inmobiliaria-chilena-capta-us-28-millones-de-family-offices">6.  Apuesta por el lujo en España sigue al alza: inmobiliaria chilena capta US$ 28 millones de family offices</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-agricola-las-astas-ligada-a-alejandro-perez-ingresa-a-coexca-segundo-productor-de-carne-de-cerdo-en-chile-con-participacion-de-9">1.  Agrícola Las Astas, ligada a Alejandro Pérez, ingresa a Coexca, segundo productor de carne de cerdo en Chile, con participación de 9%</a></li><li class="toc-l2"><a href="#2-metro-casi-sin-locales-disponibles-las-cadenas-que-se-disputan-el-comercio-subterraneo">2.  Metro casi sin locales disponibles: las cadenas que se disputan el comercio subterráneo</a></li><li class="toc-l2"><a href="#3-del-terremoto-a-la-empanada-frita-la-pugna-marcaria-por-el-nombre-el-hoyo">3.  Del terremoto a la empanada frita: La pugna marcaria por el nombre El Hoyo</a></li><li class="toc-l2"><a href="#4-nuevo-proyecto-con-viviendas-y-hotel-a-pasos-de-mall-alto-las-condes">4.  Nuevo proyecto con viviendas y hotel a pasos de mall Alto Las Condes</a></li><li class="toc-l2"><a href="#5-codelco-lleva-a-la-corte-suprema-disputa-con-fiscalia-y-el-dictuc-tras-investigacion-por-accidente-de-el-teniente">5.  Codelco lleva a la Corte Suprema disputa con Fiscalía y el Dictuc tras investigación por accidente de El Teniente</a></li><li class="toc-l2"><a href="#6-gremio-de-choritos-2026-fue-un-ano-de-rentabilidades-historicamente-buenas">6.  Gremio de choritos: “2026 fue un año de rentabilidades históricamente buenas”</a></li><li class="toc-l2"><a href="#7-chile-seria-el-mayor-productor-de-harina-de-pescado-en-america-por-primera-vez-en-37-anos">7.  Chile sería el mayor productor de harina de pescado en América por primera vez en 37 años</a></li><li class="toc-l2"><a href="#8-alejandro-tapia-presidente-de-escondida-nos-vamos-a-mantener-en-el-liderazgo-de-la-industria-del-cobre-a-nivel-mundial-por-lo-menos-hasta-2040">8.  Alejandro Tapia, presidente de Escondida: “Nos vamos a mantener en el liderazgo de la industria del cobre a nivel mundial por lo menos hasta 2040”</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-cfa-levanta-alertas-sobre-el-impacto-fiscal-del-acuerdo-entre-el-gobierno-y-los-camioneros-por-sus-efectos-sobre-el-mepco">1.  CFA levanta alertas sobre el impacto fiscal del acuerdo entre el gobierno y los camioneros por sus efectos sobre el Mepco</a></li><li class="toc-l2"><a href="#2-timonel-de-sonami-jorge-riesco-en-la-gira-presidencial-a-asia-la-mineria-esta-lejos-de-estar-en-crisis">2.  Timonel de Sonami, Jorge Riesco, en la gira presidencial a Asia: “La minería está lejos de estar en crisis”</a></li><li class="toc-l2"><a href="#3-claves-del-congreso-proyecto-de-presupuestos-aterriza-en-el-senado-con-el-desafio-de-revertir-el-rechazo-a-siete-partidas">3.  Claves del Congreso: proyecto de presupuestos aterriza en el Senado con el desafío de revertir el rechazo a siete partidas</a></li><li class="toc-l2"><a href="#4-el-directo-mensaje-de-kast-a-los-empresarios-de-vietnam-venimos-con-la-mision-clara-de-buscar-mas-inversion-y-empleo">4.  El directo mensaje de Kast a los empresarios de Vietnam: &quot;Venimos con la misión clara de buscar más inversión y empleo&quot;</a></li><li class="toc-l2"><a href="#5-chile-clima-extremo-factor-ambiental-sube-con-fuerza-entre-los-riesgos-que-ve-el-empresariado">5.  Chile, clima extremo: factor ambiental sube con fuerza entre los riesgos que ve el empresariado</a></li><li class="toc-l2"><a href="#6-a-dos-anos-del-acuerdo-de-doble-tributacion-casi-se-duplican-las-inversiones-chilenas-en-eeuu">6.  A dos años del acuerdo de doble tributación, casi se duplican las inversiones chilenas en EEUU</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-shenzhen-la-futurista-ciudad-que-recibe-a-la-apec-y-muestra-a-trump-lo-dificil-que-es-frenar-a-china">1.  Shenzhen: la futurista ciudad que recibe a la APEC y muestra a Trump lo difícil que es frenar a China</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-df-lab-opinion-la-ia-no-comienza-con-la-ia">1.  DF Lab Opinión/ La IA no comienza con la IA</a></li><li class="toc-l2"><a href="#2-tensiones-por-los-chips-amenazan-con-eclipsar-la-cumbre-entre-trump-y-xi-mientras-eeuu-y-china-impulsan-medidas-de-seguridad-en-ia">2.  Tensiones por los chips amenazan con eclipsar la cumbre entre Trump y Xi, mientras EEUU y China impulsan medidas de seguridad en IA</a></li><li class="toc-l2"><a href="#3-haulmer-adquiere-a-la-fintech-de-inversion-inmobiliaria-fraccional">3.  Haulmer adquiere a la fintech de inversión inmobiliaria Fraccional</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-ciberseguridad-condicion-para-hacer-negocios">1.  Ciberseguridad: condición para hacer negocios</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>16 De Noviembre De 2026</p><p>6 secciones  ·  25 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-abre-al-alza-y-retoma-los-niveles-de-1000-mientras-agentes-esperan-los-comentarios-del-presidente-de-la-fed"><strong>1.  Dólar abre al alza y retoma los niveles de $ 1.000 mientras agentes esperan los comentarios del presidente de la Fed</strong></h2><p>El dólar abrió la semana en $ 999,9, tras tocar por primera vez desde abril de 2025 los $ 1.000 durante el viernes, impulsado por el avance del índice dólar a máximos de casi 20 meses y por rendimientos del Tesoro al alza. El cobre en Londres cayó 1% a mínimos desde julio, cerca de US$ 6,02 por libra, lo que añade presión al peso chileno. Analistas consideran que el mercado sigue cauto con las monedas emergentes y que el plan de la Dipres de vender hasta US$ 1.000 millones semanales en noviembre podría amortiguar el alza. La semana trae las palabras del presidente de la Fed, las minutas del FOMC, los resultados de Nvidia, el debut bursátil de Anthropic y la cumbre APEC con Xi, Trump y Putin.</p><h2 id="2-goldman-sachs-anticipa-una-normalizacion-de-los-precios-del-petroleo-y-preve-que-el-brent-baje-hasta-los-us-78-por-barril-a-fines-de-2027"><strong>2.  Goldman Sachs anticipa una normalización de los precios del petróleo y prevé que el Brent baje hasta los US$ 78 por barril a fines de 2027</strong></h2><p>Goldman Sachs proyecta que el Brent promediará US$ 88 el próximo año y cerrará 2027 en US$ 78, mientras el WTI promediaría US$ 78 en 2027 y terminaría en US$ 70. Su escenario base contempla un superávit de oferta de 2 millones de barriles diarios en 2027, con precios de refinados a la baja pero aún elevados, como un diésel mayorista en EE.UU. cercano a US$ 150 por barril. El banco advierte riesgos alcistas de corto plazo por ataques al transporte marítimo y daños a infraestructura en Medio Oriente, y riesgos bajistas a mediano plazo por más oferta o menos demanda. El petróleo caía el lunes mientras los envíos por Ormuz se acercaban a niveles previos a la guerra.</p><h2 id="3-el-cobre-toca-un-minimo-de-cuatro-meses-en-londres-ante-el-fortalecimiento-del-dolar"><strong>3.  El cobre toca un mínimo de cuatro meses en Londres ante el fortalecimiento del dólar</strong></h2><p>El cobre a tres meses en la LME cayó 0,9% a US$ 13.273,50 por tonelada, su tercera baja consecutiva y el nivel más bajo desde el 8 de julio. Pesan las dudas sobre la inversión en inteligencia artificial y un dólar fortalecido por el tono restrictivo de la Fed y una inflación de octubre superior a lo esperado, lo que encarece los metales para compradores en otras monedas. Analistas de Commerzbank señalan que el metal sigue atado a la caída de las acciones tecnológicas y que, tras las elecciones de mitad de mandato, el temor a una menor demanda por el enfriamiento del auge de la IA lo lastra en exceso.</p><h2 id="4-presidente-de-nuevo-gremio-de-corredoras-de-bolsa-y-reforma-de-mk4-se-esta-mejorando-la-carretera-para-que-vengan-a-transitar-distintos-actores"><strong>4.  Presidente de nuevo gremio de corredoras de bolsa y reforma de MK4: “Se está mejorando la carretera para que vengan a transitar distintos actores”</strong></h2><p>José Miguel Ried, primer presidente de la nueva Asociación de Corredores de Bolsa (Acor), que agrupa a 17 corredores bancarios y no bancarios, cree que la reforma MK4 y la Ley de Reconstrucción impulsarán al mercado desde 2027. Destaca la apertura a extranjeros sin RUT, los cambios a los artículos 104 y 107 de la Ley de Renta y la bolsa junior, que permitiría a emisores pequeños registrarse directamente en bolsa colocando al menos 15%. Subraya que lo clave será la estabilidad de las reglas para recuperar la confianza. Además critica que la Ley Fintech quedó descoordinada con la Ley de Mercado de Valores, dejando a los intermediarios de instrumentos no inscritos sin normas de información privilegiada ni requisitos patrimoniales, y con poca claridad sobre responsabilidades en Finanzas Abiertas.</p><h2 id="5-bernardita-piedrabuena-excomisionada-la-cmf-tiene-menos-herramientas-de-las-que-son-necesarias-para-enfrentar-una-crisis-bancaria"><strong>5.  Bernardita Piedrabuena, excomisionada: “La CMF tiene menos herramientas de las que son necesarias para enfrentar una crisis bancaria”</strong></h2><p>La excomisionada de la CMF, que dejó el cargo el 7 de octubre, analiza la crisis de Ueno Bank en Paraguay, que llegó a 2,9 millones de clientes y US$ 2.800 millones en depósitos antes de ser intervenido. Atribuye la falla principal al propio banco, que incumplió la norma de préstamos a relacionados y evaluó mal el riesgo, y afirma que ser banco digital no cambia la regulación. Sostiene que Chile carece de una ley de resolución bancaria, pendiente hace nueve años, por lo que la única herramienta es liquidar la entidad, y que tampoco hay planes de resolución exigidos a los bancos. Además, advierte que la CMF carece de independencia presupuestaria, lo que expone al regulador a recortes de recursos.</p><h2 id="6-apuesta-por-el-lujo-en-espana-sigue-al-alza-inmobiliaria-chilena-capta-us-28-millones-de-family-offices"><strong>6.  Apuesta por el lujo en España sigue al alza: inmobiliaria chilena capta US$ 28 millones de family offices</strong></h2><p>La inmobiliaria chilena KPC reunió unos 25 millones de euros (US$ 28 millones) entre 40 inversionistas locales, principalmente family offices, para cuatro proyectos residenciales de lujo en la Costa del Sol. Apuesta por desarrollos pequeños, de unas ocho a doce unidades y plazos cercanos a cuatro años, con viviendas desde 2,5 millones de euros y unidades sobre 5 millones. Su fundador Patricio Rojas afirma que el interés de capitales chilenos por EE.UU. se enfrió hace tres años y España captó parte del flujo. El ticket mínimo ronda las UF 5 mil (más de $ 200 millones) y se evalúa subirlo a UF 10 mil.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-agricola-las-astas-ligada-a-alejandro-perez-ingresa-a-coexca-segundo-productor-de-carne-de-cerdo-en-chile-con-participacion-de-9"><strong>1.  Agrícola Las Astas, ligada a Alejandro Pérez, ingresa a Coexca, segundo productor de carne de cerdo en Chile, con participación de 9%</strong></h2><p>Agrícola y Forestal Las Astas, ligada al empresario Alejandro Pérez, adquirió 9,02% de Coexca mediante el traspaso de la granja Las Astas, un predio de 600 hectáreas en Tucapel con 1.280 madres reproductoras. Pérez será director titular y su hermano Raúl suplente. Coexca, segundo productor porcino del país tras Agrosuper, vende US$ 165 millones a más de 30 mercados y tiene capacidad para procesar un millón de cerdos al año. Este año también se fusionó con Comafri y sumó como socio a Vall Companys (38%), en un contexto en que 40% del cerdo consumido en Chile es importado, y prepara un plan de inversiones.</p><h2 id="2-metro-casi-sin-locales-disponibles-las-cadenas-que-se-disputan-el-comercio-subterraneo"><strong>2.  Metro casi sin locales disponibles: las cadenas que se disputan el comercio subterráneo</strong></h2><p>Un catastro de FD Advisors muestra que Metro de Santiago tiene 411 locales comerciales y solo diez en oferta de arriendo, una vacancia de 2,4%. MaxiK lidera con 35 sucursales, seguida de XS Market (30), San Camilo (22) y Oxxo (20), y la Línea 1 concentra 116 locales. Los expertos destacan la compra recurrente de alto flujo, locales de 10 a 45 m2 y costos potencialmente más eficientes que un mall, además del potencial logístico para retiro de compras de e-commerce. La expansión de la red, con estaciones como Huelén, Brasil y las de la Línea 7, abriría nuevas placas comerciales en superficie.</p><h2 id="3-del-terremoto-a-la-empanada-frita-la-pugna-marcaria-por-el-nombre-el-hoyo"><strong>3.  Del terremoto a la empanada frita: La pugna marcaria por el nombre El Hoyo</strong></h2><p>El empresario José Eltit, conocido por sus empanadas fritas en Maitencillo, pidió registrar la marca Empanadas El Hoyo Maitencillo, pero el restaurante El Hoyo de Santiago se opuso por riesgo de confusión al compartir el elemento distintivo. El Inapi acogió la oposición y rechazó la marca. Los abogados de Eltit apelaron ante el Tribunal de Propiedad Industrial, argumentando que nunca ha habido confusión entre ambos locales y que la marca oponente coexiste con El Hoyo del Queque.</p><h2 id="4-nuevo-proyecto-con-viviendas-y-hotel-a-pasos-de-mall-alto-las-condes"><strong>4.  Nuevo proyecto con viviendas y hotel a pasos de mall Alto Las Condes</strong></h2><p>La Dirección de Obras de Las Condes aprobó el anteproyecto de un conjunto de dos edificios en Avenida Las Condes 9050: uno residencial de 18 pisos y un hotel de doce niveles. El propietario es Inversiones Sabi, y el proyecto se emplaza en un lote de unos 5.200 m2 con más de 23.700 m2 de construcción. La aprobación tiene vigencia de un año y solo valida condiciones urbanísticas, por lo que la empresa deberá tramitar el permiso de edificación.</p><h2 id="5-codelco-lleva-a-la-corte-suprema-disputa-con-fiscalia-y-el-dictuc-tras-investigacion-por-accidente-de-el-teniente"><strong>5.  Codelco lleva a la Corte Suprema disputa con Fiscalía y el Dictuc tras investigación por accidente de El Teniente</strong></h2><p>Codelco recurrió a la Corte Suprema, tras la declaración de inadmisibilidad de la Corte de Apelaciones, contra la Fiscalía y el Dictuc por un contrato de peritaje del accidente en El Teniente. La estatal sostiene que le piden información mediante 27 oficios y 3.520 requerimientos, que podrían superar los 300 terabytes y abarcan más de 120 años de operación. Afirma que los anexos del contrato exponen su know how y permiten usos ajenos al peritaje, lo que sería un riesgo estratégico para el Estado, aunque dice que no busca oponerse a la pericia.</p><h2 id="6-gremio-de-choritos-2026-fue-un-ano-de-rentabilidades-historicamente-buenas"><strong>6.  Gremio de choritos: “2026 fue un año de rentabilidades históricamente buenas”</strong></h2><p>El presidente de AmiChile, Rodrigo Carrasco, afirma que 2026 trajo rentabilidades históricamente buenas tras años de márgenes estrechos que frenaban la inversión. La industria agrupa a 12 empresas integradas y 650 pymes, y exporta cerca de US$ 380 millones anuales a más de 70 países. Espera inversiones en apertura de mercados y mejoras de cultivo, y una producción algo bajo las 400 mil toneladas salvo efectos de El Niño. Identifica como barrera el tope anual de Turquía y propone una ley de acuicultura independiente de la Ley de Pesca, por los costos de informes ambientales pensados para peces.</p><h2 id="7-chile-seria-el-mayor-productor-de-harina-de-pescado-en-america-por-primera-vez-en-37-anos"><strong>7.  Chile sería el mayor productor de harina de pescado en América por primera vez en 37 años</strong></h2><p>Según IFFO, Chile produciría unas 300 mil toneladas de harina de pescado este año frente a 200 mil de Perú, superándolo por primera vez desde 1989, debido a un El Niño intenso y a la cancelación peruana de su segunda temporada tras una caída de 28% en la biomasa de anchoveta. La producción mundial caería 23% a 4,44 millones de toneladas y el precio internacional subió cerca de 90% interanual; el precio de exportación chileno aumentó 47% a US$ 2.529 por tonelada. Entre enero y septiembre Chile exportó 209.459 toneladas, 19,4% menos, pero con valor 9% mayor (US$ 471,6 millones), sobre todo a China. El liderazgo sería temporal, pues Perú se recuperaría desde mediados de 2027.</p><h2 id="8-alejandro-tapia-presidente-de-escondida-nos-vamos-a-mantener-en-el-liderazgo-de-la-industria-del-cobre-a-nivel-mundial-por-lo-menos-hasta-2040"><strong>8.  Alejandro Tapia, presidente de Escondida: “Nos vamos a mantener en el liderazgo de la industria del cobre a nivel mundial por lo menos hasta 2040”</strong></h2><p>Tapia explica que Escondida produjo 1,3 millones de toneladas en el año fiscal 2025, bajó a 1,2 millones en 2026 y proyecta entre 1 y 1,1 millones en 2027 por menores leyes, con un promedio similar en la década de 2030 una vez operativa la nueva concentradora del plan de US$ 10 mil millones. El costo unitario fue US$ 1,07 por libra y subiría a entre US$ 1,20 y US$ 1,50. Los recursos de 26 mil millones de toneladas permiten operar 50 años o más, con opción subterránea aún en evaluación, y la mina equivale a 25% del cobre chileno y 5% del mundial. Aportó más de US$ 5 mil millones en impuestos y royalty, cerró un acuerdo con supervisores evitando huelga y busca repetirlo en la negociación de 2027.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-cfa-levanta-alertas-sobre-el-impacto-fiscal-del-acuerdo-entre-el-gobierno-y-los-camioneros-por-sus-efectos-sobre-el-mepco"><strong>1.  CFA levanta alertas sobre el impacto fiscal del acuerdo entre el gobierno y los camioneros por sus efectos sobre el Mepco</strong></h2><p>El Consejo Fiscal Autónomo advirtió en un acta del 13 de noviembre que no puede evaluar el impacto fiscal de los cambios al Mepco acordados con los camioneros y pidió analizar riesgos bajo distintos escenarios de precios y el financiamiento durante la tramitación. El ministro Quiroz estima un costo cercano a US$ 700 millones por rebajar $ 142 por litro el diésel y $ 39 las bencinas, congelando precios hasta el 31 de marzo de 2027, frente a US$ 547 millones de la propuesta inicial. El CFA sugiere medidas para acotar riesgos ante nuevas alzas del petróleo, que afectarían las metas fiscales. El Ejecutivo ingresa hoy una indicación sustitutiva que se busca despachar el mismo lunes.</p><h2 id="2-timonel-de-sonami-jorge-riesco-en-la-gira-presidencial-a-asia-la-mineria-esta-lejos-de-estar-en-crisis"><strong>2.  Timonel de Sonami, Jorge Riesco, en la gira presidencial a Asia: “La minería está lejos de estar en crisis”</strong></h2><p>Jorge Riesco, presidente de Sonami, acompaña al presidente Kast en Vietnam, China y Japón, países que concentran más de la mitad de las exportaciones chilenas, para posicionar a Chile como proveedor confiable de minerales críticos. Sostiene que la minería no está en crisis, pero que hay que facilitar permisos, fortalecer condiciones de inversión y generar consensos para cambiar el ánimo inversor de largo plazo. Pide paciencia: las cifras fueron malas este año y lo seguirán hasta diciembre, pero espera una mejora importante el próximo año.</p><h2 id="3-claves-del-congreso-proyecto-de-presupuestos-aterriza-en-el-senado-con-el-desafio-de-revertir-el-rechazo-a-siete-partidas"><strong>3.  Claves del Congreso: proyecto de presupuestos aterriza en el Senado con el desafío de revertir el rechazo a siete partidas</strong></h2><p>El Presupuesto 2027 llega al Senado entre el 17 y el 19 de noviembre con siete partidas rechazadas en la Cámara (Educación, Interior, Segegob, Minería, Mujer, Cultura y Ciencias) y US$ 25.000 millones de endeudamiento; se da por hecho que irá a Comisión Mixta. La Cámara vota este lunes el proyecto que contiene las alzas de combustibles, el martes la postergación de la Ley de Datos Personales y el miércoles sala cuna. La semana incluye además la discusión del proyecto de capital de riesgo con Corfo, el Informe de Estabilidad Financiera del Banco Central en la Comisión de Hacienda y el ingreso de una acusación constitucional contra el ministro de Justicia.</p><h2 id="4-el-directo-mensaje-de-kast-a-los-empresarios-de-vietnam-venimos-con-la-mision-clara-de-buscar-mas-inversion-y-empleo"><strong>4.  El directo mensaje de Kast a los empresarios de Vietnam: "Venimos con la misión clara de buscar más inversión y empleo"</strong></h2><p>En un seminario empresarial en Hanói, Kast presentó a Chile como socio confiable y abierto, con mejoras legales y tributarias, y buscó inversión y empleo. Destacó el potencial de cobre, litio y agroalimentos: arándanos, kiwis y cerezas que ya ingresan sin tratamiento de frío, además de mayores mercados para carnes y frutas. Vietnam crece al 8% y ofrece un mercado de más de 100 millones de personas; se analizaron cooperación portuaria y un tratado de doble tributación. El comercio bilateral superó los US$ 2.100 millones en 2025, y la CPC recordó que Asia concentra 55% de los envíos chilenos.</p><h2 id="5-chile-clima-extremo-factor-ambiental-sube-con-fuerza-entre-los-riesgos-que-ve-el-empresariado"><strong>5.  Chile, clima extremo: factor ambiental sube con fuerza entre los riesgos que ve el empresariado</strong></h2><p>En la medición de octubre de Deloitte-Cadem, la preocupación empresarial por el factor ambiental saltó de 19% a 55%, igualando a la ciudadanía, por la sucesión de sequía, incendios, lluvias fuera de temporada y un El Niño intenso. El riesgo económico sigue primero: 71% en la población y 41% entre ejecutivos, nueve puntos más, por volatilidad del petróleo, tipo de cambio alto, inflación sobre la meta y consumo débil. El 54% de los empresarios cree que el empleo empeorará, con desocupación sobre 8% hace casi cuatro años y cercana a 10%. El Índice de Expectativas de Recuperación cayó a 33 puntos, el menor desde 2020, y la inversión se concentra en minería y energía.</p><h2 id="6-a-dos-anos-del-acuerdo-de-doble-tributacion-casi-se-duplican-las-inversiones-chilenas-en-eeuu"><strong>6.  A dos años del acuerdo de doble tributación, casi se duplican las inversiones chilenas en EEUU</strong></h2><p>Según el SII, en el año tributario 2026 un total de 44.148 contribuyentes declararon activos en EE.UU., 34,7% más que los 32.757 del año previo, y los montos casi se duplicaron de US$ 37.210 millones a US$ 70.450 millones. El convenio, vigente desde enero de 2024, reduce la retención a dividendos de 30% a 5% o 15%, baja la carga total del accionista de 44,45% a 35% y fija topes a intereses y regalías. Expertos atribuyen el alza a certeza tributaria, diversificación, formalización de patrimonios ya existentes y valorización de activos, y señalan que Chile y México son los únicos de la región con TLC y convenio tributario con EE.UU.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-shenzhen-la-futurista-ciudad-que-recibe-a-la-apec-y-muestra-a-trump-lo-dificil-que-es-frenar-a-china"><strong>1.  Shenzhen: la futurista ciudad que recibe a la APEC y muestra a Trump lo difícil que es frenar a China</strong></h2><p>Shenzhen, de unos 18 millones de habitantes y sede de Huawei, Tencent, BYD y DJI, acoge la cumbre APEC como vitrina del ascenso tecnológico chino pese a las listas negras de EE.UU.: BYD superó a Tesla en vehículos eléctricos, DJI controla cerca de 70% de los drones de consumo y la ciudad produce 43% de los robots de servicio del país. Huawei recuperó ingresos cercanos a su máximo previo a las sanciones y avanza en chips con unos US$ 30 mil millones de apoyo estatal. La prosperidad es desigual: el ingreso mensual medio ronda los 7 mil yuanes, crece la economía de trabajos por encargo y hay desafíos de demanda interna y de llevar la tecnología más allá del espectáculo. Trump será el primer presidente estadounidense en ejercicio en visitar la ciudad.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-df-lab-opinion-la-ia-no-comienza-con-la-ia"><strong>1.  DF Lab Opinión/ La IA no comienza con la IA</strong></h2><p>Francisco Figueroa, CEO de Apiux, sostiene que antes de elegir modelos o procesos a automatizar las empresas deben ordenar sus datos. Más de 90% de los ejecutivos chilenos planea aumentar su inversión en IA, pero solo 10% dice tener datos maduros para modelos predictivos y apenas 3,6% ha escalado iniciativas de IA de forma transversal. Plantea que la conversación pasa de los modelos a la infraestructura: arquitectura, calidad, seguridad, trazabilidad y gobierno de datos, crucial para los agentes de IA y exigido por la Ley 21.719 de protección de datos.</p><h2 id="2-tensiones-por-los-chips-amenazan-con-eclipsar-la-cumbre-entre-trump-y-xi-mientras-eeuu-y-china-impulsan-medidas-de-seguridad-en-ia"><strong>2.  Tensiones por los chips amenazan con eclipsar la cumbre entre Trump y Xi, mientras EEUU y China impulsan medidas de seguridad en IA</strong></h2><p>La renuncia del cofundador de Nvidia Jensen Huang, tras informes sobre una relación con una presunta espía china, impulsa a legisladores estadounidenses a endurecer el acceso de China a chips avanzados, tema que dominaría la reunión del jueves entre Trump y Xi en Shenzhen. Analistas ven a Beijing atento a si EE.UU. pasa de la estabilidad a la contención estratégica. Ambos países discutirían medidas de seguridad en IA, incluido un mecanismo de aviso de incidentes graves aún sin operar, mientras no habrá avances en la reducción de aranceles recíprocos por US$ 30 mil millones. Musk viajaría con Trump y la Cumbre de CEO de APEC reunirá a más de 2 mil líderes, incluidos representantes de 115 empresas Fortune Global 500.</p><h2 id="3-haulmer-adquiere-a-la-fintech-de-inversion-inmobiliaria-fraccional"><strong>3.  Haulmer adquiere a la fintech de inversión inmobiliaria Fraccional</strong></h2><p>Haulmer, la firma curicana detrás de las terminales de pago TUU, compró la plataforma de inversión inmobiliaria por fracciones Fraccional, en una operación cerrada entre julio y agosto cuyo monto no se reveló y en la que los fundadores seguirán a cargo. Fraccional acumula 63 proyectos, unos US$ 17 millones financiados, 38 mil usuarios y ingresos cercanos a US$ 530 mil en 2025, tras un año difícil en que su equipo pasó de 17 a cinco personas. Planean préstamos respaldados por fracciones y deuda privada para pymes. Haulmer, con unos 300 empleados, proyecta facturar US$ 70 millones este año sin capital externo y suma adquisiciones como Fpay y Apanio, además de su cuenta digital AndCo.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-ciberseguridad-condicion-para-hacer-negocios"><strong>1.  Ciberseguridad: condición para hacer negocios</strong></h2><p><em>(Sin detalle disponible.)</em></p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

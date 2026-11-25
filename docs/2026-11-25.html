@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>25 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-25.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Miércoles</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">25 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-el-precio-del-cobre-toca-sus-minimos-de-un-ano-luego-que-se-agota-el-repunte-de-los-activos-relacionados-a-la-inteligencia-artificial">1.  El precio del cobre toca sus mínimos de un año luego que se agota el repunte de los activos relacionados a la inteligencia artificial</a></li><li class="toc-l2"><a href="#2-fondos-de-moneda-patria-redoblan-apuesta-por-clc-e-inyectan-nuevo-financiamiento-por-uf-1-millon">2.  Fondos de Moneda Patria redoblan apuesta por CLC e inyectan nuevo financiamiento por UF 1 millón</a></li><li class="toc-l2"><a href="#3-dolar-salta-13-en-la-apertura-y-se-acerca-a-sus-maximos-historicos-en-medio-de-una-ola-global-de-ventas-de-acciones-tecnologicas">3.  Dólar salta $ 13 en la apertura y se acerca a sus máximos históricos en medio de una ola global de ventas de acciones tecnológicas</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-gobierno-ahora-defiende-cambios-urbanisticos-en-la-justicia-y-descarta-privilegios-para-gremio-constructor-y-las-afp">1.  Gobierno ahora defiende cambios urbanísticos en la justicia y descarta “privilegios” para gremio constructor y las AFP</a></li><li class="toc-l2"><a href="#2-gonzalo-bofill-tenemos-que-hacer-los-cambios-politicos-necesarios-para-recuperar-la-credibilidad">2.  Gonzalo Bofill: “Tenemos que hacer los cambios políticos necesarios para recuperar la credibilidad”</a></li><li class="toc-l2"><a href="#3-camanchaca-aumenta-levemente-sus-ingresos-a-septiembre-a-us-685-millones-pese-al-desplome-de-40-en-las-capturas-por-el-nino">3.  Camanchaca aumenta levemente sus ingresos a septiembre a US$ 685 millones, pese al desplome de 40% en las capturas por El Niño</a></li><li class="toc-l2"><a href="#4-roberto-angelini-es-reconocido-como-lider-empresarial-y-colun-como-marca-ciudadana">4.  Roberto Angelini es reconocido como líder empresarial y Colun como marca ciudadana</a></li><li class="toc-l2"><a href="#5-inmobiliaria-de-los-santolaya-vuelve-a-regiones-con-us-20-millones-para-nuevo-centro-de-salud">5.  Inmobiliaria de los Santolaya vuelve a regiones con US$ 20 millones para nuevo centro de salud</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-costa-aborda-escalada-del-dolar-y-reafirma-criterio-del-banco-central-para-intervenir-el-mercado-cambiario">1.  Costa aborda escalada del dólar y reafirma criterio del Banco Central para intervenir el mercado cambiario</a></li><li class="toc-l2"><a href="#2-comision-mixta-logra-acuerdo-para-allanar-el-presupuesto-camara-y-senado-lo-votan-hoy">2.  Comisión mixta logra acuerdo para allanar el Presupuesto: Cámara y Senado lo votan hoy</a></li><li class="toc-l2"><a href="#3-la-paradoja-del-cobre-en-chile-aumenta-el-precio-del-mineral-pero-su-produccion-continua-en-descenso">3.  La paradoja del cobre en Chile: aumenta el precio del mineral, pero su producción continúa en descenso</a></li><li class="toc-l2"><a href="#4-fisco-podria-superar-el-techo-de-deuda-prudente-en-diciembre-por-alza-del-dolar-y-baja-del-pib-cfa-pide-mayores-antecedentes-a-la-dipres">4.  Fisco podría superar el techo de deuda prudente en diciembre por alza del dólar y baja del PIB: CFA pide mayores antecedentes a la Dipres</a></li><li class="toc-l2"><a href="#5-paolo-garzotti-especialista-en-comercio-de-la-ue-tenemos-un-win-win-en-minerales-criticos-chile-necesita-inversiones-sostenibles-y-nosotros-diversificar">5.  Paolo Garzotti, especialista en comercio de la UE: “Tenemos un win-win (en minerales críticos): Chile necesita inversiones sostenibles y nosotros diversificar”</a></li><li class="toc-l2"><a href="#6-persiste-fuerte-alza-de-los-precios-al-productor-en-el-pais">6.  Persiste fuerte alza de los precios al productor en el país</a></li><li class="toc-l2"><a href="#7-rau-cuestiona-postergacion-de-votacion-en-el-senado-no-suma-mas-bien-resta">7.  Rau cuestiona postergación de votación en el Senado: “No suma, más bien resta”</a></li><li class="toc-l2"><a href="#8-sondeo-de-la-cnc-constata-ajuste-en-gastos-de-cara-a-navidad">8.  Sondeo de la CNC constata ajuste en gastos de cara a Navidad</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-estados-unidos-impone-nuevos-aranceles-por-exceso-de-capacidad-a-china-la-ue-y-otros-12-paises">1.  Estados Unidos impone nuevos aranceles por exceso de capacidad a China, la UE y otros 12 países</a></li><li class="toc-l2"><a href="#2-con-su-creciente-poder-sobre-el-mundo-empresarial-trump-desafia-el-sindrome-del-pato-cojo">2.  Con su creciente poder sobre el mundo empresarial, Trump desafía el síndrome del “pato cojo”</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-los-consumidores-recurren-a-agentes-de-ia-para-combatir-la-economia-de-las-molestias">1.  Los consumidores recurren a agentes de IA para combatir la &quot;economía de las molestias&quot;</a></li><li class="toc-l2"><a href="#2-comision-de-economia-da-luz-verde-a-proyecto-de-fondo-de-fondos-para-capital-de-riesgo">2.  Comisión de Economía da luz verde a proyecto de fondo de fondos para capital de riesgo</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-compromiso-de-la-clase-politica-con-la-institucionalidad">1.  Compromiso de la clase política con la institucionalidad</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>25 De Noviembre De 2026</p><p>6 secciones  ·  21 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-el-precio-del-cobre-toca-sus-minimos-de-un-ano-luego-que-se-agota-el-repunte-de-los-activos-relacionados-a-la-inteligencia-artificial"><strong>1.  El precio del cobre toca sus mínimos de un año luego que se agota el repunte de los activos relacionados a la inteligencia artificial</strong></h2><p>El cobre a tres meses en la LME retrocedió cerca de 1% hasta unos US$ 5,3 por libra (US$ 11.745 por tonelada), tras marcar un piso de casi un año, el más bajo desde diciembre de 2025. El metal había subido con fuerza el lunes por el regreso de Jensen Huang a la dirección de Nvidia, pero el entusiasmo se esfumó cuando la acción cayó 5,9% el martes y las bolsas asiáticas se desplomaron, mientras en Shanghái el contrato más transado se hundió 6,34%. Además del temor por la volatilidad tecnológica, pesan las dudas sobre la salida de cobre desde EEUU, la caída del estaño (hasta 9,6% en Shanghái) y del aluminio a mínimos de 13 meses, y la inminente publicación de una investigación de Trump sobre sobrecapacidad industrial que podría traer nuevos aranceles.</p><h2 id="2-fondos-de-moneda-patria-redoblan-apuesta-por-clc-e-inyectan-nuevo-financiamiento-por-uf-1-millon"><strong>2.  Fondos de Moneda Patria redoblan apuesta por CLC e inyectan nuevo financiamiento por UF 1 millón</strong></h2><p>Cuatro fondos de Moneda Patria otorgaron a Clínica Las Condes un nuevo financiamiento de cerca de UF 1 millón (UF 995.976, unos US$ 38 millones) para capital de trabajo, mediante la ampliación de una estructura de bonos securitizados respaldados por flujos de prestaciones médicas. Es el segundo préstamo de este tipo en un año, tras los UF 1,15 millones colocados en octubre-noviembre de 2025 a 84 meses y 6,30% anual, y mantiene las mismas condiciones, con lo que el bono suma cerca de UF 2 millones y queda un remanente de UF 500 mil. La operación acompaña los esfuerzos de capitalización de los nuevos controladores de la clínica, EuroAmerica e Indisa, y la gestora la describe como una estructura a medida para los ciclos financieros del sector salud.</p><h2 id="3-dolar-salta-13-en-la-apertura-y-se-acerca-a-sus-maximos-historicos-en-medio-de-una-ola-global-de-ventas-de-acciones-tecnologicas"><strong>3.  Dólar salta $ 13 en la apertura y se acerca a sus máximos históricos en medio de una ola global de ventas de acciones tecnológicas</strong></h2><p>El dólar abrió con un alza de $ 13 hasta $ 1.046,4, tras haber subido $ 16,7 el martes, su mayor nivel desde julio de 2022 y cada vez más cerca del récord de $ 1.062. El empuje viene de la liquidación global de acciones tecnológicas (los derivados del Nasdaq 100 caían 2,7%), la caída del cobre a mínimos desde diciembre de 2025 y el temor a una Fed más restrictiva, con datos de inflación PCE y del PIB del tercer trimestre de EEUU por conocerse. Las posiciones forward de agentes extranjeros apostando a más alzas del dólar están en su nivel más alto desde 2019, y las monedas latinoamericanas ocupan cuatro de los cinco peores desempeños desde que Waller planteó una posible alza de 50 puntos base.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-gobierno-ahora-defiende-cambios-urbanisticos-en-la-justicia-y-descarta-privilegios-para-gremio-constructor-y-las-afp"><strong>1.  Gobierno ahora defiende cambios urbanísticos en la justicia y descarta “privilegios” para gremio constructor y las AFP</strong></h2><p>El Minvu presentó ante la Corte de Apelaciones de Santiago un informe en que sostiene que el decreto DS 68, que modifica la OGUC con mayor densidad y menos estacionamientos cerca del transporte público, no otorga privilegios a la CChC ni a las AFP, pues es una norma general aplicable a todos los propietarios. Respondía a un recurso de protección de vecinos de Ñuñoa, a quienes acusa de no acreditar una afectación actual ni una amenaza cierta, ya que los perjuicios dependerían de proyectos futuros que requerirían permisos. El ministerio argumenta que el país enfrenta un déficit de unas 500 mil viviendas y que Ñuñoa tiene una densidad de solo 24% de la máxima permitida por su plan regulador, y recuerda que el decreto también es defendido ante el Tribunal Constitucional frente al requerimiento de parlamentarios de oposición.</p><h2 id="2-gonzalo-bofill-tenemos-que-hacer-los-cambios-politicos-necesarios-para-recuperar-la-credibilidad"><strong>2.  Gonzalo Bofill: “Tenemos que hacer los cambios políticos necesarios para recuperar la credibilidad”</strong></h2><p>El presidente de Carozzi y de la Fundación P!ensa, Gonzalo Bofill, criticó con dureza a la clase política por la situación vivida en el Senado con el Caso Firmas y llamó a recuperar la confianza en el Parlamento, además de pedir más competencias y recursos para las regiones. Anunció un acuerdo con la Fundación Botín para un piloto de tres años del programa Educación Responsable a partir de marzo. El ministro de Seguridad, Martín Arrau, presentó cifras preliminares al 15 de noviembre con una baja de 17,7% en homicidios y de 19,4% en robos con violencia, y una caída de 85% en los ingresos irregulares por la frontera norte respecto de 2025.</p><h2 id="3-camanchaca-aumenta-levemente-sus-ingresos-a-septiembre-a-us-685-millones-pese-al-desplome-de-40-en-las-capturas-por-el-nino"><strong>3.  Camanchaca aumenta levemente sus ingresos a septiembre a US$ 685 millones, pese al desplome de 40% en las capturas por El Niño</strong></h2><p>Camanchaca elevó levemente sus ingresos a septiembre hasta US$ 685 millones, a pesar de que las capturas cayeron 40% por el efecto de El Niño. Lo compensó el fuerte aumento de precios, de 53% en la harina de pescado y 126% en el aceite, que contrarrestó los menores volúmenes procesados. La compañía advirtió que las condiciones del mar seguirán siendo el principal desafío durante los próximos seis meses.</p><h2 id="4-roberto-angelini-es-reconocido-como-lider-empresarial-y-colun-como-marca-ciudadana"><strong>4.  Roberto Angelini es reconocido como líder empresarial y Colun como marca ciudadana</strong></h2><p>El estudio Marcas Ciudadanas de Cadem, Deloitte y DF, que cumple diez años y evaluó 400 marcas con 23.100 casos, devolvió a Colun al primer lugar tras subir seis posiciones, seguida por Metro, Lider, Google y Cencosud. La industria láctea fue la mejor evaluada (50,9 puntos, +5,7), junto a avances de las plataformas de venta online y las tiendas de conveniencia, mientras tecnología tuvo la mayor caída (-9,4 puntos), reflejo de un consumidor que valora a las marcas que entienden su bolsillo. Roberto Angelini, presidente de Empresas Copec, fue distinguido como líder empresarial; Copec ganó como marca más innovadora y Empresas Copec en gobierno corporativo, y también fueron reconocidos Rosario Navarro (Sofofa) y Roberto Alvo (Latam).</p><h2 id="5-inmobiliaria-de-los-santolaya-vuelve-a-regiones-con-us-20-millones-para-nuevo-centro-de-salud"><strong>5.  Inmobiliaria de los Santolaya vuelve a regiones con US$ 20 millones para nuevo centro de salud</strong></h2><p>Deisa, la inmobiliaria de la familia Santolaya, invertirá 500 mil UF (US$ 20 millones) en NucleoMed, un complejo de cuatro pisos y unos 6.200 m2 de salud ambulatoria, servicios y comercio frente al Hospital Biprovincial de Quillota, tras una década sin desarrollar proyectos en regiones. El hospital atiende a unas 320 mil personas y mueve unas 3.800 al día, con casi nula oferta de servicios en su entorno. Los permisos se ingresarían en enero de 2027, las obras comenzarían a fines de ese año y la apertura sería en 2029; ya hay negociaciones avanzadas con una clínica para el centro de diagnóstico y conversaciones con farmacias, alimentación y un gimnasio para la plaza comercial.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-costa-aborda-escalada-del-dolar-y-reafirma-criterio-del-banco-central-para-intervenir-el-mercado-cambiario"><strong>1.  Costa aborda escalada del dólar y reafirma criterio del Banco Central para intervenir el mercado cambiario</strong></h2><p>La presidenta del Banco Central, Rosanna Costa, afirmó que el alza del dólar, sobre $ 1.000, responde a fundamentos: una caída del cobre de 20% en el último mes, el fortalecimiento global del dólar y una economía local más débil frente a un mundo resiliente. Explicó que el tipo de cambio absorbe los shocks y que el instituto solo intervendría si el mercado no funcionara bien, algo que hoy no observa. Reconoció riesgos de inflación al alza y debilidad en minería, calificó de mala la caída de la inversión en el tercer trimestre, indicó que Hacienda es la voz del gobierno en el Central y advirtió que las AFP con derivados podrían tener que vender activos locales si suben las tasas externas por los llamados a margen.</p><h2 id="2-comision-mixta-logra-acuerdo-para-allanar-el-presupuesto-camara-y-senado-lo-votan-hoy"><strong>2.  Comisión mixta logra acuerdo para allanar el Presupuesto: Cámara y Senado lo votan hoy</strong></h2><p>La comisión mixta alcanzó un acuerdo sobre las diez partidas en disputa del Presupuesto 2027, el primero de la administración Kast, que las salas de la Cámara y el Senado votarán hoy, antes del plazo constitucional del 29 de noviembre. Entre los acuerdos, las asignaciones a exPresidentes pasan del Congreso a Segpres, se repusieron los fondos de empleo del Sence con el compromiso de suplementar el Subsidio Unificado al Empleo desde abril si es necesario, y se restituyeron los recursos para sitios de memoria a cambio de mayor rendición de cuentas. El ministro Quiroz anunció además un estudio sobre el impacto en el empleo de los subsidios y cambios legales, y aseguró que todos los cambios se financiarán con reasignaciones o provisiones del Tesoro.</p><h2 id="3-la-paradoja-del-cobre-en-chile-aumenta-el-precio-del-mineral-pero-su-produccion-continua-en-descenso"><strong>3.  La paradoja del cobre en Chile: aumenta el precio del mineral, pero su producción continúa en descenso</strong></h2><p>Un informe del CEP muestra que, con el cobre promediando US$ 6,14 por libra entre enero y octubre, la producción chilena cayó 14,7% en el tercer trimestre y Cochilco proyecta cerrar 2026 en 4,94 millones de toneladas, 8,4% menos que en 2025 y lejos del máximo de 5,83 millones de 2018. La baja se explica por menores leyes, proyectos que no se concretaron y caídas en Codelco y en Escondida y Spence, aun cuando la inversión minera subió de 20,8% a 28,5% de la formación bruta de capital fijo. La minería redujo su peso en el PIB de 9,9% a 5,6% y los ingresos fiscales de Codelco y la gran minería bajaron de 20,6% a 9,7% del total, y de los US$ 104.549 millones en cartera solo 19% son proyectos nuevos. Los autores proponen medir las toneladas reales que aporta cada inversión, un comité independiente de proyecciones, permisos más predecibles, más exploración y una política plurianual para Codelco.</p><h2 id="4-fisco-podria-superar-el-techo-de-deuda-prudente-en-diciembre-por-alza-del-dolar-y-baja-del-pib-cfa-pide-mayores-antecedentes-a-la-dipres"><strong>4.  Fisco podría superar el techo de deuda prudente en diciembre por alza del dólar y baja del PIB: CFA pide mayores antecedentes a la Dipres</strong></h2><p>La deuda bruta del gobierno central alcanzó 44,7% del PIB en septiembre, la más alta desde el retorno a la democracia, y podría superar el techo prudente de 45% a fin de año por el alza del dólar (de $ 970 a $ 1.033 desde septiembre, con cerca de un tercio de la deuda en moneda extranjera) y un PIB estancado. Según Weber, cada $ 10 de alza del dólar suma 0,15 puntos del PIB a la deuda. Scotiabank y otros economistas ven un exceso transitorio, mientras Bci advierte riesgo para la nota soberana y Itaú destaca mitigantes como menor emisión y dividendos de ENAP; el CFA acordó pedir más antecedentes a la Dipres para monitorear la deuda.</p><h2 id="5-paolo-garzotti-especialista-en-comercio-de-la-ue-tenemos-un-win-win-en-minerales-criticos-chile-necesita-inversiones-sostenibles-y-nosotros-diversificar"><strong>5.  Paolo Garzotti, especialista en comercio de la UE: “Tenemos un win-win (en minerales críticos): Chile necesita inversiones sostenibles y nosotros diversificar”</strong></h2><p>El jefe de la Unidad América Latina de DG Trade de la UE ve una complementariedad en minerales críticos, litio y cobre: Chile requiere inversión sostenible tras un período de menor inversión y producción, y Europa necesita diversificar su abastecimiento. Presenta a la UE como socio estable frente a la incertidumbre arancelaria de EEUU y la dependencia de China, y valora las medidas pro inversión de Chile, como la baja gradual del impuesto hasta 2029 y la invariabilidad tributaria, además de que 18 de los 27 miembros ya ratificaron el Acuerdo Marco Avanzado. Sobre el proyecto de screening de inversiones extranjeras, estima que si establece criterios claros, no discrecionales y con plazos definidos, aumentará la certeza jurídica en vez de ser una barrera.</p><h2 id="6-persiste-fuerte-alza-de-los-precios-al-productor-en-el-pais"><strong>6.  Persiste fuerte alza de los precios al productor en el país</strong></h2><p>El Índice de Precios de Productor de Industrias subió 2,8% en octubre frente a septiembre y 24% en doce meses, según el INE. Lo impulsó la minería, con un alza mensual de 3,7% y 30,8% acumulado en el año, liderada por el cobre (4,0%), mientras la manufactura avanzó 1,9% (10,3% acumulado), con la refinación de petróleo subiendo 11,8%. El índice de electricidad, gas y agua no varió en el mes y acumula una baja de 0,6% en 2026.</p><h2 id="7-rau-cuestiona-postergacion-de-votacion-en-el-senado-no-suma-mas-bien-resta"><strong>7.  Rau cuestiona postergación de votación en el Senado: “No suma, más bien resta”</strong></h2><p>La votación en particular del proyecto de Sala Cuna Universal se aplazó al miércoles tras la solicitud de segunda discusión de la senadora Yasna Provoste, lo que molestó al ministro del Trabajo, Tomás Rau, quien dijo que seguir dilatando la reforma perjudica. Destacó que el desempleo femenino es de 10,5% y supera 26% entre mujeres jóvenes, y que el proyecto tiene respaldo transversal, desvincula el costo del sexo del progenitor y del tamaño de la empresa e incorpora a trabajadoras independientes y de casa particular. Reconoció que puede no ser perfecto, pero que la situación actual no da para más.</p><h2 id="8-sondeo-de-la-cnc-constata-ajuste-en-gastos-de-cara-a-navidad"><strong>8.  Sondeo de la CNC constata ajuste en gastos de cara a Navidad</strong></h2><p>Una encuesta de la CNC a 692 personas muestra que 87% planea comprar en Navidad, pero 41% hará menos compras y 43% reducirá su gasto respecto del año anterior, con inflación, desempleo y endeudamiento como principales razones. El presupuesto promedio para regalos es de $ 117.300, 5,4% menos en términos nominales que en 2025, con una cantidad de regalos estable en torno a 6,9, lo que indica una búsqueda de alternativas más baratas.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-estados-unidos-impone-nuevos-aranceles-por-exceso-de-capacidad-a-china-la-ue-y-otros-12-paises"><strong>1.  Estados Unidos impone nuevos aranceles por exceso de capacidad a China, la UE y otros 12 países</strong></h2><p>La USTR concluyó su investigación sobre exceso de capacidad industrial en 16 economías, entre ellas China, la UE, Japón e India, con meses de anticipación respecto del plazo de marzo de 2027, y notificó nuevos aranceles específicos por país que no superarían los fijados en los acuerdos comerciales recíprocos ni se sumarían a ellos. China es la excepción: enfrentaría 20% adicional al 25% vigente desde 2018, y hasta 40% si no cumple la tregua comercial que dura hasta el 10 de enero. Pekín niega que exista sobrecapacidad, y la medida llega tras la derrota republicana en las elecciones de medio término.</p><h2 id="2-con-su-creciente-poder-sobre-el-mundo-empresarial-trump-desafia-el-sindrome-del-pato-cojo"><strong>2.  Con su creciente poder sobre el mundo empresarial, Trump desafía el síndrome del “pato cojo”</strong></h2><p>Tras la derrota republicana en las elecciones de medio mandato, Trump refuerza su intervención en las empresas: se atribuyó el regreso de Jensen Huang como CEO de Nvidia ("yo hice el trato") y, según el Cato Institute, el gobierno ya anunció participaciones en más de 30 compañías, como 9,9% de Intel por US$ 8.900 millones en subsidios, una acción de oro en U.S. Steel y US$ 400 millones en MP Materials. Expertos hablan de "capitalismo de seguridad nacional", "corporativismo estatal" e incluso "maoísmo", y hasta republicanos como Bacon, Curtis y Harrigan cuestionan el precedente, mientras los demócratas anuncian investigaciones desde enero. La Casa Blanca lo defiende por seguridad nacional y cadenas de suministro, y el analista Jorge Sahd anticipa un Trump más activo en áreas donde conserva facultades, como la política exterior.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-los-consumidores-recurren-a-agentes-de-ia-para-combatir-la-economia-de-las-molestias"><strong>1.  Los consumidores recurren a agentes de IA para combatir la "economía de las molestias"</strong></h2><p>Consumidores usan agentes de IA como Muse, de Meta, para lograr descuentos, reembolsos y dinero olvidado; más de 10 millones de personas lo configuraron en seis semanas, y usuarios reportan ahorros de cientos o miles de dólares, aunque el agente falla en trámites complejos. Las familias estadounidenses pierden al menos US$ 165.000 millones al año en la llamada economía de las molestias, y la herramienta amenaza ganancias basadas en la inercia del cliente, con una canasta de Goldman Sachs de empresas expuestas que cayó 5%. Cerca de un tercio de los sitios de comercio, viajes y reservas la ha bloqueado, Amazon, United, JPMorgan y Schwab restringen agentes por seguridad, y persisten dudas sobre conflictos de interés de los agentes y la reacción de las empresas con sus propios bots.</p><h2 id="2-comision-de-economia-da-luz-verde-a-proyecto-de-fondo-de-fondos-para-capital-de-riesgo"><strong>2.  Comisión de Economía da luz verde a proyecto de fondo de fondos para capital de riesgo</strong></h2><p>La Comisión de Economía de la Cámara aprobó en general, por 12 votos a favor y una abstención, el proyecto que permite a Corfo participar en fondos de fondos y en vehículos de capital de riesgo, y abrió dos semanas para indicaciones. La iniciativa busca que la inversión privada lidere el financiamiento de startups, con un fondo de fondos gestionado por una AGF y fiscalizado por la CMF donde Corfo podría tener hasta 35%, y aportes directos a fondos locales con un tope de 30%. Expertos como Griffith-Jones y Benavente pidieron estados financieros auditados y separados y cuestionaron la opción de compra de cuotas de Corfo, y el gremio de venture capital pidió comprometer desde el inicio los US$ 60 millones, hoy asegurados solo en US$ 25 millones.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-compromiso-de-la-clase-politica-con-la-institucionalidad"><strong>1.  Compromiso de la clase política con la institucionalidad</strong></h2><p>La columna critica el uso de acusaciones constitucionales como arma de confrontación en un momento de debilidad económica y del empleo, a propósito del libelo contra el ministro de Justicia, Fernando Rabat, por rebajas de condena a condenados por delitos sexuales contra menores y de lesa humanidad. Sostiene que el cambio de criterio exige explicaciones y responsabilidad política del gobierno, pero que eso es distinto de una infracción constitucional que justifique destituirlo, algo que incluso constitucionalistas de centroizquierda dudan. Advierte que rebajar el estándar de estas acusaciones erosiona la gobernabilidad y llama al Congreso a resguardar el rigor de sus atribuciones y la estabilidad de las reglas en favor de la reactivación y el empleo.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>26 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-26.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Jueves</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">26 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-abre-plano-mientras-el-precio-del-cobre-repunta-y-eeuu-entra-a-su-feriado-de-accion-de-gracias">1.  Dólar abre plano mientras el precio del cobre repunta y EEUU entra a su feriado de Acción de Gracias</a></li><li class="toc-l2"><a href="#2-el-mercado-se-divide-sobre-si-el-dolar-rompera-un-nuevo-record-tras-escalada-que-lo-llevo-a-cerrar-sobre-los-1040">2.  El mercado se divide sobre si el dólar romperá un nuevo récord tras escalada que lo llevó a cerrar sobre los $ 1.040</a></li><li class="toc-l2"><a href="#3-diputado-hector-ulloa-ppd-presidente-de-la-comision-investigadora-por-la-caida-del-fondo-e-aqui-no-ha-habido-un-mea-culpa-ni-una-autocritica-por-parte-de-las-afp">3.  Diputado Héctor Ulloa (PPD), presidente de la comisión investigadora por la caída del fondo E: “Aquí no ha habido un mea culpa ni una autocrítica por parte de las AFP”</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-remolacheros-cuestionan-a-los-nuevos-duenos-de-iansa-tras-el-fin-de-la-produccion-de-azucar-ellos-venian-a-cerrar-el-negocio">1.  Remolacheros cuestionan a los nuevos dueños de Iansa tras el fin de la producción de azúcar: “Ellos venían a cerrar el negocio”</a></li><li class="toc-l2"><a href="#2-los-numeros-y-claves-detras-del-trimestre-que-marco-el-retorno-de-clinica-las-condes-a-las-utilidades">2.  Los números y claves detrás del trimestre que marcó el retorno de Clínica Las Condes a las utilidades</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-circular-de-hacienda-entrega-instrucciones-para-la-no-renovacion-de-funcionarios-publicos-que-se-desempenan-en-calidad-de-contrata">1.  Circular de Hacienda entrega instrucciones para la no renovación de funcionarios públicos que se desempeñan en calidad de contrata</a></li><li class="toc-l2"><a href="#2-con-acuerdo-y-con-un-mayor-gasto-que-el-original-10-claves-del-primer-presupuesto-de-kast-que-despacho-a-ley-el-congreso">2.  Con acuerdo y con un mayor gasto que el original: 10 claves del primer Presupuesto de Kast que despachó a ley el Congreso</a></li><li class="toc-l2"><a href="#3-gobierno-cuadruplica-cupos-para-el-subsidio-a-la-contratacion-y-flexibiliza-requisitos-de-acceso">3.  Gobierno cuadruplica cupos para el subsidio a la contratación y flexibiliza requisitos de acceso</a></li><li class="toc-l2"><a href="#4-sector-empresarial-activa-ajustes-en-codigo-de-etica-para-una-adopcion-responsable-de-la-ia">4.  Sector empresarial activa ajustes en código de ética para una adopción responsable de la IA</a></li><li class="toc-l2"><a href="#5-rector-de-la-uc-juan-carlos-de-la-llera-recibira-el-premio-andres-concha-2026-de-la-sofofa">5.  Rector de la UC Juan Carlos de la Llera recibirá el Premio Andrés Concha 2026 de la Sofofa</a></li><li class="toc-l2"><a href="#6-df-tax-ley-de-renta-el-107-y-la-ventana-que-se-abre-en-2027">6.  DF Tax | Ley de Renta: el 107 y la ventana que se abre en 2027</a></li><li class="toc-l2"><a href="#7-df-tax-ley-de-reconstruccion-reorganizar-no-es-eludir">7.  DF Tax | Ley de Reconstrucción: reorganizar no es eludir</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-pablo-hernandez-de-cos-sera-el-proximo-presidente-del-banco-central-europeo">1.  Pablo Hernández de Cos será el próximo presidente del Banco Central Europeo</a></li><li class="toc-l2"><a href="#2-socios-comerciales-de-eeuu-rechazan-los-nuevos-aranceles-de-eeuu-y-apelan-a-los-acuerdos-alcanzados-con-el-gobierno-de-trump">2.  Socios comerciales de EEUU rechazan los nuevos aranceles de EEUU y apelan a los acuerdos alcanzados con el gobierno de Trump</a></li><li class="toc-l2"><a href="#3-la-nueva-ofensiva-arancelaria-de-eeuu-y-las-senales-que-deja-para-la-negociacion-con-chile">3.  La nueva ofensiva arancelaria de EEUU y las señales que deja para la negociación con Chile</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-startup-de-agentes-de-ia-para-ventas-de-empresas-cierra-ronda-a-traves-de-broota-para-crecer-en-chile">1.  Startup de agentes de IA para ventas de empresas cierra ronda a través de Broota para crecer en Chile</a></li><li class="toc-l2"><a href="#2-musk-promete-que-cada-nino-de-estados-unidos-recibira-dos-acciones-de-space-x-una-de-la-empresa-y-otra-del-propio-multimillonario">2.  Musk promete que cada niño de Estados Unidos recibirá dos acciones de Space X, una de la empresa y otra del propio multimillonario</a></li><li class="toc-l2"><a href="#3-startup-boe-gana-la-quinta-edicion-de-mas-pitch-uno-de-los-principales-encuentros-de-conexion-del-ecosistema-emprendedor">3.  Startup Boe gana la quinta edición de MAS Pitch, uno de los principales encuentros de conexión del ecosistema emprendedor</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-mayor-transparencia-en-los-fondos-de-inversion-privados">1.  Mayor transparencia en los fondos de inversión privados</a></li><li class="toc-l2"><a href="#2-gestionar-mejor-para-atender-mejor">2.  Gestionar mejor para atender mejor</a></li><li class="toc-l2"><a href="#3-la-mineria-no-ha-dejado-de-invertir">3.  La minería no ha dejado de invertir</a></li><li class="toc-l2"><a href="#4-de-entregar-computadores-a-garantizar-oportunidades">4.  De entregar computadores a garantizar oportunidades</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>26 De Noviembre De 2026</p><p>6 secciones  ·  22 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-abre-plano-mientras-el-precio-del-cobre-repunta-y-eeuu-entra-a-su-feriado-de-accion-de-gracias"><strong>1.  Dólar abre plano mientras el precio del cobre repunta y EEUU entra a su feriado de Acción de Gracias</strong></h2><p>El dólar abrió estable en torno a $ 1.040 tras haber tocado $ 1.050 el miércoles, nivel cercano al máximo histórico de cierre de julio de 2022, mientras el cobre en Londres rebotaba 2,2% hasta US$ 5,4 por libra. Los mercados siguen presionados por la reducción global de riesgo y la fortaleza del billete verde frente a emergentes, y estrategas de BBVA se mantienen defensivos porque la Fed apunta a más endurecimiento monetario. Los no residentes acumulan 11 sesiones comprando dólares vía forwards, con la posición neta más alcista desde septiembre de 2019, según el Banco Central.</p><h2 id="2-el-mercado-se-divide-sobre-si-el-dolar-rompera-un-nuevo-record-tras-escalada-que-lo-llevo-a-cerrar-sobre-los-1040"><strong>2.  El mercado se divide sobre si el dólar romperá un nuevo récord tras escalada que lo llevó a cerrar sobre los $ 1.040</strong></h2><p>El dólar subió $ 7,1 hasta $ 1.040,53 el miércoles, impulsado por la posibilidad de otra alza de la Fed, la venta global de activos ligados a la IA y la caída de 2,76% del cobre, lo que dejó al peso como la cuarta moneda emergente más depreciada. Los economistas de Bci y BICE proyectan que la divisa cerraría 2026 entre $ 980 y $ 1.000, mientras XTB ve un techo cercano a $ 1.065 y Capitaria apunta a $ 1.080-$ 1.100. Renta 4 plantea que si el Banco Central sube la tasa 25 puntos base el 17 de diciembre el dólar volvería a $ 1.000, y si la mantiene podría llegar a $ 1.100. Scotiabank atribuye 55% de la depreciación del año a factores locales, y los bancos extranjeros divergen: JPMorgan ve $ 1.200 en junio de 2027, mientras BofA considera el peso 10% subvalorado.</p><h2 id="3-diputado-hector-ulloa-ppd-presidente-de-la-comision-investigadora-por-la-caida-del-fondo-e-aqui-no-ha-habido-un-mea-culpa-ni-una-autocritica-por-parte-de-las-afp"><strong>3.  Diputado Héctor Ulloa (PPD), presidente de la comisión investigadora por la caída del fondo E: “Aquí no ha habido un mea culpa ni una autocrítica por parte de las AFP”</strong></h2><p>El diputado Ulloa, presidente de la comisión investigadora sobre las pérdidas de los fondos de pensiones, explica que tendrán 60 días (prorrogables por 30) para establecer qué ocurrió, determinar responsabilidades y promover una reparación para más de 400 mil afectados. Citarán al actual y al anterior superintendente de Pensiones, a la contralora y al gremio de las AFP, y buscarán fijar una cifra oficial de pérdidas, pues las estimaciones van de US$ 1.700 millones a US$ 14 mil millones. Critica duramente a las administradoras por no hacerse cargo pese a las alertas del Banco Central y la Superintendencia, y por sugerir postergar la jubilación como solución. Aclara que la comisión es compatible con el proceso sancionatorio del regulador y que podría proponer cambios legales para cerrar vacíos normativos.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-remolacheros-cuestionan-a-los-nuevos-duenos-de-iansa-tras-el-fin-de-la-produccion-de-azucar-ellos-venian-a-cerrar-el-negocio"><strong>1.  Remolacheros cuestionan a los nuevos dueños de Iansa tras el fin de la producción de azúcar: “Ellos venían a cerrar el negocio”</strong></h2><p>El directorio de Iansa puso fin definitivo a la producción de azúcar a partir de remolacha local, lo que provocó críticas del presidente de Fenare, Jorge Guzmán, hacia el controlador Hartree Partners, a quien acusa de haber llegado a cerrar el negocio. Según el dirigente, tras la suspensión temporal de abril la empresa despidió al equipo agronómico y desmanteló instalaciones, pese a que el mercado internacional permitiría retomar la actividad. La última campaña involucró a 250-280 agricultores y 7.500-8.000 hectáreas, que ahora se destinan a otros cultivos al haberse quedado sin su único comprador. La federación evaluará pasos a seguir y explora con universidades el uso de la remolacha para bioetanol, aunque requeriría inversiones relevantes.</p><h2 id="2-los-numeros-y-claves-detras-del-trimestre-que-marco-el-retorno-de-clinica-las-condes-a-las-utilidades"><strong>2.  Los números y claves detrás del trimestre que marcó el retorno de Clínica Las Condes a las utilidades</strong></h2><p>Clínica Las Condes registró utilidades de $ 2.334 millones en el tercer trimestre, tras nueve trimestres de pérdidas, aunque el resultado se explica por un beneficio tributario contable de $ 3.511 millones sin efecto en caja. Los ingresos crecieron 30,2% hasta $ 56.726 millones, el Ebitda trimestral ($ 4.713 millones) superó lo acumulado en el primer semestre, las consultas subieron 41% y los ingresos de pacientes de isapres aumentaron 50,5%. En lo financiero, el capital de trabajo pasó de un déficit de $ 62.508 millones a un saldo positivo de $ 7.342 millones, la deuda vencida con proveedores cayó 65,6% y el endeudamiento financiero neto bajó de 1,36 a 0,98 veces. El principal desafío es que el flujo operacional sigue negativo (déficit acumulado de $ 51.132 millones, 25,5% menor que un año atrás) y solo 189 de 332 camas están habilitadas.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-circular-de-hacienda-entrega-instrucciones-para-la-no-renovacion-de-funcionarios-publicos-que-se-desempenan-en-calidad-de-contrata"><strong>1.  Circular de Hacienda entrega instrucciones para la no renovación de funcionarios públicos que se desempeñan en calidad de contrata</strong></h2><p>El ministro de Hacienda, Jorge Quiroz, emitió la circular N° 26 con instrucciones para los procesos de no renovación de empleados a contrata, que establece formalizar la decisión mediante acto administrativo, facilitar uso de feriados y días administrativos, y abrir una etapa de reconsideración resuelta a más tardar en la primera quincena de diciembre. El Servicio Civil verificará el cumplimiento y una comisión de Hacienda, Servicio Civil y Dipres recibirá desde la tercera semana de diciembre a las asociaciones de funcionarios. La Mesa del Sector Público y la CUT, que agrupan a 16 organizaciones, rechazaron la circular por unilateral y por eliminar exigencias como acto fundado, criterios objetivos y consideración de antigüedad y evaluaciones. El conflicto coincide con la negociación del reajuste salarial y con la búsqueda del gobierno de Kast de un Estado más austero.</p><h2 id="2-con-acuerdo-y-con-un-mayor-gasto-que-el-original-10-claves-del-primer-presupuesto-de-kast-que-despacho-a-ley-el-congreso"><strong>2.  Con acuerdo y con un mayor gasto que el original: 10 claves del primer Presupuesto de Kast que despachó a ley el Congreso</strong></h2><p>El Senado (44 votos a favor) y la Cámara (113 a favor) despacharon a ley el Presupuesto 2027, cuatro días antes del plazo constitucional, tras un acuerdo en la comisión mixta que elevó el gasto respecto del proyecto original en unos US$ 140 millones, llevando su crecimiento de 1,5% a 1,7%. Se repusieron fondos para gobiernos regionales (US$ 95 millones), se inyectaron $ 28.000 millones para la Ley Ricarte Soto y se repuso el programa Yo Elijo mi PC ($ 35.000 millones anuales) con rediseño para 2028, además de aportes a universidades estatales y una mesa para reemplazar el CAE. Hacienda incorporó el aporte de US$ 160 millones al fondo previsional FAPP, lo que destrabó el artículo que autoriza endeudamiento fiscal por hasta US$ 25.000 millones. También se restituyeron recursos para promoción turística, vino y pisco, sitios de memoria y la partida de Agricultura, con hasta $ 20.000 millones adicionales para Indap y Prodesal.</p><h2 id="3-gobierno-cuadruplica-cupos-para-el-subsidio-a-la-contratacion-y-flexibiliza-requisitos-de-acceso"><strong>3.  Gobierno cuadruplica cupos para el subsidio a la contratación y flexibiliza requisitos de acceso</strong></h2><p>La Subsecretaría del Trabajo amplió de 25 mil a 100 mil las bonificaciones de la línea de activación laboral para regiones con alto desempleo y redujo de tres a un mes el período sin cotizaciones exigido a los trabajadores contratados. Las empresas pueden postular hasta el 15 de diciembre al Sence, para contrataciones iniciadas entre el 15 de julio y el 15 de diciembre, y el pago se extiende hasta por cuatro meses; el instrumento rige hasta el 31 de diciembre o hasta agotar fondos. La medida responde a que 11 de 16 regiones tienen desocupación sobre 8% y cuatro superan 10% (Ñuble 11,8%, O’Higgins 10,9%, Biobío 10,5% y Metropolitana 10,4%). La Región Metropolitana concentra 40.793 cupos, y el director del Sence podrá reasignarlos entre regiones.</p><h2 id="4-sector-empresarial-activa-ajustes-en-codigo-de-etica-para-una-adopcion-responsable-de-la-ia"><strong>4.  Sector empresarial activa ajustes en código de ética para una adopción responsable de la IA</strong></h2><p>La CPC presentó una actualización de su marco ético empresarial, vigente desde 2012, junto con la guía «Principios y orientación para el uso ético y responsable de la inteligencia artificial». La presidenta Susana Jiménez enfatizó que no se cuestiona el uso de la tecnología, sino que su adopción debe ser responsable, manteniendo los ocho principios existentes sobre personas, privacidad, equidad, transparencia, medioambiente y gobernanza. El documento incorpora un Modelo de Madurez Ética que permite a cada empresa evaluar sus prácticas, detectar brechas y priorizar mejoras. Recomienda medir por separado la adopción tecnológica y la madurez ética, evaluar el valor de la IA para personas y empresa, y asignar a la dirección la responsabilidad de supervisar estos sistemas.</p><h2 id="5-rector-de-la-uc-juan-carlos-de-la-llera-recibira-el-premio-andres-concha-2026-de-la-sofofa"><strong>5.  Rector de la UC Juan Carlos de la Llera recibirá el Premio Andrés Concha 2026 de la Sofofa</strong></h2><p>La Sofofa distinguirá al rector de la UC, Juan Carlos de la Llera, con el Premio Andrés Concha 2026, que será entregado por el Presidente Kast durante el Encuentro Anual de la Industria. El reconocimiento busca relevar la transferencia de conocimiento científico al sector productivo, en línea con la agenda Horizontes Industriales para Chile 2026-2050, que prioriza la colaboración universidad-empresa, la anticipación tecnológica y el capital humano. De la Llera, experto en ingeniería sísmica, fundó la empresa SIRVE, impulsó el instituto Itrend y creó en la UC la Vicerrectoría de Inteligencia Digital. El premio existe desde 2017 y ha sido recibido, entre otros, por Rosanna Costa, Paula Daza y Holger Paulmann.</p><h2 id="6-df-tax-ley-de-renta-el-107-y-la-ventana-que-se-abre-en-2027"><strong>6.  DF Tax | Ley de Renta: el 107 y la ventana que se abre en 2027</strong></h2><p>Con la Ley 21.850, desde el 1 de enero de 2027 el mayor valor en la venta de acciones y cuotas de fondos con presencia bursátil vuelve a ser ingreso no renta, eliminando el impuesto único de 10% vigente desde septiembre de 2022. En ese período el IPSA pasó de unos 5.000 a más de 11.000 puntos, por lo que existe una gran plusvalía latente, y se prevé que muchos inversionistas posterguen ventas con utilidad a 2027, restando liquidez al mercado en 2026. El impuesto recaudó apenas $ 14.282 millones en 2025 y Hacienda estima que eliminarlo cuesta unos $ 18.000 millones. El autor destaca además que se puede repatriar capital pagando 7% y destinarlo a instrumentos del artículo 107, aunque se exige presencia bursátil, canales autorizados y que el fondo no tenga más de 20% en valores extranjeros.</p><h2 id="7-df-tax-ley-de-reconstruccion-reorganizar-no-es-eludir"><strong>7.  DF Tax | Ley de Reconstrucción: reorganizar no es eludir</strong></h2><p>La columna sostiene que la Ley de Reconstrucción, con su rebaja transitoria de 50% del impuesto a ciertas donaciones, abre una oportunidad para que familias empresarias ordenen y transfieran su patrimonio. El proyecto de circular del SII, hoy en consulta pública, reconoce que se puede reorganizar una empresa antes de donar, pero permitiría revisar transformaciones societarias hechas solo para alterar la valorización de los bienes. El autor argumenta que elegir una estructura con ventajas tributarias es economía de opción legítima y no necesariamente elusión, y que fiscalizar solo debería aplicar a operaciones abusivas o simuladas. Plantea que la consulta pública debe aclarar estas reglas para dar certeza jurídica antes de que se ejecuten operaciones relevantes.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-pablo-hernandez-de-cos-sera-el-proximo-presidente-del-banco-central-europeo"><strong>1.  Pablo Hernández de Cos será el próximo presidente del Banco Central Europeo</strong></h2><p>Pablo Hernández de Cos, gerente general del BIS y exgobernador del Banco de España, será el próximo presidente del BCE tras el respaldo de una mayoría de países de la eurozona y el retiro del apoyo neerlandés a Klaas Knot. Asumirá cuando Christine Lagarde se retire el 7 de febrero, y el acuerdo franco-alemán también incluye a Laurence Boone en el comité ejecutivo y a Markus Brunnermeier como economista jefe desde mayo. Su primer desafío es la inflación, que subió a 4% en octubre frente a la meta de 2%, con alzas de tasas ya aplicadas en junio y septiembre y un nuevo aumento a 2,75% esperado el 17 de diciembre. También deberá vigilar el costo de endeudamiento de países como Francia, cuyo bono a 10 años llegó a 5%, el nivel más alto desde 2002.</p><h2 id="2-socios-comerciales-de-eeuu-rechazan-los-nuevos-aranceles-de-eeuu-y-apelan-a-los-acuerdos-alcanzados-con-el-gobierno-de-trump"><strong>2.  Socios comerciales de EEUU rechazan los nuevos aranceles de EEUU y apelan a los acuerdos alcanzados con el gobierno de Trump</strong></h2><p>La administración Trump anunció una nueva ronda de aranceles contra 14 economías por exceso de capacidad manufacturera, en un intento por restituir los gravámenes anulados por la Corte Suprema a comienzos de año. China calificó la medida de unilateral y se reserva represalias, ante la amenaza de subir el arancel de 20% a 40% si fracasa la extensión de la tregua que vence en enero. La UE y Japón, cuyos acuerdos fijan un techo de 15%, rechazan la premisa y no descartan responder si se excede ese límite. Malasia, Taiwán, Indonesia, Bangladesh y Camboya, que ya firmaron acuerdos recíprocos, buscan resguardar las condiciones pactadas, mientras Brasil rechazó nuevas tarifas a aeronaves y azúcar. Las medidas estarán sujetas a audiencias públicas desde el 25 de enero.</p><h2 id="3-la-nueva-ofensiva-arancelaria-de-eeuu-y-las-senales-que-deja-para-la-negociacion-con-chile"><strong>3.  La nueva ofensiva arancelaria de EEUU y las señales que deja para la negociación con Chile</strong></h2><p>Chile quedó fuera de los nuevos aranceles por sobrecapacidad que EEUU propone a 14 economías, con tasas de hasta 35% para Vietnam, 25% para India, 20% para China y Singapur, y 15% para la UE, Japón y Corea del Sur, aunque podrían ajustarse según los acuerdos comerciales. China podría escalar hasta 40% si fracasa la extensión de la tregua vigente hasta el 10 de enero de 2027, y las audiencias de consulta parten el 25 de enero. Expertos advierten que los acuerdos de comercio recíproco ofrecen pocas garantías, porque EEUU evalúa unilateralmente su cumplimiento y puede subir los gravámenes. Para Chile, que ya tiene una sobretasa de 12,5% por la investigación de trabajo forzoso, se sugiere buscar exenciones sectoriales o bien esperar un eventual debilitamiento político de Trump tras las elecciones de medio término.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-startup-de-agentes-de-ia-para-ventas-de-empresas-cierra-ronda-a-traves-de-broota-para-crecer-en-chile"><strong>1.  Startup de agentes de IA para ventas de empresas cierra ronda a través de Broota para crecer en Chile</strong></h2><p>La startup chilena Eclectic, que desarrolla agentes de IA para ventas y atención de clientes, cerró una ronda de US$ 410 mil, de los cuales US$ 310 mil provinieron de unos 95 inversionistas de Broota y US$ 100 mil de un family office. Desde su lanzamiento en enero crece entre 20% y 30% mensual, supera los US$ 650 mil en ingresos recurrentes anuales, tiene cerca de 200 clientes y proyecta llegar a US$ 1 millón en marzo y US$ 3 millones a fines de 2027. Su foco son las pymes y la fase posterior a la primera compra, y los fondos se destinarán íntegramente a captar clientes. Con un equipo de siete personas y cerca del equilibrio operacional, se concentrará en Chile y luego irá a mercados como Costa Rica, Ecuador o Bolivia, con la mira de adquirir o ser adquirida en una industria que se consolida.</p><h2 id="2-musk-promete-que-cada-nino-de-estados-unidos-recibira-dos-acciones-de-space-x-una-de-la-empresa-y-otra-del-propio-multimillonario"><strong>2.  Musk promete que cada niño de Estados Unidos recibirá dos acciones de Space X, una de la empresa y otra del propio multimillonario</strong></h2><p>Elon Musk prometió que cada niño de Estados Unidos recibirá dos acciones de SpaceX, una aportada por la empresa y otra por él personalmente. La nota de Reuters contrasta este plan con el presentado recientemente por Anthropic para compartir parte de las ganancias del auge de la IA, en un contexto de creciente escrutinio público y político del sector. El contenido disponible del artículo es mínimo y no detalla montos, plazos ni mecanismos de implementación.</p><h2 id="3-startup-boe-gana-la-quinta-edicion-de-mas-pitch-uno-de-los-principales-encuentros-de-conexion-del-ecosistema-emprendedor"><strong>3.  Startup Boe gana la quinta edición de MAS Pitch, uno de los principales encuentros de conexión del ecosistema emprendedor</strong></h2><p>La startup Boe, una clínica online para hombres con consulta, tratamiento y despacho de medicamentos, ganó la quinta edición de MAS Pitch de DF MAS, que reunió a unos 700 asistentes y 200 postulantes, de los cuales seis llegaron a la final. Boe apunta en 2027 a consolidar el mercado chileno y lanzar planes para bajar de peso con fármacos GLP-1. Entre los expositores, el cofundador de Globant, Martín Migoya, enfatizó seguir innovando pese a que la valorización de la firma cayó de US$ 14.800 millones en 2021 a poco más de US$ 2 mil millones, y Fábula usa IA en postproducción de cine. Fernando Larraín (LarrainVial) y Tomás Bercovich (Global66) se mostraron optimistas con la reforma al mercado de capitales (MK4), que podría facilitar el acceso de startups al financiamiento y elimina el impuesto a la ganancia de capital para empresas que abran en bolsa. El director de DF advirtió que el país tendría crecimiento nulo y un millón de personas buscando empleo.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-mayor-transparencia-en-los-fondos-de-inversion-privados"><strong>1.  Mayor transparencia en los fondos de inversión privados</strong></h2><p>El editorial respalda las propuestas de la CMF, presentadas en la discusión de la reforma al mercado de capitales (MK4), para reforzar la transparencia de los fondos privados, a partir de las lecciones del caso Sartor. Su preocupación es que inversionistas no calificados queden expuestos indirectamente, vía fondos públicos, a activos alternativos cuyas carteras no están sujetas a las mismas exigencias de información, lo que dificulta valorizar, liquidar y supervisar riesgos. Se valora ampliar el acceso a información de carteras, fijar obligaciones explícitas a los comités de vigilancia y fortalecer las facultades para intervenir y liquidar administradoras en problemas. Advierte que la mayor supervisión no debe interpretarse como garantía de rentabilidad ni generar exigencias desproporcionadas que frenen nuevos instrumentos, y que el criterio debe ser el riesgo efectivo que asume el inversionista.</p><h2 id="2-gestionar-mejor-para-atender-mejor"><strong>2.  Gestionar mejor para atender mejor</strong></h2><p>La Sociedad Chilena de Cirugía Plástica plantea, en respuesta a una columna previa, que el sistema de salud chileno necesita no solo más recursos sino una mejor gestión de sus capacidades. A partir de sus operativos de cirugía reconstructiva en regiones, coordinados con el Minsal y los servicios de salud, sostiene que articular equipos médicos, infraestructura y recursos permite resolver casos de pacientes que llevaban años en espera. Sin desconocer las necesidades presupuestarias, propone fortalecer la colaboración entre instituciones públicas, privadas y sociedades científicas, y aprovechar mejor lo ya existente en lugar de crear nuevas estructuras.</p><h2 id="3-la-mineria-no-ha-dejado-de-invertir"><strong>3.  La minería no ha dejado de invertir</strong></h2><p>Cesco rebate al ministro de Hacienda sobre la supuesta baja inversión minera, señalando que según Cochilco la gran minería del cobre y oro invirtió US$ 108.799 millones entre 2016 y 2025, un 30% más que en la década anterior, con un máximo histórico en 2025. Además, Dipres proyecta para 2026 un aporte tributario récord de US$ 8.039 millones de la gran minería privada, cerca de 9% de los ingresos fiscales. Atribuye la caída productiva al envejecimiento de los yacimientos, las menores leyes del mineral y la falta de proyectos de gran escala. Concluye que el desafío es recuperar capacidad productiva mediante exploración, nuevos yacimientos y mayor certeza regulatoria, y no una ausencia de inversión.</p><h2 id="4-de-entregar-computadores-a-garantizar-oportunidades"><strong>4.  De entregar computadores a garantizar oportunidades</strong></h2><p>ACTI celebra el acuerdo para reponer $ 35 mil millones al programa Yo Elijo mi PC en el Presupuesto 2027, por su aporte a la inclusión digital y a reducir desigualdades educativas. Valora la intención de ampliar la cobertura a estudiantes de establecimientos públicos y de capacitar digitalmente a docentes, aclarando que el solo acceso a un dispositivo no garantiza mejores aprendizajes. Propone aprovechar el rediseño comprometido para 2028 con un modelo integral que combine equipos, conectividad y habilidades digitales, con mecanismos para medir el impacto educativo.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>

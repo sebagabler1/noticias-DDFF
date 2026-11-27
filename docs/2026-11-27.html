@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>27 de noviembre de 2026 · Resumen DF</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --naranja:#E65000;--naranja-h:#ff6a1a;--naranja-soft:#fde6d6;
+  --crema:#fff8f3;
+  --bg:#fff;--card:#fff;--borde:#e5e7eb;
+  --texto:#1f2937;--texto-fuerte:#111827;--muted:#6b7280;--link:#0056b3;
+}
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+     background:var(--bg);color:var(--texto);line-height:1.7;margin:0;
+     -webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;background:rgba(255,255,255,.92);
+        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        border-bottom:1px solid var(--borde);padding:.75rem 1rem;z-index:10}
+.topbar-inner{max-width:720px;margin:0 auto;display:flex;
+              justify-content:space-between;align-items:center;gap:1rem}
+.topbar a{text-decoration:none;font-weight:600;font-size:.9rem}
+.topbar .volver{color:var(--naranja)}
+.topbar .volver:hover{color:var(--naranja-h)}
+.topbar .descargar{background:var(--naranja);color:#fff;padding:.45rem 1rem;
+                   border-radius:8px;font-size:.85rem;transition:background .15s}
+.topbar .descargar:hover{background:var(--naranja-h)}
+.container{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+header{margin-bottom:2.5rem}
+header .etiqueta{display:inline-block;color:var(--naranja);font-size:.78rem;
+                font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem}
+header h1{font-size:1.7rem;color:var(--texto-fuerte);margin-bottom:.4rem;
+          font-weight:800;letter-spacing:-.01em;line-height:1.25}
+header .fecha{color:var(--muted);font-size:1rem}
+.toc{background:var(--crema);border:1px solid var(--naranja-soft);
+     border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-titulo{font-size:.78rem;font-weight:700;color:var(--naranja);
+           text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:.05rem 0;font-size:.93rem;line-height:1.45}
+.toc-l1>a{font-weight:600}
+.toc-l2{padding-left:.9rem}
+.toc-l3{padding-left:1.8rem;font-size:.86rem}
+.toc-l3>a{color:var(--muted)}
+.toc a{color:var(--texto);text-decoration:none;display:inline-block;
+      padding:.18rem 0;transition:color .12s,transform .12s}
+.toc a:hover{color:var(--naranja);transform:translateX(2px)}
+.contenido{font-size:1.02rem}
+.contenido h1,.contenido h2,.contenido h3{color:var(--naranja);
+                                          margin:2rem 0 .8rem;font-weight:700;
+                                          letter-spacing:-.005em;
+                                          scroll-margin-top:80px}
+.contenido h1{font-size:1.4rem}
+.contenido h2{font-size:1.2rem;border-bottom:2px solid var(--naranja-soft);
+              padding-bottom:.35rem}
+.contenido h3{font-size:1.05rem}
+.contenido p{margin-bottom:1rem}
+.contenido ul,.contenido ol{margin:.5rem 0 1.2rem 1.5rem}
+.contenido li{margin-bottom:.5rem}
+.contenido li::marker{color:var(--naranja)}
+.contenido strong{color:var(--texto-fuerte);font-weight:600}
+.contenido a{color:var(--link)}
+.contenido table{border-collapse:collapse;margin:1.2rem 0;width:100%;
+                font-size:.95rem}
+.contenido th,.contenido td{border:1px solid var(--borde);padding:.6rem .9rem;
+                            text-align:left}
+.contenido th{background:#fef3eb;color:var(--naranja);font-weight:600}
+.contenido blockquote{border-left:3px solid var(--naranja);padding-left:1rem;
+                     color:var(--muted);margin:1rem 0;font-style:italic}
+footer{text-align:center;color:#9ca3af;font-size:.85rem;
+       margin-top:4rem;padding-top:2rem;border-top:1px solid var(--borde)}
+footer a{color:var(--naranja);text-decoration:none}
+@media(max-width:640px){
+  .container{padding:2rem 1rem 3rem}
+  header h1{font-size:1.4rem}
+  .topbar .descargar{padding:.4rem .8rem;font-size:.8rem}
+}
+
+.sidebar{position:fixed;left:1.5rem;top:1.5rem;width:185px;
+        background:var(--card);border:1px solid var(--borde);
+        border-radius:12px;padding:1rem 1.1rem;z-index:5;
+        box-shadow:0 4px 12px rgba(0,0,0,.04)}
+.sidebar-titulo{font-size:.72rem;font-weight:700;color:var(--naranja);
+                text-transform:uppercase;letter-spacing:.1em;
+                margin-bottom:.6rem;padding:0 .3rem}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar li{margin:0}
+.sidebar a{color:var(--texto);text-decoration:none;display:block;
+          padding:.45rem .7rem;border-radius:7px;transition:all .15s;
+          font-size:.92rem}
+.sidebar a:hover{background:var(--naranja-soft);color:var(--naranja)}
+.sidebar a.active{background:var(--naranja);color:#fff;font-weight:600}
+@media(max-width:1140px){.sidebar{display:none}}
+
+.theme-toggle{position:fixed;top:1rem;right:1rem;z-index:100;
+              width:44px;height:44px;border-radius:50%;cursor:pointer;
+              background:rgba(255,255,255,.88);
+              backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+              border:1px solid rgba(0,0,0,.08);
+              box-shadow:0 2px 10px rgba(0,0,0,.12);
+              display:flex;align-items:center;justify-content:center;
+              transition:all .2s ease;padding:0;color:#1f2937}
+.theme-toggle svg{width:22px;height:22px;display:block}
+.theme-toggle:hover{transform:scale(1.1);
+                    box-shadow:0 4px 18px rgba(230,80,0,.3);
+                    color:var(--naranja)}
+.theme-toggle:active{transform:scale(.95)}
+[data-theme="dark"] .theme-toggle{background:rgba(26,29,39,.85);
+                                  border-color:rgba(255,255,255,.12);
+                                  box-shadow:0 2px 10px rgba(0,0,0,.5);
+                                  color:#ffd97a}
+[data-theme="dark"] .theme-toggle:hover{box-shadow:0 4px 18px rgba(255,217,122,.35);
+                                        color:#ffe69c}
+@media(max-width:840px){
+  .topbar-inner .descargar{margin-right:3.5rem}
+}
+
+[data-theme="dark"]{
+  --bg:#0f1117;
+  --card:#1a1d27;
+  --borde:#2e3248;
+  --texto:#e2e6f0;
+  --texto-fuerte:#f5f7fa;
+  --muted:#7a82a0;
+  --naranja-soft:#3a2010;
+  --crema:#1a1410;
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--texto)}
+[data-theme="dark"] .topbar{background:rgba(15,17,23,.92);
+                            border-bottom-color:var(--borde)}
+[data-theme="dark"] header h1{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured h2{color:var(--texto-fuerte)}
+[data-theme="dark"] .featured .snippet,
+[data-theme="dark"] .card .snippet{color:#a8b0c0}
+[data-theme="dark"] .featured{box-shadow:0 8px 30px rgba(0,0,0,.4)}
+[data-theme="dark"] .featured:hover{box-shadow:0 12px 40px rgba(255,122,42,.18)}
+[data-theme="dark"] .card:hover{box-shadow:0 6px 20px rgba(255,122,42,.15)}
+[data-theme="dark"] .toc{background:#22263a;border-color:var(--borde)}
+[data-theme="dark"] .toc a{color:var(--texto)}
+[data-theme="dark"] .sidebar{background:var(--card);border-color:var(--borde);
+                             box-shadow:0 4px 12px rgba(0,0,0,.4)}
+[data-theme="dark"] .contenido strong{color:var(--texto-fuerte)}
+[data-theme="dark"] .contenido h2{border-bottom-color:#3a2818}
+[data-theme="dark"] .contenido th{background:#2a1810;color:#ff9555}
+[data-theme="dark"] .contenido a{color:#79b8ff}
+[data-theme="dark"] footer{border-top-color:var(--borde);color:#6b7280}
+[data-theme="dark"] .historico-titulo{color:#9ca3af}
+[data-theme="dark"] .empty{background:var(--card);border-color:var(--borde)}
+[data-theme="dark"] .card .meta,
+[data-theme="dark"] .card{border-top-color:#2a2e44}
+</style>
+
+<script>
+(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n);}catch(e){}}
+</script>
+
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Cambiar modo" title="Cambiar a modo noche / día">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18h6"/>
+    <path d="M10 22h4"/>
+    <path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1.5 1.7 1.5 2.7v.6h5v-.6c0-1 .5-1.9 1.5-2.7A7 7 0 0 0 12 2z"/>
+  </svg>
+</button>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="volver">← Todas las ediciones</a>
+    <a href="2026-11-27.docx" download class="descargar">⬇ Word</a>
+  </div>
+</nav>
+
+<aside class="sidebar">
+  <div class="sidebar-titulo">📚 Por sección</div>
+  <ul><li><a href="#mercados">Mercados</a></li><li><a href="#empresas">Empresas</a></li><li><a href="#economia">Economía</a></li><li><a href="#internacional">Internacional</a></li><li><a href="#innovacion">Innovación</a></li><li><a href="#opinion">Opinión</a></li></ul>
+</aside>
+<div class="container">
+<header>
+  <span class="etiqueta">Edición Viernes</span>
+  <h1>Resumen Diario Financiero</h1>
+  <div class="fecha">27 de noviembre de 2026</div>
+</header>
+<nav class="toc"><div class="toc-titulo">📍 En esta edición</div><ul><li class="toc-l1"><a href="#mercados">MERCADOS</a></li><li class="toc-l2"><a href="#1-dolar-cae-mas-de-10-en-una-apertura-marcada-por-el-energico-repunte-de-los-precios-del-cobre">1.  Dólar cae más de $ 10 en una apertura marcada por el enérgico repunte de los precios del cobre</a></li><li class="toc-l2"><a href="#2-black-friday-el-termometro-del-retail-de-cara-a-la-recta-final-de-2026">2.  Black Friday: el termómetro del retail de cara a la recta final de 2026</a></li><li class="toc-l2"><a href="#3-pacifico-research-y-futuro-de-las-afp-seran-tiburones-mas-grandes-pero-con-dientes-mas-pequenos">3.  Pacífico Research y futuro de las AFP: “Serán tiburones más grandes, pero con dientes más pequeños”</a></li><li class="toc-l2"><a href="#4-corte-suprema-rechaza-el-intento-de-gino-lorenzini-de-no-traspasar-su-saldo-previsional-al-esquema-de-fondos-generacionales">4.  Corte Suprema rechaza el intento de Gino Lorenzini de no traspasar su saldo previsional al esquema de fondos generacionales</a></li><li class="toc-l1"><a href="#empresas">EMPRESAS</a></li><li class="toc-l2"><a href="#1-familia-von-appen-burose-y-cmb-se-quedan-con-puerto-gasmar">1.  Familia Von Appen Burose y CMB se quedan con puerto Gasmar</a></li><li class="toc-l2"><a href="#2-cepd-abogados-formaliza-equipo-especializado-en-data-centers">2.  CEPD Abogados formaliza equipo especializado en data centers</a></li><li class="toc-l2"><a href="#3-enrique-alcalde-presento-nuevo-libro">3.  Enrique Alcalde presentó nuevo libro</a></li><li class="toc-l1"><a href="#economia">ECONOMÍA</a></li><li class="toc-l2"><a href="#1-hacienda-enfatiza-la-gravedad-del-problema-de-la-desocupacion-pero-rescata-que-se-han-generado-mas-empleos-desde-diciembre-de-2025">1.  Hacienda enfatiza la gravedad del problema de la desocupación, pero rescata que se han generado más empleos desde diciembre de 2025</a></li><li class="toc-l2"><a href="#2-la-tasa-de-desocupacion-nacional-sube-a-10-en-el-trimestre-agosto-octubre-y-alcanza-los-dos-digitos-por-primera-vez-en-mas-de-cinco-anos">2.  La tasa de desocupación nacional sube a 10% en el trimestre agosto-octubre y alcanza los dos dígitos por primera vez en más de cinco años</a></li><li class="toc-l2"><a href="#3-alza-del-tipo-de-cambio-y-baja-del-cobre-entra-en-el-analisis-de-la-comision-de-hacienda-de-la-camara">3.  Alza del tipo de cambio y baja del cobre entra en el análisis de la comisión de Hacienda de la Cámara</a></li><li class="toc-l2"><a href="#4-sala-cuna-expertos-preven-efecto-gradual-en-el-empleo-femenino-y-advierten-que-dependera-del-crecimiento">4.  Sala cuna: expertos prevén efecto gradual en el empleo femenino y advierten que dependerá del crecimiento</a></li><li class="toc-l1"><a href="#internacional">INTERNACIONAL</a></li><li class="toc-l2"><a href="#1-la-economia-francesa-se-contrae-un-02-en-el-tercer-trimestre">1.  La economía francesa se contrae un 0,2% en el tercer trimestre</a></li><li class="toc-l1"><a href="#innovacion">INNOVACIÓN</a></li><li class="toc-l2"><a href="#1-fifa-sufre-ciberataque-pero-no-afecta-a-archivos-sobre-venta-de-participaciones-del-mundial">1.  FIFA sufre ciberataque, pero no afecta a archivos sobre venta de participaciones del Mundial</a></li><li class="toc-l2"><a href="#2-stilo-que-conecta-marcas-con-influencers-levanta-capital-con-fen-ventures-y-platanus-para-llegar-a-mexico">2.  Stilo, que conecta marcas con influencers, levanta capital con Fen Ventures y Platanus para llegar a México</a></li><li class="toc-l1"><a href="#opinion">OPINIÓN</a></li><li class="toc-l2"><a href="#1-del-acuerdo-politico-a-los-resultados">1.  Del acuerdo político a los resultados</a></li></ul></nav>
+<div class="contenido">
+<p><strong>DIARIO FINANCIERO</strong></p><p>Resumen Ejecutivo del Día</p><p>27 De Noviembre De 2026</p><p>6 secciones  ·  15 artículos</p><p><strong>ÍNDICE</strong></p><h1 id="mercados"><strong>MERCADOS</strong></h1><h2 id="1-dolar-cae-mas-de-10-en-una-apertura-marcada-por-el-energico-repunte-de-los-precios-del-cobre"><strong>1.  Dólar cae más de $ 10 en una apertura marcada por el enérgico repunte de los precios del cobre</strong></h2><p>El tipo de cambio en Chile inició la jornada del viernes con un retroceso de unos $ 11, ubicándose en torno a $ 1.030, luego de haber cerrado cerca de sus niveles más altos desde 2022 y de tocar $ 1.050 a mitad de semana. El principal motor del movimiento fue el cobre, cuyos futuros en Londres avanzaban 4,4% hasta US$ 5,62 la libra, su mayor alza en diez meses, en sintonía con el avance de los futuros del Nasdaq 100. Según Saxo Bank, el metal se recupera desde mínimos de 11 meses gracias a un mayor apetito global por riesgo, nuevos compromisos de Beijing para estabilizar sus mercados y menores dudas sobre la inversión en centros de datos para inteligencia artificial. Se anticipa una sesión de bajo volumen por la jornada acortada en Estados Unidos tras Acción de Gracias.</p><h2 id="2-black-friday-el-termometro-del-retail-de-cara-a-la-recta-final-de-2026"><strong>2.  Black Friday: el termómetro del retail de cara a la recta final de 2026</strong></h2><p>El Black Friday llega como una fecha clave para que Falabella, Cencosud y Ripley generen caja y liquiden inventario en un cuarto trimestre que puede representar cerca de un tercio de sus ventas anuales, en un año de consumo débil. Analistas de BICE Inversiones advierten que, con un desempleo de 9,8% y confianza del consumidor negativa, una mayor agresividad en descuentos podría elevar ventas pero erosionar márgenes. Bci Corredora sostiene que ganarán quienes combinen financiamiento, logística rápida y rentabilización del tráfico: Falabella destaca en lo digital apoyada por su banco y Mallplaza, Cencosud en supermercados menos sensibles a promociones y Ripley en el crédito en cuotas. El mercado ya descuenta mayores ventas del trimestre y los resultados también dependerán de las operaciones fuera de Chile, mientras que Latam se beneficia asegurando flujo para vuelos del primer semestre de 2027.</p><h2 id="3-pacifico-research-y-futuro-de-las-afp-seran-tiburones-mas-grandes-pero-con-dientes-mas-pequenos"><strong>3.  Pacífico Research y futuro de las AFP: “Serán tiburones más grandes, pero con dientes más pequeños”</strong></h2><p>Pacífico Research estima que el paso de los multifondos a fondos generacionales en abril de 2027 será gradual y sin presiones relevantes en el mercado local, ya que las AFP solo necesitarían mover cerca del 2% de su cartera, unos US$ 7 mil millones, mayormente vía compras. Proyecta que los activos administrados subirán desde cerca del 69% del PIB en 2027 a alrededor del 89% en 2036, impulsados principalmente por la rentabilidad. Igal Magendzo plantea que las administradoras crecerán pero tendrán menos incentivos a desviarse de sus índices de referencia, por el esquema de premios y castigos y porque los afiliados eligen por costos, no por retornos. El nuevo diseño favorecería los bonos locales, sobre todo los de gobierno, aunque podría faltar oferta de largo plazo (10 a 20 años), y los más perjudicados serían activos extranjeros como la renta fija emergente.</p><h2 id="4-corte-suprema-rechaza-el-intento-de-gino-lorenzini-de-no-traspasar-su-saldo-previsional-al-esquema-de-fondos-generacionales"><strong>4.  Corte Suprema rechaza el intento de Gino Lorenzini de no traspasar su saldo previsional al esquema de fondos generacionales</strong></h2><p>La Corte Suprema confirmó el 17 de noviembre la inadmisibilidad del recurso de protección presentado por Gino Lorenzini, fundador de Felices y Forrados, quien buscaba mantener su saldo ya acumulado en el fondo A en lugar de traspasarlo al nuevo sistema de fondos generacionales que comenzará en abril de 2027. Lorenzini no objetaba que sus cotizaciones futuras siguieran las nuevas reglas, pero la Corte de Apelaciones y luego la Tercera Sala del máximo tribunal estimaron que la controversia excede el alcance de una acción cautelar. El demandante calificó el fallo como lamentable y sostuvo que la reforma de pensiones vulnera la Constitución al exceder las competencias del Congreso, argumentando que cambios como estos afectan la rentabilidad de los afiliados y generan conflictos de interés.</p><h1 id="empresas"><strong>EMPRESAS</strong></h1><h2 id="1-familia-von-appen-burose-y-cmb-se-quedan-con-puerto-gasmar"><strong>1.  Familia Von Appen Burose y CMB se quedan con puerto Gasmar</strong></h2><p>Un consorcio formado por la familia Von Appen Burose, ligada a Ultranav, y la gestora de infraestructura CMB Prime, vinculada a Activa de LarrainVial, se adjudicó el terminal de gas licuado Gasmar, propiedad de la estadounidense Arroyo Investors. La operación, que habría alcanzado cerca de US$ 450 millones tras un proceso de casi seis meses asesorado por BTG Pactual, superó ofertas de Patria Investments, Vinci Compass y Stonepeak. Con ello, la familia Von Appen vuelve a un activo que ayudó a fundar en 1993 y del que salió en 2015 al vender a Gasco y Abastible, quienes a su vez lo traspasaron a Arroyo en 2021 por US$ 422,5 millones. Se trata de la segunda desinversión de Arroyo en Chile, después de la venta del portafolio renovable Arco Energy a Sonnedix en 2022.</p><h2 id="2-cepd-abogados-formaliza-equipo-especializado-en-data-centers"><strong>2.  CEPD Abogados formaliza equipo especializado en data centers</strong></h2><p>El estudio CEPD Abogados oficializó una práctica dedicada a centros de datos, luego de años asesorando a desarrolladores e inversionistas de esa industria. El área es encabezada por los socios Francisco Irarrázaval, Antonio Dittborn y Alejandro Edwards, e integra expertos en energía, infraestructura, urbanismo, regulación, medioambiente y financiamiento. La iniciativa responde al crecimiento del sector en Chile, que a mediados de 2026 contaba con 37 data centers en operación y compromisos de inversión superiores a US$ 7.500 millones.</p><h2 id="3-enrique-alcalde-presento-nuevo-libro"><strong>3.  Enrique Alcalde presentó nuevo libro</strong></h2><p>El abogado Enrique Alcalde Rodríguez, socio de Marinovic &amp; Alcalde y profesor titular de Derecho Privado en la Universidad Católica, lanzó su obra sobre la responsabilidad contractual en el derecho chileno. El libro, editado por Tirant lo Blanch y con más de 1.600 páginas, analiza el incumplimiento de los contratos y los efectos jurídicos que de él se derivan. La presentación estuvo a cargo de la ministra de la Corte Suprema María Angélica Repetto, lo que da cuenta de su relevancia para el ámbito jurídico y empresarial.</p><h1 id="economia"><strong>ECONOMÍA</strong></h1><h2 id="1-hacienda-enfatiza-la-gravedad-del-problema-de-la-desocupacion-pero-rescata-que-se-han-generado-mas-empleos-desde-diciembre-de-2025"><strong>1.  Hacienda enfatiza la gravedad del problema de la desocupación, pero rescata que se han generado más empleos desde diciembre de 2025</strong></h2><p>Tras conocerse que el desempleo llegó a 10% en agosto-octubre, el ministro de Hacienda, Jorge Quiroz, lo definió como el principal problema estructural y urgente de la economía y reafirmó que la creación de empleo es la máxima prioridad del gobierno. Destacó el despacho del Presupuesto 2027 y el plan Chile Despega, y sostuvo que hay señales positivas en la actividad no minera, con 76 mil empleos creados en la actual administración. Según Hacienda, el alza de la tasa se explica por la entrada de 105 mil personas a la fuerza laboral frente a 76 mil nuevos ocupados, por lo que siete de cada diez entrantes consiguen trabajo. El biministro de Economía y Minería, Daniel Mas, subrayó que más de un millón de personas buscan empleo, valoró las más de 200 licitaciones de obras públicas que generarían unos 23 mil puestos y la ley de Sala Cuna Universal, aunque advirtió que no hay nada que celebrar.</p><h2 id="2-la-tasa-de-desocupacion-nacional-sube-a-10-en-el-trimestre-agosto-octubre-y-alcanza-los-dos-digitos-por-primera-vez-en-mas-de-cinco-anos"><strong>2.  La tasa de desocupación nacional sube a 10% en el trimestre agosto-octubre y alcanza los dos dígitos por primera vez en más de cinco años</strong></h2><p>El INE informó que el desempleo subió a 10% en agosto-octubre, 1,6 puntos más que un año antes y su octava alza interanual seguida, con más de 1,03 millones de desocupados, un aumento de 19,7%. La fuerza laboral creció 1,3% mientras los ocupados cayeron 0,4%, caída explicada íntegramente por el empleo formal (-101 mil puestos), parcialmente compensada por un alza del informal que llevó la tasa de informalidad a 27%. Los sectores más golpeados fueron información y comunicaciones, manufactura y servicios financieros, mientras transporte creció impulsado en gran medida por plataformas digitales; además, aumentaron los desempleados de larga duración y el deterioro alcanzó todos los niveles educativos y 14 de 16 regiones, con Ñuble, O'Higgins y Maule sobre 10,9%. La tasa de ocupación quedó en 56%, aún 2,2 puntos bajo 2019, aunque la brecha casi desaparece al excluir a la población en edad de jubilar, y la tasa combinada con fuerza de trabajo potencial llegó a 17,6%.</p><h2 id="3-alza-del-tipo-de-cambio-y-baja-del-cobre-entra-en-el-analisis-de-la-comision-de-hacienda-de-la-camara"><strong>3.  Alza del tipo de cambio y baja del cobre entra en el análisis de la comisión de Hacienda de la Cámara</strong></h2><p>La depreciación del peso, con el dólar sobre $ 1.000, y su posible efecto inflacionario se incorporaron a la agenda de la Comisión de Hacienda de la Cámara. El diputado libertario Pier Karlezi propuso que el Banco Central suspenda las compras de divisas para acumular reservas, salga a vender dólares y revise la tasa de política monetaria, dado que Chile es importador neto. El frenteamplista Jorge Brito y el presidente de la comisión, el republicano Agustín Romero, coincidieron en invitar a la presidenta del instituto emisor, Rosanna Costa, para explicar el fenómeno; Romero planteó que el Central podría reevaluar su programa permanente de compras, mientras Brito pidió evitar medidas poco convencionales. El UDI Jaime Coloma recordó que el Banco Central ha dicho que por ahora no ve necesidad de intervenir.</p><h2 id="4-sala-cuna-expertos-preven-efecto-gradual-en-el-empleo-femenino-y-advierten-que-dependera-del-crecimiento"><strong>4.  Sala cuna: expertos prevén efecto gradual en el empleo femenino y advierten que dependerá del crecimiento</strong></h2><p>Economistas valoraron la aprobación de la Sala Cuna Universal, que elimina el umbral de 20 trabajadoras y crea un financiamiento sin distinción de género, pero anticipan efectos graduales porque la ley estará plenamente vigente en cuatro años. Las estimaciones sobre cuándo se notará el impacto varían: Juan Bravo (OCEC UDP) espera efectos en el primer año, María José Abud (Horizontal) en el segundo y Patricio Rojas apunta a 2028, mientras otros advierten que todo dependerá de que la economía genere empleos y Gemines plantea que la oferta laboral femenina podría reaccionar antes que la demanda y elevar inicialmente el desempleo de mujeres. Con una desocupación femenina sobre 10% y participación de 53,1% frente al 70% masculino, estudios de OCEC UDP, ChileMujeres y la CCS estiman hasta 145 mil nuevos puestos. Los expertos proponen reforzar subsidios a la contratación, ampliar pactos de adaptabilidad y extender la cobertura de cuidados y educación preescolar entre los dos y cuatro años, donde Chile tiene una brecha de más de 20 puntos con la OCDE.</p><h1 id="internacional"><strong>INTERNACIONAL</strong></h1><h2 id="1-la-economia-francesa-se-contrae-un-02-en-el-tercer-trimestre"><strong>1.  La economía francesa se contrae un 0,2% en el tercer trimestre</strong></h2><p>El PIB de Francia cayó 0,2% en el tercer trimestre según el Insee, una contracción mayor que el -0,1% estimado inicialmente, debido a menor inversión empresarial, especialmente en construcción, y a un fuerte descenso de las exportaciones. El dato llega en medio de tensiones en el mercado de deuda, con tasas de largo plazo que tocaron 5% por primera vez desde 2002 y un déficit fiscal que rondaría el 5,5% del PIB, el mayor de la eurozona, de cara a las presidenciales del próximo año. Pantheon Macroeconomics advierte que el país está al borde de la recesión y podría crecer cero en 2026, mientras el ministro Roland Lescure reconoció que la proyección de 1% para 2027 está en riesgo y urgió aprobar un presupuesto con meta de déficit de 5%. El contraste europeo es marcado: Bruselas elevó a 1,3% el crecimiento esperado para Alemania y recortó a la mitad el de Francia, a 0,4%, mientras el Reino Unido creció 0,7% en el trimestre.</p><h1 id="innovacion"><strong>INNOVACIÓN</strong></h1><h2 id="1-fifa-sufre-ciberataque-pero-no-afecta-a-archivos-sobre-venta-de-participaciones-del-mundial"><strong>1.  FIFA sufre ciberataque, pero no afecta a archivos sobre venta de participaciones del Mundial</strong></h2><p>La FIFA confirmó haber sufrido un ciberataque que permitió el acceso no autorizado a un conjunto acotado de datos personales y corporativos, sin precisar cuándo ocurrió, cuántos afectados hubo ni qué información empresarial se vio comprometida. Una fuente citada por Reuters indicó que la intrusión alcanzó a menos del 0,1% de los datos del organismo y que no se accedió a los archivos del proyecto descartado FIFA Forward Enterprise. Esa iniciativa buscaba recaudar hasta US$ 4.200 millones vendiendo el 20% de una nueva entidad gestora de los torneos, incluida la Copa del Mundo, pero fue abandonada en julio por la fuerte resistencia que generó.</p><h2 id="2-stilo-que-conecta-marcas-con-influencers-levanta-capital-con-fen-ventures-y-platanus-para-llegar-a-mexico"><strong>2.  Stilo, que conecta marcas con influencers, levanta capital con Fen Ventures y Platanus para llegar a México</strong></h2><p>La startup chilena Stilo, que vincula marcas con creadores de contenido mediante una plataforma de inteligencia artificial, cerró una primera ronda de US$ 765 mil liderada por Fen Ventures, con participación de Platanus Ventures e inversionistas ángeles. Los fondos financiarán su expansión a México, donde la cofundadora Sofía Jiménez abrirá una oficina en diciembre, y además evalúan Argentina y Perú. Su modelo busca que las marcas paguen por resultados y no por número de seguidores: las empresas pagan una suscripción mensual más un 2% de cada venta, y los creadores reciben una comisión definida por la marca, formalizada mediante boleta de honorarios. Fundada en 2025, ya suma unas 300 marcas y más de 2 mil creadores registrados, y planea ampliar su equipo de 10 personas con perfiles comerciales.</p><h1 id="opinion"><strong>OPINIÓN</strong></h1><h2 id="1-del-acuerdo-politico-a-los-resultados"><strong>1.  Del acuerdo político a los resultados</strong></h2><p>La editorial valora que la aprobación simultánea de la Sala Cuna Universal y el Presupuesto 2027 demuestra que, pese a la fragmentación del Congreso, es posible alcanzar acuerdos, y plantea que esa capacidad debe extenderse a otras reformas urgentes. Advierte, sin embargo, que aprobar leyes o asignar recursos no equivale a resolver problemas, en una economía en recesión técnica y con desempleo de 9,8%, por lo que urge ejecutar los apoyos a la contratación, acelerar la inversión pública, destrabar proyectos privados y agilizar licitaciones y concesiones. Señala que el gasto público real terminó creciendo 1,7% en vez del 1,5% propuesto, y que compatibilizar las múltiples promesas sociales con la consolidación fiscal exige priorizar y gastar con eficiencia. Concluye que el plazo de 100 días fijado por el Presidente Kast debe usarse para rendir cuentas con indicadores, pues el gobierno será juzgado por crecimiento, empleo y cumplimiento de metas fiscales.</p>
+</div>
+<footer>
+  Análisis generado por Claude Cowork · Fuente: <a href="https://www.df.cl">df.cl</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  var slugs = ['mercados','empresas','economia','internacional','innovacion','opinion'];
+  var enlaces = document.querySelectorAll('.sidebar a');
+  if(!enlaces.length) return;
+  var secciones = [];
+  slugs.forEach(function(s){
+    var el = document.getElementById(s);
+    if(el) secciones.push(el);
+  });
+  if(!secciones.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = e.target.id;
+        enlaces.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href').endsWith('#'+id));
+        });
+      }
+    });
+  }, {rootMargin:'-25% 0px -60% 0px'});
+  secciones.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>
